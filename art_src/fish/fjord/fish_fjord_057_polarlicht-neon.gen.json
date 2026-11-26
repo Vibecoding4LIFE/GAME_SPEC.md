@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3304548839,
+  "fishId": "F057",
+  "assetKey": "fish_fjord_057_polarlicht-neon",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "laengsband",
+    "merkmale": [],
+    "scale_px_per_unit": 47.139,
+    "eye_size": 4,
+    "vb": 0.52,
+    "leuchtet": true,
+    "palette_base": [
+      "#121A3A",
+      "#1E2A50",
+      "#5CFFB0",
+      "#B57BFF",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#121A3A",
+      "#233353",
+      "#364D6C",
+      "#4B6885",
+      "#62849F"
+    ],
+    "belly": [
+      "#0A1021",
+      "#1E2A50",
+      "#374C71"
+    ],
+    "acc": [
+      "#18A989",
+      "#26D49E",
+      "#5CFFB0"
+    ],
+    "fin": [
+      "#8655E5",
+      "#B57BFF",
+      "#D9AFFC"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 10,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

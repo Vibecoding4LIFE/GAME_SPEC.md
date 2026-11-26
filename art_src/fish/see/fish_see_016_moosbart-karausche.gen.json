@@ -1,0 +1,86 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 38396520,
+  "fishId": "F016",
+  "assetKey": "fish_see_016_moosbart-karausche",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "rund",
+    "muster": "schuppen",
+    "merkmale": [
+      "moos",
+      "barteln"
+    ],
+    "scale_px_per_unit": 64.79,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#B8913A",
+      "#E3CD86",
+      "#4F8A2E",
+      "#8A6E2E",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#85560D",
+      "#A17219",
+      "#B8913A",
+      "#CDB260",
+      "#E8D085"
+    ],
+    "belly": [
+      "#A97A1E",
+      "#C5A355",
+      "#E3CD86"
+    ],
+    "acc": [
+      "#05421C",
+      "#156817",
+      "#4F8A2E"
+    ],
+    "fin": [
+      "#6B4900",
+      "#8A6E2E",
+      "#A99557"
+    ],
+    "moss": [
+      "#1C6308",
+      "#5E8C3A"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

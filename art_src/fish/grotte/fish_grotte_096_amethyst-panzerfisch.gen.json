@@ -18,17 +18,17 @@
     "muster": "platten",
     "merkmale": [
       "kristalle",
-      "zaehne"
+      "panzer"
     ],
     "scale_px_per_unit": 105.119,
     "eye_size": 7,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#3E3A44",
-      "#8A8290",
-      "#B57BEA",
-      "#4A4450",
+      "#8E44AD",
+      "#3E3A40",
+      "#D8B8F0",
+      "#34303A",
       "#D8B040"
     ]
   },
@@ -37,26 +37,26 @@
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#0F0F16",
-      "#25242C",
-      "#3E3A44",
-      "#59525E",
-      "#756A79"
+      "#49117E",
+      "#6D239D",
+      "#8E44AD",
+      "#B062BD",
+      "#D17FCD"
     ],
     "belly": [
-      "#646071",
-      "#8A8290",
-      "#B1A5B5"
+      "#1E1D22",
+      "#3E3A40",
+      "#615962"
     ],
     "acc": [
-      "#5D2EB5",
-      "#8856D0",
-      "#B57BEA"
+      "#836FB5",
+      "#AD92D2",
+      "#D8B8F0"
     ],
     "fin": [
-      "#282730",
-      "#4A4450",
-      "#6E6472"
+      "#15151A",
+      "#34303A",
+      "#564F5B"
     ],
     "white": [
       "#FFFFFF"

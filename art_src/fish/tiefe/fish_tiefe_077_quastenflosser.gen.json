@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 844477570,
+  "fishId": "F077",
+  "assetKey": "fish_tiefe_077_quastenflosser",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "dreiteilig",
+    "muster": "flecken",
+    "merkmale": [
+      "glupschaugen",
+      "beinflossen"
+    ],
+    "scale_px_per_unit": 74.681,
+    "eye_size": 8,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#2E4A78",
+      "#4A6690",
+      "#E8ECF0",
+      "#2A4068",
+      "#C8E0F0"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#101A37",
+      "#213057",
+      "#2E4A78",
+      "#416691",
+      "#5783AA"
+    ],
+    "belly": [
+      "#2F426E",
+      "#4A6690",
+      "#678BB3"
+    ],
+    "acc": [
+      "#979FAE",
+      "#BFC5CF",
+      "#E8ECF0"
+    ],
+    "fin": [
+      "#18213B",
+      "#2A4068",
+      "#45638A"
+    ],
+    "iris": [
+      "#C8E0F0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

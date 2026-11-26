@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2758821564,
+  "fishId": "F023",
+  "assetKey": "fish_riff_023_preussenfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "merkmale": [],
+    "scale_px_per_unit": 13.258,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F2F0EA",
+      "#E4E2DC",
+      "#1C1C26",
+      "#D8D6D0",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#B0B4BE",
+      "#D1D2D4",
+      "#F2F0EA",
+      "#F1EEE5",
+      "#F3EEE1"
+    ],
+    "belly": [
+      "#B1B2B4",
+      "#E4E2DC"
+    ],
+    "acc": [
+      "#1C1C26",
+      "#43414E"
+    ],
+    "fin": [
+      "#A5A6A8",
+      "#D8D6D0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 16,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

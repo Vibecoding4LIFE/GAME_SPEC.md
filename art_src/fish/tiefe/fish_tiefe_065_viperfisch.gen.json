@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 448852861,
+  "fishId": "F065",
+  "assetKey": "fish_tiefe_065_viperfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "zaehne",
+      "leuchtangel"
+    ],
+    "scale_px_per_unit": 42.949,
+    "eye_size": 4,
+    "vb": 0.52,
+    "leuchtet": true,
+    "palette_base": [
+      "#1E2E5A",
+      "#6A7AA0",
+      "#00F5D4",
+      "#283A68",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#111931",
+      "#1E2E5A",
+      "#2F4973",
+      "#43658C",
+      "#5981A4"
+    ],
+    "belly": [
+      "#475781",
+      "#6A7AA0",
+      "#89A0C5"
+    ],
+    "acc": [
+      "#219C98",
+      "#1FC7B8",
+      "#00F5D4"
+    ],
+    "fin": [
+      "#141D38",
+      "#283A68",
+      "#415D8A"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

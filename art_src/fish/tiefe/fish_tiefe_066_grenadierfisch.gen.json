@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2599434727,
+  "fishId": "F066",
+  "assetKey": "fish_tiefe_066_grenadierfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "spitz",
+    "muster": "keins",
+    "merkmale": [
+      "glupschaugen",
+      "barteln"
+    ],
+    "scale_px_per_unit": 45.463,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#6A5E52",
+      "#A8A098",
+      "#8A8278",
+      "#5A5048",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#302E31",
+      "#4C4642",
+      "#6A5E52",
+      "#857969",
+      "#A09582"
+    ],
+    "belly": [
+      "#807C7C",
+      "#A8A098",
+      "#CFC6BA"
+    ],
+    "acc": [
+      "#3F3F44",
+      "#63605E",
+      "#8A8278"
+    ],
+    "fin": [
+      "#353131",
+      "#5A5048",
+      "#7D7266"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 10,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3918439262,
+  "fishId": "F043",
+  "assetKey": "fish_fjord_043_atlantischer-hering",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 17.321,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#2E6A7A",
+      "#DCE4EA",
+      "#EEF3F6",
+      "#A8B8C2",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 9,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#00354A",
+      "#064F65",
+      "#2E6A7A",
+      "#4A8691",
+      "#67A3A9"
+    ],
+    "belly": [
+      "#AAB3BF",
+      "#DCE4EA"
+    ],
+    "acc": [
+      "#EEF3F6",
+      "#E7F0F5"
+    ],
+    "fin": [
+      "#A8B8C2",
+      "#D5EAF4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

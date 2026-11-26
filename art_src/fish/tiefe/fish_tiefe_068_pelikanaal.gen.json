@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1389377219,
+  "fishId": "F068",
+  "assetKey": "fish_tiefe_068_pelikanaal",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "spitz",
+    "muster": "keins",
+    "merkmale": [
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 85.449,
+    "eye_size": 6,
+    "vb": 0.62,
+    "leuchtet": true,
+    "palette_base": [
+      "#1A1622",
+      "#2A2236",
+      "#F15BB5",
+      "#3A2A4E",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1A1622",
+      "#322B39",
+      "#4C4252",
+      "#685A6B",
+      "#867385"
+    ],
+    "belly": [
+      "#2A2236",
+      "#4B3F55",
+      "#705F76"
+    ],
+    "acc": [
+      "#8F0F83",
+      "#C528A1",
+      "#F15BB5"
+    ],
+    "fin": [
+      "#181325",
+      "#3A2A4E",
+      "#5E496D"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

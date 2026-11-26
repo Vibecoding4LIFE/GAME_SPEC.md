@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3147554416,
+  "fishId": "F042",
+  "assetKey": "fish_fjord_042_lodde",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 22.127,
+    "eye_size": 2,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#5E7A3A",
+      "#DDE4EA",
+      "#EEF3F6",
+      "#B8C8CC",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 9,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#134912",
+      "#38621F",
+      "#5E7A3A",
+      "#819353",
+      "#A5AD6E"
+    ],
+    "belly": [
+      "#ABB3BF",
+      "#DDE4EA"
+    ],
+    "acc": [
+      "#EEF3F6",
+      "#E7F0F5"
+    ],
+    "fin": [
+      "#8998A2",
+      "#B8C8CC"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 16,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

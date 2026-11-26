@@ -14,25 +14,25 @@
   "boss": false,
   "parameter": {
     "shape": "kopflastig",
-    "schwanz": "rund",
+    "schwanz": "saum",
     "muster": "marmor",
     "merkmale": [
       "barteln",
       "maul_gross"
     ],
-    "scale_px_per_unit": 104.603,
+    "scale_px_per_unit": 105.121,
     "eye_size": 7,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
       "#4A4F3E",
-      "#C9C2A8",
-      "#2E3226",
+      "#CFCBB8",
+      "#2E322A",
       "#3E4234",
-      "#D8B040"
+      "#C9B26A"
     ]
   },
-  "farbenGenutzt": 15,
+  "farbenGenutzt": 16,
   "farbLimit": 16,
   "farbenZusammengelegt": 0,
   "rampen": {
@@ -44,19 +44,22 @@
       "#83826C"
     ],
     "belly": [
-      "#9F9D8F",
-      "#C9C2A8",
-      "#F2E9CD"
+      "#7E8182",
+      "#A5A59D",
+      "#CFCBB8"
     ],
     "acc": [
-      "#121413",
-      "#2E3226",
-      "#4F5142"
+      "#121414",
+      "#2E322A",
+      "#4E5246"
     ],
     "fin": [
       "#202320",
       "#3E4234",
       "#606351"
+    ],
+    "iris": [
+      "#C9B26A"
     ],
     "white": [
       "#FFFFFF"
@@ -65,7 +68,7 @@
   "platzhalter": false,
   "animation": {
     "swimAmplitude": 2,
-    "caughtWinkel": 16,
+    "caughtWinkel": 8,
     "frames": {
       "swim": 6,
       "idle": 4,

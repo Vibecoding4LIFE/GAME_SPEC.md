@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2618124157,
+  "fishId": "F089",
+  "assetKey": "fish_grotte_089_kristall-hoehlensalmler",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [
+      "kristalle"
+    ],
+    "scale_px_per_unit": 47.6,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F2D0D4",
+      "#F8E4E6",
+      "#8E44AD",
+      "#E8C0C8",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#65667F",
+      "#877F94",
+      "#A99AA9",
+      "#CDB4BE",
+      "#F2D0D4"
+    ],
+    "belly": [
+      "#A09AA8",
+      "#CBBEC7",
+      "#F8E4E6"
+    ],
+    "acc": [
+      "#370B62",
+      "#641C92",
+      "#8E44AD"
+    ],
+    "fin": [
+      "#8E7B8C",
+      "#BA9DAA",
+      "#E8C0C8"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

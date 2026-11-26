@@ -163,7 +163,7 @@ def contact_sheet(kuerzel, fishes, scale=3):
         oy = pi * panel_h
         d.rectangle([0, oy, panel_w - 1, oy + panel_h - 1], fill=tuple(bg) + (255,))
         txt = (30, 30, 36) if pi == 0 else (230, 230, 220)
-        d.text((gap, oy + 4), f"{kuerzel} – {'hell' if pi == 0 else 'dunkel'} – {len(stills)} Fische, 3×",
+        d.text((gap, oy + 4), f"{kuerzel} - {'hell' if pi == 0 else 'dunkel'} - {len(stills)} Fische, 3x",
                fill=txt, font=font)
         y = oy + 20
         for r in rows:

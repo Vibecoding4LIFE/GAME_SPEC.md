@@ -13,44 +13,44 @@
   "seltenheit": "gewoehnlich",
   "boss": false,
   "parameter": {
-    "shape": "kugel",
+    "shape": "rund",
     "schwanz": "rund",
     "muster": "punkte",
     "merkmale": [],
-    "scale_px_per_unit": 16.091,
+    "scale_px_per_unit": 13.643,
     "eye_size": 2,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#F2D02E",
-      "#F8E890",
-      "#1A1A22",
-      "#E8B820",
+      "#FFD23F",
+      "#FFE58A",
+      "#1C1C24",
+      "#F2C02A",
       "#D8B040"
     ]
   },
-  "farbenGenutzt": 11,
+  "farbenGenutzt": 12,
   "farbLimit": 12,
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#855516",
-      "#A3711D",
-      "#BF8E22",
-      "#DAAE27",
-      "#F2D02E"
+      "#905717",
+      "#AF721A",
+      "#CD8F18",
+      "#E9AF10",
+      "#FFD23F"
     ],
     "belly": [
-      "#D2B350",
-      "#F8E890"
+      "#D9B04A",
+      "#FFE58A"
     ],
     "acc": [
-      "#1A1A22",
-      "#403E4A"
+      "#1C1C24",
+      "#42414C"
     ],
     "fin": [
-      "#B6871E",
-      "#E8B820"
+      "#C08F27",
+      "#F2C02A"
     ],
     "white": [
       "#FFFFFF"

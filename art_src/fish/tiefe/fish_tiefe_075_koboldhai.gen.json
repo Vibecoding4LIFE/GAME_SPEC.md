@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3374854647,
+  "fishId": "F075",
+  "assetKey": "fish_tiefe_075_koboldhai",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "hai",
+    "muster": "keins",
+    "merkmale": [
+      "schnauze_lang",
+      "zaehne"
+    ],
+    "scale_px_per_unit": 92.838,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#D8A8A8",
+      "#E8C8C4",
+      "#F0E6E0",
+      "#C89898",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#8A4D63",
+      "#A56A78",
+      "#BF898F",
+      "#D8A8A8",
+      "#F6C6C1"
+    ],
+    "belly": [
+      "#8F818B",
+      "#BAA4A7",
+      "#E8C8C4"
+    ],
+    "acc": [
+      "#9B9AA4",
+      "#C5C0C2",
+      "#F0E6E0"
+    ],
+    "fin": [
+      "#A67177",
+      "#C89898",
+      "#EFBEB9"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

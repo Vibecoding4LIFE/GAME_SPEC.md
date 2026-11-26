@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4108670730,
+  "fishId": "F008",
+  "assetKey": "fish_see_008_sonnenbarsch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "gegabelt",
+    "muster": "wellen",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 13.791,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#7A8A3A",
+      "#F2A33A",
+      "#3FC1C9",
+      "#6B7A33",
+      "#C0392B"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#544F05",
+      "#686C0F",
+      "#7A8A3A",
+      "#9EA357",
+      "#C2BD75"
+    ],
+    "belly": [
+      "#BF7321",
+      "#F2A33A"
+    ],
+    "acc": [
+      "#3FC1C9",
+      "#82F2F0"
+    ],
+    "fin": [
+      "#6B7A33",
+      "#9FA560"
+    ],
+    "iris": [
+      "#C0392B"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

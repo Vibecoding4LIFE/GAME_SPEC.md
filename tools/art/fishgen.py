@@ -65,7 +65,7 @@ SHAPES = {
                        tail_len=.20, tail_span=.15, dorsal=[(.36, .46, .07, .30, "soft")], anal=(.45, .93, .05, .2),
                        eye_u=.11, eye_v=.28, gill_u=.30, mouth=2.0, mouth_dy=.1),
     "kugel": dict(ht=.33, hb=.33, p=.50, sn_t=.50, sn_b=.50, ped_t=.07, ped_b=.07, tl_t=.55, tl_b=.55,
-                  tail_len=.16, tail_span=.16, dorsal=[(.66, .78, .07, .30, "soft")], anal=(.68, .80, .06, .3),
+                  tail_len=.2, tail_span=.2, dorsal=[(.62, .78, .09, .30, "soft")], anal=(.68, .80, .06, .3),
                   eye_u=.20, eye_v=.35, gill_u=.33, pect=(.35, .13, .07), mouth=.8),
     # Sonderformen (eigene Geometrie)
     "aal": dict(vb=.62, eye_u=.045, eye_v=.30, gill_u=.10, pect=(.12, .05, .03), mouth=1.0),
@@ -136,6 +136,7 @@ class Geo:
         self.lures = []        # (X, Y, rel_size, ramp)
         self.px_extra = 0      # Reserve in Pixeln (Moos/Stacheln)
         self.peduncle_X = 0.0
+        self.max_stretch = 1.25
 
     def add(self, *a, **k):
         self.parts.append(Part(*a, **k))
@@ -425,28 +426,31 @@ def build_flatfish(geo, q, art, merk, rng):
 
 
 def build_seahorse(geo, q, art, merk, rng):
+    """Aufrecht: Kopf oben mit Röhrenschnauze nach rechts, Bauch vorn gewölbt, Schwanz nach vorn eingerollt."""
     geo.vertical = True
-    spine = [(0.00, -.40, .085), (.00, -.34, .075), (-.03, -.28, .075), (-.02, -.20, .10), (.01, -.10, .13),
-             (.02, .00, .13), (.00, .09, .11), (-.04, .17, .085), (-.08, .24, .065), (-.10, .31, .05),
-             (-.07, .38, .04), (-.02, .41, .033), (.03, .40, .028), (.045, .36, .024), (.025, .33, .02),
-             (.0, .335, .017)]
+    k = 1.2   # Dicke
+    spine = [(.02, -.40, .085), (.00, -.33, .066), (-.03, -.27, .07), (-.01, -.19, .095), (.04, -.08, .125),
+             (.05, .02, .125), (.02, .11, .10), (-.03, .18, .075), (-.06, .25, .058), (-.06, .32, .045),
+             (-.03, .38, .036), (.02, .41, .03), (.065, .39, .027), (.08, .345, .024), (.06, .31, .021),
+             (.03, .32, .019), (.025, .35, .017)]
     dense = []
     for i in range(len(spine) - 1):
         a, b = spine[i], spine[i + 1]
-        for k in range(8):
-            t = k / 8
-            dense.append(tuple(a[j] + (b[j] - a[j]) * t for j in range(3)))
-    dense.append(spine[-1])
+        for j in range(8):
+            t = j / 8
+            dense.append((a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, (a[2] + (b[2] - a[2]) * t) * k))
+    dense.append(spine[-1][:2] + (spine[-1][2] * k,))
     geo.add("tube", BODY, dense, "body")
-    # Röhrenschnauze
-    geo.add("poly", BODY, [(.04, -.43), (.22, -.41), (.23, -.37), (.04, -.355)], "snout")
-    # Rückenflosse (links am Rücken)
-    geo.add("poly", FIN, [(-.10, -.06), (-.20, -.09), (-.22, .02), (-.18, .08), (-.09, .07)], "fin",
-            {"Pa": (-.10, -.06), "Pb": (-.09, .07), "D": (-.11, 0.0), "kind": "soft"})
+    # Röhrenschnauze, leicht nach unten
+    geo.add("poly", BODY, [(.06, -.44), (.25, -.40), (.26, -.355), (.06, -.335)], "snout")
+    # Rückenflosse (links am Rücken, fächerförmig)
+    geo.add("poly", FIN, [(-.07, -.10), (-.17, -.12), (-.21, -.04), (-.19, .04), (-.08, .05)], "fin",
+            {"Pa": (-.07, -.10), "Pb": (-.08, .05), "D": (-.12, 0.0), "kind": "soft"})
     geo.top = lambda X: -.48
     geo.bot = lambda X: .45
-    geo.eye = (.02, -.41)
-    geo.mouth = (.23, -.39)
+    geo.yc = lambda X: 0.0
+    geo.eye = (.035, -.405)
+    geo.mouth = (.26, -.375)
     geo.belly_mode = "row"
     geo.peduncle_X = -1
 
@@ -466,15 +470,19 @@ def add_features(geo, q, merk, boss, rng, shape):
             t = (i + .5) / n
             X = 1 - (u0 + (u1 - u0) * t)
             Y = top(X)
-            h = (.05 + .05 * math.sin(math.pi * t)) * (1.4 if boss else 1.0)
+            h = (.028 + .03 * math.sin(math.pi * t)) * (1.25 if boss else 1.0)
             w = (u1 - u0) / n * .55
             geo.add("poly", FEAT, [(X + w, Y + .015), (X + w * .2, Y - h), (X - w, Y + .015)], "crown")
     if "horn" in merk:
         X = 1 - .17
         Y = top(X)
-        for k, dx in enumerate((0.0, -.06)):
-            geo.add("poly", FEAT, [(X + dx + .03, Y + .01), (X + dx - .02, Y - .10 - .02 * (1 - k)),
-                                   (X + dx - .045, Y - .085), (X + dx - .03, Y + .01)], "horn")
+        hh = min(.11, max(.04, (bot(X) - top(X)) * .7))   # Hornhöhe relativ zur Kopfhöhe
+        ww = hh * .45
+        for k, dx in enumerate((0.0, -hh * .6)):
+            # nach hinten geschwungenes Horn
+            geo.add("poly", FEAT, [(X + dx + ww * .6, Y + .01), (X + dx - ww * .3, Y - hh * .7),
+                                   (X + dx - ww * 1.4, Y - hh * (1 - .15 * k)), (X + dx - ww * .4, Y - hh * .45),
+                                   (X + dx - ww * .5, Y + .01)], "horn")
     if "kristalle" in merk:
         n = 4 if not boss else 6
         for i in range(n):
@@ -486,10 +494,11 @@ def add_features(geo, q, merk, boss, rng, shape):
                                    (X - .03, Y + .02)], "crystal")
     if "schnauze_lang" in merk:
         X, Y = geo.mouth
-        th = max(.012, (bot(.97) - top(.97)) * .28)
-        geo.add("poly", BODY, [(X - .04, Y - th), (X + .20, Y - th * .35), (X + .21, Y), (X - .04, Y + th * .6)],
-                "snout")
-        geo.mouth = (X + .19, Y)
+        th = max(.025, (bot(.9) - top(.9)) * .3)
+        ln = .11 if shape in ("torpedo", "normal", "kopflastig", "hochrueckig", "rund") else .16
+        geo.add("poly", BODY, [(X - .06, Y - th), (X + ln * .6, Y - th * .55), (X + ln, Y - th * .2), (X + ln + .005, Y + th * .1),
+                               (X + ln * .7, Y + th * .5), (X - .06, Y + th * .8)], "snout")
+        geo.mouth = (X + ln * .9, Y)
     if "leuchtangel" in merk:
         X0 = 1 - .10
         Y0 = top(X0)
@@ -506,10 +515,13 @@ def add_features(geo, q, merk, boss, rng, shape):
     if "barteln" in merk or "tentakel" in merk:
         X, Y = geo.mouth
         long = shape == "kopflastig" or boss
-        L1 = .30 if long else .12
-        geo.add("line", LINE, [(X - .03, Y + .005), (X - .08, Y + L1 * .25), (X - .03 - L1 * .7, Y + L1 * .45)],
-                "barbel")
-        geo.add("line", LINE, [(X - .06, Y + .015), (X - .07, Y + .06), (X - .1, Y + .08)], "barbel")
+        L1 = .30 if long else .14
+        Xc = X - .035 * q.get("mouth", 1.0)
+        Xe = Xc - L1 * .6
+        geo.add("line", LINE, [(Xc, Y), (Xc + .015, Y + L1 * .3), (Xc - L1 * .2, bot(Xc - L1 * .2) + L1 * .25),
+                               (Xe, bot(Xe) + L1 * .3)], "barbel")
+        Xs = Xc - .02
+        geo.add("line", LINE, [(Xs, bot(Xs) - .01), (Xs - .005, bot(Xs) + .05), (Xs - .03, bot(Xs) + .08)], "barbel")
         if "tentakel" in merk:
             for k in range(3):
                 Xs = X - .15 - .05 * k
@@ -533,11 +545,27 @@ def build_geometry(fish, rng):
         q["p"] += rng.uniform(-.03, .03)
         q["dorsal"] = [(u0 + rng.uniform(-.02, .02), u1 + rng.uniform(-.02, .02), hh * rng.uniform(.9, 1.12), sw, kd)
                        for (u0, u1, hh, sw, kd) in q["dorsal"]]
+    W, H = fish["canvas"]
+    klasse = fish["klasse"]
+    profile = shape not in ("aal", "band", "rochen", "plattfisch", "seepferdchen")
+    if profile and klasse in ("S", "M"):
+        # kleine Sprites brauchen kräftigere Proportionen, sonst bleibt nur Outline übrig
+        f = 1.38 if klasse == "S" else 1.12
+        for k in ("ht", "hb", "ped_t", "ped_b"):
+            q[k] *= f
+        q["tail_span"] *= 1.25 if klasse == "S" else 1.08
+        q["dorsal"] = [(u0, u1, hh * (1.25 if klasse == "S" else 1.1), sw, kd) for (u0, u1, hh, sw, kd) in q["dorsal"]]
+        a0, a1, ah, asw = q["anal"]
+        q["anal"] = (a0, a1, ah * (1.25 if klasse == "S" else 1.1), asw)
+        pu, pl, ph = q["pect"]
+        q["pect"] = (pu, pl * 1.2, ph * 1.3)
+    if profile:
+        body_px = (W - 4) / (1 + q["tail_len"])
+        q["eye_u"] = max(q["eye_u"], (EYE_SIZE[klasse] / 2 + (2.4 if klasse == "S" else 2.0)) / body_px)
     if "glupschaugen" in merk:
         q["eye_v"] = .16
     if "maul_gross" in merk:
         q["mouth"] = max(q["mouth"], 1.0) * 1.8
-    W, H = fish["canvas"]
     geo = Geo()
     if shape in ("aal", "band"):
         build_tube_fish(geo, q, art, merk, rng, shape)
@@ -581,9 +609,13 @@ def fit_transform(geo, W, H, klasse):
     avail_w = W - 4 - 0.6 - 2 * extra
     avail_h = H - 4 - 0.6 - 2 * extra
     s = min(avail_w / bw, avail_h / bh)
-    ox = 2 + extra + (avail_w - bw * s) / 2 + 0.3 - xs0 * s
+    sx = s
+    if not geo.vertical and avail_w / bw > s:
+        # hochrückige Fische dürfen etwas in die Länge gezogen werden (max. 25 %), damit sie den Canvas nutzen
+        sx = min(avail_w / bw, s * geo.max_stretch)
+    ox = 2 + extra + (avail_w - bw * sx) / 2 + 0.3 - xs0 * sx
     oy = 2 + extra + (avail_h - bh * s) / 2 + 0.3 - ys0 * s
-    return s, ox, oy
+    return s, sx, ox, oy
 
 
 def raster_poly(pts, W, H):
@@ -692,10 +724,10 @@ def build_sprite(fish) -> Sprite:
     klasse = fish["klasse"]
     big = klasse in ("L", "XL", "Boss")
     geo, q, merk, shape = build_geometry(fish, rng)
-    s, ox, oy = fit_transform(geo, W, H, klasse)
+    s, sxx, ox, oy = fit_transform(geo, W, H, klasse)
 
     def T(X, Y):
-        return (ox + X * s, oy + Y * s)
+        return (ox + X * sxx, oy + Y * s)
 
     N = W * H
     lab = [EMPTY] * N
@@ -724,6 +756,8 @@ def build_sprite(fish) -> Sprite:
             px = raster_tube([T(x, y) + (r * s,) for x, y, r in part.data], W, H)
         elif part.kind == "line":
             px = raster_line([T(x, y) for x, y in part.data], W, H)
+            if klasse in ("XL", "Boss") and part.name in ("barbel", "stalk"):
+                px = px + [(x, y + 1) for (x, y) in px if y + 1 < H]
         else:
             continue
         if part.label in (FIN, TAIL):
@@ -735,13 +769,20 @@ def build_sprite(fish) -> Sprite:
             for (x, y) in px:
                 feat_kind[y * W + x] = part.name
         elif part.label == LINE:
-            put(px, LINE, lambda l: l in (EMPTY, FIN, TAIL))
             for (x, y) in px:
-                feat_kind[y * W + x] = part.name
+                i = y * W + x
+                if lab[i] == BODY:
+                    if part.name == "barbel":
+                        feat_kind[i] = "barbel_in"
+                elif lab[i] in (EMPTY, FIN, TAIL):
+                    lab[i] = LINE
+                    feat_kind[i] = part.name
 
     # Glupschaugen: Augenhügel über die Kontur
     ex_f, ey_f = T(*geo.eye)
     esz = EYE_SIZE[klasse] + (2 if "glupschaugen" in merk and klasse != "S" else 0)
+    if shape == "seepferdchen":
+        esz = max(2, esz - 2)
     if "glupschaugen" in merk:
         rr = esz / 2 + 1.0
         for py in range(int(ey_f - rr - 1), int(ey_f + rr + 2)):
@@ -779,13 +820,13 @@ def build_sprite(fish) -> Sprite:
     if shape not in ("rochen", "plattfisch") and "froschbeine" not in merk:
         pu, pl, ph = q["pect"]
         if shape == "seepferdchen":
-            Xr, Yr = .07, -.24
-            pl, ph = .07, .06
+            Xr, Yr = .03, -.30
+            pl, ph = .08, .07
         else:
-            Xr = 1 - (q["gill_u"] + .03)
-            Yr = geo.yc(Xr) + .18 * (geo.bot(Xr) - geo.top(Xr))
-        pts = [(Xr, Yr - ph * .5), (Xr - pl * .55, Yr - ph * .5), (Xr - pl, Yr + ph * .0),
-               (Xr - pl * .6, Yr + ph * .45), (Xr - .005, Yr + ph * .45)]
+            Xr = 1 - (q["gill_u"] + .025)
+            Yr = geo.top(Xr) + .54 * (geo.bot(Xr) - geo.top(Xr))
+        pts = [(Xr, Yr - ph * .35), (Xr - pl * .45, Yr - ph * .2), (Xr - pl, Yr + ph * .45),
+               (Xr - pl * .75, Yr + ph * .7), (Xr - pl * .25, Yr + ph * .45), (Xr, Yr + ph * .25)]
         for (x, y) in raster_poly([T(a, b) for a, b in pts], W, H):
             i = y * W + x
             if lab[i] == BODY:
@@ -881,17 +922,20 @@ def build_sprite(fish) -> Sprite:
         nf = len(ramps["fin"])
         for i in pect_set:
             x, y = i % W, i // W
-            inner_edge = any(((j := (y + dy) * W + x + dx) not in pect_set) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
-            if inner_edge and (y == y1 or x == x0 or (y + 1) * W + x not in pect_set):
-                lvl = 0
-            elif (x - x0) + (y - y0) * 2 < (x1 - x0) * 0.6 and nf > 2:
-                lvl = nf - 1
+            top_edge = (i - W) not in pect_set
+            right_edge = (i + 1) not in pect_set
+            if top_edge or (right_edge and y < (y0 + y1) / 2):
+                lvl = 0                                   # Innenlinie zum Körper (eine Stufe dunkler)
+            elif x - x0 < (x1 - x0) * 0.3 or (i + W) not in pect_set:
+                lvl = nf - 1                              # helle Flossenspitze/-saum
+            elif big and (y - y0) % 2 == 0 and nf > 2:
+                lvl = max(0, nf - 3)                      # Flossenstrahlen ab L
             else:
                 lvl = max(0, nf - 2)
             sp.pect[i] = [("fin", lvl), 0]
 
     # --------------------------------------------------------------- Flossen
-    color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, s, T, leuchtet)
+    color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, (sxx, s), T, leuchtet)
 
     # --------------------------------------------------------------- Merkmale
     color_features(pix, lab, feat_kind, W, H, ramps, rng)
@@ -1014,8 +1058,9 @@ def cleanup(lab, W, H):
             for x in range(W):
                 i = y * W + x
                 if lab[i] and lab[i] != LINE:
-                    n = neighbors4(lab, W, H, x, y)
-                    if n == 0 or (n == 1 and lab[i] in (FIN, TAIL)):
+                    n8 = sum(1 for dx in (-1, 0, 1) for dy in (-1, 0, 1)
+                             if (dx or dy) and 0 <= x + dx < W and 0 <= y + dy < H and lab[(y + dy) * W + x + dx])
+                    if n8 == 0:
                         rem.append(i)
         for i in rem:
             lab[i] = EMPTY
@@ -1191,12 +1236,13 @@ def apply_pattern(pix, body_idx, W, H, muster, ramps, bi, leuchtet):
                             if 0.1 < u < 0.98 and (v < 0.8 or vertical):
                                 hit.add(i)
     elif muster == "flecken":
-        r = max(1.0, unit * 0.9)
+        hmax = max(cb[x] - ct[x] for x in range(W) if ct[x] < H)
+        r = max(1.0, hmax * 0.085)
         blobs = []
         rows = 2 if klasse in ("S", "M") else 3
         for row in range(rows):
-            vrow = 0.18 + 0.5 * row / max(1, rows - 1) if rows > 1 else 0.4
-            n = max(2, int(L / (r * 3.2)))
+            vrow = 0.2 + 0.42 * row / max(1, rows - 1) if rows > 1 else 0.4
+            n = max(2, int(L / (r * 4.4)))
             for k in range(n):
                 u = 0.2 + 0.72 * (k + 0.5 + (row % 2) * 0.5) / n
                 blobs.append((u + rng.uniform(-0.03, 0.03), vrow + rng.uniform(-0.06, 0.06),
@@ -1205,7 +1251,7 @@ def apply_pattern(pix, body_idx, W, H, muster, ramps, bi, leuchtet):
             x, y, u, v = coords(i)
             hgt = max(1, cb[x] - ct[x])
             for (bu, bv, br) in blobs:
-                dx = (u - bu) * L / (br * 1.5)
+                dx = (u - bu) * L / (br * 1.3)
                 dy = (v - bv) * hgt / br
                 if dx * dx + dy * dy <= 1.0 and dist[i] >= 2:
                     hit.add(i)
@@ -1341,32 +1387,50 @@ def apply_pattern(pix, body_idx, W, H, muster, ramps, bi, leuchtet):
             pix[i][0] = shift_key(ramps, pix[i][0], -1)
 
 
+SCALE_TILES = {
+    # (Bogen-Pixel relativ zur Schuppenmitte, helle Kante, dx, dy) – Bögen „(“ zeigen zum Schwanz
+    "S": ([(0, 0)], [], 3, 2),
+    "M": ([(-1, -1), (-2, 0), (-1, 1)], [(-1, 0)], 4, 2),
+    "L": ([(-1, -1), (-2, 0), (-1, 1)], [(-1, 0)], 4, 2),
+    "XL": ([(-1, -2), (-2, -1), (-2, 0), (-2, 1), (-1, 2)], [(-1, -1), (-1, 0)], 5, 3),
+    "Boss": ([(0, -2), (-1, -2), (-2, -1), (-2, 0), (-2, 1), (-1, 2), (0, 2)], [(-1, -1), (-1, 0)], 6, 3),
+}
+
+
 def scale_arcs(pix, W, H, bi, ramps, gill_u, bright_edge=False, accent=False):
+    """Versetztes Halbmond-Raster: Bogenpixel eine Stufe dunkler, optional helle Kante."""
     ct, cb, dist = bi["col_top"], bi["col_bot"], bi["dist"]
     sx, L = bi["snout_x"], bi["body_len"]
-    s = {"S": 3, "M": 3, "L": 4, "XL": 5, "Boss": 6}[bi["klasse"]]
-    R = s * 0.62
-    sy = max(2, s // 2 + 1)
+    kl = bi["klasse"]
+    if accent:   # Muster "schuppen": große, klar abgesetzte Schuppen
+        kl = {"S": "M", "M": "L", "L": "XL", "XL": "Boss", "Boss": "Boss"}[kl]
+    arc, edge, dx, dy = SCALE_TILES[kl]
     arcs, edges = set(), set()
     y0 = min(t for t in ct if t < H)
     y1 = max(cb)
-    for row in range(int((y1 - y0) / sy) + 2):
-        cy = y0 + row * sy
-        for col in range(int(W / s) + 2):
-            cx = col * s + (row % 2) * s / 2
-            for py in range(int(cy - R - 1), int(cy + R + 2)):
-                for px in range(int(cx - R - 1), int(cx + 1)):
-                    if not (0 <= px < W and 0 <= py < H):
-                        continue
-                    dd = math.hypot(px + .5 - cx, py + .5 - cy)
-                    i = py * W + px
-                    if abs(dd - R) < 0.55 and pix[i] is not None and dist[i] >= 2.4:
-                        u = (sx - px) / max(1, L)
-                        v = (py - ct[px]) / max(1, cb[px] - ct[px])
-                        if gill_u + 0.05 < u < 0.93 and 0.08 < v < 0.9:
-                            arcs.add(i)
-                            if bright_edge and px + 1 < W:
-                                edges.add(i + 1)
+
+    def ok(px, py):
+        if not (0 <= px < W and 0 <= py < H):
+            return False
+        i = py * W + px
+        if pix[i] is None or dist[i] < 2.4 or ct[px] >= H:
+            return False
+        u = (sx - px) / max(1, L)
+        v = (py - ct[px]) / max(1, cb[px] - ct[px])
+        return gill_u + 0.04 < u < 0.94 and 0.1 < v < 0.88
+
+    row = 0
+    for cy in range(y0, y1 + dy, dy):
+        off = (row % 2) * (dx // 2)
+        for cx in range(off, W + dx, dx):
+            for (ax, ay) in arc:
+                if ok(cx + ax, cy + ay):
+                    arcs.add((cy + ay) * W + cx + ax)
+            if bright_edge:
+                for (ax, ay) in edge:
+                    if ok(cx + ax, cy + ay):
+                        edges.add((cy + ay) * W + cx + ax)
+        row += 1
     for i in arcs:
         if pix[i] and pix[i][0][0] in ("main", "belly", "acc"):
             pix[i][0] = shift_key(ramps, pix[i][0], -1)
@@ -1413,14 +1477,14 @@ def gill_arc(pix, lab, W, H, bi, ramps, gill_u):
         return None
     t, b = ct[xg], cb[xg]
     hgt = b - t
-    c = max(0.0, hgt * 0.08)
+    c = max(0.0, hgt * 0.1)
     mid = None
     prev = None
     for y in range(t + 1, b):
         v = (y - t) / max(1, hgt)
-        if not (0.2 <= v <= 0.86):
+        if not (0.16 <= v <= 0.74):
             continue
-        k = (v - 0.53) / 0.33
+        k = (v - 0.45) / 0.29
         x = int(round(xg - c * (1 - k * k)))
         i = y * W + x
         if 0 <= x < W and pix[i] and lab[i] == BODY:
@@ -1431,7 +1495,7 @@ def gill_arc(pix, lab, W, H, bi, ramps, gill_u):
                 if pix[j] and lab[j] == BODY:
                     pix[j][0] = shift_key(ramps, pix[j][0], -1)
             prev = x
-            if mid is None and v >= 0.5:
+            if mid is None and v >= 0.42:
                 mid = i
     return mid
 
@@ -1450,10 +1514,11 @@ def find_shine(pix, W, H, bi):
 
 # --------------------------------------------------------------------------- Flossen / Merkmale
 
-def color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, s, T, leuchtet):
+def color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, scl, T, leuchtet):
+    sx_, s = scl
     nf = len(ramps["fin"])
     big = klasse in ("L", "XL", "Boss")
-    ray_sp = {"L": 3, "XL": 3, "Boss": 4}.get(klasse, 0)
+    ray_sp = {"L": 3, "XL": 4, "Boss": 5}.get(klasse, 0)
     flame = "flammen" in merk
     na = len(ramps["acc"])
     for i, part in fininfo.items():
@@ -1466,7 +1531,7 @@ def color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, s, T, leuchtet):
         if "Pa" in info:
             Pa = T(*info["Pa"])
             Pb = T(*info["Pb"])
-            D = (info["D"][0] * s, info["D"][1] * s)
+            D = (info["D"][0] * sx_, info["D"][1] * s)
             bx, by = Pb[0] - Pa[0], Pb[1] - Pa[1]
             det = bx * D[1] - by * D[0]
             if abs(det) > 1e-6:
@@ -1479,8 +1544,8 @@ def color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, s, T, leuchtet):
             o = T(*info["origin"])
             ang = math.atan2(py - o[1], o[0] - px)
             r = math.hypot(px - o[0], py - o[1])
-            t_px = ang * max(4.0, info["len"] * s)
-            hf = r / max(1.0, info["len"] * s * 1.05)
+            t_px = ang * max(4.0, info["len"] * sx_)
+            hf = r / max(1.0, info["len"] * sx_ * 1.05)
         elif info.get("saum"):
             hf = 0.7
             t_px = x * 0.7
@@ -1489,7 +1554,7 @@ def color_fins(pix, lab, fininfo, W, H, ramps, klasse, merk, s, T, leuchtet):
         else:
             lvl = max(0, nf - 2)
         if big and ray_sp and 0.12 < hf < 0.9 and int(math.floor(t_px)) % ray_sp == 0:
-            lvl = 0
+            lvl = max(0, lvl - 1)
         elif not big and hf < 0.18 and nf > 2:
             lvl = 0
         key = ("fin", min(nf - 1, lvl))
@@ -1535,6 +1600,9 @@ def color_features(pix, lab, feat_kind, W, H, ramps, rng):
             pix[i] = [("fin", len(ramps["fin"]) - 1), F_PROTECT]
         elif kind == "barbel":
             pix[i] = [("main", 0), 0]
+        elif kind == "barbel_in":
+            if pix[i] is not None and lab[i] == BODY:
+                pix[i] = [shift_key(ramps, pix[i][0], -2), 0]
         elif kind == "spike":
             pix[i] = [("fin", 0), 0]
         elif kind == "moss":
@@ -1562,38 +1630,44 @@ def draw_mouth(pix, lab, W, H, mouth_px, q, merk, ramps, klasse, boss, bi, sp):
         return
     tip = max(row)
     big_mouth = "maul_gross" in merk or bi["shape"] == "kopflastig"
-    pts = []
+    tooth = ("tooth", 0) if "tooth" in ramps else lightest_key(ramps)
+    teeth = "zaehne" in merk
     for k in range(1, mlen + 1):
         x = tip - k
-        yy = y + (1 if big_mouth and k > mlen * 0.7 else 0)
+        yy = y + (1 if big_mouth and k > mlen * 0.75 else 0)
         i = yy * W + x
         if 0 <= x < W and lab[i] == BODY:
-            pts.append(i)
             pix[i] = [("main", 0), 0]
-    if big_mouth and klasse != "S":
-        # offenes Maul: Kerbe an der Spitze
-        i = y * W + tip
-        lab[i] = EMPTY
-        pix[i] = None
-    if "zaehne" in merk or "hauer" in merk:
-        tooth = ("belly", len(ramps["belly"]) - 1)
-        step = 2 if klasse in ("S", "M") else 2
-        for n, i in enumerate(pts[1:] if big_mouth else pts):
-            if n % step:
-                continue
-            for dy in ((-1, 1) if klasse not in ("S",) else (-1,)):
-                j = i + dy * W
-                if 0 <= j < W * H and pix[j] is not None and lab[j] in (BODY,):
+            if teeth and k % 2 == 0 and klasse != "S":
+                j = i - W
+                if lab[j] == BODY and pix[j] is not None:
                     pix[j] = [tooth, F_PROTECT]
-                    if boss and dy == -1:
-                        jj = j + W * 2 * dy * -1
-                        # lange Fangzähne unten
-                    if boss and dy == 1:
-                        jj = j + W
-                        if 0 <= jj < W * H and pix[jj] is not None:
+    gh = {"S": 0, "M": 1, "L": 1, "XL": 2, "Boss": 3}[klasse] if big_mouth else 0
+    if gh:
+        # offenes Maul: keilförmige Kerbe an der Schnauze, Zähne an den Kiefern
+        n_open = max(2, mlen // 3)
+        for k in range(n_open):
+            g = int(round(gh * (1 - k / n_open)))
+            x = tip - k
+            for dy in range(-g, g + 1):
+                i = (y + dy) * W + x
+                if 0 <= x < W and 0 <= y + dy < H and lab[i] == BODY:
+                    lab[i] = EMPTY
+                    pix[i] = None
+            if teeth:
+                for side in (-1, 1):
+                    j = (y + side * (g + 1)) * W + x
+                    if k % 2 == 0 and 0 <= j < W * H and lab[j] == BODY:
+                        pix[j] = [tooth, F_PROTECT]
+                        if boss and g >= 1:
+                            jj = (y + side * g) * W + x
+                            lab[jj] = FEAT
                             pix[jj] = [tooth, F_PROTECT]
+    elif teeth and klasse == "S":
+        j = (y - 1) * W + tip - 1
+        if 0 <= j < W * H and lab[j] == BODY:
+            pix[j] = [tooth, F_PROTECT]
     if "hauer" in merk:
-        tooth = ("belly", len(ramps["belly"]) - 1)
         x0 = tip - mlen
         for k in range(0, base + 2):
             x, yy = x0 + k // 2 + 1, y + 1 + k
@@ -1630,6 +1704,18 @@ def draw_mouth(pix, lab, W, H, mouth_px, q, merk, ramps, klasse, boss, bi, sp):
                     if xx + 1 < W - 2:
                         lab[j] = FEAT
                         pix[j] = [(mr, nm - 1), F_PROTECT]
+
+
+def lightest_key(ramps):
+    best, bl = ("belly", len(ramps["belly"]) - 1), -1
+    for r, cols in ramps.items():
+        if r == "white":
+            continue
+        for l, c in enumerate(cols):
+            L = C.rgb_to_oklab(c)[0]
+            if L > bl:
+                best, bl = (r, l), L
+    return best
 
 
 def scars(pix, lab, W, H, bi, ramps, rng, eye):

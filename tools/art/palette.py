@@ -135,7 +135,10 @@ def world_backgrounds(kuerzel: str) -> tuple[tuple, tuple]:
     by_l = sorted(cols, key=lambda c: C.rgb_to_oklab(c)[0])
     light = by_l[-1]
     dark = by_l[0]
-    # Wasserfarben bevorzugen: zweite Leitfarbe-Rampe (Oberflächenwasser) hell
+    # heller Grund: hellste eher ruhige Farbe (Chroma < 0.09), damit der Bogen nicht grell wird
+    calm = [c for c in by_l if C.rgb_to_oklch(c)[1] < 0.09 and C.rgb_to_oklab(c)[0] > 0.6]
+    if calm:
+        light = calm[-1]
     water = [C.hex_to_rgb(c) for c in pal["ramps"][1]["colors"]]
     if C.rgb_to_oklab(water[-1])[0] > 0.7:
         light = water[-1]
@@ -171,6 +174,8 @@ def fish_ramps(art: dict, klasse: str, boss: bool, merkmale: list[str], schiller
         ramps["metal"] = make_ramp("#AEB6C2", 3 if big else 2, target_idx=1)
     if "moos" in merkmale:
         ramps["moss"] = make_ramp("#5E8C3A", 3 if big else 2, target_idx=1)
+    if "zaehne" in merkmale or "hauer" in merkmale:
+        ramps["tooth"] = [C.hex_to_rgb("#E9E4D4")]
     ramps["white"] = [(255, 255, 255)]
     return {"ramps": ramps, "base": cols, "has_iris": has_iris}
 

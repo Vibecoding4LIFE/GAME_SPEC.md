@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3331517090,
+  "fishId": "F062",
+  "assetKey": "fish_tiefe_062_silberbeilfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "scheibe",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 9.082,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#C8CCD8",
+      "#E4E6EE",
+      "#00F5D4",
+      "#A898C8",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6E778E",
+      "#8B92A6",
+      "#A9AFBF",
+      "#C8CCD8",
+      "#E3EBF9"
+    ],
+    "belly": [
+      "#B1B6C3",
+      "#E4E6EE"
+    ],
+    "acc": [
+      "#33BBAE",
+      "#00F5D4"
+    ],
+    "fin": [
+      "#A898C8",
+      "#DDC6F5"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

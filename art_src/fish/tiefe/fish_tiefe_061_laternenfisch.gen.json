@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 439636031,
+  "fishId": "F061",
+  "assetKey": "fish_tiefe_061_laternenfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 17.955,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#3A4258",
+      "#6A7488",
+      "#00F5D4",
+      "#2A3044",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#11151F",
+      "#252B3A",
+      "#3A4258",
+      "#4F5C73",
+      "#66788F"
+    ],
+    "belly": [
+      "#404A5E",
+      "#6A7488"
+    ],
+    "acc": [
+      "#33BBAE",
+      "#00F5D4"
+    ],
+    "fin": [
+      "#2A3044",
+      "#4E596F"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

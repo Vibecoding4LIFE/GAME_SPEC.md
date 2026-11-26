@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3986903086,
+  "fishId": "F007",
+  "assetKey": "fish_see_007_gruendling",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "merkmale": [
+      "barteln",
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 17.322,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#B08D5E",
+      "#E6D6B5",
+      "#4E3B26",
+      "#A08868",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 10,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#854F1B",
+      "#9B6E3D",
+      "#B08D5E",
+      "#C8AC7B",
+      "#E1CC99"
+    ],
+    "belly": [
+      "#B0A794",
+      "#E6D6B5"
+    ],
+    "acc": [
+      "#4E3B26",
+      "#77654C"
+    ],
+    "fin": [
+      "#A08868",
+      "#CCB894"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

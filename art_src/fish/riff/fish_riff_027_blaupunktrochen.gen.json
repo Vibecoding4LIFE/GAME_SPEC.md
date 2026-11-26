@@ -16,17 +16,19 @@
     "shape": "rochen",
     "schwanz": "spitz",
     "muster": "punkte",
-    "merkmale": [],
+    "merkmale": [
+      "stacheln"
+    ],
     "scale_px_per_unit": 44.83,
     "eye_size": 4,
     "vb": 0.86,
     "leuchtet": false,
     "palette_base": [
-      "#C9A15A",
-      "#F2E2B8",
-      "#2E8FE0",
-      "#A8823E",
-      "#E8B830"
+      "#C89A50",
+      "#F0DFB0",
+      "#2E8CF0",
+      "#B5873E",
+      "#E8B83A"
     ]
   },
   "farbenGenutzt": 12,
@@ -34,29 +36,29 @@
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#9C6116",
-      "#B58032",
-      "#C9A15A",
-      "#DFC27C",
-      "#F8E29E"
+      "#9B5A05",
+      "#B47926",
+      "#C89A50",
+      "#DEBB72",
+      "#F4DC95"
     ],
     "belly": [
-      "#9F9960",
-      "#C8BD8B",
-      "#F2E2B8"
+      "#B28D57",
+      "#D0B682",
+      "#F0DFB0"
     ],
     "acc": [
-      "#0B3B9E",
-      "#0D65C2",
-      "#2E8FE0"
+      "#1D32AC",
+      "#1C60D2",
+      "#2E8CF0"
     ],
     "fin": [
-      "#885C17",
-      "#A8823E",
-      "#C7AA68"
+      "#946018",
+      "#B5873E",
+      "#D4B069"
     ],
     "iris": [
-      "#E8B830"
+      "#E8B83A"
     ],
     "white": [
       "#FFFFFF"
@@ -65,7 +67,7 @@
   "platzhalter": false,
   "animation": {
     "swimAmplitude": 1,
-    "caughtWinkel": 18,
+    "caughtWinkel": 16,
     "frames": {
       "swim": 6,
       "idle": 4,

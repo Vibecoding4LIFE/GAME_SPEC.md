@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 530246910,
+  "fishId": "F029",
+  "assetKey": "fish_riff_029_weissflecken-kugelfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kugel",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "merkmale": [
+      "stacheln",
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 28.622,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#6E7354",
+      "#ECEBE2",
+      "#F0EEE6",
+      "#5E634A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#383F3A",
+      "#525847",
+      "#6E7354",
+      "#8D8D6C",
+      "#ACA886"
+    ],
+    "belly": [
+      "#999EA6",
+      "#C2C4C4",
+      "#ECEBE2"
+    ],
+    "acc": [
+      "#9DA1A9",
+      "#C6C7C7",
+      "#F0EEE6"
+    ],
+    "fin": [
+      "#3C4136",
+      "#5E634A",
+      "#848569"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

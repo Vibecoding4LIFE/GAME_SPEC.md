@@ -1,0 +1,84 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1975463570,
+  "fishId": "F095",
+  "assetKey": "fish_grotte_095_basaltwels",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "hexagon",
+    "merkmale": [
+      "barteln"
+    ],
+    "scale_px_per_unit": 104.409,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#3B3434",
+      "#5A5050",
+      "#D7263D",
+      "#2E2828",
+      "#F46036"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#201E21",
+      "#3B3434",
+      "#564B4A",
+      "#736461",
+      "#907E78"
+    ],
+    "belly": [
+      "#363236",
+      "#5A5050",
+      "#7F7170"
+    ],
+    "acc": [
+      "#65072A",
+      "#9C1738",
+      "#D7263D"
+    ],
+    "fin": [
+      "#2E2828",
+      "#504645",
+      "#746663"
+    ],
+    "iris": [
+      "#F46036"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

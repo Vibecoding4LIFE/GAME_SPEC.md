@@ -24,38 +24,38 @@
     "vb": 0.62,
     "leuchtet": false,
     "palette_base": [
-      "#C8D0DC",
-      "#E8ECF0",
-      "#5A6A88",
-      "#E0302E",
+      "#C8CCD6",
+      "#E0E4EA",
+      "#6A7A9A",
+      "#E8303A",
       "#D8B040"
     ]
   },
-  "farbenGenutzt": 15,
+  "farbenGenutzt": 14,
   "farbLimit": 16,
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#6F7A92",
-      "#8C96AA",
-      "#A9B2C3",
-      "#C8D0DC",
-      "#E3EFFD"
+      "#6E778D",
+      "#8B92A5",
+      "#A9AFBD",
+      "#C8CCD6",
+      "#E3EBF7"
     ],
     "belly": [
-      "#979FAE",
-      "#BFC5CF",
-      "#E8ECF0"
+      "#9098A8",
+      "#B7BDC9",
+      "#E0E4EA"
     ],
     "acc": [
-      "#1F2841",
-      "#3B4768",
-      "#5A6A88"
+      "#2B3656",
+      "#49567B",
+      "#6A7A9A"
     ],
     "fin": [
-      "#AB082B",
-      "#E0302E",
-      "#FB7354"
+      "#B20A35",
+      "#E8303A",
+      "#FB7B66"
     ],
     "white": [
       "#FFFFFF"

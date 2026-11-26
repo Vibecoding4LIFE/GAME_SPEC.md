@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 590166416,
+  "fishId": "F048",
+  "assetKey": "fish_fjord_048_krokodileisfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "querstreifen",
+    "merkmale": [
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 45.569,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#E4E8EC",
+      "#F0F2F4",
+      "#9AA4AE",
+      "#DCE2E8",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6A748E",
+      "#8790A5",
+      "#A5ADBC",
+      "#C4CAD4",
+      "#E4E8EC"
+    ],
+    "belly": [
+      "#C6CBD3",
+      "#F0F2F4",
+      "#E9EFF4"
+    ],
+    "acc": [
+      "#525C6E",
+      "#757F8D",
+      "#9AA4AE"
+    ],
+    "fin": [
+      "#8D96A6",
+      "#B4BBC7",
+      "#DCE2E8"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -17,45 +17,45 @@
     "schwanz": "spitz",
     "muster": "marmor",
     "merkmale": [
-      "krone"
+      "glupschaugen"
     ],
-    "scale_px_per_unit": 27.048,
+    "scale_px_per_unit": 28.903,
     "eye_size": 4,
     "vb": 0.0,
     "leuchtet": false,
     "palette_base": [
-      "#F4A6C8",
-      "#FBE0EC",
-      "#8FCFF4",
-      "#E890B8",
+      "#FFB8D8",
+      "#FFD8EA",
+      "#A9D6F5",
+      "#F7C8E0",
       "#D8B040"
     ]
   },
-  "farbenGenutzt": 13,
+  "farbenGenutzt": 15,
   "farbLimit": 16,
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#984B91",
-      "#B868A2",
-      "#D687B4",
-      "#F4A6C8",
-      "#FCD2DE"
+      "#A35D9E",
+      "#C27AB0",
+      "#E198C3",
+      "#FFB8D8",
+      "#FFE7EE"
     ],
     "belly": [
-      "#A297AB",
-      "#CEBBCB",
-      "#FBE0EC"
+      "#A391A8",
+      "#D0B4C9",
+      "#FFD8EA"
     ],
     "acc": [
-      "#4580B7",
-      "#68A7D6",
-      "#8FCFF4"
+      "#5F88B6",
+      "#82AED5",
+      "#A9D6F5"
     ],
     "fin": [
-      "#C1689D",
-      "#E890B8",
-      "#FEC3D5"
+      "#AA7AA2",
+      "#D1A0C0",
+      "#F7C8E0"
     ],
     "white": [
       "#FFFFFF"

@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4245358863,
+  "fishId": "F063",
+  "assetKey": "fish_tiefe_063_borstenmaul",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "zaehne",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 18.0,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#1E1E28",
+      "#2E2E3A",
+      "#7CFF6B",
+      "#262632",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#1E1E28",
+      "#363441",
+      "#504B5B",
+      "#6C6376",
+      "#8A7D91"
+    ],
+    "belly": [
+      "#2E2E3A",
+      "#575564"
+    ],
+    "acc": [
+      "#35CC61",
+      "#7CFF6B"
+    ],
+    "fin": [
+      "#262632",
+      "#4E4C5B"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -17,15 +17,15 @@
     "schwanz": "gegabelt",
     "muster": "keins",
     "merkmale": [],
-    "scale_px_per_unit": 41.173,
+    "scale_px_per_unit": 37.028,
     "eye_size": 4,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#6A5A2E",
-      "#D8C890",
-      "#B89A50",
-      "#7A6A80",
+      "#9C7A3C",
+      "#D9C38A",
+      "#5A4626",
+      "#7D6E86",
       "#D8B040"
     ]
   },
@@ -34,26 +34,26 @@
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#3C2602",
-      "#543F10",
-      "#6A5A2E",
-      "#83754A",
-      "#9F9166"
+      "#6C4002",
+      "#885B10",
+      "#9C7A3C",
+      "#B2995C",
+      "#CBB77C"
     ],
     "belly": [
-      "#9C7733",
-      "#B99F62",
-      "#D8C890"
+      "#BB9A5C",
+      "#D9C38A",
+      "#FEEBB3"
     ],
     "acc": [
-      "#754F0F",
-      "#9C7117",
-      "#B89A50"
+      "#382710",
+      "#5A4626",
+      "#796946"
     ],
     "fin": [
-      "#544A60",
-      "#7A6A80",
-      "#A18CA3"
+      "#574D66",
+      "#7D6E86",
+      "#A491A9"
     ],
     "white": [
       "#FFFFFF"
@@ -62,7 +62,7 @@
   "platzhalter": false,
   "animation": {
     "swimAmplitude": 1,
-    "caughtWinkel": 12,
+    "caughtWinkel": 8,
     "frames": {
       "swim": 6,
       "idle": 4,

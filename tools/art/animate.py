@@ -192,7 +192,7 @@ def caught_frames(sp):
         r = _rotate_pix(sp, comp, th)
         n_before = sum(1 for p in comp if p is not None)
         n_after = sum(1 for p in r if p is not None)
-        if _fits(sp, r) and n_after >= n_before * 0.9:
+        if _fits(sp, r, margin=1) and n_after >= n_before * 0.95:   # Randzeile frei = nichts abgeschnitten
             theta, rot = th, r
             break
     if rot is None:

@@ -17,49 +17,46 @@
     "schwanz": "gegabelt",
     "muster": "risse",
     "merkmale": [
-      "stacheln",
-      "flammen"
+      "flammen",
+      "stacheln"
     ],
-    "scale_px_per_unit": 47.758,
+    "scale_px_per_unit": 45.257,
     "eye_size": 4,
     "vb": 0.56,
     "leuchtet": true,
     "palette_base": [
-      "#2A2024",
-      "#4A3A3A",
-      "#FFB627",
+      "#2A1E20",
       "#3B2A2F",
-      "#F46036"
+      "#F46036",
+      "#FFB627",
+      "#D8B040"
     ]
   },
-  "farbenGenutzt": 15,
+  "farbenGenutzt": 14,
   "farbLimit": 16,
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#2A2024",
-      "#44363A",
-      "#5F4D50",
-      "#7C6668",
-      "#9B807F"
+      "#2A1E20",
+      "#443435",
+      "#5F4B4B",
+      "#7B6561",
+      "#997F78"
     ],
     "belly": [
-      "#251F22",
-      "#4A3A3A",
-      "#6D5A58"
-    ],
-    "acc": [
-      "#AF6811",
-      "#D78E1D",
-      "#FFB627"
-    ],
-    "fin": [
       "#161115",
       "#3B2A2F",
       "#5E484C"
     ],
-    "iris": [
+    "acc": [
+      "#961323",
+      "#D02419",
       "#F46036"
+    ],
+    "fin": [
+      "#D78E1D",
+      "#FFB627",
+      "#FFEAC1"
     ],
     "white": [
       "#FFFFFF"

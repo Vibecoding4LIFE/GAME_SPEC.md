@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2630433997,
+  "fishId": "F069",
+  "assetKey": "fish_tiefe_069_fangzahnfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "gegabelt",
+    "muster": "schuppen",
+    "merkmale": [
+      "zaehne",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 19.179,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3A2A22",
+      "#4E3A30",
+      "#E8E0D0",
+      "#2E221C",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#1C1716",
+      "#3A2A22",
+      "#534236",
+      "#6D5B4C",
+      "#887663"
+    ],
+    "belly": [
+      "#1F1817",
+      "#4E3A30"
+    ],
+    "acc": [
+      "#B4B0AA",
+      "#E8E0D0"
+    ],
+    "fin": [
+      "#2E221C",
+      "#57483F"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 16,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

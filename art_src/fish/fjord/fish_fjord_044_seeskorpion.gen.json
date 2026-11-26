@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 790709788,
+  "fishId": "F044",
+  "assetKey": "fish_fjord_044_seeskorpion",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "marmor",
+    "merkmale": [
+      "stacheln",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 50.408,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#7A4A30",
+      "#E2D8C0",
+      "#4E6A3A",
+      "#8A5A3A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#421A11",
+      "#60301D",
+      "#7A4A30",
+      "#936647",
+      "#AC8460"
+    ],
+    "belly": [
+      "#8E8D8C",
+      "#B7B2A6",
+      "#E2D8C0"
+    ],
+    "acc": [
+      "#09290F",
+      "#274A1F",
+      "#4E6A3A"
+    ],
+    "fin": [
+      "#69361A",
+      "#8A5A3A",
+      "#AC805B"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

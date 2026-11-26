@@ -1,0 +1,83 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3798588348,
+  "fishId": "F059",
+  "assetKey": "fish_fjord_059_gletscher-stoer",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "hai",
+    "muster": "platten",
+    "merkmale": [
+      "schnauze_lang",
+      "barteln",
+      "kristalle"
+    ],
+    "scale_px_per_unit": 90.819,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#4A5560",
+      "#8A96A0",
+      "#4F9DDE",
+      "#3E4852",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1E242E",
+      "#333C48",
+      "#4A5560",
+      "#61707C",
+      "#788C98"
+    ],
+    "belly": [
+      "#667280",
+      "#8A96A0",
+      "#ACBCC7"
+    ],
+    "acc": [
+      "#184CA2",
+      "#2F74C0",
+      "#4F9DDE"
+    ],
+    "fin": [
+      "#222931",
+      "#3E4852",
+      "#5C6A75"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

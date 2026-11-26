@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3441655811,
+  "fishId": "F083",
+  "assetKey": "fish_grotte_083_aschegrundel",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "flecken",
+    "merkmale": [],
+    "scale_px_per_unit": 16.432,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#7D6E6E",
+      "#A89A98",
+      "#3E3434",
+      "#F46036",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#413D47",
+      "#5E555B",
+      "#7D6E6E",
+      "#9B8887",
+      "#BAA49F"
+    ],
+    "belly": [
+      "#766E73",
+      "#A89A98"
+    ],
+    "acc": [
+      "#3E3434",
+      "#6A5B5A"
+    ],
+    "fin": [
+      "#F46036",
+      "#FEB08F"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

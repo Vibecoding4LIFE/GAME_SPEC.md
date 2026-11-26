@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3119983323,
+  "fishId": "F072",
+  "assetKey": "fish_tiefe_072_neon-quallenfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "saum",
+    "muster": "keins",
+    "merkmale": [
+      "tentakel",
+      "kuppel"
+    ],
+    "scale_px_per_unit": 45.812,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#2A1E5A",
+      "#4A3A80",
+      "#F15BB5",
+      "#00F5D4",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#11112D",
+      "#2A1E5A",
+      "#463670",
+      "#644F86",
+      "#84689C"
+    ],
+    "belly": [
+      "#262151",
+      "#4A3A80",
+      "#715B9E"
+    ],
+    "acc": [
+      "#8F0F83",
+      "#C528A1",
+      "#F15BB5"
+    ],
+    "fin": [
+      "#219C98",
+      "#1FC7B8",
+      "#00F5D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

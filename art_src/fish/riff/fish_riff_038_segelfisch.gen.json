@@ -15,7 +15,7 @@
   "parameter": {
     "shape": "torpedo",
     "schwanz": "sichel",
-    "muster": "punkte",
+    "muster": "querstreifen",
     "merkmale": [
       "segel",
       "schnauze_lang"
@@ -25,10 +25,10 @@
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#1E3A8A",
-      "#C8D4E0",
-      "#14182A",
-      "#2848B8",
+      "#1B3A8A",
+      "#D9E2EA",
+      "#8FD3F4",
+      "#1E4FB0",
       "#D8B040"
     ]
   },
@@ -37,26 +37,26 @@
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#071037",
+      "#071036",
       "#15245D",
-      "#1E3A8A",
-      "#2A59A1",
-      "#3C78B7"
+      "#1B3A8A",
+      "#2659A1",
+      "#3978B7"
     ],
     "belly": [
-      "#7C889C",
-      "#A1ADBD",
-      "#C8D4E0"
+      "#8B95A7",
+      "#B1BBC8",
+      "#D9E2EA"
     ],
     "acc": [
-      "#14182A",
-      "#33344A",
-      "#55536C"
+      "#4184B8",
+      "#66ABD6",
+      "#8FD3F4"
     ],
     "fin": [
-      "#162784",
-      "#2848B8",
-      "#3774D7"
+      "#192B7F",
+      "#1E4FB0",
+      "#3279CF"
     ],
     "white": [
       "#FFFFFF"

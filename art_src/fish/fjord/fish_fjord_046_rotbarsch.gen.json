@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1856036271,
+  "fishId": "F046",
+  "assetKey": "fish_fjord_046_rotbarsch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gerade",
+    "muster": "keins",
+    "merkmale": [
+      "glupschaugen",
+      "stacheln"
+    ],
+    "scale_px_per_unit": 47.849,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#E8502E",
+      "#F4A07A",
+      "#C8381E",
+      "#E86A40",
+      "#E8D8C0"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#9D182C",
+      "#CE181E",
+      "#E8502E",
+      "#F88052",
+      "#FCAF88"
+    ],
+    "belly": [
+      "#D37558",
+      "#F4A07A",
+      "#FED5BD"
+    ],
+    "acc": [
+      "#600718",
+      "#97151B",
+      "#C8381E"
+    ],
+    "fin": [
+      "#C53822",
+      "#E86A40",
+      "#FCA075"
+    ],
+    "iris": [
+      "#E8D8C0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

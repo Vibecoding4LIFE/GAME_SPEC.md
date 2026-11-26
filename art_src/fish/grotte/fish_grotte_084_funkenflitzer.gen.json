@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3854454546,
+  "fishId": "F084",
+  "assetKey": "fish_grotte_084_funkenflitzer",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 21.954,
+    "eye_size": 2,
+    "vb": 0.52,
+    "leuchtet": true,
+    "palette_base": [
+      "#FFB627",
+      "#FFD86A",
+      "#F46036",
+      "#F49A2E",
+      "#F8F4E8"
+    ]
+  },
+  "farbenGenutzt": 10,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#A65B17",
+      "#C67610",
+      "#E1972B",
+      "#FFB627",
+      "#FFDF9F"
+    ],
+    "belly": [
+      "#D9A215",
+      "#FFD86A"
+    ],
+    "acc": [
+      "#F46036",
+      "#FEB08F"
+    ],
+    "fin": [
+      "#F49A2E",
+      "#FFDBB0"
+    ],
+    "iris": [
+      "#F8F4E8"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

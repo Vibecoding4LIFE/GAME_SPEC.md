@@ -17,45 +17,46 @@
     "schwanz": "gegabelt",
     "muster": "flecken",
     "merkmale": [
-      "krone",
       "zaehne",
+      "schnauze_lang",
+      "krone",
       "haken",
       "moos"
     ],
-    "scale_px_per_unit": 205.946,
+    "scale_px_per_unit": 187.953,
     "eye_size": 9,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#3F5A2A",
-      "#D8D2A8",
-      "#C9A84A",
+      "#3E5A2A",
+      "#D8D0A8",
+      "#B8A050",
       "#6A4A2A",
-      "#F2D440"
+      "#F2D22E"
     ]
   },
   "farbenGenutzt": 24,
   "farbLimit": 24,
-  "farbenZusammengelegt": 0,
+  "farbenZusammengelegt": 2,
   "rampen": {
     "main": [
-      "#09290F",
-      "#22411B",
-      "#3F5A2A",
-      "#5F7341",
+      "#08290F",
+      "#21411B",
+      "#3E5A2A",
+      "#5F7340",
       "#808C59"
     ],
     "belly": [
-      "#67773C",
-      "#8D945E",
-      "#B3B282",
-      "#D8D2A8"
+      "#69753B",
+      "#8E925D",
+      "#B3B082",
+      "#D8D0A8"
     ],
     "acc": [
-      "#8F6313",
-      "#AE8425",
-      "#C9A84A",
-      "#E7CB75"
+      "#835B00",
+      "#A17C19",
+      "#B8A050",
+      "#D9C177"
     ],
     "fin": [
       "#4C2E15",
@@ -64,8 +65,8 @@
       "#A28A64"
     ],
     "iris": [
-      "#C7A018",
-      "#F2D440"
+      "#C49F2A",
+      "#F2D22E"
     ],
     "metal": [
       "#8891A1",
@@ -77,6 +78,9 @@
       "#5E8C3A",
       "#8EAE5C"
     ],
+    "tooth": [
+      "#E9E4D4"
+    ],
     "white": [
       "#FFFFFF"
     ]
@@ -84,7 +88,7 @@
   "platzhalter": true,
   "animation": {
     "swimAmplitude": 2,
-    "caughtWinkel": 12,
+    "caughtWinkel": 14,
     "frames": {
       "swim": 6,
       "idle": 4,

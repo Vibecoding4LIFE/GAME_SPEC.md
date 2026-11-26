@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 775595626,
+  "fishId": "F026",
+  "assetKey": "fish_riff_026_indopazifischer-sergeant",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "merkmale": [],
+    "scale_px_per_unit": 17.061,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F2D23A",
+      "#EDEDE4",
+      "#1C1C26",
+      "#D8D8CC",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#8A5506",
+      "#A77105",
+      "#C38F00",
+      "#DAB031",
+      "#F2D23A"
+    ],
+    "belly": [
+      "#B9BCBC",
+      "#EDEDE4"
+    ],
+    "acc": [
+      "#1C1C26",
+      "#43414E"
+    ],
+    "fin": [
+      "#A5A8A5",
+      "#D8D8CC"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

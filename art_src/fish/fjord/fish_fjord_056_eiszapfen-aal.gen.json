@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2501068617,
+  "fishId": "F056",
+  "assetKey": "fish_fjord_056_eiszapfen-aal",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "spitz",
+    "muster": "laengsband",
+    "merkmale": [
+      "stacheln",
+      "kristalle"
+    ],
+    "scale_px_per_unit": 85.449,
+    "eye_size": 6,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#A9D6F5",
+      "#D8EEFA",
+      "#4F7FB8",
+      "#EAF6FF",
+      "#EEF4F8"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#587AB2",
+      "#6F99C8",
+      "#8BB7DF",
+      "#A9D6F5",
+      "#DAF2FE"
+    ],
+    "belly": [
+      "#8DA0B4",
+      "#B2C6D6",
+      "#D8EEFA"
+    ],
+    "acc": [
+      "#223570",
+      "#33589A",
+      "#4F7FB8"
+    ],
+    "fin": [
+      "#C2CEDC",
+      "#EAF6FF",
+      "#E1F1FB"
+    ],
+    "iris": [
+      "#EEF4F8"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

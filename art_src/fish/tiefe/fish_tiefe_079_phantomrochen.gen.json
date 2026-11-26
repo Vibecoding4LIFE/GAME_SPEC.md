@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3613943379,
+  "fishId": "F079",
+  "assetKey": "fish_tiefe_079_phantomrochen",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "rochen",
+    "schwanz": "spitz",
+    "muster": "netz",
+    "merkmale": [],
+    "scale_px_per_unit": 93.132,
+    "eye_size": 7,
+    "vb": 0.86,
+    "leuchtet": true,
+    "palette_base": [
+      "#0A1028",
+      "#141A3A",
+      "#F15BB5",
+      "#00F5D4",
+      "#FEE440"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#0A1028",
+      "#1B2740",
+      "#2D4059",
+      "#425A73",
+      "#58768D"
+    ],
+    "belly": [
+      "#141A3A",
+      "#35375A",
+      "#59567B"
+    ],
+    "acc": [
+      "#8F0F83",
+      "#C528A1",
+      "#F15BB5"
+    ],
+    "fin": [
+      "#219C98",
+      "#1FC7B8",
+      "#00F5D4"
+    ],
+    "iris": [
+      "#FEE440"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1661275986,
+  "fishId": "F067",
+  "assetKey": "fish_tiefe_067_schwarzer-drachenfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "gerade",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "barteln",
+      "zaehne",
+      "leuchtangel"
+    ],
+    "scale_px_per_unit": 49.916,
+    "eye_size": 4,
+    "vb": 0.62,
+    "leuchtet": true,
+    "palette_base": [
+      "#16141E",
+      "#24202E",
+      "#00F5D4",
+      "#1E1A28",
+      "#E8303A"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#16141E",
+      "#2D2936",
+      "#473F4F",
+      "#635768",
+      "#807083"
+    ],
+    "belly": [
+      "#24202E",
+      "#443D4E",
+      "#685D6F"
+    ],
+    "acc": [
+      "#219C98",
+      "#1FC7B8",
+      "#00F5D4"
+    ],
+    "fin": [
+      "#1E1A28",
+      "#3E3747",
+      "#615668"
+    ],
+    "iris": [
+      "#E8303A"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

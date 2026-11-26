@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2150108976,
+  "fishId": "F053",
+  "assetKey": "fish_fjord_053_frostfeder-forelle",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gerade",
+    "muster": "netz",
+    "merkmale": [
+      "kristalle",
+      "federn"
+    ],
+    "scale_px_per_unit": 49.006,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#E4ECF2",
+      "#F2F6F9",
+      "#A9D6F5",
+      "#7EC0EC",
+      "#4F9DDE"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6C7792",
+      "#8893A9",
+      "#A6B0C1",
+      "#C4CED9",
+      "#E4ECF2"
+    ],
+    "belly": [
+      "#C8CED8",
+      "#F2F6F9",
+      "#E8F0F5"
+    ],
+    "acc": [
+      "#5F88B6",
+      "#82AED5",
+      "#A9D6F5"
+    ],
+    "fin": [
+      "#5998CE",
+      "#7EC0EC",
+      "#B9E6FE"
+    ],
+    "iris": [
+      "#4F9DDE"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 10,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

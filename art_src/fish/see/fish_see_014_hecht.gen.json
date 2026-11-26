@@ -17,9 +17,10 @@
     "schwanz": "gegabelt",
     "muster": "flecken",
     "merkmale": [
-      "zaehne"
+      "zaehne",
+      "schnauze_lang"
     ],
-    "scale_px_per_unit": 74.324,
+    "scale_px_per_unit": 67.968,
     "eye_size": 6,
     "vb": 0.56,
     "leuchtet": false,
@@ -28,12 +29,12 @@
       "#E8E4C9",
       "#E9D86A",
       "#8A4B2A",
-      "#E8C838"
+      "#F2D22E"
     ]
   },
   "farbenGenutzt": 16,
   "farbLimit": 16,
-  "farbenZusammengelegt": 0,
+  "farbenZusammengelegt": 1,
   "rampen": {
     "main": [
       "#353402",
@@ -58,7 +59,10 @@
       "#AB714A"
     ],
     "iris": [
-      "#E8C838"
+      "#F2D22E"
+    ],
+    "tooth": [
+      "#E9E4D4"
     ],
     "white": [
       "#FFFFFF"

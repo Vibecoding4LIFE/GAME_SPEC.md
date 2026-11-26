@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3371395026,
+  "fishId": "F019",
+  "assetKey": "fish_see_019_kirschblueten-koi",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "merkmale": [
+      "blume"
+    ],
+    "scale_px_per_unit": 99.079,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F4F0EC",
+      "#FAF6F2",
+      "#D2233E",
+      "#F4A6C1",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#B2B5C0",
+      "#D2D2D6",
+      "#F4F0EC",
+      "#F3EDE6",
+      "#F4EEE2"
+    ],
+    "belly": [
+      "#CFCFD2",
+      "#FAF6F2",
+      "#F3EDE6"
+    ],
+    "acc": [
+      "#600729",
+      "#971438",
+      "#D2233E"
+    ],
+    "fin": [
+      "#CE7EA4",
+      "#F4A6C1",
+      "#FDDEE4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1355678670,
+  "fishId": "F094",
+  "assetKey": "fish_grotte_094_phoenixflosser",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "spitz",
+    "muster": "keins",
+    "merkmale": [
+      "flammen",
+      "krone"
+    ],
+    "scale_px_per_unit": 71.253,
+    "eye_size": 6,
+    "vb": 0.52,
+    "leuchtet": true,
+    "palette_base": [
+      "#D7263D",
+      "#F46036",
+      "#FFB627",
+      "#F2702E",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#7E0B36",
+      "#AC103C",
+      "#D7263D",
+      "#F1594C",
+      "#FA8D72"
+    ],
+    "belly": [
+      "#D02419",
+      "#F46036",
+      "#FAA37F"
+    ],
+    "acc": [
+      "#AF6811",
+      "#D78E1D",
+      "#FFB627"
+    ],
+    "fin": [
+      "#C9461C",
+      "#F2702E",
+      "#FEAB79"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

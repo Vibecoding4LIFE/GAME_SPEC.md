@@ -14,20 +14,20 @@
   "boss": false,
   "parameter": {
     "shape": "scheibe",
-    "schwanz": "gerade",
+    "schwanz": "rund",
     "muster": "querstreifen",
     "merkmale": [
       "schnauze_lang"
     ],
-    "scale_px_per_unit": 30.107,
+    "scale_px_per_unit": 26.983,
     "eye_size": 4,
     "vb": 0.56,
     "leuchtet": false,
     "palette_base": [
-      "#D8DCE0",
-      "#F2F0EA",
-      "#E07A2A",
-      "#E8E2D0",
+      "#E8ECEE",
+      "#F2F4F5",
+      "#D9772A",
+      "#E0A050",
       "#D8B040"
     ]
   },
@@ -36,26 +36,26 @@
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#5F6A83",
-      "#7C859A",
-      "#99A1B1",
-      "#B8BEC8",
-      "#D8DCE0"
+      "#6D7891",
+      "#8A94A8",
+      "#A8B0BF",
+      "#C8CED6",
+      "#E8ECEE"
     ],
     "belly": [
-      "#C8C9CB",
-      "#F2F0EA",
-      "#F1EEE5"
+      "#C8CDD4",
+      "#F2F4F5",
+      "#E9F0F2"
     ],
     "acc": [
-      "#8D3008",
-      "#BA520B",
-      "#E07A2A"
+      "#872E06",
+      "#B34F0B",
+      "#D9772A"
     ],
     "fin": [
-      "#949699",
-      "#BDBBB4",
-      "#E8E2D0"
+      "#C2751A",
+      "#E0A050",
+      "#FBCC86"
     ],
     "white": [
       "#FFFFFF"

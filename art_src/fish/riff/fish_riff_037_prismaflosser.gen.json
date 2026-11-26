@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4187810158,
+  "fishId": "F037",
+  "assetKey": "fish_riff_037_prismaflosser",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "laengsband",
+    "merkmale": [
+      "kristalle"
+    ],
+    "scale_px_per_unit": 73.662,
+    "eye_size": 6,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#E4EAF0",
+      "#F2F5F8",
+      "#FF6F59",
+      "#CFE6F2",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6B7690",
+      "#8792A8",
+      "#A5AEBF",
+      "#C4CCD7",
+      "#E4EAF0"
+    ],
+    "belly": [
+      "#C8CED7",
+      "#F2F5F8",
+      "#E9F0F5"
+    ],
+    "acc": [
+      "#A61C38",
+      "#DB3B41",
+      "#FF6F59"
+    ],
+    "fin": [
+      "#8598AC",
+      "#A9BECE",
+      "#CFE6F2"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2252695040,
+  "fishId": "F060",
+  "assetKey": "fish_fjord_060_grimmbart-der-gletscherhai",
+  "klasse": "Boss",
+  "canvas": [
+    256,
+    128
+  ],
+  "seltenheit": "legendaer",
+  "boss": true,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "hai",
+    "muster": "risse",
+    "merkmale": [
+      "kristalle",
+      "barteln",
+      "zaehne"
+    ],
+    "scale_px_per_unit": 207.211,
+    "eye_size": 9,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#5A626A",
+      "#8A929A",
+      "#EAF6FF",
+      "#4A525A",
+      "#8AE0FF"
+    ]
+  },
+  "farbenGenutzt": 20,
+  "farbLimit": 24,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#2A303B",
+      "#404854",
+      "#5A626A",
+      "#717D87",
+      "#899AA4"
+    ],
+    "belly": [
+      "#4B5565",
+      "#6A737F",
+      "#8A929A",
+      "#A7B3BD"
+    ],
+    "acc": [
+      "#A4B1C4",
+      "#C7D3E1",
+      "#EAF6FF",
+      "#E1F1FB"
+    ],
+    "fin": [
+      "#2F363F",
+      "#4A525A",
+      "#64707A",
+      "#7F909B"
+    ],
+    "iris": [
+      "#53AED8",
+      "#8AE0FF"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": true,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

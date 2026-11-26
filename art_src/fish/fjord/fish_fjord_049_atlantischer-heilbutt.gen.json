@@ -14,7 +14,7 @@
   "boss": false,
   "parameter": {
     "shape": "plattfisch",
-    "schwanz": "rund",
+    "schwanz": "gerade",
     "muster": "marmor",
     "merkmale": [
       "maul_gross"
@@ -25,7 +25,7 @@
     "leuchtet": false,
     "palette_base": [
       "#6A5A3A",
-      "#F0ECE0",
+      "#EEEAE0",
       "#4A3E28",
       "#7A6A48",
       "#D8B040"
@@ -43,9 +43,9 @@
       "#9D916E"
     ],
     "belly": [
-      "#9C9FA5",
-      "#C5C5C2",
-      "#F0ECE0"
+      "#9A9EA5",
+      "#C3C3C2",
+      "#EEEAE0"
     ],
     "acc": [
       "#25211B",

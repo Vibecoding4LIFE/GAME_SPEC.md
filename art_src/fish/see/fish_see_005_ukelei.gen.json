@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 547367346,
+  "fishId": "F005",
+  "assetKey": "fish_see_005_ukelei",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "laengsband",
+    "merkmale": [],
+    "scale_px_per_unit": 21.55,
+    "eye_size": 2,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#3D7F86",
+      "#DCE4E8",
+      "#EEF3F5",
+      "#9AA6AC",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#084857",
+      "#0A6472",
+      "#3D7F86",
+      "#5C9B9D",
+      "#7BB8B4"
+    ],
+    "belly": [
+      "#AAB3BD",
+      "#DCE4E8"
+    ],
+    "acc": [
+      "#EEF3F5",
+      "#E7F1F3"
+    ],
+    "fin": [
+      "#9AA6AC",
+      "#C6D7DD"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

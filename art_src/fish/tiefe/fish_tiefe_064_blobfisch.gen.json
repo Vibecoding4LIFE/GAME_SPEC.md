@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1187310828,
+  "fishId": "F064",
+  "assetKey": "fish_tiefe_064_blobfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "keins",
+    "merkmale": [
+      "schmollmund"
+    ],
+    "scale_px_per_unit": 49.939,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#D8A8B0",
+      "#E8C4C8",
+      "#C08890",
+      "#B89098",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#874E6E",
+      "#A36B82",
+      "#BE8998",
+      "#D8A8B0",
+      "#F7C6C9"
+    ],
+    "belly": [
+      "#8E7E8D",
+      "#BAA0AA",
+      "#E8C4C8"
+    ],
+    "acc": [
+      "#7A3D56",
+      "#9D6171",
+      "#C08890"
+    ],
+    "fin": [
+      "#8C6F7B",
+      "#B89098",
+      "#E0B5B9"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

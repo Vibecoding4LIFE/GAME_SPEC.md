@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 101364128,
+  "fishId": "F091",
+  "assetKey": "fish_grotte_091_salamanderfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "flecken",
+    "merkmale": [
+      "flammen",
+      "beinflossen"
+    ],
+    "scale_px_per_unit": 48.316,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#1E1A1E",
+      "#2E282E",
+      "#FFB627",
+      "#262026",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1E1A1E",
+      "#372F35",
+      "#51464D",
+      "#6E5E66",
+      "#8D777F"
+    ],
+    "belly": [
+      "#2E282E",
+      "#50464D",
+      "#74666F"
+    ],
+    "acc": [
+      "#AF6811",
+      "#D78E1D",
+      "#FFB627"
+    ],
+    "fin": [
+      "#262026",
+      "#473D45",
+      "#6B5C65"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

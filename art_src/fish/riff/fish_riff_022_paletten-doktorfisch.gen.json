@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1584952539,
+  "fishId": "F022",
+  "assetKey": "fish_riff_022_paletten-doktorfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "gerade",
+    "muster": "flecken",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 12.311,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#1F4FD8",
+      "#3A6FE8",
+      "#141428",
+      "#FFD23F",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#101389",
+      "#1C28BB",
+      "#1F4FD8",
+      "#1A76EC",
+      "#2A9AFD"
+    ],
+    "belly": [
+      "#2237BE",
+      "#3A6FE8"
+    ],
+    "acc": [
+      "#141428",
+      "#3A384F"
+    ],
+    "fin": [
+      "#D29E1C",
+      "#FFD23F"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 735397989,
+  "fishId": "F051",
+  "assetKey": "fish_fjord_051_seehase",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "merkmale": [
+      "saugnapf"
+    ],
+    "scale_px_per_unit": 37.599,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3E8A80",
+      "#8AC0B0",
+      "#2E6A62",
+      "#3A7A70",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#005254",
+      "#146F6B",
+      "#3E8A80",
+      "#62A696",
+      "#85C2AC"
+    ],
+    "belly": [
+      "#599C90",
+      "#8AC0B0",
+      "#B4E7D1"
+    ],
+    "acc": [
+      "#022526",
+      "#0C4745",
+      "#2E6A62"
+    ],
+    "fin": [
+      "#075753",
+      "#3A7A70",
+      "#649E8E"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

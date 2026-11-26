@@ -19,46 +19,43 @@
     "merkmale": [
       "stacheln"
     ],
-    "scale_px_per_unit": 48.614,
+    "scale_px_per_unit": 47.807,
     "eye_size": 4,
     "vb": 0.56,
     "leuchtet": true,
     "palette_base": [
-      "#1E2F5C",
-      "#6E86B8",
-      "#D6F25A",
-      "#2A3F78",
-      "#E8F070"
+      "#1E2E6B",
+      "#3A4A8A",
+      "#C8F25A",
+      "#24357A",
+      "#D8B040"
     ]
   },
-  "farbenGenutzt": 16,
+  "farbenGenutzt": 14,
   "farbLimit": 16,
   "farbenZusammengelegt": 0,
   "rampen": {
     "main": [
-      "#121A33",
-      "#1E2F5C",
-      "#2F4A75",
-      "#43668D",
-      "#5983A6"
+      "#101B3D",
+      "#1E2E6B",
+      "#2C4B83",
+      "#3F689B",
+      "#5585B3"
     ],
     "belly": [
-      "#4D6198",
-      "#6E86B8",
-      "#8DADDC"
+      "#1D2C5C",
+      "#3A4A8A",
+      "#5370AC"
     ],
     "acc": [
-      "#A39A18",
-      "#BFC50D",
-      "#D6F25A"
+      "#9A990F",
+      "#B3C506",
+      "#C8F25A"
     ],
     "fin": [
-      "#162246",
-      "#2A3F78",
-      "#426499"
-    ],
-    "iris": [
-      "#E8F070"
+      "#101B42",
+      "#24357A",
+      "#395B9B"
     ],
     "white": [
       "#FFFFFF"
@@ -67,7 +64,7 @@
   "platzhalter": false,
   "animation": {
     "swimAmplitude": 1,
-    "caughtWinkel": 12,
+    "caughtWinkel": 6,
     "frames": {
       "swim": 6,
       "idle": 4,

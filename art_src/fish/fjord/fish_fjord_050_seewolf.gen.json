@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1786985805,
+  "fishId": "F050",
+  "assetKey": "fish_fjord_050_seewolf",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "rund",
+    "muster": "querstreifen",
+    "merkmale": [
+      "zaehne",
+      "hauer"
+    ],
+    "scale_px_per_unit": 85.449,
+    "eye_size": 6,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#6E7A8A",
+      "#B8C0C8",
+      "#3A4250",
+      "#5E6A78",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#3B4659",
+      "#535F72",
+      "#6E7A8A",
+      "#8696A7",
+      "#9FB4C5"
+    ],
+    "belly": [
+      "#919AA7",
+      "#B8C0C8",
+      "#DBE8F1"
+    ],
+    "acc": [
+      "#1F232D",
+      "#3A4250",
+      "#576473"
+    ],
+    "fin": [
+      "#3D4858",
+      "#5E6A78",
+      "#7E8E9D"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

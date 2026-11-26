@@ -1,0 +1,86 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2664273575,
+  "fishId": "F039",
+  "assetKey": "fish_riff_039_korallendrache",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "seepferdchen",
+    "schwanz": "spitz",
+    "muster": "flecken",
+    "merkmale": [
+      "horn",
+      "schnauze_lang",
+      "korallen"
+    ],
+    "scale_px_per_unit": 62.658,
+    "eye_size": 5,
+    "vb": 0.0,
+    "leuchtet": false,
+    "palette_base": [
+      "#FF6F59",
+      "#FFB0A0",
+      "#7B2CBF",
+      "#FF9EC7",
+      "#E8E4F2"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#C9003D",
+      "#E54549",
+      "#FF6F59",
+      "#FCA78D",
+      "#FCD3C2"
+    ],
+    "belly": [
+      "#DC867F",
+      "#FFB0A0",
+      "#FEE9E2"
+    ],
+    "acc": [
+      "#25055A",
+      "#4D1391",
+      "#7B2CBF"
+    ],
+    "fin": [
+      "#D775AC",
+      "#FF9EC7",
+      "#FEDEE6"
+    ],
+    "iris": [
+      "#E8E4F2"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

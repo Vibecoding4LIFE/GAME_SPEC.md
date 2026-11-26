@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2103985978,
+  "fishId": "F030",
+  "assetKey": "fish_riff_030_rotfeuerfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "querstreifen",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 47.457,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#C8283A",
+      "#F2E6E0",
+      "#F4ECE6",
+      "#D8564A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#740330",
+      "#9E1237",
+      "#C8283A",
+      "#E25649",
+      "#FA7E5E"
+    ],
+    "belly": [
+      "#9C9BA4",
+      "#C6C0C2",
+      "#F2E6E0"
+    ],
+    "acc": [
+      "#9FA0A9",
+      "#C9C5C7",
+      "#F4ECE6"
+    ],
+    "fin": [
+      "#B42032",
+      "#D8564A",
+      "#FB8466"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}
