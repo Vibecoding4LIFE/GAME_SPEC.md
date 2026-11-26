@@ -24,3 +24,17 @@ Format: Datum · Entscheidung · Begründung · Alternativen.
 - **Mindesttiefe aller Welten = 0 m.** W4-Schichten beginnen bei 200 m; der Quastenflosser (150–700 m) bleibt so gültig, weil die Validator-Regel „überlappt mindestens eine Schicht“ greift.
 - **`npm run build`** führt vorher `npm run data && vitest run` aus (Spec 6.8). Die erzeugten Atlanten werden mit eingecheckt, damit der Hosting-Build kein Python braucht.
 - **Agenten-Skills:** Die Spec nennt `anthropic-skills:frontend-design`; in dieser Umgebung heißt der Skill `frontend-design:frontend-design`. In `.claude/agents/` steht der echte Name.
+
+### Fischdaten (daten-designer, geprüft vom Orchestrator)
+- **Abgeleitete Werte**, die Teil E nicht nennt, sind nach festen Regeln gesetzt: `k` nach Körperform (D 1.10; Hecht 0,009 wie Beispiel 6.7), `zupfer` nach Seltenheit (G 0-2, U/S 1-2, E 1-3, L 2-3), `zonen` aus dem Text (Seerosen/Anemonen/Seegras → Ufer, Riffkante/Blauwasser/Tiefes Loch → Kante), Lieblingsköder aus D 3.3, `scheinbisse` bei allen Trickser + Lumina, `zahnfisch` wo „Zahnfisch“ steht + Bosse.
+- **Lexikontexte:** wörtlich aus der Spec, wo vorhanden; sonst von Claude geschrieben. **Hinweistexte** aus den Spawn-Bedingungen erzeugt. Englisch für alle 100 Fische (B7).
+- **Bossphasen ohne Verhaltensangabe** (Coralina P3, Grimmbart P2/P4, Ignaris P2/P4) sinnvoll ergänzt, siehe `Data/boss_phases.csv`.
+- **F093 Magma-Muräne** („Versteckspieler + Hitzkopf“): Hauptverhalten Versteckspieler; Hitzkopf kommt über die Magmakammer-Regel (alle Fische 40–60 m).
+- **Bekannte Spec-Unstimmigkeiten (bleiben als Warnung sichtbar, Klärung in Phase 1/4):**
+  1. F052 Lachs bevorzugt „Regen“, W3 hat kein Regenwetter.
+  2. F077 Quastenflosser beginnt bei 150 m, W4-Schichten erst bei 200 m.
+  3. „Erdbeben“ ist Wetter und Ereignis zugleich, steht aber nur in `WEATHERS` → läuft als Wetter.
+  4. „Tag-Nacht-Wanderung“ (W4, „nachts ab 200 m“) ist keine Datenspalte → Spawn-Regel in Phase 1.
+  5. Coralina „Vollmondnacht ODER Flut am Abend“: DNF kann keine Tageszeit pro Bedingung ausdrücken → etwas großzügiger.
+  6. Barnabas: Wetter „Gewitter“ vs. Ereignis „Sommergewitter“ – derzeit zählt das Wetter.
+  7. Zählt „Großer Ausbruch“ auch als „Ausbruch“ (F094)? → Entscheidung in Phase 4.
