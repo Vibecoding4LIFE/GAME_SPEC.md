@@ -1,0 +1,6 @@
+id;index;kuerzel;name_de;name_en;muenzfaktor;leitfarben;min_tiefe_m;max_tiefe_m;schichten;ufer_ende_m;freiwasser_ende_m;mechanik;schillernd_regel
+W1;1;see;Sonnenspiegelsee;Sunmirror Lake;1.0;#8FD3F4|#3FA7A3|#1E5F5B|#12342F|#6BA34A|#8A5A33|#F4A6C1|#FFE066;0;25;Uferzone:0-3|Freiwasser:3-8|Krautfeld:8-15|Tiefes Loch:15-25;6;15;HaengerUndFutterplatz;Mondlicht
+W2;2;riff;Regenbogenriff;Rainbow Reef;1.5;#2EC4B6|#0B4F8A|#06264A|#FF6F59|#FF9EC7|#FFD23F|#7B2CBF|#F7E3AF;0;50;Lagune:0-5|Riffdach:5-15|Riffkante:15-30|Blauwasser:30-50;6;15;StroemungUndGezeiten;Neon
+W3;3;fjord;Frostfjord;Frost Fjord;2.0;#EAF6FF|#A9D6F5|#4F9DDE|#12355B|#0A1A2F|#5CFFB0|#B57BFF|#F2B5D4;0;70;Eisloch:0-5|Kaltwasser:5-20|Eisbergwurzeln:20-40|Fjordgrund:40-70;6;15;EisloecherUndFrost;Polarlicht
+W4;4;tiefe;Leuchtende Tiefe;Glowing Deep;2.6;#050A1F|#1B1446|#3A1C71|#00F5D4|#7CFF6B|#F15BB5|#FEE440|#9AA0B5;0;11000;Dämmerzone:200-1000|Mitternachtszone:1000-4000|Abgrundzone:4000-6000|Tiefseegraben:6000-11000;6;15;DunkelheitUndDruck;Sonnenlicht
+W5;5;grotte;Glutgrotte;Ember Grotto;3.2;#1A1015|#3B2A2F|#D7263D|#F46036|#FFB627|#7D6E6E|#C5D86D|#8E44AD;0;60;Thermalbecken:0-5|Schwefelschlote:5-20|Kristallhöhlen:20-40|Magmakammer (Glutsee):40-60;6;15;HitzeUndAusbrueche;Frost

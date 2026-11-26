@@ -1,0 +1,623 @@
+{
+  "version": 1,
+  "worlds": [
+    {
+      "id": "W1",
+      "index": 1,
+      "kuerzel": "see",
+      "nameKey": "world.1.name",
+      "name": "Sonnenspiegelsee",
+      "nameEn": "Sunmirror Lake",
+      "muenzfaktor": 1,
+      "leitfarben": [
+        "#8FD3F4",
+        "#3FA7A3",
+        "#1E5F5B",
+        "#12342F",
+        "#6BA34A",
+        "#8A5A33",
+        "#F4A6C1",
+        "#FFE066"
+      ],
+      "minTiefeM": 0,
+      "maxTiefeM": 25,
+      "schichten": [
+        {
+          "name": "Uferzone",
+          "minM": 0,
+          "maxM": 3
+        },
+        {
+          "name": "Freiwasser",
+          "minM": 3,
+          "maxM": 8
+        },
+        {
+          "name": "Krautfeld",
+          "minM": 8,
+          "maxM": 15
+        },
+        {
+          "name": "Tiefes Loch",
+          "minM": 15,
+          "maxM": 25
+        }
+      ],
+      "uferEndeM": 6,
+      "freiwasserEndeM": 15,
+      "mechanik": "HaengerUndFutterplatz",
+      "schillerndRegel": "Mondlicht",
+      "wetter": [
+        {
+          "wetter": "Sonnig",
+          "gewicht": 40,
+          "anzeigename": "Sonnig",
+          "anzeigenameEn": "Sunny",
+          "displayNameKey": "weather.1.Sonnig",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Bewoelkt",
+          "gewicht": 25,
+          "anzeigename": "Bewölkt",
+          "anzeigenameEn": "Cloudy",
+          "displayNameKey": "weather.1.Bewoelkt",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Regen",
+          "gewicht": 20,
+          "anzeigename": "Regen",
+          "anzeigenameEn": "Rain",
+          "displayNameKey": "weather.1.Regen",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Gewitter",
+          "gewicht": 10,
+          "anzeigename": "Gewitter",
+          "anzeigenameEn": "Thunderstorm",
+          "displayNameKey": "weather.1.Gewitter",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Nebel",
+          "gewicht": 5,
+          "anzeigename": "Morgennebel",
+          "anzeigenameEn": "Morning fog",
+          "displayNameKey": "weather.1.Nebel",
+          "nurZeit": "Morgen"
+        }
+      ],
+      "ereignisse": [
+        {
+          "ereignis": "Vollmond",
+          "beschreibung": "Jede 3. Nacht: Episch +50 %, Mondlicht-Säule auf dem Wasser."
+        },
+        {
+          "ereignis": "Sommergewitter",
+          "beschreibung": "Barnabas-Bedingung, Blitz-Silhouetten."
+        },
+        {
+          "ereignis": "Mueckenschwarm",
+          "beschreibung": "Am Abend: Oberflächenfische springen nach Insekten, Ukelei und Rotfeder +50 %."
+        }
+      ],
+      "fish": [
+        "F001",
+        "F002",
+        "F003",
+        "F004",
+        "F005",
+        "F006",
+        "F007",
+        "F008",
+        "F009",
+        "F010",
+        "F011",
+        "F012",
+        "F013",
+        "F014",
+        "F015",
+        "F016",
+        "F017",
+        "F018",
+        "F019",
+        "F020"
+      ],
+      "boss": "F020"
+    },
+    {
+      "id": "W2",
+      "index": 2,
+      "kuerzel": "riff",
+      "nameKey": "world.2.name",
+      "name": "Regenbogenriff",
+      "nameEn": "Rainbow Reef",
+      "muenzfaktor": 1.5,
+      "leitfarben": [
+        "#2EC4B6",
+        "#0B4F8A",
+        "#06264A",
+        "#FF6F59",
+        "#FF9EC7",
+        "#FFD23F",
+        "#7B2CBF",
+        "#F7E3AF"
+      ],
+      "minTiefeM": 0,
+      "maxTiefeM": 50,
+      "schichten": [
+        {
+          "name": "Lagune",
+          "minM": 0,
+          "maxM": 5
+        },
+        {
+          "name": "Riffdach",
+          "minM": 5,
+          "maxM": 15
+        },
+        {
+          "name": "Riffkante",
+          "minM": 15,
+          "maxM": 30
+        },
+        {
+          "name": "Blauwasser",
+          "minM": 30,
+          "maxM": 50
+        }
+      ],
+      "uferEndeM": 6,
+      "freiwasserEndeM": 15,
+      "mechanik": "StroemungUndGezeiten",
+      "schillerndRegel": "Neon",
+      "wetter": [
+        {
+          "wetter": "Sonnig",
+          "gewicht": 50,
+          "anzeigename": "Sonnig",
+          "anzeigenameEn": "Sunny",
+          "displayNameKey": "weather.2.Sonnig",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Bewoelkt",
+          "gewicht": 20,
+          "anzeigename": "Bewölkt",
+          "anzeigenameEn": "Cloudy",
+          "displayNameKey": "weather.2.Bewoelkt",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Regen",
+          "gewicht": 20,
+          "anzeigename": "Tropenschauer",
+          "anzeigenameEn": "Tropical shower",
+          "displayNameKey": "weather.2.Regen",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Gewitter",
+          "gewicht": 10,
+          "anzeigename": "Gewitter",
+          "anzeigenameEn": "Thunderstorm",
+          "displayNameKey": "weather.2.Gewitter",
+          "nurZeit": null
+        }
+      ],
+      "ereignisse": [
+        {
+          "ereignis": "Flut",
+          "beschreibung": "Zyklisch alle 4 Minuten: Wasserspiegel +1 m, Lagunenfische +30 %, Wurfweite zur Kante +10 %."
+        },
+        {
+          "ereignis": "Ebbe",
+          "beschreibung": "Zyklisch alle 4 Minuten: Gezeitentümpel als Extra-Zone (Gewöhnliche +50 %), Riffkante schwerer erreichbar."
+        },
+        {
+          "ereignis": "Vollmond",
+          "beschreibung": "Vollmondnacht."
+        },
+        {
+          "ereignis": "Korallenbluete",
+          "beschreibung": "Seltene Vollmondnacht (1 von 3 Vollmonden): rosa Laichpartikel steigen auf, Episch ×2. Bedingung für den Korallendrachen."
+        },
+        {
+          "ereignis": "DelfinBesuch",
+          "beschreibung": "Delfine treiben einen Schwarm zusammen: 20 s Gewöhnliche ×3."
+        }
+      ],
+      "fish": [
+        "F021",
+        "F022",
+        "F023",
+        "F024",
+        "F025",
+        "F026",
+        "F027",
+        "F028",
+        "F029",
+        "F030",
+        "F031",
+        "F032",
+        "F033",
+        "F034",
+        "F035",
+        "F036",
+        "F037",
+        "F038",
+        "F039",
+        "F040"
+      ],
+      "boss": "F040"
+    },
+    {
+      "id": "W3",
+      "index": 3,
+      "kuerzel": "fjord",
+      "nameKey": "world.3.name",
+      "name": "Frostfjord",
+      "nameEn": "Frost Fjord",
+      "muenzfaktor": 2,
+      "leitfarben": [
+        "#EAF6FF",
+        "#A9D6F5",
+        "#4F9DDE",
+        "#12355B",
+        "#0A1A2F",
+        "#5CFFB0",
+        "#B57BFF",
+        "#F2B5D4"
+      ],
+      "minTiefeM": 0,
+      "maxTiefeM": 70,
+      "schichten": [
+        {
+          "name": "Eisloch",
+          "minM": 0,
+          "maxM": 5
+        },
+        {
+          "name": "Kaltwasser",
+          "minM": 5,
+          "maxM": 20
+        },
+        {
+          "name": "Eisbergwurzeln",
+          "minM": 20,
+          "maxM": 40
+        },
+        {
+          "name": "Fjordgrund",
+          "minM": 40,
+          "maxM": 70
+        }
+      ],
+      "uferEndeM": 6,
+      "freiwasserEndeM": 15,
+      "mechanik": "EisloecherUndFrost",
+      "schillerndRegel": "Polarlicht",
+      "wetter": [
+        {
+          "wetter": "Sonnig",
+          "gewicht": 30,
+          "anzeigename": "Klar",
+          "anzeigenameEn": "Clear",
+          "displayNameKey": "weather.3.Sonnig",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Bewoelkt",
+          "gewicht": 25,
+          "anzeigename": "Bewölkt",
+          "anzeigenameEn": "Cloudy",
+          "displayNameKey": "weather.3.Bewoelkt",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Schnee",
+          "gewicht": 25,
+          "anzeigename": "Schnee",
+          "anzeigenameEn": "Snow",
+          "displayNameKey": "weather.3.Schnee",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Schneesturm",
+          "gewicht": 10,
+          "anzeigename": "Schneesturm",
+          "anzeigenameEn": "Blizzard",
+          "displayNameKey": "weather.3.Schneesturm",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Nebel",
+          "gewicht": 10,
+          "anzeigename": "Eisnebel",
+          "anzeigenameEn": "Ice fog",
+          "displayNameKey": "weather.3.Nebel",
+          "nurZeit": null
+        }
+      ],
+      "ereignisse": [
+        {
+          "ereignis": "Polarlicht",
+          "beschreibung": "25 % aller Nächte: Polarlicht-Fische erscheinen, Episch +50 %, Wasser schimmert grün-violett."
+        },
+        {
+          "ereignis": "Walgesang",
+          "beschreibung": "Ein Wal zieht vorbei: alle Fische fliehen 10 s nach oben (Tiefe −10 m für alle Spawns)."
+        },
+        {
+          "ereignis": "Eisbergkalbung",
+          "beschreibung": "Ein Brocken stürzt ins Wasser: Welle, Wurfweite −20 % für 15 s, danach Fressrausch."
+        }
+      ],
+      "fish": [
+        "F041",
+        "F042",
+        "F043",
+        "F044",
+        "F045",
+        "F046",
+        "F047",
+        "F048",
+        "F049",
+        "F050",
+        "F051",
+        "F052",
+        "F053",
+        "F054",
+        "F055",
+        "F056",
+        "F057",
+        "F058",
+        "F059",
+        "F060"
+      ],
+      "boss": "F060"
+    },
+    {
+      "id": "W4",
+      "index": 4,
+      "kuerzel": "tiefe",
+      "nameKey": "world.4.name",
+      "name": "Leuchtende Tiefe",
+      "nameEn": "Glowing Deep",
+      "muenzfaktor": 2.6,
+      "leitfarben": [
+        "#050A1F",
+        "#1B1446",
+        "#3A1C71",
+        "#00F5D4",
+        "#7CFF6B",
+        "#F15BB5",
+        "#FEE440",
+        "#9AA0B5"
+      ],
+      "minTiefeM": 0,
+      "maxTiefeM": 11000,
+      "schichten": [
+        {
+          "name": "Dämmerzone",
+          "minM": 200,
+          "maxM": 1000
+        },
+        {
+          "name": "Mitternachtszone",
+          "minM": 1000,
+          "maxM": 4000
+        },
+        {
+          "name": "Abgrundzone",
+          "minM": 4000,
+          "maxM": 6000
+        },
+        {
+          "name": "Tiefseegraben",
+          "minM": 6000,
+          "maxM": 11000
+        }
+      ],
+      "uferEndeM": 6,
+      "freiwasserEndeM": 15,
+      "mechanik": "DunkelheitUndDruck",
+      "schillerndRegel": "Sonnenlicht",
+      "wetter": [
+        {
+          "wetter": "Sonnig",
+          "gewicht": 40,
+          "anzeigename": "Ruhige See",
+          "anzeigenameEn": "Calm sea",
+          "displayNameKey": "weather.4.Sonnig",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Duenung",
+          "gewicht": 30,
+          "anzeigename": "Dünung",
+          "anzeigenameEn": "Swell",
+          "displayNameKey": "weather.4.Duenung",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Sturm",
+          "gewicht": 15,
+          "anzeigename": "Sturm",
+          "anzeigenameEn": "Storm",
+          "displayNameKey": "weather.4.Sturm",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Nebel",
+          "gewicht": 15,
+          "anzeigename": "Seenebel",
+          "anzeigenameEn": "Sea fog",
+          "displayNameKey": "weather.4.Nebel",
+          "nurZeit": null
+        }
+      ],
+      "ereignisse": [
+        {
+          "ereignis": "Meeresschnee",
+          "beschreibung": "Grundfische +50 %, glitzernde Partikel."
+        },
+        {
+          "ereignis": "BiolumineszenzWelle",
+          "beschreibung": "60 s: Alles im Wasser leuchtet auf, volle Sicht, Episch ×2."
+        },
+        {
+          "ereignis": "SchwarzerRaucher",
+          "beschreibung": "Schwarzer-Raucher-Ausbruch: rotes Glühen im Graben. Luminas Bedingung."
+        },
+        {
+          "ereignis": "Walfall",
+          "beschreibung": "Walfall-Festmahl: Am Walskelett Grenadierfische ×3 und Schlinger ×2."
+        }
+      ],
+      "fish": [
+        "F061",
+        "F062",
+        "F063",
+        "F064",
+        "F065",
+        "F066",
+        "F067",
+        "F068",
+        "F069",
+        "F070",
+        "F071",
+        "F072",
+        "F073",
+        "F074",
+        "F075",
+        "F076",
+        "F077",
+        "F078",
+        "F079",
+        "F080"
+      ],
+      "boss": "F080"
+    },
+    {
+      "id": "W5",
+      "index": 5,
+      "kuerzel": "grotte",
+      "nameKey": "world.5.name",
+      "name": "Glutgrotte",
+      "nameEn": "Ember Grotto",
+      "muenzfaktor": 3.2,
+      "leitfarben": [
+        "#1A1015",
+        "#3B2A2F",
+        "#D7263D",
+        "#F46036",
+        "#FFB627",
+        "#7D6E6E",
+        "#C5D86D",
+        "#8E44AD"
+      ],
+      "minTiefeM": 0,
+      "maxTiefeM": 60,
+      "schichten": [
+        {
+          "name": "Thermalbecken",
+          "minM": 0,
+          "maxM": 5
+        },
+        {
+          "name": "Schwefelschlote",
+          "minM": 5,
+          "maxM": 20
+        },
+        {
+          "name": "Kristallhöhlen",
+          "minM": 20,
+          "maxM": 40
+        },
+        {
+          "name": "Magmakammer (Glutsee)",
+          "minM": 40,
+          "maxM": 60
+        }
+      ],
+      "uferEndeM": 6,
+      "freiwasserEndeM": 15,
+      "mechanik": "HitzeUndAusbrueche",
+      "schillerndRegel": "Frost",
+      "wetter": [
+        {
+          "wetter": "Sonnig",
+          "gewicht": 45,
+          "anzeigename": "Ruhig",
+          "anzeigenameEn": "Calm",
+          "displayNameKey": "weather.5.Sonnig",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Dampfnebel",
+          "gewicht": 25,
+          "anzeigename": "Dampfnebel",
+          "anzeigenameEn": "Steam fog",
+          "displayNameKey": "weather.5.Dampfnebel",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Aschenregen",
+          "gewicht": 20,
+          "anzeigename": "Aschenregen",
+          "anzeigenameEn": "Ash rain",
+          "displayNameKey": "weather.5.Aschenregen",
+          "nurZeit": null
+        },
+        {
+          "wetter": "Erdbeben",
+          "gewicht": 10,
+          "anzeigename": "Erdbeben",
+          "anzeigenameEn": "Earthquake",
+          "displayNameKey": "weather.5.Erdbeben",
+          "nurZeit": null
+        }
+      ],
+      "ereignisse": [
+        {
+          "ereignis": "Ausbruch",
+          "beschreibung": "Alle 2–4 Min: 10 s Grollen, dann 30 s Ausbruch – Lavabomben, Bissrate ×2, Glutfische 15 m höher."
+        },
+        {
+          "ereignis": "GrosserAusbruch",
+          "beschreibung": "Selten, max. 1× pro 16 Min, nachts: Der ganze Glutsee erstrahlt. Ignaris' Bedingung."
+        },
+        {
+          "ereignis": "Runennacht",
+          "beschreibung": "Mitternacht: Die Statuenaugen leuchten violett, mystische Fische +50 %."
+        }
+      ],
+      "fish": [
+        "F081",
+        "F082",
+        "F083",
+        "F084",
+        "F085",
+        "F086",
+        "F087",
+        "F088",
+        "F089",
+        "F090",
+        "F091",
+        "F092",
+        "F093",
+        "F094",
+        "F095",
+        "F096",
+        "F097",
+        "F098",
+        "F099",
+        "F100"
+      ],
+      "boss": "F100"
+    }
+  ]
+}

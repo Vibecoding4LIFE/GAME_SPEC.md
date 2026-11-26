@@ -61,6 +61,66 @@ export type RodAbility = (typeof ROD_ABILITIES)[number];
 export const UNLOCK_SOURCES = ['Start', 'Shop', 'Sammlung', 'Komplett'] as const;
 export type UnlockSource = (typeof UNLOCK_SOURCES)[number];
 
+// ---- Ergänzungen aus docs/datenvertrag.md (daten-designer) ----
+export const WORLD_IDS = ['W1', 'W2', 'W3', 'W4', 'W5'] as const;
+
+/** Kürzel je Welt für Asset-Pfade und Asset-Keys (datenvertrag.md §3/§4). */
+export const WORLD_KUERZEL = { W1: 'see', W2: 'riff', W3: 'fjord', W4: 'tiefe', W5: 'grotte' } as const;
+export type WorldKuerzel = (typeof WORLD_KUERZEL)[keyof typeof WORLD_KUERZEL];
+
+export const BODY_SHAPES = [
+  'schlank', 'normal', 'hochrueckig', 'rund', 'torpedo', 'aal', 'scheibe', 'rochen', 'plattfisch',
+  'seepferdchen', 'kugel', 'band', 'kopflastig',
+] as const;
+export type BodyShape = (typeof BODY_SHAPES)[number];
+
+export const TAIL_SHAPES = ['gegabelt', 'rund', 'sichel', 'gerade', 'hai', 'saum', 'spitz', 'dreiteilig'] as const;
+export type TailShape = (typeof TAIL_SHAPES)[number];
+
+export const PATTERNS = [
+  'keins', 'querstreifen', 'laengsband', 'punkte', 'flecken', 'netz', 'sattel', 'marmor', 'ringe',
+  'schuppen', 'platten', 'leuchtpunkte', 'risse', 'hexagon', 'wellen',
+] as const;
+export type Pattern = (typeof PATTERNS)[number];
+
+/** Bevorzugte Merkmal-Tags (frei erweiterbar, siehe datenvertrag.md §1). */
+export const PREFERRED_FEATURES = [
+  'barteln', 'zaehne', 'horn', 'schnauze_lang', 'maul_gross', 'stacheln', 'segel', 'kristalle', 'flammen',
+  'leuchtangel', 'glupschaugen', 'krone', 'moos', 'fettflosse', 'haken', 'froschbeine', 'blume', 'tentakel',
+  'kuppel', 'hauer',
+] as const;
+
+/** Köder-IDs aus Teil D 3.3. */
+export const BAIT_IDS = [
+  'K01', 'K02', 'K03', 'K04', 'K05', 'K06', 'K07', 'K08', 'K09', 'K10', 'K11', 'K12', 'K13', 'K14',
+] as const;
+
+/** Pflicht-/ODER-Bedingungen dürfen Wetter- oder Ereignis-Schlüssel sein. */
+export type SpawnCondition = Weather | WorldEvent;
+
+/** Sprite-Clips je Fisch (datenvertrag.md §4). `framesS` gilt für Größenklasse S. */
+export const SPRITE_CLIPS = {
+  swim: { frames: 6, framesS: 4, fps: 10 },
+  idle: { frames: 4, framesS: 4, fps: 6 },
+  struggle: { frames: 4, framesS: 4, fps: 14 },
+  caught: { frames: 3, framesS: 3, fps: 8 },
+} as const;
+export type SpriteClip = keyof typeof SPRITE_CLIPS;
+
+/** Canvas-Größe je Größenklasse (Teil E 5.0). */
+export const CANVAS_BY_SIZE: Record<SizeClass, Size> = {
+  S: { w: 32, h: 16 }, M: { w: 64, h: 32 }, L: { w: 96, h: 48 }, XL: { w: 128, h: 64 }, Boss: { w: 256, h: 128 },
+};
+
+export interface FishArt {
+  bodyShape: BodyShape;
+  tailShape: TailShape;
+  pattern: Pattern;
+  colors: string[];               // Rücken/Haupt · Bauch · Muster/Akzent · Flossen · (Iris)
+  shinyColors: string[];          // gleiche Reihenfolge
+  features: string[];             // Merkmal-Tags
+}
+
 // ID-Typen
 export type FishId = `F${string}`;   export type WorldId = `W${1 | 2 | 3 | 4 | 5}`;
 export type RodId = string;          export type LineId = string;
@@ -136,6 +196,17 @@ export interface FishData {
   // Wert
   basePoints: number;             // = Basis-Verkaufswert
   xpOverride: number;             // <0 = aus Seltenheit; Standard -1
+
+  // ---- Ergänzungen aus docs/datenvertrag.md ----
+  slug: string;                   // "hecht", "der-alte-barnabas"
+  worldKuerzel: WorldKuerzel;     // "see"
+  assetKey: string;               // "fish_see_014_hecht" (Präfix aller Frame-Namen)
+  atlasKey: string;               // "atlas_fish_see" (Phaser-Texture-Key des Welt-Atlas)
+  idleFrames: string[];
+  caughtFrames: string[];
+  /** Alternative Pflicht-Bedingungen (DNF): äußeres Array = ODER, inneres = UND. [] = keine. */
+  requiredAny: SpawnCondition[][];
+  art: FishArt;
 }
 
 export interface BossPhase {

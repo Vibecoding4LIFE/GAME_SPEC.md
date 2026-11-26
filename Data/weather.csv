@@ -1,0 +1,23 @@
+welt;wetter;gewicht;anzeigename_de;anzeigename_en;nur_zeit
+W1;Sonnig;40;Sonnig;Sunny;
+W1;Bewoelkt;25;Bewölkt;Cloudy;
+W1;Regen;20;Regen;Rain;
+W1;Gewitter;10;Gewitter;Thunderstorm;
+W1;Nebel;5;Morgennebel;Morning fog;Morgen
+W2;Sonnig;50;Sonnig;Sunny;
+W2;Bewoelkt;20;Bewölkt;Cloudy;
+W2;Regen;20;Tropenschauer;Tropical shower;
+W2;Gewitter;10;Gewitter;Thunderstorm;
+W3;Sonnig;30;Klar;Clear;
+W3;Bewoelkt;25;Bewölkt;Cloudy;
+W3;Schnee;25;Schnee;Snow;
+W3;Schneesturm;10;Schneesturm;Blizzard;
+W3;Nebel;10;Eisnebel;Ice fog;
+W4;Sonnig;40;Ruhige See;Calm sea;
+W4;Duenung;30;Dünung;Swell;
+W4;Sturm;15;Sturm;Storm;
+W4;Nebel;15;Seenebel;Sea fog;
+W5;Sonnig;45;Ruhig;Calm;
+W5;Dampfnebel;25;Dampfnebel;Steam fog;
+W5;Aschenregen;20;Aschenregen;Ash rain;
+W5;Erdbeben;10;Erdbeben;Earthquake;
