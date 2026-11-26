@@ -1,0 +1,15 @@
+{
+  "app.title": "Bait Kings",
+  "boot.loading": "Loading …",
+  "boot.tapToStart": "Tap to start",
+  "test.title": "Test tank: {world}",
+  "test.fishCount": "{count} fish|{count} fish",
+  "test.hint": "Pixel test · zoom ×{zoom}",
+  "world.1.name": "Sunmirror Lake",
+  "world.2.name": "Rainbow Reef",
+  "world.3.name": "Frost Fjord",
+  "world.4.name": "Glowing Deep",
+  "world.5.name": "Ember Grotto",
+  "ui.fullscreen": "Toggle fullscreen",
+  "test.loadError": "Could not load data."
+}

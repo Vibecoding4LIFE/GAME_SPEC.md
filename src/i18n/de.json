@@ -1,0 +1,15 @@
+{
+  "app.title": "Köderkönige",
+  "boot.loading": "Lädt …",
+  "boot.tapToStart": "Tippe, um zu starten",
+  "test.title": "Testbecken: {world}",
+  "test.fishCount": "{count} Fisch|{count} Fische",
+  "test.hint": "Pixel-Test · Zoom ×{zoom}",
+  "world.1.name": "Sonnenspiegelsee",
+  "world.2.name": "Regenbogenriff",
+  "world.3.name": "Frostfjord",
+  "world.4.name": "Leuchtende Tiefe",
+  "world.5.name": "Glutgrotte",
+  "ui.fullscreen": "Vollbild umschalten",
+  "test.loadError": "Daten konnten nicht geladen werden."
+}
