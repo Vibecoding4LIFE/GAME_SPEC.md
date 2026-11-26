@@ -1,0 +1,130 @@
+{
+  "kuerzel": "see",
+  "leitfarben": [
+    "#8FD3F4",
+    "#3FA7A3",
+    "#1E5F5B",
+    "#12342F",
+    "#6BA34A",
+    "#8A5A33",
+    "#F4A6C1",
+    "#FFE066"
+  ],
+  "ramps": [
+    {
+      "name": "Himmelblau",
+      "base": "#8FD3F4",
+      "colors": [
+        "#407DBC",
+        "#569ACF",
+        "#71B7E1",
+        "#8FD3F4"
+      ]
+    },
+    {
+      "name": "Seetuerkis",
+      "base": "#3FA7A3",
+      "colors": [
+        "#1A6F78",
+        "#138C90",
+        "#3FA7A3",
+        "#67C2B6"
+      ]
+    },
+    {
+      "name": "Tiefgruen",
+      "base": "#1E5F5B",
+      "colors": [
+        "#084647",
+        "#1E5F5B",
+        "#3E786E",
+        "#5B9182"
+      ]
+    },
+    {
+      "name": "Grundschatten",
+      "base": "#12342F",
+      "colors": [
+        "#12342F",
+        "#2A4B42",
+        "#426256",
+        "#5C7B6A"
+      ]
+    },
+    {
+      "name": "Schilfgruen",
+      "base": "#6BA34A",
+      "colors": [
+        "#0C7332",
+        "#3A8D34",
+        "#6BA34A",
+        "#94BA61"
+      ]
+    },
+    {
+      "name": "Stegholz",
+      "base": "#8A5A33",
+      "colors": [
+        "#763E16",
+        "#8A5A33",
+        "#A0754B",
+        "#B69264"
+      ]
+    },
+    {
+      "name": "Seerosenrosa",
+      "base": "#F4A6C1",
+      "colors": [
+        "#A15090",
+        "#BE6C9F",
+        "#D988AF",
+        "#F4A6C1"
+      ]
+    },
+    {
+      "name": "Sonnengelb",
+      "base": "#FFE066",
+      "colors": [
+        "#C1820C",
+        "#D7A02C",
+        "#F0BE2C",
+        "#FFE066"
+      ]
+    }
+  ],
+  "colors": [
+    "#407DBC",
+    "#569ACF",
+    "#71B7E1",
+    "#8FD3F4",
+    "#1A6F78",
+    "#138C90",
+    "#3FA7A3",
+    "#67C2B6",
+    "#084647",
+    "#1E5F5B",
+    "#3E786E",
+    "#5B9182",
+    "#12342F",
+    "#2A4B42",
+    "#426256",
+    "#5C7B6A",
+    "#0C7332",
+    "#3A8D34",
+    "#6BA34A",
+    "#94BA61",
+    "#763E16",
+    "#8A5A33",
+    "#A0754B",
+    "#B69264",
+    "#A15090",
+    "#BE6C9F",
+    "#D988AF",
+    "#F4A6C1",
+    "#C1820C",
+    "#D7A02C",
+    "#F0BE2C",
+    "#FFE066"
+  ],
+  "count": 32
+}

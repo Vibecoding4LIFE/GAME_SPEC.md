@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2306761778,
+  "fishId": "F027",
+  "assetKey": "fish_riff_027_blaupunktrochen",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "rochen",
+    "schwanz": "spitz",
+    "muster": "punkte",
+    "merkmale": [],
+    "scale_px_per_unit": 44.83,
+    "eye_size": 4,
+    "vb": 0.86,
+    "leuchtet": false,
+    "palette_base": [
+      "#C9A15A",
+      "#F2E2B8",
+      "#2E8FE0",
+      "#A8823E",
+      "#E8B830"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#9C6116",
+      "#B58032",
+      "#C9A15A",
+      "#DFC27C",
+      "#F8E29E"
+    ],
+    "belly": [
+      "#9F9960",
+      "#C8BD8B",
+      "#F2E2B8"
+    ],
+    "acc": [
+      "#0B3B9E",
+      "#0D65C2",
+      "#2E8FE0"
+    ],
+    "fin": [
+      "#885C17",
+      "#A8823E",
+      "#C7AA68"
+    ],
+    "iris": [
+      "#E8B830"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

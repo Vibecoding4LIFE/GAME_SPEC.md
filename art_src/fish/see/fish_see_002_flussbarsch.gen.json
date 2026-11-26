@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 42481310,
+  "fishId": "F002",
+  "assetKey": "fish_see_002_flussbarsch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 21.515,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#5B6B2F",
+      "#E2C65A",
+      "#2E3418",
+      "#E4572E",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#353402",
+      "#494F0C",
+      "#5B6B2F",
+      "#7C8449",
+      "#9E9E64"
+    ],
+    "belly": [
+      "#BA9220",
+      "#E2C65A"
+    ],
+    "acc": [
+      "#2E3418",
+      "#595B3D"
+    ],
+    "fin": [
+      "#E4572E",
+      "#FB9F78"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

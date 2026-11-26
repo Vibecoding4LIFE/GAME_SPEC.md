@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4221724610,
+  "fishId": "F015",
+  "assetKey": "fish_see_015_sterlet",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "hai",
+    "muster": "platten",
+    "merkmale": [
+      "barteln",
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 61.585,
+    "eye_size": 6,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#6E6250",
+      "#E2D29A",
+      "#E8E0C8",
+      "#7A6A58",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#343232",
+      "#504941",
+      "#6E6250",
+      "#887D68",
+      "#A29A81"
+    ],
+    "belly": [
+      "#A6803E",
+      "#C3A96B",
+      "#E2D29A"
+    ],
+    "acc": [
+      "#949493",
+      "#BDB9AD",
+      "#E8E0C8"
+    ],
+    "fin": [
+      "#534942",
+      "#7A6A58",
+      "#9D8E78"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

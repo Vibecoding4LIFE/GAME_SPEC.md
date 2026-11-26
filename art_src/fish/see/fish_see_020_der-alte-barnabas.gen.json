@@ -1,0 +1,101 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1234839494,
+  "fishId": "F020",
+  "assetKey": "fish_see_020_der-alte-barnabas",
+  "klasse": "Boss",
+  "canvas": [
+    256,
+    128
+  ],
+  "seltenheit": "legendaer",
+  "boss": true,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "merkmale": [
+      "krone",
+      "zaehne",
+      "haken",
+      "moos"
+    ],
+    "scale_px_per_unit": 205.946,
+    "eye_size": 9,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3F5A2A",
+      "#D8D2A8",
+      "#C9A84A",
+      "#6A4A2A",
+      "#F2D440"
+    ]
+  },
+  "farbenGenutzt": 24,
+  "farbLimit": 24,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#09290F",
+      "#22411B",
+      "#3F5A2A",
+      "#5F7341",
+      "#808C59"
+    ],
+    "belly": [
+      "#67773C",
+      "#8D945E",
+      "#B3B282",
+      "#D8D2A8"
+    ],
+    "acc": [
+      "#8F6313",
+      "#AE8425",
+      "#C9A84A",
+      "#E7CB75"
+    ],
+    "fin": [
+      "#4C2E15",
+      "#6A4A2A",
+      "#866946",
+      "#A28A64"
+    ],
+    "iris": [
+      "#C7A018",
+      "#F2D440"
+    ],
+    "metal": [
+      "#8891A1",
+      "#AEB6C2",
+      "#D1DDEB"
+    ],
+    "moss": [
+      "#266C16",
+      "#5E8C3A",
+      "#8EAE5C"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": true,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

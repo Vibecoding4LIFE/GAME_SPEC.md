@@ -1,0 +1,130 @@
+{
+  "kuerzel": "tiefe",
+  "leitfarben": [
+    "#050A1F",
+    "#1B1446",
+    "#3A1C71",
+    "#00F5D4",
+    "#7CFF6B",
+    "#F15BB5",
+    "#FEE440",
+    "#9AA0B5"
+  ],
+  "ramps": [
+    {
+      "name": "Abgrundschwarz",
+      "base": "#050A1F",
+      "colors": [
+        "#050A1F",
+        "#121F35",
+        "#23354B",
+        "#354D63"
+      ]
+    },
+    {
+      "name": "Tiefindigo",
+      "base": "#1B1446",
+      "colors": [
+        "#1B1446",
+        "#34295A",
+        "#4E3F6F",
+        "#6A5683"
+      ]
+    },
+    {
+      "name": "Daemmerviolett",
+      "base": "#3A1C71",
+      "colors": [
+        "#3A1C71",
+        "#563583",
+        "#734D94",
+        "#9166A5"
+      ]
+    },
+    {
+      "name": "Biocyan",
+      "base": "#00F5D4",
+      "colors": [
+        "#1F969A",
+        "#28B3B0",
+        "#35D2C3",
+        "#00F5D4"
+      ]
+    },
+    {
+      "name": "Leuchtgruen",
+      "base": "#7CFF6B",
+      "colors": [
+        "#1FA474",
+        "#24C476",
+        "#34E56B",
+        "#7CFF6B"
+      ]
+    },
+    {
+      "name": "Quallenmagenta",
+      "base": "#F15BB5",
+      "colors": [
+        "#AB1E9E",
+        "#D237AC",
+        "#F15BB5",
+        "#F990BD"
+      ]
+    },
+    {
+      "name": "Laternengelb",
+      "base": "#FEE440",
+      "colors": [
+        "#BC871B",
+        "#D6A414",
+        "#EDC203",
+        "#FEE440"
+      ]
+    },
+    {
+      "name": "Knochengrau",
+      "base": "#9AA0B5",
+      "colors": [
+        "#656D86",
+        "#7F869D",
+        "#9AA0B5",
+        "#B7BAD1"
+      ]
+    }
+  ],
+  "colors": [
+    "#050A1F",
+    "#121F35",
+    "#23354B",
+    "#354D63",
+    "#1B1446",
+    "#34295A",
+    "#4E3F6F",
+    "#6A5683",
+    "#3A1C71",
+    "#563583",
+    "#734D94",
+    "#9166A5",
+    "#1F969A",
+    "#28B3B0",
+    "#35D2C3",
+    "#00F5D4",
+    "#1FA474",
+    "#24C476",
+    "#34E56B",
+    "#7CFF6B",
+    "#AB1E9E",
+    "#D237AC",
+    "#F15BB5",
+    "#F990BD",
+    "#BC871B",
+    "#D6A414",
+    "#EDC203",
+    "#FEE440",
+    "#656D86",
+    "#7F869D",
+    "#9AA0B5",
+    "#B7BAD1"
+  ],
+  "count": 32
+}

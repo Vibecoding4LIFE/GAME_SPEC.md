@@ -1,0 +1,383 @@
+{
+ "frames": {
+  "fish_fjord_049_atlantischer-heilbutt_swim_0": {
+   "frame": {
+    "x": 203,
+    "y": 107,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_swim_1": {
+   "frame": {
+    "x": 303,
+    "y": 107,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_swim_2": {
+   "frame": {
+    "x": 403,
+    "y": 107,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_swim_3": {
+   "frame": {
+    "x": 3,
+    "y": 159,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_swim_4": {
+   "frame": {
+    "x": 103,
+    "y": 159,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_swim_5": {
+   "frame": {
+    "x": 203,
+    "y": 159,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_idle_0": {
+   "frame": {
+    "x": 303,
+    "y": 3,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_idle_1": {
+   "frame": {
+    "x": 403,
+    "y": 3,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_idle_2": {
+   "frame": {
+    "x": 3,
+    "y": 55,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_idle_3": {
+   "frame": {
+    "x": 103,
+    "y": 55,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_struggle_0": {
+   "frame": {
+    "x": 303,
+    "y": 55,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_struggle_1": {
+   "frame": {
+    "x": 403,
+    "y": 55,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_struggle_2": {
+   "frame": {
+    "x": 3,
+    "y": 107,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_struggle_3": {
+   "frame": {
+    "x": 103,
+    "y": 107,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_caught_0": {
+   "frame": {
+    "x": 3,
+    "y": 3,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_caught_1": {
+   "frame": {
+    "x": 103,
+    "y": 3,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_caught_2": {
+   "frame": {
+    "x": 203,
+    "y": 3,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  },
+  "fish_fjord_049_atlantischer-heilbutt_silhouette_0": {
+   "frame": {
+    "x": 203,
+    "y": 55,
+    "w": 96,
+    "h": 48
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 48
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 48
+   }
+  }
+ },
+ "meta": {
+  "app": "tools/art/pack.py",
+  "version": "0.3.0",
+  "image": "atlas_fish_fjord.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 512,
+   "h": 256
+  },
+  "scale": "1",
+  "padding": 2,
+  "extrude": 1,
+  "clips": {
+   "swim": 10,
+   "idle": 6,
+   "struggle": 14,
+   "caught": 8
+  }
+ }
+}

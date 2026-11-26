@@ -1,0 +1,84 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3974829076,
+  "fishId": "F017",
+  "assetKey": "fish_see_017_gluehwuermchen-barsch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 48.614,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#1E2F5C",
+      "#6E86B8",
+      "#D6F25A",
+      "#2A3F78",
+      "#E8F070"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#121A33",
+      "#1E2F5C",
+      "#2F4A75",
+      "#43668D",
+      "#5983A6"
+    ],
+    "belly": [
+      "#4D6198",
+      "#6E86B8",
+      "#8DADDC"
+    ],
+    "acc": [
+      "#A39A18",
+      "#BFC50D",
+      "#D6F25A"
+    ],
+    "fin": [
+      "#162246",
+      "#2A3F78",
+      "#426499"
+    ],
+    "iris": [
+      "#E8F070"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

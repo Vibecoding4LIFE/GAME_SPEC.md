@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4114262840,
+  "fishId": "F032",
+  "assetKey": "fish_riff_032_zebramuraene",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "saum",
+    "muster": "ringe",
+    "merkmale": [
+      "zaehne"
+    ],
+    "scale_px_per_unit": 85.449,
+    "eye_size": 6,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#4A2E1E",
+      "#6A4630",
+      "#F0E8DC",
+      "#3E2618",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#271C18",
+      "#4A2E1E",
+      "#634733",
+      "#7C624A",
+      "#957E62"
+    ],
+    "belly": [
+      "#462719",
+      "#6A4630",
+      "#8C694F"
+    ],
+    "acc": [
+      "#9B9CA2",
+      "#C5C1BF",
+      "#F0E8DC"
+    ],
+    "fin": [
+      "#160F0C",
+      "#3E2618",
+      "#5E4634"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "kuerzel": "fjord",
+  "leitfarben": [
+    "#EAF6FF",
+    "#A9D6F5",
+    "#4F9DDE",
+    "#12355B",
+    "#0A1A2F",
+    "#5CFFB0",
+    "#B57BFF",
+    "#F2B5D4"
+  ],
+  "ramps": [
+    {
+      "name": "Schneeweiss",
+      "base": "#EAF6FF",
+      "colors": [
+        "#96A3BA",
+        "#B1BED1",
+        "#CDDAE8",
+        "#EAF6FF"
+      ]
+    },
+    {
+      "name": "Frostblau",
+      "base": "#A9D6F5",
+      "colors": [
+        "#5E81B9",
+        "#749DCD",
+        "#8DBAE1",
+        "#A9D6F5"
+      ]
+    },
+    {
+      "name": "Gletscherblau",
+      "base": "#4F9DDE",
+      "colors": [
+        "#2C61B9",
+        "#3A7FCC",
+        "#4F9DDE",
+        "#66BBF2"
+      ]
+    },
+    {
+      "name": "Polarnacht",
+      "base": "#12355B",
+      "colors": [
+        "#12355B",
+        "#244E71",
+        "#386786",
+        "#4E829C"
+      ]
+    },
+    {
+      "name": "Fjordschwarzblau",
+      "base": "#0A1A2F",
+      "colors": [
+        "#0A1A2F",
+        "#1A3045",
+        "#2C475C",
+        "#406073"
+      ]
+    },
+    {
+      "name": "Polarlichtgruen",
+      "base": "#5CFFB0",
+      "colors": [
+        "#28A18E",
+        "#1BC19D",
+        "#3BE0A9",
+        "#5CFFB0"
+      ]
+    },
+    {
+      "name": "Polarlichtviolett",
+      "base": "#B57BFF",
+      "colors": [
+        "#6D44E2",
+        "#9160F1",
+        "#B57BFF",
+        "#D39EFD"
+      ]
+    },
+    {
+      "name": "Daemmerrosa",
+      "base": "#F2B5D4",
+      "colors": [
+        "#9E629F",
+        "#BA7CB0",
+        "#D798C1",
+        "#F2B5D4"
+      ]
+    }
+  ],
+  "colors": [
+    "#96A3BA",
+    "#B1BED1",
+    "#CDDAE8",
+    "#EAF6FF",
+    "#5E81B9",
+    "#749DCD",
+    "#8DBAE1",
+    "#A9D6F5",
+    "#2C61B9",
+    "#3A7FCC",
+    "#4F9DDE",
+    "#66BBF2",
+    "#12355B",
+    "#244E71",
+    "#386786",
+    "#4E829C",
+    "#0A1A2F",
+    "#1A3045",
+    "#2C475C",
+    "#406073",
+    "#28A18E",
+    "#1BC19D",
+    "#3BE0A9",
+    "#5CFFB0",
+    "#6D44E2",
+    "#9160F1",
+    "#B57BFF",
+    "#D39EFD",
+    "#9E629F",
+    "#BA7CB0",
+    "#D798C1",
+    "#F2B5D4"
+  ],
+  "count": 32
+}

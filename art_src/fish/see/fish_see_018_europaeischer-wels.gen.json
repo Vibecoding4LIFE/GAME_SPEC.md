@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2638530421,
+  "fishId": "F018",
+  "assetKey": "fish_see_018_europaeischer-wels",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "marmor",
+    "merkmale": [
+      "barteln",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 104.603,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#4A4F3E",
+      "#C9C2A8",
+      "#2E3226",
+      "#3E4234",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1B1F1F",
+      "#313630",
+      "#4A4F3E",
+      "#656854",
+      "#83826C"
+    ],
+    "belly": [
+      "#9F9D8F",
+      "#C9C2A8",
+      "#F2E9CD"
+    ],
+    "acc": [
+      "#121413",
+      "#2E3226",
+      "#4F5142"
+    ],
+    "fin": [
+      "#202320",
+      "#3E4234",
+      "#606351"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 16,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

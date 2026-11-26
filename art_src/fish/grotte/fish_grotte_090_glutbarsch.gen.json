@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4037769169,
+  "fishId": "F090",
+  "assetKey": "fish_grotte_090_glutbarsch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "risse",
+    "merkmale": [
+      "stacheln",
+      "flammen"
+    ],
+    "scale_px_per_unit": 47.758,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#2A2024",
+      "#4A3A3A",
+      "#FFB627",
+      "#3B2A2F",
+      "#F46036"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#2A2024",
+      "#44363A",
+      "#5F4D50",
+      "#7C6668",
+      "#9B807F"
+    ],
+    "belly": [
+      "#251F22",
+      "#4A3A3A",
+      "#6D5A58"
+    ],
+    "acc": [
+      "#AF6811",
+      "#D78E1D",
+      "#FFB627"
+    ],
+    "fin": [
+      "#161115",
+      "#3B2A2F",
+      "#5E484C"
+    ],
+    "iris": [
+      "#F46036"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}
