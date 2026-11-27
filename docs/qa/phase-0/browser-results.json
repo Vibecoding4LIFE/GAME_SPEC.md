@@ -1,0 +1,343 @@
+[
+  {
+    "profile": "desktop-1280x720",
+    "kk": {
+      "layout": {
+        "orientation": "landscape",
+        "gameWidth": 640,
+        "gameHeight": 360,
+        "deviceZoom": 2,
+        "cssZoom": 2,
+        "cssWidth": 1280,
+        "cssHeight": 720
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 1,
+    "inner": [
+      1280,
+      720
+    ],
+    "canvas": {
+      "w": 640,
+      "h": 360,
+      "x": 0,
+      "y": 0,
+      "cssW": 1280,
+      "cssH": 720,
+      "styleW": "1280px",
+      "styleH": "720px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[.WebGL-0x1bb4003baa00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x1bb4003baa00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x1bb4003baa00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x1bb4003baa00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1280x720-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1280x720-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/desktop-1280x720-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "desktop-1920x1080",
+    "kk": {
+      "layout": {
+        "orientation": "landscape",
+        "gameWidth": 640,
+        "gameHeight": 360,
+        "deviceZoom": 3,
+        "cssZoom": 3,
+        "cssWidth": 1920,
+        "cssHeight": 1080
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 1,
+    "inner": [
+      1920,
+      1080
+    ],
+    "canvas": {
+      "w": 640,
+      "h": 360,
+      "x": 0,
+      "y": 0,
+      "cssW": 1920,
+      "cssH": 1080,
+      "styleW": "1920px",
+      "styleH": "1080px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 1080
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1920x1080-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1920x1080-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/desktop-1920x1080-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "desktop-1366x768-dpr1.25",
+    "kk": {
+      "layout": {
+        "orientation": "landscape",
+        "gameWidth": 640,
+        "gameHeight": 360,
+        "deviceZoom": 2,
+        "cssZoom": 1.6,
+        "cssWidth": 1024,
+        "cssHeight": 576
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 1.25,
+    "inner": [
+      1366,
+      768
+    ],
+    "canvas": {
+      "w": 640,
+      "h": 360,
+      "x": 171,
+      "y": 96,
+      "cssW": 1024,
+      "cssH": 576,
+      "styleW": "1024px",
+      "styleH": "576px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 213.75,
+      "y": 120,
+      "w": 1280,
+      "h": 720
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1366x768-dpr1.25-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/desktop-1366x768-dpr1.25-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/desktop-1366x768-dpr1.25-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "iphone13-hoch",
+    "kk": {
+      "layout": {
+        "orientation": "portrait",
+        "gameWidth": 360,
+        "gameHeight": 640,
+        "deviceZoom": 3,
+        "cssZoom": 1,
+        "cssWidth": 360,
+        "cssHeight": 640
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 3,
+    "inner": [
+      390,
+      664
+    ],
+    "canvas": {
+      "w": 360,
+      "h": 640,
+      "x": 15,
+      "y": 12,
+      "cssW": 360,
+      "cssH": 640,
+      "styleW": "",
+      "styleH": "",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 45,
+      "y": 36,
+      "w": 1080,
+      "h": 1920
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/iphone13-hoch-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/iphone13-hoch-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/iphone13-hoch-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "iphone13-quer",
+    "kk": {
+      "layout": {
+        "orientation": "landscape",
+        "gameWidth": 640,
+        "gameHeight": 360,
+        "deviceZoom": 2,
+        "cssZoom": 0.6666666666666666,
+        "cssWidth": 426.66666666666663,
+        "cssHeight": 240
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 3,
+    "inner": [
+      750,
+      342
+    ],
+    "canvas": {
+      "w": 640,
+      "h": 360,
+      "x": 161.671875,
+      "y": 51,
+      "cssW": 426.65625,
+      "cssH": 240,
+      "styleW": "426.667px",
+      "styleH": "240px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 485.015625,
+      "y": 153,
+      "w": 1279.96875,
+      "h": 720
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/iphone13-quer-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/iphone13-quer-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/iphone13-quer-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "pixel7-hoch",
+    "kk": {
+      "layout": {
+        "orientation": "portrait",
+        "gameWidth": 360,
+        "gameHeight": 640,
+        "deviceZoom": 3,
+        "cssZoom": 1.1428571428571428,
+        "cssWidth": 411.4285714285714,
+        "cssHeight": 731.4285714285713
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 2.625,
+    "inner": [
+      412,
+      839
+    ],
+    "canvas": {
+      "w": 360,
+      "h": 640,
+      "x": 0.28125,
+      "y": 53.78125,
+      "cssW": 411.421875,
+      "cssH": 731.421875,
+      "styleW": "411.429px",
+      "styleH": "731.429px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 0.73828125,
+      "y": 141.17578125,
+      "w": 1079.982421875,
+      "h": 1919.982421875
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/pixel7-hoch-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/pixel7-hoch-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/pixel7-hoch-ohne-overlay.png"
+    ]
+  },
+  {
+    "profile": "pixel7-quer",
+    "kk": {
+      "layout": {
+        "orientation": "landscape",
+        "gameWidth": 640,
+        "gameHeight": 360,
+        "deviceZoom": 2,
+        "cssZoom": 0.7619047619047619,
+        "cssWidth": 487.6190476190476,
+        "cssHeight": 274.2857142857143
+      },
+      "renderer": "webgl",
+      "ready": true,
+      "fishOnScreen": 20,
+      "errors": []
+    },
+    "dpr": 2.625,
+    "inner": [
+      863,
+      360
+    ],
+    "canvas": {
+      "w": 640,
+      "h": 360,
+      "x": 187.6875,
+      "y": 42.859375,
+      "cssW": 487.609375,
+      "cssH": 274.28125,
+      "styleW": "487.619px",
+      "styleH": "274.286px",
+      "imageRendering": "pixelated"
+    },
+    "ctxType": "webgl",
+    "devicePx": {
+      "x": 492.6796875,
+      "y": 112.505859375,
+      "w": 1279.974609375,
+      "h": 719.98828125
+    },
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "shots": [
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/pixel7-quer-a.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/pixel7-quer-b.png",
+      "/home/user/GAME_SPEC.md/docs/qa/phase-0/raster/pixel7-quer-ohne-overlay.png"
+    ]
+  }
+]
