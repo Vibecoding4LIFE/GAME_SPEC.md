@@ -1,0 +1,197 @@
+{
+  "kuerzel": "figures",
+  "hinweis": "Figuren & Ausrüstung (weltübergreifend)",
+  "ramps": [
+    {
+      "name": "Haut",
+      "base": "#E6B48C",
+      "colors": [
+        "#BD7755",
+        "#D2956F",
+        "#E6B48C",
+        "#FDD2A6"
+      ]
+    },
+    {
+      "name": "Signalrot",
+      "base": "#C8382F",
+      "colors": [
+        "#A9142B",
+        "#C8382F",
+        "#DF5F40",
+        "#F48355"
+      ]
+    },
+    {
+      "name": "Jackenblau",
+      "base": "#3A6FC4",
+      "colors": [
+        "#3050B0",
+        "#3A6FC4",
+        "#498DD8",
+        "#5DABEB"
+      ]
+    },
+    {
+      "name": "Jackengruen",
+      "base": "#4E9A3C",
+      "colors": [
+        "#178233",
+        "#4E9A3C",
+        "#7CB152",
+        "#A5C86B"
+      ]
+    },
+    {
+      "name": "Friesengelb",
+      "base": "#F2C230",
+      "colors": [
+        "#C4850D",
+        "#DAA42E",
+        "#F2C230",
+        "#FEE390"
+      ]
+    },
+    {
+      "name": "Jeans",
+      "base": "#3F5A86",
+      "colors": [
+        "#2F406E",
+        "#3F5A86",
+        "#51759D"
+      ]
+    },
+    {
+      "name": "Stroh",
+      "base": "#D9B86A",
+      "colors": [
+        "#B67910",
+        "#C79943",
+        "#D9B86A",
+        "#EFD68B"
+      ]
+    },
+    {
+      "name": "Holz",
+      "base": "#8A5A33",
+      "colors": [
+        "#763E16",
+        "#8A5A33",
+        "#A0754B",
+        "#B69264"
+      ]
+    },
+    {
+      "name": "Dunkelholz",
+      "base": "#4F2F1C",
+      "colors": [
+        "#331C13",
+        "#4F2F1C",
+        "#664730"
+      ]
+    },
+    {
+      "name": "Metall",
+      "base": "#9AA4B0",
+      "colors": [
+        "#667084",
+        "#7F8A9A",
+        "#9AA4B0",
+        "#B1C0CD"
+      ]
+    },
+    {
+      "name": "Wolke",
+      "base": "#F2EFE2",
+      "colors": [
+        "#969DAB",
+        "#B4B8BE",
+        "#D3D3D0",
+        "#F2EFE2"
+      ]
+    },
+    {
+      "name": "Froschgruen",
+      "base": "#5DAA3C",
+      "colors": [
+        "#0A753A",
+        "#0F9428",
+        "#5DAA3C",
+        "#8CC154"
+      ]
+    },
+    {
+      "name": "Himmel",
+      "base": "#8FD3F4",
+      "colors": [
+        "#569ACF",
+        "#71B7E1",
+        "#8FD3F4",
+        "#C0ECFD"
+      ]
+    },
+    {
+      "name": "Tinte",
+      "base": "#2A2230",
+      "colors": [
+        "#2A2230",
+        "#423646"
+      ]
+    }
+  ],
+  "colors": [
+    "#BD7755",
+    "#D2956F",
+    "#E6B48C",
+    "#FDD2A6",
+    "#A9142B",
+    "#C8382F",
+    "#DF5F40",
+    "#F48355",
+    "#3050B0",
+    "#3A6FC4",
+    "#498DD8",
+    "#5DABEB",
+    "#178233",
+    "#4E9A3C",
+    "#7CB152",
+    "#A5C86B",
+    "#C4850D",
+    "#DAA42E",
+    "#F2C230",
+    "#FEE390",
+    "#2F406E",
+    "#3F5A86",
+    "#51759D",
+    "#B67910",
+    "#C79943",
+    "#D9B86A",
+    "#EFD68B",
+    "#763E16",
+    "#8A5A33",
+    "#A0754B",
+    "#B69264",
+    "#331C13",
+    "#4F2F1C",
+    "#664730",
+    "#667084",
+    "#7F8A9A",
+    "#9AA4B0",
+    "#B1C0CD",
+    "#969DAB",
+    "#B4B8BE",
+    "#D3D3D0",
+    "#F2EFE2",
+    "#0A753A",
+    "#0F9428",
+    "#5DAA3C",
+    "#8CC154",
+    "#569ACF",
+    "#71B7E1",
+    "#8FD3F4",
+    "#C0ECFD",
+    "#2A2230",
+    "#423646"
+  ],
+  "count": 52
+}
