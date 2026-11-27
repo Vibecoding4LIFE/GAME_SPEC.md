@@ -1,0 +1,20 @@
+fisch_id;phase;name_de;hp_von;hp_bis;verhalten;spezial;kraft;ansage_de
+F020;1;Kraftprobe;1.0;0.7;Sprinter;Keine;7;"Barnabas reißt nach links und rechts!"
+F020;2;Ab ins Kraut;0.7;0.4;Versteckspieler;KrautHaenger;8;"Er zieht ins Krautfeld!"
+F020;3;Wutsprung;0.4;0.0;Springer;Blitzsprung;8;"Barnabas springt!"
+F040;1;Gleitflug;1.0;0.75;Brocken;Keine;8;
+F040;2;Strömungswirbel;0.75;0.5;Zickzack;StroemungsWirbel;;
+F040;3;Lichtshow;0.5;0.25;;WanderndeZone;;
+F040;4;Salto;0.25;0.0;Springer;Salto;;
+F060;1;Eisige Ruhe;1.0;0.7;Brocken;Keine;9;
+F060;2;Eisbrecher;0.7;0.45;;EislochZufrieren;;
+F060;3;Tiefensog;0.45;0.2;Taucher;Tiefensog;;
+F060;4;Frostatem;0.2;0.0;;Frostatem;;
+F080;1;Lockruf;1.0;0.7;Trickser;DreiZonen;9;"Welche Laterne ist echt?"
+F080;2;Lichtblitz;0.7;0.45;Blinker;Lichtblitz;;
+F080;3;Abgrundsog;0.45;0.2;Taucher;Keine;;
+F080;4;Schlund;0.2;0.0;Brocken|Zappler;Schlund;;
+F100;1;Glutschlängeln;1.0;0.75;Zickzack|Hitzkopf;Keine;8;
+F100;2;Feuerodem;0.75;0.5;;Feuerodem;;
+F100;3;Lavasprung;0.5;0.25;Springer;Lavabomben;;
+F100;4;Drachenzorn;0.25;0.0;;Drachenzorn;;

@@ -1,0 +1,7435 @@
+{
+  "version": 1,
+  "fish": [
+    {
+      "id": "F001",
+      "nr": 1,
+      "name": "Rotauge",
+      "basis": "Rutilus rutilus",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          10,
+          30
+        ],
+        "k": 0.012
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          8
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [
+          "K01",
+          "K02",
+          "K03"
+        ],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 10,
+      "art": {
+        "text": "Schlanker, leicht hochrückiger Körper in glänzendem Silber mit blaugrünem Rücken. Auffällig ist die leuchtend rote Iris (2-px-Ring um die Pupille). Bauch-, After- und Brustflossen sind orange-rot, die Rückenflosse grau. 1-px-Glanzkante entlang des Rückens.",
+        "schillernd": "Silber-Lavendel, Iris hellblau.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Der Klassiker. Jeder Angler fängt hier sein erstes.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F002",
+      "nr": 2,
+      "name": "Flussbarsch",
+      "basis": "Perca fluviatilis",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          10,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          2,
+          10
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig",
+          "Bewoelkt"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 15,
+      "art": {
+        "text": "Olivgrüner Rücken, goldgelbe Flanken mit 6 dunklen senkrechten Querstreifen. Zwei Rückenflossen, die vordere stachelig mit einem schwarzen Fleck am Ende. Bauch- und Afterflossen knallig orange-rot, leicht buckliger Nacken.",
+        "schillernd": "Silberkörper, lavendelfarbene Streifen, hellblaue Flossen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F003",
+      "nr": 3,
+      "name": "Brasse",
+      "basis": "Abramis brama",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          8,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend",
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 15,
+      "art": {
+        "text": "Sehr hochrückig und seitlich flach wie ein Teller. Bronze bis Messing mit dunklerem Rücken, kleiner Kopf mit rüsselartigem, nach unten zeigendem Maul, lange Afterflosse, grauviolette Flossen. Schleimiger Glanz als 2 helle Pixelreihen.",
+        "schillernd": "Perlmutt-Silber mit Lavendelglanz.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F004",
+      "nr": 4,
+      "name": "Schleie",
+      "basis": "Tinca tinca",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          50
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          3,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt",
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 20,
+      "art": {
+        "text": "Kräftiger, walziger Körper in dunklem Olivgrün mit Goldschimmer. Die winzigen Schuppen wirken glatt, also keine Schuppenpixel zeichnen. Rote Augen, zwei kleine Barteln am Maulwinkel, alle Flossen groß, rund und dunkel.",
+        "schillernd": "helles Mintsilber, rosa Augen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F005",
+      "nr": 5,
+      "name": "Ukelei",
+      "basis": "Alburnus alburnus",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          8,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          3
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          3,
+          6
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 10,
+      "art": {
+        "text": "Sehr schlank und klein. Spiegelnder Silberkörper mit Highlight-Streifen über die ganze Länge, blaugrüner Rücken, nach oben gerichtetes Maul, durchsichtig-graue Flossen. Tritt im Schwarm auf (3–6 Schatten).",
+        "schillernd": "Rosa-Gold-Spiegel.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F006",
+      "nr": 6,
+      "name": "Rotfeder",
+      "basis": "Scardinius erythrophthalmus",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          12,
+          30
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          4
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag",
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 12,
+      "art": {
+        "text": "Ähnelt dem Rotauge, hat aber goldgelbe Flanken und blutrote Flossen (alle außer der Rückenflosse). Oberständiges Maul, goldene Iris. Gold statt Silber macht sie klar von Nr. 001 unterscheidbar.",
+        "schillernd": "Weißsilber mit türkisen Flossen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F007",
+      "nr": 7,
+      "name": "Gründling",
+      "basis": "Gobio gobio",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          8,
+          18
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 12,
+      "art": {
+        "text": "Kleiner, länglicher Grundfisch, sandbraun mit einer Reihe großer dunkler Flecken an der Seite. Abgeflachter Bauch, zwei kurze Barteln, große Augen weit oben am Kopf.",
+        "schillernd": "Hellblau mit lavendelfarbenen Flecken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F008",
+      "nr": 8,
+      "name": "Sonnenbarsch",
+      "basis": "Lepomis gibbosus",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          8,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          5
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 25,
+      "art": {
+        "text": "Fast rund wie eine Münze. Orange-gelber Bauch, olivgrüne Flanken mit türkisfarbenen Wellenlinien, ein auffälliger schwarzer „Ohrfleck“ mit roter Spitze am Kiemendeckel, stachelige Rückenflosse. Lexikon: „Kam aus Nordamerika und hat sich einfach breitgemacht.“",
+        "schillernd": "Silber, pinke Wellen, lila Ohrfleck.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Kam aus Nordamerika und hat sich einfach breitgemacht.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F009",
+      "nr": 9,
+      "name": "Schuppenkarpfen",
+      "basis": "Cyprinus carpio",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          90
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen",
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 50,
+      "art": {
+        "text": "Kräftig und hochrückig mit großen, klar abgesetzten Schuppen in Bronze-Gold. Jede Schuppe ist ein kleiner Bogen mit heller Kante. Dunkler Rücken, 4 Barteln am rüsselartigen Maul, lange Rückenflosse, rotbraune Bauchflossen.",
+        "schillernd": "„Mondkarpfen“, Silberschuppen mit Lavendelkanten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F010",
+      "nr": 10,
+      "name": "Zander",
+      "basis": "Sander lucioperca",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          90
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          8,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend",
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt",
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Taucher",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 60,
+      "art": {
+        "text": "Langgestreckt, graugrün mit dunklen, verwaschenen Querbinden, weißer Bauch, zwei getrennte Rückenflossen mit Punktreihen. Große glasig-reflektierende Augen mit hellem Ring, der nachts leicht leuchtet. Spitze Fangzähne (2 helle Pixel). Zahnfisch.",
+        "schillernd": "Blassblau, silberne Binden, pink leuchtende Augen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F011",
+      "nr": 11,
+      "name": "Europäischer Aal",
+      "basis": "Anguilla anguilla",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          100
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Regen",
+          "Gewitter"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 55,
+      "art": {
+        "text": "Schlangenförmig, als sanfte S-Kurve gezeichnet. Dunkel-olivbrauner Rücken, gelblicher Bauch. Rücken-, Schwanz- und Afterflosse sind zu einem durchgehenden Flossensaum verschmolzen. Kleiner Kopf, Unterkiefer leicht vorstehend, schleimiger Glanz als 1-px-Linie.",
+        "schillernd": "Silberaal mit hellblauem Saum.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F012",
+      "nr": 12,
+      "name": "Regenbogenforelle",
+      "basis": "Oncorhynchus mykiss",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          2,
+          8
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Regen",
+          "Bewoelkt"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 60,
+      "art": {
+        "text": "Stromlinienförmig und silbern mit einem rosa-violetten Längsband („Regenbogen“) von den Kiemen bis zum Schwanz. Übersät mit kleinen schwarzen Punkten, auch auf Rücken- und Schwanzflosse. Olivgrüner Rücken, kleine Fettflosse.",
+        "schillernd": "„Goldforelle“, goldener Körper mit türkisem Band.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F013",
+      "nr": 13,
+      "name": "Seerosen-Hüpfer",
+      "basis": "Frosch × Fisch (Fantasie)",
+      "fantasie": true,
+      "welt": "W1",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          30
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          2
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 70,
+      "art": {
+        "text": "Fröhlicher grüner Fisch mit Froschbeinen statt Bauchflossen und großen, oben sitzenden Glupschaugen. Hellgrüner Körper mit dunkelgrünen Flecken wie ein Teichfrosch, breites Grinsemaul. Auf dem Kopf wächst eine kleine rosa Seerosenblüte (3 Blütenblätter, gelbe Mitte). Quakt beim Fang.",
+        "schillernd": "Lavendelkörper, weiße Blüte.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F014",
+      "nr": 14,
+      "name": "Hecht",
+      "basis": "Esox lucius",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          50,
+          130
+        ],
+        "k": 0.009
+      },
+      "spawn": {
+        "tiefeM": [
+          3,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen",
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt",
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [
+          "K04",
+          "K05"
+        ],
+        "koederMagNicht": [
+          "K03"
+        ],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          1,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 120,
+      "art": {
+        "text": "Langer, torpedoförmiger Körper mit entenschnabelartigem Maul voller Zähnchen. Olivgrün mit hellgelben, bohnenförmigen Flecken in Reihen, weißer Bauch. Rücken- und Afterflosse sitzen weit hinten am Schwanz, rotbraune Flossen mit dunklen Tupfen, stechend gelber Blick. Zahnfisch.",
+        "schillernd": "Silber-Lavendel mit hellblauen Flecken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Lauert im Kraut und schießt hervor wie ein Pfeil.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F015",
+      "nr": 15,
+      "name": "Sterlet",
+      "basis": "Acipenser ruthenus",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          100
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 150,
+      "art": {
+        "text": "Urzeitlicher Mini-Stör mit langer, spitzer, leicht nach oben gebogener Schnauze und 4 gefransten Barteln. 5 Reihen knöcherner Platten (helle Rautenpixel) entlang Rücken und Seiten, graubraun mit gelblichem Bauch, haiartiger Schwanz (oberer Lappen länger).",
+        "schillernd": "Weißgold mit hellblauen Platten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F016",
+      "nr": 16,
+      "name": "Moosbart-Karausche",
+      "basis": "Karausche (Fantasie)",
+      "fantasie": true,
+      "welt": "W1",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Regen",
+          "Nebel"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": "Brocken",
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 140,
+      "art": {
+        "text": "Uralte, sehr runde Karausche in Messing-Gold. Auf ihrem Rücken wächst dichtes grünes Moos (Pixelbüschel ragen über die Silhouette), obendrauf sitzt eine kleine Schnecke. Ein langer grauer Moosbart hängt am Kinn, die Augenlider sind müde halb geschlossen, ein paar Schuppen sind abgeblättert. Erst gemütlich, ab halber Ausdauer plötzlich zäh.",
+        "schillernd": "Silbermoos, rosa Schnecke.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F017",
+      "nr": 17,
+      "name": "Glühwürmchen-Barsch",
+      "basis": "Barsch (Fantasie)",
+      "fantasie": true,
+      "welt": "W1",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          30
+        ],
+        "k": 0.013
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          5
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Sonnig",
+          "Bewoelkt",
+          "Nebel"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Vollmond",
+        "koederMag": [
+          "K04"
+        ],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          1,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 180,
+      "art": {
+        "text": "Dunkelblauer Barsch mit gelbgrün leuchtenden Punkten entlang der Flanken und an den Flossenspitzen. Sie pulsieren im 2-s-Takt mit 2 Helligkeitsstufen. Die Rückenflossen-Stacheln enden in kleinen Lichtkugeln. Über dem Wasser lockt er echte Glühwürmchen an, nachts ist er auch ohne Licht sichtbar.",
+        "schillernd": "Lila Körper mit rosa Lichtern.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Wer ihn sieht, darf sich was wünschen. Sagt Opa Otto.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F018",
+      "nr": 18,
+      "name": "Europäischer Wels",
+      "basis": "Silurus glanis",
+      "fantasie": false,
+      "welt": "W1",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          120,
+          250
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Gewitter",
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": "Taucher",
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 350,
+      "art": {
+        "text": "Riesig, mit breitem flachem Kopf und gewaltigem Maul. 2 sehr lange Barteln am Oberkiefer, 4 kurze am Kinn, winzige Augen. Die schuppenlose Haut ist dunkelgrau-oliv marmoriert, der Bauch hell gefleckt. Winzige Rückenflosse, lange Afterflosse bis zum Schwanz, nach hinten verjüngt wie ein Aal.",
+        "schillernd": "Albino-Wels in Weiß mit rosa Augen und Lavendelmarmor.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F019",
+      "nr": 19,
+      "name": "Kirschblüten-Koi",
+      "basis": "Koi (Fantasie)",
+      "fantasie": true,
+      "welt": "W1",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          50,
+          90
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          5
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 450,
+      "art": {
+        "text": "Eleganter Koi in Weiß mit großen kirschroten Flecken (Kohaku-Muster) und schleierartigen, überlangen rosa Flossen, deren Ränder wie Kirschblütenblätter gezackt sind. Von den Flossen lösen sich kleine Blütenblatt-Partikel. Goldene Schuppenreihe auf dem Rücken. Lexikon: „Jemand hat ihn vor 100 Jahren aus einem Gartenteich ausgesetzt. Seitdem blüht er.“",
+        "schillernd": "Platin-Koi mit lavendelblauen Flecken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Jemand hat ihn vor 100 Jahren aus einem Gartenteich ausgesetzt. Seitdem blüht er.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F020",
+      "nr": 20,
+      "name": "Der Alte Barnabas",
+      "basis": "Riesenhecht (Fantasie)",
+      "fantasie": true,
+      "welt": "W1",
+      "seltenheit": "Legendaer",
+      "boss": true,
+      "groesse": {
+        "klasse": "Boss",
+        "canvas": [
+          256,
+          128
+        ],
+        "laengeCm": [
+          220,
+          300
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Gewitter"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Vollmond",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 1000,
+      "art": {
+        "text": "Gigantischer, uralter Hecht mit narbigem Gesicht: ein Auge trüb-milchig, das andere leuchtend gelb. Der Kiemendeckel ist zackig wie eine Krone geformt. Im Unterkiefer stecken 5 alte Blinker und Haken (Trophäen gescheiterter Angler, glänzende Metallpixel). Moosgrüner Rücken mit nachwehenden Algenfäden, Flecken wie verblasstes Gold.",
+        "schillernd": "„Silberner Barnabas“, Mondsilber mit Lavendel-Algen und zwei strahlend blauen Augen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      },
+      "bossPhasen": [
+        {
+          "phase": 1,
+          "name": "Kraftprobe",
+          "hpVon": 1,
+          "hpBis": 0.7,
+          "verhalten": [
+            "Sprinter"
+          ],
+          "spezial": "Keine",
+          "kraft": 7,
+          "ansage": "Barnabas reißt nach links und rechts!"
+        },
+        {
+          "phase": 2,
+          "name": "Ab ins Kraut",
+          "hpVon": 0.7,
+          "hpBis": 0.4,
+          "verhalten": [
+            "Versteckspieler"
+          ],
+          "spezial": "KrautHaenger",
+          "kraft": 8,
+          "ansage": "Er zieht ins Krautfeld!"
+        },
+        {
+          "phase": 3,
+          "name": "Wutsprung",
+          "hpVon": 0.4,
+          "hpBis": 0,
+          "verhalten": [
+            "Springer"
+          ],
+          "spezial": "Blitzsprung",
+          "kraft": 8,
+          "ansage": "Barnabas springt!"
+        }
+      ]
+    },
+    {
+      "id": "F021",
+      "nr": 21,
+      "name": "Anemonen-Clownfisch",
+      "basis": "Amphiprion ocellaris",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          6,
+          11
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          6
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 20,
+      "art": {
+        "text": "Knallorange mit drei weißen Bändern (Kopf, Mitte, Schwanzansatz), jedes schwarz umrandet. Abgerundete Flossen mit schwarzem Saum, frecher Blick. Spawn-Animation: lugt aus einer pinken Anemone.",
+        "schillernd": "Neonblau mit gelben Bändern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F022",
+      "nr": 22,
+      "name": "Paletten-Doktorfisch",
+      "basis": "Paracanthurus hepatus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          12,
+          25
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          3,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 25,
+      "art": {
+        "text": "Königsblau mit einem schwarzen „Paletten“-Muster auf der Flanke, das wie eine liegende 6 aussieht. Leuchtend gelber Schwanz und gelbe Brustflossenspitze, kleiner Skalpelldorn am Schwanzstiel (1 heller Pixel). Lexikon-Gag: „Sucht immer irgendwen.“",
+        "schillernd": "Gelb mit blauem Schwanz.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Sucht immer irgendwen.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F023",
+      "nr": 23,
+      "name": "Preußenfisch",
+      "basis": "Dascyllus aruanus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          5,
+          10
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          8
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 20,
+      "art": {
+        "text": "Kleiner, hochrückiger Fisch, weiß mit drei breiten schwarzen Schrägbändern, schwarze Bauchflossen, weißgrauer Schwanz. Tritt in Grüppchen über Geweihkorallen auf.",
+        "schillernd": "Hellpink mit türkisen Bändern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F024",
+      "nr": 24,
+      "name": "Kupferstreifen-Pinzettfisch",
+      "basis": "Chelmon rostratus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          12,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 25,
+      "art": {
+        "text": "Scheibenförmiger Falterfisch, weißsilbern mit 4 kupferorangen, dunkel umrandeten Querbändern und einer langen, pinzettenartigen Schnauze. In der Rückenflosse sitzt ein schwarzer Augenfleck mit weißem Ring (falsches Auge).",
+        "schillernd": "Blausilber mit grünen Bändern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F025",
+      "nr": 25,
+      "name": "Masken-Papageifisch",
+      "basis": "Scarus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 35,
+      "art": {
+        "text": "Kräftig, mit verschmolzenen Zähnen wie ein Papageienschnabel (weiß-türkis). Große Schuppen in Türkisgrün mit pinken Rändern, eine gelbe „Maske“ um die Augen, sichelförmiger Schwanz mit pinken Spitzen. Knabbert Korallen und hinterlässt Sandwölkchen. Lexikon: „Macht aus Korallen Sand. Ja, wirklich.“",
+        "schillernd": "Orangerot mit blauen Rändern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Macht aus Korallen Sand. Ja, wirklich.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F026",
+      "nr": 26,
+      "name": "Indopazifischer Sergeant",
+      "basis": "Abudefduf vaigiensis",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          10,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          6
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 20,
+      "art": {
+        "text": "Ovaler Riffbarsch mit gelbem Rücken, silbrig-weißem Körper und 5 schwarzen senkrechten Streifen wie ein Uniformabzeichen, gegabelter Schwanz.",
+        "schillernd": "Lila mit gelben Streifen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F027",
+      "nr": 27,
+      "name": "Blaupunktrochen",
+      "basis": "Taeniura lymma",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 40,
+      "art": {
+        "text": "In 3/4-Ansicht (schräg von oben), damit die Scheibe lesbar ist: ovale sandbeige-ockerfarbene Scheibe mit leuchtend blauen Punkten. Der Schwanz hat zwei blaue Längsstreifen und einen Stachel, die goldenen Augen sitzen oben. Gräbt sich halb in den Sand ein.",
+        "schillernd": "Dunkelblaue Scheibe mit gelben Punkten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F028",
+      "nr": 28,
+      "name": "Gelber Kofferfisch",
+      "basis": "Ostracion cubicus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          8,
+          15
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          3,
+          10
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 30,
+      "art": {
+        "text": "Fast würfelförmig, knallgelb mit gleichmäßig verteilten schwarzen Punkten (Spielwürfel-Look). Kleiner Schmollmund, winzige Flossen, die wie Propeller wirbeln (2-Frame-Animation). Lexikon: „Schwimmt wie ein Spielzeug-U-Boot.“",
+        "schillernd": "Blau mit pinken Punkten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Schwimmt wie ein Spielzeug-U-Boot.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F029",
+      "nr": 29,
+      "name": "Weißflecken-Kugelfisch",
+      "basis": "Arothron hispidus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          45
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Aufblaeher",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 70,
+      "art": {
+        "text": "Graues Oliv mit vielen weißen Punkten, weißer Bauch mit Streifen, weiße Ringmuster um die Brustflossen, große niedliche Augen. Zweites Sprite: aufgeblasen als stachelige Kugel (1-px-Stacheln ringsum) für die Aufbläh-Phase.",
+        "schillernd": "Pfirsich mit türkisen Punkten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F030",
+      "nr": 30,
+      "name": "Rotfeuerfisch",
+      "basis": "Pterois volitans",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          38
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend",
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": true,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Trickser",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 80,
+      "art": {
+        "text": "Rot-weiß gestreift wie ein Zirkuszelt, mit riesigen fächerartigen Brustflossen und langen, giftigen Rückenstacheln (dünne Linien mit Hautfähnchen), kleine Fransen über den Augen. Im Sprite dominieren die Flossen, der Körper bleibt klein.",
+        "schillernd": "Schwarz-Gold gestreift.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F031",
+      "nr": 31,
+      "name": "Halfterfisch",
+      "basis": "Zanclus cornutus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          23
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 65,
+      "art": {
+        "text": "Sehr hoch und scheibenförmig mit breiten schwarz-weiß-gelben Bändern und orangefarbener Schnauze. Die extrem lange, weiße, sichelförmige Rückenflosse weht wie ein Wimpel weit nach hinten.",
+        "schillernd": "Pink-Türkis-Weiß.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F032",
+      "nr": 32,
+      "name": "Zebramuräne",
+      "basis": "Gymnomuraena zebra",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          60,
+          150
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 90,
+      "art": {
+        "text": "Langer, aalartiger Körper in Schokobraun mit vielen schmalen weißen Ringen (Zebramuster), kleiner rundlicher Kopf, halb offenes Maul. Idle-Pose beim Spawn: schaut aus einer Korallenhöhle. Zahnfisch.",
+        "schillernd": "Mitternachtsblau mit gelben Ringen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F033",
+      "nr": 33,
+      "name": "Zuckerwatte-Seepferdchen",
+      "basis": "Seepferdchen (Fantasie)",
+      "fantasie": true,
+      "welt": "W2",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          8,
+          18
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          8
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": -0.3
+      },
+      "punkte": 100,
+      "art": {
+        "text": "Seepferdchen mit pastellrosa-hellblau verwirbeltem Körper wie Zuckerwatte. Fluffige Hautfähnchen auf Kopf und Rücken (weiche Puff-Pixel), eingerollter Schwanz mit kleinem Glitzer, verträumte Augen mit Wimpern. Zieht ein Wölkchen aus rosa Pixeln hinter sich her.",
+        "schillernd": "Pfefferminzgrün-Gelb.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F034",
+      "nr": 34,
+      "name": "Großer Barrakuda",
+      "basis": "Sphyraena barracuda",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          80,
+          160
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          30
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen",
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 180,
+      "art": {
+        "text": "Silbern und pfeilförmig, mit dunklen schrägen Querbalken auf dem Rücken und verstreuten schwarzen Flecken am Hinterleib. Vorstehender Unterkiefer mit dolchartigen Zähnen (3–4 helle Pixel sichtbar), gegabelter dunkler Schwanz mit weißen Spitzen, grimmiger Blick. Zahnfisch.",
+        "schillernd": "Goldbarrakuda mit violetten Balken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F035",
+      "nr": 35,
+      "name": "Napoleon-Lippfisch",
+      "basis": "Cheilinus undulatus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          100,
+          200
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          35
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 220,
+      "art": {
+        "text": "Massiger Riese mit großem Stirnbuckel und dicken Lippen. Grünblaue Haut mit einem feinen labyrinthartigen Wellenmuster im Gesicht (Doppelpixel-Linien), hinter den Augen zwei dunkle Striche. Freundlicher, neugieriger Ausdruck.",
+        "schillernd": "Korallenrot mit gelbem Labyrinth.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F036",
+      "nr": 36,
+      "name": "Mandarinfisch",
+      "basis": "Synchiropus splendidus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          5,
+          7
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          12
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 200,
+      "art": {
+        "text": "Winzig, aber psychedelisch: leuchtend orange Wellenlinien auf blautürkisem Grund, Kopf mit orange-blauen Streifen, große runde Brust- und Rückenflossen mit blauem Rand, Augen wie kleine Murmeln. Hier zählt jeder Pixel (Detail-Fokus fürs Artwork).",
+        "schillernd": "Pink-Grün-Muster.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F037",
+      "nr": 37,
+      "name": "Prismaflosser",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W2",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          70
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 250,
+      "art": {
+        "text": "Schlanker, silbrig-weißer Körper mit durchsichtigen Kristallflossen („Glas“-Look aus hellen Kantenpixeln und 2 Grautönen). Durch sie fällt die Sonne und wirft einen Regenbogenfächer (6 Farben in 1-px-Streifen) auf den Körper, die Schwanzspitzen sind kristallen. Beim Sprung entsteht ein kleiner Regenbogen über dem Wasser.",
+        "schillernd": "Rosékristall mit goldenem Regenbogen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F038",
+      "nr": 38,
+      "name": "Segelfisch",
+      "basis": "Istiophorus platypterus",
+      "fantasie": false,
+      "welt": "W2",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          180,
+          300
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          30,
+          50
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sonnig"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 500,
+      "art": {
+        "text": "Langer, schwertartiger Oberkiefer und eine riesige Segel-Rückenflosse in Kobaltblau mit schwarzen Punkten, die er im Drill aufstellt (zweites Sprite: Segel hoch). Oben dunkelblau, unten silbern mit hellblauen senkrechten Streifen, sichelförmiger Schwanz. Lexikon: „Schnellster Fisch im Meer.“",
+        "schillernd": "Purpursegel mit goldenen Punkten.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Schnellster Fisch im Meer.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F039",
+      "nr": 39,
+      "name": "Korallendrache",
+      "basis": "Fetzenfisch (Fantasie)",
+      "fantasie": true,
+      "welt": "W2",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          40,
+          80
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          30
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Korallenbluete",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 600,
+      "art": {
+        "text": "Ein Seedrache wie ein Fetzenfisch, dessen Hautlappen lebende Korallen sind: Geweihkoralle, Fächer und kleine Anemonen wachsen in Korallenrot, Pink und Violett aus Rücken und Bauch. Langer Röhrenmaul-Kopf mit zwei kleinen Drachenhörnern, Augen wie Perlen. Zwischen den Ästen wohnen winzige Fischchen (2-px-Deko). Zwischen Riffen fast unsichtbar.",
+        "schillernd": "Korallen in Neongelb und Türkis.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F040",
+      "nr": 40,
+      "name": "Kaiserin Coralina",
+      "basis": "Manta (Fantasie)",
+      "fantasie": true,
+      "welt": "W2",
+      "seltenheit": "Legendaer",
+      "boss": true,
+      "groesse": {
+        "klasse": "Boss",
+        "canvas": [
+          256,
+          128
+        ],
+        "laengeCm": [
+          500,
+          700
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          30,
+          50
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Abend",
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Vollmond",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 1500,
+      "art": {
+        "text": "Riesiger Mantarochen in 3/4-Ansicht mit flügelartigen Brustflossen. Über den indigofarbenen Rücken laufen wandernde Regenbogen-Wellen (Palette-Cycling-Animation mit 8 Farben). Die Kopflappen sind wie eine Krone geschwungen, der Bauch ist perlmuttweiß mit edelsteinartigen Punkten. Drei kleine Putzerfische begleiten sie. Ruhige, weise Augen.",
+        "schillernd": "„Goldene Kaiserin“, Goldrücken mit Pink-Türkis-Wellen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      },
+      "bossPhasen": [
+        {
+          "phase": 1,
+          "name": "Gleitflug",
+          "hpVon": 1,
+          "hpBis": 0.75,
+          "verhalten": [
+            "Brocken"
+          ],
+          "spezial": "Keine",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 2,
+          "name": "Strömungswirbel",
+          "hpVon": 0.75,
+          "hpBis": 0.5,
+          "verhalten": [
+            "Zickzack"
+          ],
+          "spezial": "StroemungsWirbel",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 3,
+          "name": "Lichtshow",
+          "hpVon": 0.5,
+          "hpBis": 0.25,
+          "verhalten": [],
+          "spezial": "WanderndeZone",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 4,
+          "name": "Salto",
+          "hpVon": 0.25,
+          "hpBis": 0,
+          "verhalten": [
+            "Springer"
+          ],
+          "spezial": "Salto",
+          "kraft": 8,
+          "ansage": ""
+        }
+      ]
+    },
+    {
+      "id": "F041",
+      "nr": 41,
+      "name": "Polardorsch",
+      "basis": "Boreogadus saida",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          15,
+          30
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 30,
+      "art": {
+        "text": "Schlanker Dorsch, graubraun-oliv mit feinen dunklen Pünktchen und silbrigem Bauch. Typisch Dorsch: drei Rückenflossen und zwei Afterflossen, eine kurze Kinnbartel, leicht vorstehender Unterkiefer.",
+        "schillernd": "Polarlichtgrün mit violetten Pünktchen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F042",
+      "nr": 42,
+      "name": "Lodde",
+      "basis": "Mallotus villosus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          12,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          10
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 30,
+      "art": {
+        "text": "Kleiner, sehr schlanker Schwarmfisch mit olivgrünem Rücken und silbernen Seiten, durchscheinenden Flossen und großen Augen. Spawnt als Schwarm.",
+        "schillernd": "Violettsilber mit grünem Rücken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F043",
+      "nr": 43,
+      "name": "Atlantischer Hering",
+      "basis": "Clupea harengus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          20,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 35,
+      "art": {
+        "text": "Klassischer Silberfisch mit blaugrünem, metallisch glänzendem Rücken und spiegelnden Silberseiten (2 Highlight-Stufen), gegabelter Schwanz. Große Schuppen glitzern beim Drehen (1-Frame-Glanz).",
+        "schillernd": "Rosagold mit violettem Rücken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F044",
+      "nr": 44,
+      "name": "Seeskorpion",
+      "basis": "Myoxocephalus scorpius",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          40
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          45
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 40,
+      "art": {
+        "text": "Großer, stacheliger Kopf mit Dornen am Kiemendeckel und breiten fächerartigen Brustflossen. Der Körper ist zur Felstarnung braun-rot-grün marmoriert, der Bauch hell gefleckt, das Maul breit und grimmig.",
+        "schillernd": "Eisgrün-violett marmoriert.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F045",
+      "nr": 45,
+      "name": "Seesaibling",
+      "basis": "Salvelinus alpinus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Schnee"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 45,
+      "art": {
+        "text": "Lachsartig, mit dunkelgrünem Rücken voller cremefarbener Punkte und leuchtend orange-rotem Bauch (Laichkleid). Bauch- und Afterflossen orange mit weißem Vordersaum.",
+        "schillernd": "Violetter Rücken, grüner Bauch.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F046",
+      "nr": 46,
+      "name": "Rotbarsch",
+      "basis": "Sebastes norvegicus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          40
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 45,
+      "art": {
+        "text": "Leuchtend orange-rot mit großen, vorquellenden Augen (typisch für Tiefenfische). Stachelige Rückenflosse, große Brustflossen, knöcherne Kanten am Kopf.",
+        "schillernd": "Polarlichtgrün mit violetten Flossen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F047",
+      "nr": 47,
+      "name": "Schneeflöckchen-Grundel",
+      "basis": "Grundel (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          5,
+          10
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          5
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Schnee"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 50,
+      "art": {
+        "text": "Winzige weiß-hellblaue Grundel, deren Rückenflosse wie eine sechszackige Schneeflocke geformt ist. Körper mit eisblauen Sprenkeln, runde Kulleraugen, hinterlässt beim Schwimmen 1-px-Schneeflöckchen.",
+        "schillernd": "Grün-violette Schneeflocke.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F048",
+      "nr": 48,
+      "name": "Krokodileisfisch",
+      "basis": "Chaenocephalus aceratus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          45
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 55,
+      "art": {
+        "text": "Fast durchscheinend weißlich, mit flacher, krokodilartiger Schnauze, großen Brustflossen und schwachen grauen Querbändern. Die Kiemen schimmern blass statt rot. Lexikon: „Hat kein rotes Blut. Kein Witz.“",
+        "schillernd": "Blassvioletter Glas-Look mit grüner Schnauze.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Hat kein rotes Blut. Kein Witz.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F049",
+      "nr": 49,
+      "name": "Atlantischer Heilbutt",
+      "basis": "Hippoglossus hippoglossus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          60,
+          150
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          30,
+          60
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 100,
+      "art": {
+        "text": "Plattfisch in 3/4-Ansicht (wie die Rochen), damit er lesbar bleibt. Beide Augen auf der Oberseite, die Oberseite olivbraun marmoriert, ein weißer Unterseitenrand sichtbar, lange Flossensäume rundum, großes Maul mit schiefem Grinsen.",
+        "schillernd": "Violett marmoriert mit grünem Saum.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F050",
+      "nr": 50,
+      "name": "Seewolf",
+      "basis": "Anarhichas lupus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          60,
+          120
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          25,
+          50
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 110,
+      "art": {
+        "text": "Langer, aalartiger Körper, blaugrau mit 10–12 dunklen Querbinden. Großer Kopf mit vorstehenden Hauerzähnen, sichtbare weiße Zahnstummel, grimmige Stirn. Lexikon: „Sieht gruselig aus, ist aber eigentlich schüchtern.“ Zahnfisch.",
+        "schillernd": "Grün mit violetten Binden.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Sieht gruselig aus, ist aber eigentlich schüchtern.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F051",
+      "nr": 51,
+      "name": "Seehase",
+      "basis": "Cyclopterus lumpus",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          50
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          30
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 90,
+      "art": {
+        "text": "Rundlich wie ein Ball, mit Reihen von Höckern auf der Haut. Zwei Farbvarianten mit je 50 % Chance (das Lexikon zeigt beide): Blaugrün (Weibchen) oder mit orange-rotem Bauch (Männchen). Saugnapf am Bauch, kleine Flossen, niedliches Gesicht.",
+        "schillernd": "Lila mit grünen Höckern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F052",
+      "nr": 52,
+      "name": "Atlantischer Lachs",
+      "basis": "Salmo salar",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          50,
+          110
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Regen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 120,
+      "art": {
+        "text": "Kraftvoll, silbern mit stahlblauem Rücken und x-förmigen schwarzen Tupfen über der Seitenlinie, Fettflosse, kräftiger Schwanz. Ab Größe „Prächtig“ ein leichter Laichhaken am Unterkiefer (Sprite-Variante).",
+        "schillernd": "Dämmerrosa mit grünem Rücken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F053",
+      "nr": 53,
+      "name": "Frostfeder-Forelle",
+      "basis": "Forellen (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          50
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Morgen"
+        ],
+        "wetterPflicht": [
+          "Schnee"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 130,
+      "art": {
+        "text": "Silberweiße Forelle, deren Flossen aus Eisfedern bestehen: Raureifkristalle mit fein gezackten Kanten in Frostblau. Auf dem Rücken ein Muster wie Eisblumen am Fenster, eisblaue Augen, atmet kleine Frostwölkchen aus.",
+        "schillernd": "Polarlichtfedern grün-violett.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F054",
+      "nr": 54,
+      "name": "Antarktischer Seehecht",
+      "basis": "Dissostichus mawsoni",
+      "fantasie": false,
+      "welt": "W3",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          100,
+          180
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          70
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Taucher",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 260,
+      "art": {
+        "text": "Massiger, dunkelgrau-schwarzbrauner Raubfisch mit großem Maul voller kleiner Zähne, großen Brustflossen und zwei Rückenflossen. Frostig-weiße Lichtflecken auf der Stirn, düster und kraftvoll.",
+        "schillernd": "Gletscherblau mit violetten Flossen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F055",
+      "nr": 55,
+      "name": "Narwal-Hornhecht",
+      "basis": "Hornhecht × Narwal (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          60,
+          120
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          15,
+          35
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Polarlicht",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 280,
+      "art": {
+        "text": "Sehr schlanker, grünlich-silberner Fisch mit einem langen, spiralig gedrehten Elfenbeinhorn an der Schnauze (Spirale als diagonale 1-px-Streifen). Grau gefleckter Rücken wie ein Narwal, kleiner Sichelschwanz.",
+        "schillernd": "Goldenes Horn, violetter Körper.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F056",
+      "nr": 56,
+      "name": "Eiszapfen-Aal",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          80,
+          150
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          30,
+          50
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Schneesturm"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 300,
+      "art": {
+        "text": "Halbdurchsichtig wirkender eisblauer Aal: hellblaue Füllung mit dunklerem Innenstreifen, keine echte Alpha-Transparenz. Am Rücken ragen Eiszapfenstacheln nach oben (spitze Dreiecke in Weiß und Frostblau mit Glanzpixel), das dunklere Rückgrat schimmert durch, kalte weiße Augen. Klirrt beim Fang.",
+        "schillernd": "Rosa Eis mit grünen Zapfen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F057",
+      "nr": 57,
+      "name": "Polarlicht-Neon",
+      "basis": "Salmler (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          10,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Polarlicht",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 320,
+      "art": {
+        "text": "Kleiner, schlanker Fisch auf fast schwarzblauem Grund. Über seinen Körper laufen Polarlichtbänder in Grün, Türkis und Violett (Palette-Cycling, 6 Farben). Die Flossen sind wie Lichtschleier mit gestuften Kanten. Leuchtet, also auch im Dunkeln sichtbar.",
+        "schillernd": "Bänder in Gold und Rosa.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F058",
+      "nr": 58,
+      "name": "Walrosswels",
+      "basis": "Wels × Walross (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          150,
+          250
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          30,
+          60
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Bewoelkt",
+          "Nebel"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": "Taucher",
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 600,
+      "art": {
+        "text": "Plumper, dicker graubrauner Riesenwels mit zwei langen elfenbeinfarbenen Hauern aus dem Oberkiefer und einem dichten Schnurrbart aus Barteln (borstige Pixelreihen). Faltige Haut, kleine gutmütige Augen, Speckröllchen im Nacken. Lexikon: „Kann sich nicht entscheiden, ob er Fisch oder Walross ist. Also ist er beides.“",
+        "schillernd": "Rosa-Violett mit goldenen Hauern.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Kann sich nicht entscheiden, ob er Fisch oder Walross ist. Also ist er beides.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F059",
+      "nr": 59,
+      "name": "Gletscher-Stör",
+      "basis": "Stör (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          200,
+          350
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          70
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Schneesturm"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 9,
+        "zoneMod": 0
+      },
+      "punkte": 750,
+      "art": {
+        "text": "Gewaltiger Stör, dessen Knochenplatten aus blauem Gletschereis bestehen (facettierte Kristalle mit hellen Kanten, innen dunkelblau). Lange Schnauze mit Eiszapfen-Barteln, dunkel stahlgrauer Körper, haiartiger Schwanz mit Frostrand. Schneeflocken rieseln von ihm herab.",
+        "schillernd": "Kristallplatten in Polarlicht-Grün-Violett.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F060",
+      "nr": 60,
+      "name": "Grimmbart, der Gletscherhai",
+      "basis": "Grönlandhai (Fantasie)",
+      "fantasie": true,
+      "welt": "W3",
+      "seltenheit": "Legendaer",
+      "boss": true,
+      "groesse": {
+        "klasse": "Boss",
+        "canvas": [
+          256,
+          128
+        ],
+        "laengeCm": [
+          500,
+          700
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          50,
+          70
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Schneesturm"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 9,
+        "zoneMod": 0
+      },
+      "punkte": 2000,
+      "art": {
+        "text": "Uralter, massiger Grönlandhai mit stumpfer Schnauze und schiefergrauer, vernarbter Haut. Über den Rücken zieht sich eine Kruste aus Eis und Raureif mit herausragenden Eiszacken. An beiden Augen hängen leuchtend eisblaue Ruderfußkrebse wie kleine Laternen (echtes Grönlandhai-Merkmal, stilisiert). Am Kinn ein langer, gefrorener Bart aus Eiszapfen (daher der Name), träge halb geschlossene Augen. Lexikon: „Grönlandhaie können über 400 Jahre alt werden. Grimmbart hat aufgehört zu zählen.“",
+        "schillernd": "„Polarlicht-Grimmbart“, Eis grün-violett, Augenkrebse golden.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Grönlandhaie können über 400 Jahre alt werden. Grimmbart hat aufgehört zu zählen.",
+        "hinweis": ""
+      },
+      "bossPhasen": [
+        {
+          "phase": 1,
+          "name": "Eisige Ruhe",
+          "hpVon": 1,
+          "hpBis": 0.7,
+          "verhalten": [
+            "Brocken"
+          ],
+          "spezial": "Keine",
+          "kraft": 9,
+          "ansage": ""
+        },
+        {
+          "phase": 2,
+          "name": "Eisbrecher",
+          "hpVon": 0.7,
+          "hpBis": 0.45,
+          "verhalten": [],
+          "spezial": "EislochZufrieren",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 3,
+          "name": "Tiefensog",
+          "hpVon": 0.45,
+          "hpBis": 0.2,
+          "verhalten": [
+            "Taucher"
+          ],
+          "spezial": "Tiefensog",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 4,
+          "name": "Frostatem",
+          "hpVon": 0.2,
+          "hpBis": 0,
+          "verhalten": [],
+          "spezial": "Frostatem",
+          "kraft": 8,
+          "ansage": ""
+        }
+      ]
+    },
+    {
+      "id": "F061",
+      "nr": 61,
+      "name": "Laternenfisch",
+      "basis": "Familie Myctophidae",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          3,
+          15
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          200,
+          1000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 40,
+      "art": {
+        "text": "Kleiner, stumpfköpfiger Fisch mit riesigen Augen und dunkelsilbrigem Körper. Reihen leuchtender Punkte (Photophoren) in Biocyan an Bauch und Seiten. Schwarmfisch.",
+        "schillernd": "goldene Punkte, heller Körper.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F062",
+      "nr": 62,
+      "name": "Silberbeilfisch",
+      "basis": "Argyropelecus",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          3,
+          10
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          200,
+          1000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 45,
+      "art": {
+        "text": "Seitlich extrem flach, der Körper geformt wie eine Beilklinge. Spiegelndes Silber mit lila Schimmer, große Röhrenaugen, die nach oben schauen, eine Reihe Leuchtorgane am Bauch.",
+        "schillernd": "Goldspiegel.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F063",
+      "nr": 63,
+      "name": "Borstenmaul",
+      "basis": "Cyclothone",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          3,
+          8
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          500,
+          1500
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 40,
+      "art": {
+        "text": "Winziger, schwärzlicher Fisch mit übergroßem Maul voller borstenfeiner Zähne und kleinen Leuchtpunkten. Lexikon: „Vermutlich das häufigste Wirbeltier der Erde, und kaum jemand kennt es.“",
+        "schillernd": "Honiggelb mit weißen Zähnen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Vermutlich das häufigste Wirbeltier der Erde, und kaum jemand kennt es.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F064",
+      "nr": 64,
+      "name": "Blobfisch",
+      "basis": "Psychrolutes marcidus",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          600,
+          1200
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 50,
+      "art": {
+        "text": "Schwimm-Sprite unter Wasser: ein normaler, kaulquappenartiger Tiefseefisch, rosagrau, mit großem Kopf und weicher Haut. Fang-Sprite: die berühmte traurige rosa „Blob“-Form mit hängender Nase und Schmollmund, weil oben der Wasserdruck fehlt (das Lexikon erklärt das). Der lustigste Fang-Moment im Spiel.",
+        "schillernd": "Goldgelber Blob mit pinker Nase.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F065",
+      "nr": 65,
+      "name": "Viperfisch",
+      "basis": "Chauliodus sloani",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          500,
+          2000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 55,
+      "art": {
+        "text": "Schlanker, dunkelblau-silbriger Körper mit Leuchtpunktreihen. Die nadelartigen Fangzähne sind so lang, dass sie außerhalb des Mauls bis über den Kopf ragen. Der erste Rückenflossenstrahl ist lang und hat eine Leuchtspitze. Zahnfisch.",
+        "schillernd": "Kupfergold mit gelben Leuchtpunkten.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F066",
+      "nr": 66,
+      "name": "Grenadierfisch",
+      "basis": "Familie Macrouridae",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          30,
+          80
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          1000,
+          4000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Walfall",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 60,
+      "art": {
+        "text": "Großer Kopf mit riesigen Augen. Der Körper läuft in einen langen, spitzen „Rattenschwanz“ ohne Schwanzflosse aus. Graubraun mit Silberglanz, kleine Kinnbartel.",
+        "schillernd": "Sandgold mit orangem Schwanz.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F067",
+      "nr": 67,
+      "name": "Schwarzer Drachenfisch",
+      "basis": "Idiacanthus",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          40
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          1000,
+          2000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 65,
+      "art": {
+        "text": "Sehr langer, tiefschwarzer, aalartiger Körper mit einer leuchtenden Kinnbartel, an deren Ende eine cyanfarbene Kugel hängt. Unter dem Auge sitzt ein rotes Leuchtorgan, kleine spitze Zähne.",
+        "schillernd": "Goldbraun mit orangem Licht.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F068",
+      "nr": 68,
+      "name": "Pelikanaal",
+      "basis": "Eurypharynx pelecanoides",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          80
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          1000,
+          3000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": true,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Trickser",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 70,
+      "art": {
+        "text": "Ein riesiges, sackartiges Maul: Der Kopf ist größer als der Körper und klappt auf wie ein Pelikanschnabel. Dünner, peitschenartiger Körper mit leuchtender Schwanzspitze in Pink. Schwarz mit violettem Glanz.",
+        "schillernd": "Goldbraun mit cyanfarbenem Schwanzlicht.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F069",
+      "nr": 69,
+      "name": "Fangzahnfisch",
+      "basis": "Anoplogaster cornuta",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          10,
+          16
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          2000,
+          5000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 120,
+      "art": {
+        "text": "Klein, aber mit einem monströsen Kopf und den im Verhältnis größten Zähnen aller Fische (2 riesige untere Fangzähne). Dunkelbraun-schwarz mit rauen Schuppen und kleinen Augen. Lexikon: „Sieht fies aus, passt aber in deine Hand.“ Zahnfisch.",
+        "schillernd": "Orangegold.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Sieht fies aus, passt aber in deine Hand.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F070",
+      "nr": 70,
+      "name": "Schwarzer Schlinger",
+      "basis": "Chiasmodon niger",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          25
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          700,
+          3000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Walfall",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 130,
+      "art": {
+        "text": "Schlanker schwarzer Fisch mit einem riesigen, gedehnten Bauch. Darin sieht man als Sprite-Gag einen verschluckten Fisch, der größer ist als er selbst (helle graue Silhouette).",
+        "schillernd": "Honiggold, der Beutefisch violett.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F071",
+      "nr": 71,
+      "name": "Gespensterfisch",
+      "basis": "Macropinna microstoma",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          10,
+          15
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          600,
+          800
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": true,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Trickser",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 150,
+      "art": {
+        "text": "Der Kopf ist eine durchsichtige Glaskuppel (helle Kantenpixel, hellgrüne Füllung), darin liegen zwei leuchtend grüne Röhrenaugen. Die zwei Punkte vorne, die wie Augen aussehen, sind die Nasenlöcher. Dunkler Körper, große Flossen. Lexikon: „Die Punkte vorne sind seine Nase. Die Augen sind im Kopf. Ja, wirklich.“",
+        "schillernd": "Goldene Kuppel, pinke Augen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Die Punkte vorne sind seine Nase. Die Augen sind im Kopf. Ja, wirklich.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F072",
+      "nr": 72,
+      "name": "Neon-Quallenfisch",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W4",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          200,
+          1000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Stromer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 160,
+      "art": {
+        "text": "Fisch mit einem glockenförmigen Kopfschirm wie eine Qualle (Magentarand) und langen leuchtenden Tentakelflossen in Cyan, die hinter ihm herziehen. Am Schirmrand knistern elektrische Funken.",
+        "schillernd": "Goldorangener Schirm.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F073",
+      "nr": 73,
+      "name": "Sternenstaub-Sardine",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W4",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          10,
+          20
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          1000,
+          3000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "BiolumineszenzWelle",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 170,
+      "art": {
+        "text": "Kleine Sardine, deren dunkelindigo Körper wie ein Sternenhimmel aussieht: funkelnde Einzelpixel in Weiß, Cyan und Gelb blinken zufällig, dazu eine kleine Milchstraße als hellerer Diagonalstreifen. Der Schwarm sieht aus wie eine Sternschnuppenwolke.",
+        "schillernd": "Sonnenaufgangshimmel in Orange-Rosa mit goldenen Sternen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F074",
+      "nr": 74,
+      "name": "Tiefsee-Anglerfisch",
+      "basis": "Melanocetus johnsonii",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          10,
+          18
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          1000,
+          4000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": true,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Trickser",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 300,
+      "art": {
+        "text": "Rund und tiefschwarz mit samtiger Haut, ein riesiges Maul mit glasigen Nadelzähnen. Auf der Stirn sitzt eine Angel mit leuchtender Köderkugel in Laternengelb. Im Wasser sieht man zuerst nur dieses Licht. Lexikon: „Er angelt selbst, nur besser als du.“",
+        "schillernd": "Kupferrosa mit blauer Laterne.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Er angelt selbst, nur besser als du.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F075",
+      "nr": 75,
+      "name": "Koboldhai",
+      "basis": "Mitsukurina owstoni",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          250,
+          400
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          300,
+          1300
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 350,
+      "art": {
+        "text": "Rosagraue Haut, eine lange, flache, schwertartige Schnauze und darunter ein vorschnellender Kiefer mit nadelfeinen Zähnen (zweites Sprite mit ausgefahrenem Kiefer für die Biss- und Drillanimation). Kleine Augen, lange Schwanzflosse. Zahnfisch.",
+        "schillernd": "Lila-Gold.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F076",
+      "nr": 76,
+      "name": "Kristallschädel-Fisch",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W4",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          2000,
+          5000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Meeresschnee",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 320,
+      "art": {
+        "text": "Der Körper ist nur ein heller 1-px-Umriss mit dunkler Füllung („durchsichtig“). Darin leuchtet ein cyanfarbenes Skelett (Schädel, Wirbelsäule, Gräten als Pixellinien), das Herz pulsiert als kleiner magentafarbener Punkt.",
+        "schillernd": "Goldenes Skelett, rubinrotes Herz.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F077",
+      "nr": 77,
+      "name": "Quastenflosser",
+      "basis": "Latimeria chalumnae",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          120,
+          200
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          150,
+          700
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 400,
+      "art": {
+        "text": "Das „lebende Fossil“: stahlblauer Körper mit unregelmäßigen weißen Flecken und fleischigen, armähnlichen Flossen, die wie kleine Beine gestielt sind. Dreiteiliger Schwanz mit kleinem Mittellappen, dicke Schuppen, große reflektierende Augen. Lexikon: „Galt als vor 66 Millionen Jahren ausgestorben, bis man 1938 einen fand.“",
+        "schillernd": "Goldkörper mit türkisen Flecken.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Galt als vor 66 Millionen Jahren ausgestorben, bis man 1938 einen fand.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F078",
+      "nr": 78,
+      "name": "Riemenfisch",
+      "basis": "Regalecus glesne",
+      "fantasie": false,
+      "welt": "W4",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          300,
+          800
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          200,
+          1000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Sturm"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": "Taucher",
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 800,
+      "art": {
+        "text": "Extrem langer, bandförmiger Silberkörper mit graublauen Strichen und Flecken. Eine leuchtend rote Rückenflosse läuft über die ganze Länge, auf dem Kopf sitzt ein roter Kamm aus langen Strahlen wie eine Krone. Im Canvas als elegante Welle über 3 Bögen gezeichnet. Lexikon: „Vermutlich der Ursprung vieler Seeschlangen-Sagen.“",
+        "schillernd": "Goldenes Band mit cyanfarbener Flosse.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Vermutlich der Ursprung vieler Seeschlangen-Sagen.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F079",
+      "nr": 79,
+      "name": "Phantomrochen",
+      "basis": "Rochen (Fantasie)",
+      "fantasie": true,
+      "welt": "W4",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          150,
+          300
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          4000,
+          6000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "BiolumineszenzWelle",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Blinker",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 900,
+      "art": {
+        "text": "Ein unsichtbar wirkender Rochen in 3/4-Ansicht. Man sieht nur seinen leuchtenden Umriss in Biocyan und ein Netz aus magentafarbenen Lichtadern, die von der Mitte zu den Flügelspitzen pulsieren. Zwei leuchtend gelbe Augen. Verschwindet im Drill ganz (Blinker).",
+        "schillernd": "Goldener Umriss mit orangen Adern.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F080",
+      "nr": 80,
+      "name": "Lumina, die Abgrundlaterne",
+      "basis": "Anglerfisch (Fantasie)",
+      "fantasie": true,
+      "welt": "W4",
+      "seltenheit": "Legendaer",
+      "boss": true,
+      "groesse": {
+        "klasse": "Boss",
+        "canvas": [
+          256,
+          128
+        ],
+        "laengeCm": [
+          400,
+          600
+        ],
+        "k": 0.03
+      },
+      "spawn": {
+        "tiefeM": [
+          6000,
+          11000
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "SchwarzerRaucher",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [
+          "K09"
+        ],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          2,
+          3
+        ],
+        "scheinbisse": true,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Trickser",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 9,
+        "zoneMod": 0
+      },
+      "punkte": 2500,
+      "art": {
+        "text": "Kolossale Anglerfisch-Königin: tiefschwarzer, samtiger Körper mit violetten Leuchtornamenten. Sie hat drei Angeln mit Laternen (die echte in Laternengelb, zwei falsche in Cyan und Magenta) und eine Krone aus Lichtfäden. Im gewaltigen Maul bricht sich das Licht in glasklaren Zähnen. Kleine, kluge Augen.",
+        "schillernd": "„Sonnenlumina“, goldene Ornamente, alle drei Laternen weißgold.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Die Königin der Tiefe. Ihr Licht hat noch kein U-Boot gesehen und zurückgemeldet.",
+        "hinweis": ""
+      },
+      "bossPhasen": [
+        {
+          "phase": 1,
+          "name": "Lockruf",
+          "hpVon": 1,
+          "hpBis": 0.7,
+          "verhalten": [
+            "Trickser"
+          ],
+          "spezial": "DreiZonen",
+          "kraft": 9,
+          "ansage": "Welche Laterne ist echt?"
+        },
+        {
+          "phase": 2,
+          "name": "Lichtblitz",
+          "hpVon": 0.7,
+          "hpBis": 0.45,
+          "verhalten": [
+            "Blinker"
+          ],
+          "spezial": "Lichtblitz",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 3,
+          "name": "Abgrundsog",
+          "hpVon": 0.45,
+          "hpBis": 0.2,
+          "verhalten": [
+            "Taucher"
+          ],
+          "spezial": "Keine",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 4,
+          "name": "Schlund",
+          "hpVon": 0.2,
+          "hpBis": 0,
+          "verhalten": [
+            "Brocken",
+            "Zappler"
+          ],
+          "spezial": "Schlund",
+          "kraft": 8,
+          "ansage": ""
+        }
+      ]
+    },
+    {
+      "id": "F081",
+      "nr": 81,
+      "name": "Teufelsloch-Kärpfling",
+      "basis": "Cyprinodon diabolis",
+      "fantasie": false,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          2,
+          4
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          5
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zappler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 1,
+        "zoneMod": 0
+      },
+      "punkte": 55,
+      "art": {
+        "text": "Winziger, gedrungener Kärpfling in schillerndem Kobaltblau mit schwarzem Saum an der Schwanzflosse. Für die Lesbarkeit groß gezeichnet. Lexikon: „Lebt in Wirklichkeit nur in einer einzigen warmen Wasserhöhle in Nevada und ist dort stark bedroht. Hier unten hat er ein zweites Zuhause gefunden.“",
+        "schillernd": "Glutorange mit goldenem Saum.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Lebt in Wirklichkeit nur in einer einzigen warmen Wasserhöhle in Nevada und ist dort stark bedroht. Hier unten hat er ein zweites Zuhause gefunden.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F082",
+      "nr": 82,
+      "name": "Magadi-Tilapia",
+      "basis": "Alcolapia grahami",
+      "fantasie": false,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          6,
+          15
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          8
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Tag"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 60,
+      "art": {
+        "text": "Kleiner Buntbarsch aus heißen Sodaseen, silbrig blau mit dunklen Querstreifen. Männchen haben hellblaue Lippen und einen orangen Flossenrand.",
+        "schillernd": "Eisblau-Silber.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F083",
+      "nr": 83,
+      "name": "Aschegrundel",
+      "basis": "Grundel (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          6,
+          12
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Aschenregen"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 60,
+      "art": {
+        "text": "Grundel in Aschgrau mit dunkleren Rußflecken. Die Rückenflosse hat glimmende orange Ränder wie verglimmendes Papier. Auf der Flucht pustet sie kleine Aschewölkchen (3-Frame-Partikel).",
+        "schillernd": "Hellblau-Weiß mit cyanfarbenen Rändern.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F084",
+      "nr": 84,
+      "name": "Funkenflitzer",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "S",
+        "canvas": [
+          32,
+          16
+        ],
+        "laengeCm": [
+          5,
+          10
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          10
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Sprinter",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 2,
+        "zoneMod": 0
+      },
+      "punkte": 65,
+      "art": {
+        "text": "Winziger, pfeilförmiger, glutgelber Fisch, der eine Funkenspur hinter sich herzieht (2–4 Pixel, die nachglühen und verblassen). Leuchtend weiße Augen. Der Schwarm sieht aus wie eine Handvoll Wunderkerzen.",
+        "schillernd": "Blauweiße Eisfunken.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F085",
+      "nr": 85,
+      "name": "Schlot-Aalmutter",
+      "basis": "Thermarces cerberus",
+      "fantasie": false,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          30,
+          60
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          25
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 70,
+      "art": {
+        "text": "Rosa-weißlicher, aalartiger Körper mit dickem Kopf und wulstigen Lippen, winzigen Augen und durchgehendem Flossensaum. Lebt in Wirklichkeit an heißen Tiefseeschloten und liegt gern zwischen Röhrenwürmern.",
+        "schillernd": "Eisblau mit silbernem Saum.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F086",
+      "nr": 86,
+      "name": "Bimsstein-Barsch",
+      "basis": "Barsch (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          40
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          10
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Ausbruch",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 75,
+      "art": {
+        "text": "Ein Körper aus porösem, hellgrauem Bimsstein mit vielen kleinen Löchern (dunkle Einzelpixel). Flossen aus dünnen Steinplättchen, schwach orange glühende Augen. Er treibt an der Oberfläche wie ein Korken. Lexikon: „Schwimmt nicht. Treibt.“",
+        "schillernd": "Eisweißer Bimsstein mit cyanfarbenen Augen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Schwimmt nicht. Treibt.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F087",
+      "nr": 87,
+      "name": "Schwefelkarpfling",
+      "basis": "Karpfen (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          50
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 80,
+      "art": {
+        "text": "Gedrungener Karpfen in knalligem Schwefelgelb mit grünlichen Kristallschuppen auf dem Rücken (kleine Rautenpixel) und dicken Lippen. Eine kleine grüne Stinkwolke umgibt ihn (Partikel in 2 Grüntönen). Lexikon: „Riecht nach faulen Eiern. Fang ihn trotzdem.“",
+        "schillernd": "Mintweiß mit hellblauen Kristallen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Riecht nach faulen Eiern. Fang ihn trotzdem.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F088",
+      "nr": 88,
+      "name": "Obsidian-Schuppling",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Gewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          45
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          40
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Ruhig",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 90,
+      "art": {
+        "text": "Schwarze, glasartig glänzende Obsidianschuppen, in denen sich das Lavalicht als orange Reflexstreifen spiegelt (scharfe 1-px-Highlights, diagonale Kanten wie Glasbruch). Rote Augen.",
+        "schillernd": "Silberglas mit cyanfarbenen Reflexen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F089",
+      "nr": 89,
+      "name": "Kristall-Höhlensalmler",
+      "basis": "Blindsalmler (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          8,
+          15
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          40
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [
+          "K11"
+        ],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 3,
+        "zoneMod": 0
+      },
+      "punkte": 140,
+      "art": {
+        "text": "Augenloser, blass rosa-weißer Fisch (Vorbild: der echte Mexikanische Blindsalmler). Auf seinem Rücken wachsen kleine violette Amethystkristalle, rosa Adern schimmern durch. Wo die Augen wären, ist nur glatte, leicht schimmernde Haut.",
+        "schillernd": "Eisblau mit weißen Kristallen.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F090",
+      "nr": 90,
+      "name": "Glutbarsch",
+      "basis": "Barsch (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          25,
+          50
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          55
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Hitzkopf",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 150,
+      "art": {
+        "text": "Barsch mit einer schwarzen, erkalteten Lavakruste als Haut. Durch ihre Risse pulsiert oranges Glühen (Glutpuls in den Risslinien). Die Stacheln der Rückenflosse sehen aus wie Flammenzungen, heißer Dampf steigt auf.",
+        "schillernd": "Eisblaue Risse in silberner Kruste.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F091",
+      "nr": 91,
+      "name": "Salamanderfisch",
+      "basis": "Axolotl × Feuersalamander (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          40
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          10,
+          30
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Dampfnebel"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 160,
+      "art": {
+        "text": "Glänzend schwarzer Körper mit leuchtend gelb-orangen Flecken wie ein Feuersalamander. Seitlich am Kopf flackern gefiederte Kiemenbüschel aus kleinen Flammen (wie beim Axolotl). Freundliches Lächeln, vier kleine Stummelbein-Flossen.",
+        "schillernd": "Weiß mit cyanfarbenen Flecken und Eiskiemen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F092",
+      "nr": 92,
+      "name": "Dampfkugler",
+      "basis": "Kugelfisch (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          15,
+          35
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          5,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [
+          "Dampfnebel"
+        ],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Aufblaeher",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 4,
+        "zoneMod": 0
+      },
+      "punkte": 180,
+      "art": {
+        "text": "Runder, kupferroter Kugelfisch mit Nietenpunkten wie ein alter Dampfkessel. Er bläht sich mit heißem Dampf auf und pfeift wie ein Teekessel. Zweites Sprite: aufgeblasen, ein Dampfstrahl aus dem Maul, die Stacheln sehen aus wie kleine Ventile.",
+        "schillernd": "Kessel in Silber-Cyan.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F093",
+      "nr": 93,
+      "name": "Magma-Muräne",
+      "basis": "Muränen (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Ungewoehnlich",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          80,
+          160
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          55
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": true
+      },
+      "drill": {
+        "verhalten": "Versteckspieler",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 210,
+      "art": {
+        "text": "Eine lange Muräne aus flüssiger Lava: Der Körper glüht orange-gelb unter einer dunkelroten Krustenschicht, die langsam fließt (Palette-Cycling). Das Maul glüht von innen weißgelb. Idle-Pose: schaut aus einem Basaltloch. Zahnfisch.",
+        "schillernd": "Blauweißes „Eismagma“.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F094",
+      "nr": 94,
+      "name": "Phönixflosser",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "L",
+        "canvas": [
+          96,
+          48
+        ],
+        "laengeCm": [
+          40,
+          80
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          15
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Ausbruch",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 6,
+        "zoneMod": 0
+      },
+      "punkte": 400,
+      "art": {
+        "text": "Schlanker Fisch mit Flossen aus Flammenfedern (Verlauf Rot → Orange → Gelb in Federzacken) und einem langen Schweifschwanz wie ein Phönix. Auf dem Kopf eine goldene Krone aus drei Federn. Beim Sprung regnet es Funken. Lexikon: „Wenn er verglüht, schlüpft er aus seiner eigenen Asche neu.“",
+        "schillernd": "Eisphönix mit blauweißen Federn.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Wenn er verglüht, schlüpft er aus seiner eigenen Asche neu.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F095",
+      "nr": 95,
+      "name": "Basaltwels",
+      "basis": "Wels (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          150,
+          250
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          60
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Taucher",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 7,
+        "zoneMod": 0
+      },
+      "punkte": 420,
+      "art": {
+        "text": "Ein großer Wels, dessen Haut aus sechseckigen Basaltplatten besteht (Hexagonmuster in Basaltgrau mit dunklen Fugen). Aus den Fugen schimmert es rot. Barteln wie erkaltete Lavafäden, kleine glühende Augen.",
+        "schillernd": "Helles Silbergrau mit eisblauen Fugen.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F096",
+      "nr": 96,
+      "name": "Amethyst-Panzerfisch",
+      "basis": "Dunkleosteus (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          150,
+          300
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          40
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [
+          "K11"
+        ],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 450,
+      "art": {
+        "text": "Urzeitlicher Panzerfisch nach dem Vorbild Dunkleosteus. Sein Kopfpanzer besteht aus Amethyst-Kristallplatten (facettiert, violett mit hellen Kanten), statt Zähnen hat er scherenartige Knochenkiefer. Hinterleib dunkelgrau und haiartig. Lexikon: „Lebte vor 360 Millionen Jahren. Hat nie erfahren, dass er ausgestorben ist.“",
+        "schillernd": "Klarer Bergkristall mit Cyan-Schimmer.",
+        "leuchtet": false
+      },
+      "texte": {
+        "lexikon": "Lebte vor 360 Millionen Jahren. Hat nie erfahren, dass er ausgestorben ist.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F097",
+      "nr": 97,
+      "name": "Irrlicht-Geisterfisch",
+      "basis": "mystisch (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Selten",
+      "boss": false,
+      "groesse": {
+        "klasse": "M",
+        "canvas": [
+          64,
+          32
+        ],
+        "laengeCm": [
+          20,
+          40
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          20,
+          40
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Runennacht",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Blinker",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 5,
+        "zoneMod": 0
+      },
+      "punkte": 500,
+      "art": {
+        "text": "Ein geisterhafter, violett leuchtender Fisch aus kalten Flammen. Der Körper ist nur ein heller Umriss mit flackernden Flammenzungen (Kristallviolett → Rosa), am Schwanz „zerfasert“ er ohne feste Kontur. Zwei weiße, leere Augen. Teleportiert sich im Drill.",
+        "schillernd": "Grün-türkises Irrlicht.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F098",
+      "nr": 98,
+      "name": "Feuerdrachen-Koi",
+      "basis": "Koi (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          80,
+          140
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          0,
+          20
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Ausbruch",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Springer",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 8,
+        "zoneMod": 0
+      },
+      "punkte": 1000,
+      "art": {
+        "text": "Majestätischer Koi in Rot-Gold mit langen, wehenden Drachenbarteln und kleinen Hörnern. Die Schuppen haben goldene Kanten, die Flossen sind lodernde Flammen. Nach der Legende ist er den Lavafall hinaufgeschwommen und zum Drachen geworden (Anspielung auf die asiatische Koi-Legende).",
+        "schillernd": "Eisdrachen-Koi in Weiß-Blau-Silber.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F099",
+      "nr": 99,
+      "name": "Felsenfresser",
+      "basis": "Zackenbarsch (Fantasie)",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Episch",
+      "boss": false,
+      "groesse": {
+        "klasse": "XL",
+        "canvas": [
+          128,
+          64
+        ],
+        "laengeCm": [
+          200,
+          300
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          40,
+          60
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Immer"
+        ],
+        "wetterPflicht": [
+          "Erdbeben"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "Keins",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Brocken",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 9,
+        "zoneMod": 0
+      },
+      "punkte": 1100,
+      "art": {
+        "text": "Riesiger Zackenbarsch aus Felsbrocken: Sein Körper ist aus Basalt- und Granitsteinen zusammengesetzt, zwischen denen ein Lavakern durchglüht. Auf dem Rücken wachsen Kristalle. Das riesige Maul zermalmt Steine (Gesteinskrümel-Partikel), die glühenden Augen schauen gutmütig. Lexikon: „Frisst Felsen. Zum Nachtisch Kristalle.“",
+        "schillernd": "Marmorweiß mit eisblauem Kern.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "Frisst Felsen. Zum Nachtisch Kristalle.",
+        "hinweis": ""
+      }
+    },
+    {
+      "id": "F100",
+      "nr": 100,
+      "name": "Ignaris, der Lavadrachenfisch",
+      "basis": "Fantasie",
+      "fantasie": true,
+      "welt": "W5",
+      "seltenheit": "Legendaer",
+      "boss": true,
+      "groesse": {
+        "klasse": "Boss",
+        "canvas": [
+          256,
+          128
+        ],
+        "laengeCm": [
+          800,
+          1200
+        ],
+        "k": 0.011
+      },
+      "spawn": {
+        "tiefeM": [
+          55,
+          60
+        ],
+        "zonen": [
+          "Alle"
+        ],
+        "zeit": [
+          "Nacht"
+        ],
+        "wetterPflicht": [
+          "Alle"
+        ],
+        "wetterBevorzugt": [],
+        "ereignisPflicht": "GrosserAusbruch",
+        "ereignisBevorzugt": "Keins",
+        "koederMag": [],
+        "koederMagNicht": [],
+        "schwarm": [
+          1,
+          1
+        ]
+      },
+      "biss": {
+        "zupfer": [
+          0,
+          2
+        ],
+        "scheinbisse": false,
+        "zahnfisch": false
+      },
+      "drill": {
+        "verhalten": "Zickzack",
+        "verhalten2": null,
+        "verhalten2Ab": 0.5,
+        "kraft": 10,
+        "zoneMod": 0
+      },
+      "punkte": 3000,
+      "art": {
+        "text": "Schlangenartiger Drachenfisch mit nach hinten geschwungenen Obsidianhörnern, einem Drachenmaul voller Fangzähne und Schuppen wie schwarzer Basalt mit glühenden Kanten. Sein Bauch ist flüssige Lava (Fließanimation, Glutgelb → Magmarot). Über den Rücken zieht sich ein Flammenkamm, die Flossen sind wie Drachenflügel mit Lavaadern. Glühende Tropfen fallen von ihm herab (Partikel), die Augen glühen weiß.",
+        "schillernd": "„Frost-Ignaris“: Obsidian wird Silber, Lava wird leuchtendes Eisblau.",
+        "leuchtet": true
+      },
+      "texte": {
+        "lexikon": "",
+        "hinweis": ""
+      },
+      "bossPhasen": [
+        {
+          "phase": 1,
+          "name": "Glutschlängeln",
+          "hpVon": 1,
+          "hpBis": 0.75,
+          "verhalten": [
+            "Zickzack",
+            "Hitzkopf"
+          ],
+          "spezial": "Keine",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 2,
+          "name": "Feuerodem",
+          "hpVon": 0.75,
+          "hpBis": 0.5,
+          "verhalten": [],
+          "spezial": "Feuerodem",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 3,
+          "name": "Lavasprung",
+          "hpVon": 0.5,
+          "hpBis": 0.25,
+          "verhalten": [
+            "Springer"
+          ],
+          "spezial": "Lavabomben",
+          "kraft": 8,
+          "ansage": ""
+        },
+        {
+          "phase": 4,
+          "name": "Drachenzorn",
+          "hpVon": 0.25,
+          "hpBis": 0,
+          "verhalten": [],
+          "spezial": "Drachenzorn",
+          "kraft": 8,
+          "ansage": ""
+        }
+      ]
+    }
+  ]
+}
