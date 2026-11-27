@@ -15,7 +15,10 @@ Format: Datum · Entscheidung · Begründung · Alternativen.
 | Hosting | **Cloudflare Pages** (Vorschlag, Verbindung durch dich nötig) | kostenlos, unbegrenzte Bandbreite, automatische Vorschau-Links pro Branch. Alternative Vercel (Hobby-Plan nur nicht-kommerziell, 100 GB) – Projekt läuft auf beiden ohne Änderung (statische Seite aus `dist/`). |
 
 ### Technik
-- **Skalierung:** `Phaser.Scale.NONE` mit eigener Resize-Logik (`src/core/pixelScale.ts`). Der Zoom wird in **Gerätepixeln** ganzzahlig gewählt (`floor(min(w·dpr/640, h·dpr/360))`) und als `deviceZoom / dpr` an Phaser gegeben. So belegt jedes Spielpixel auch auf Handys mit DPR 2,625 oder 3 exakt n×n echte Pixel. Alternative `MAX_ZOOM` von Phaser rechnet in CSS-Pixeln und verschenkt auf Handys Schärfe.
+- **Skalierung (überarbeitet nach QA-Befund B1, 27.11.):** Der Canvas füllt das ganze Fenster, sein Puffer hat exakt die Größe in **Gerätepixeln** (`ResizeObserver` mit `devicePixelContentBoxSize`, Fallback CSS × DPR). Die Spielwelt 640×360 wird über die Phaser-Kamera mit ganzzahligem Zoom (`floor(min(w/640, h/360))`) gezeichnet, Ausschnitt auf ganze Gerätepixel zentriert (`src/scenes/pixelCamera.ts`). Der Rand ist transparent und zeigt die Weltfarbe der Seite.
+  - Erste Version skalierte einen 640×360-Puffer per CSS (`zoom = deviceZoom / dpr`). Bei krummer DPR (Android 2,625) rundet der Browser die CSS-Größe auf 1/64 px; dadurch waren 0,4–0,8 % der Pixelspalten 1 Gerätepixel zu breit/schmal. Der Regressionstest `tests/e2e/qa-pixelraster.spec.ts` prüft das jetzt auf 5 Profilen (inkl. Handy quer).
+  - Preis: Der Puffer ist so groß wie der Bildschirm (mehr Füllrate als 640×360). Die FPS auf einem Mittelklasse-Handy werden in Phase 1 gemessen (B8); Plan B wäre ein Render-Texture-Zwischenschritt.
+  - Einige Emulatoren melden in `devicePixelContentBoxSize` CSS-Pixel. Werte werden deshalb nur übernommen, wenn sie zu CSS × DPR passen (±2 px).
 - **Hochformat:** interne Größe 360×640 (gleiche Pixelgröße), Szenen ordnen sich über das `layout`-Event neu an.
 - **Text in Phase 0:** Beschriftungen als HTML-Overlay mit Systemschrift (scharf). Pixel-Schrift folgt mit dem UI (Phase 1), siehe `docs/platzhalter.md`.
 - **Sprite-Namen:** Langform aus B2/F2 (`fish_see_014_hecht_swim_0`) statt Kurzform aus 6.8 (`fish_014_swim_0`), weil B2 und F2 sie verbindlich nennen. `assetKey` wird von `build-data.ts` erzeugt, damit Spiel und Python dieselbe Regel nutzen.
@@ -38,3 +41,9 @@ Format: Datum · Entscheidung · Begründung · Alternativen.
   5. Coralina „Vollmondnacht ODER Flut am Abend“: DNF kann keine Tageszeit pro Bedingung ausdrücken → etwas großzügiger.
   6. Barnabas: Wetter „Gewitter“ vs. Ereignis „Sommergewitter“ – derzeit zählt das Wetter.
   7. Zählt „Großer Ausbruch“ auch als „Ausbruch“ (F094)? → Entscheidung in Phase 4.
+
+### QA-Befunde Phase 0 (siehe `docs/qa/phase-0.md`)
+- B1 (Pixelraster Android/quer) behoben, s. o.
+- K1 leere B2-Ordner mit `.gitkeep` eingecheckt. K2 kaputte CSV-Zeile liefert jetzt eine rote Meldung statt Stacktrace.
+- K4 (Zahlen in `TestbeckenScene.ts`): bewusst gelassen – Schwimmtempo und Himmelsanteil betreffen nur die Testszene, keine Spielwerte. Die echte Welt-Szene (Phase 1) liest alles aus den Daten.
+- K3 (DPR 1,25 halbe Randspalte) ist mit dem neuen Ansatz erledigt (Ausschnitt startet auf ganzen Gerätepixeln).

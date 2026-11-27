@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { computeLayout, type PixelLayout } from './core/pixelScale';
+import { computeLayout, cssToDevicePixels, type PixelLayout } from './core/pixelScale';
 import { bus } from './core/events';
 import { detectLanguage, setLanguage, t } from './i18n';
 import { BootScene } from './scenes/BootScene';
@@ -11,53 +11,66 @@ setLanguage(detectLanguage(navigator.languages));
 document.title = t('app.title');
 document.documentElement.lang = navigator.languages[0]?.slice(0, 2) === 'en' ? 'en' : 'de';
 
-function currentLayout(): PixelLayout {
-  const vv = window.visualViewport;
-  const w = vv ? vv.width : window.innerWidth;
-  const h = vv ? vv.height : window.innerHeight;
-  return computeLayout(w, h, window.devicePixelRatio || 1);
+const gameHost = document.getElementById('game') as HTMLDivElement;
+
+/** Erste Schätzung der Canvas-Größe in Gerätepixeln, bis der ResizeObserver exakt misst. */
+function estimateBuffer(): [number, number] {
+  const dpr = window.devicePixelRatio || 1;
+  return [cssToDevicePixels(gameHost.clientWidth || window.innerWidth, dpr), cssToDevicePixels(gameHost.clientHeight || window.innerHeight, dpr)];
 }
 
-let layout = currentLayout();
+let layout = computeLayout(...estimateBuffer());
 
 const game = new Phaser.Game({
   type: Phaser.AUTO,
-  parent: 'game',
-  width: layout.gameWidth,
-  height: layout.gameHeight,
-  backgroundColor: '#12342f',
+  parent: gameHost,
+  width: layout.bufferWidth,
+  height: layout.bufferHeight,
+  transparent: true,
   pixelArt: true,
   roundPixels: true,
   antialias: false,
   scale: {
     mode: Phaser.Scale.NONE,
-    zoom: layout.cssZoom,
+    // Die CSS-Größe kommt aus base.css (Canvas füllt das Fenster); Phaser soll nichts skalieren.
+    zoom: 1,
   },
   input: { activePointers: 3 },
   scene: [BootScene, PreloadScene, TestbeckenScene],
 });
 
-function applyLayout(): void {
-  const next = currentLayout();
-  const changed =
-    next.gameWidth !== layout.gameWidth || next.gameHeight !== layout.gameHeight || next.cssZoom !== layout.cssZoom;
-  layout = next;
-  if (changed) {
-    game.scale.resize(next.gameWidth, next.gameHeight);
-    game.scale.setZoom(next.cssZoom);
+function applyLayout(bufferWidth: number, bufferHeight: number): void {
+  const next = computeLayout(bufferWidth, bufferHeight);
+  if (next.bufferWidth !== game.scale.width || next.bufferHeight !== game.scale.height) {
+    game.scale.resize(next.bufferWidth, next.bufferHeight);
   }
-  bus.emit('layout', next);
+  const changed = JSON.stringify(next) !== JSON.stringify(layout);
+  layout = next;
   debugState.layout = next;
+  game.registry.set('layout', next);
+  if (changed) bus.emit('layout', next);
 }
 
-let pending = 0;
-const scheduleLayout = (): void => {
-  cancelAnimationFrame(pending);
-  pending = requestAnimationFrame(applyLayout);
-};
-window.addEventListener('resize', scheduleLayout);
-window.visualViewport?.addEventListener('resize', scheduleLayout);
-window.addEventListener('orientationchange', scheduleLayout);
+// Exakte Größe in Gerätepixeln messen (Chrome/Firefox/Edge); Safari fällt auf CSS × DPR zurück.
+const observer = new ResizeObserver((entries) => {
+  const entry = entries[entries.length - 1];
+  if (!entry) return;
+  const dpr = window.devicePixelRatio || 1;
+  const estW = entry.contentRect.width * dpr;
+  const estH = entry.contentRect.height * dpr;
+  const device = entry.devicePixelContentBoxSize?.[0];
+  // Nur plausible Gerätepixel-Werte übernehmen (manche Emulatoren melden hier CSS-Pixel).
+  if (device && Math.abs(device.inlineSize - estW) <= 2 && Math.abs(device.blockSize - estH) <= 2) {
+    applyLayout(device.inlineSize, device.blockSize);
+  } else {
+    applyLayout(Math.round(estW), Math.round(estH));
+  }
+});
+try {
+  observer.observe(gameHost, { box: 'device-pixel-content-box' });
+} catch {
+  observer.observe(gameHost);
+}
 
 mountFullscreenButton(document.getElementById('overlay'));
 
@@ -84,4 +97,3 @@ game.events.once(Phaser.Core.Events.READY, () => {
 (window as unknown as { __KK: DebugState }).__KK = debugState;
 game.registry.set('debug', debugState);
 game.registry.set('layout', layout);
-bus.on('layout', (l) => game.registry.set('layout', l));

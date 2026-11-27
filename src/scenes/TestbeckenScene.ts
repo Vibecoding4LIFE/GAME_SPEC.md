@@ -6,6 +6,7 @@ import { ditherGradient, hexToRgb } from '../core/dither';
 import { Rng, hashSeed } from '../core/random';
 import { bus } from '../core/events';
 import type { PixelLayout } from '../core/pixelScale';
+import { applyPixelCamera } from './pixelCamera';
 import type { DebugState } from '../main';
 import { t } from '../i18n';
 
@@ -41,6 +42,7 @@ export class TestbeckenScene extends Phaser.Scene {
   private leadColors: string[] = [];
   private badge?: HTMLDivElement;
   private offLayout?: () => void;
+  private layout!: PixelLayout;
 
   constructor() {
     super(SCENES.testbecken);
@@ -58,13 +60,16 @@ export class TestbeckenScene extends Phaser.Scene {
     this.leadColors = world.leitfarben;
     document.body.style.setProperty('--rand', world.leitfarben[3] ?? '#12342f');
 
+    this.layout = this.registry.get('layout') as PixelLayout;
+    applyPixelCamera(this.cameras.main, this.layout);
+
     const atlasKey = fishAtlasKey(world.kuerzel);
     this.createAnimations(atlasKey);
     this.drawBackground();
 
     const fish = db.fish.filter((f) => f.welt === this.worldId).sort((a, b) => b.groesse.canvas[1] - a.groesse.canvas[1]);
     const rng = new Rng(hashSeed(`testbecken-${this.worldId}`));
-    const { width } = this.scale.gameSize;
+    const width = this.layout.gameWidth;
     fish.forEach((f, i) => {
       const [w, h] = f.groesse.canvas;
       const sprite = this.add.sprite(0, 0, atlasKey, `${f.assetKey}_swim_0`);
@@ -88,9 +93,11 @@ export class TestbeckenScene extends Phaser.Scene {
     this.badge = document.createElement('div');
     this.badge.className = 'overlay-badge';
     document.getElementById('overlay')?.prepend(this.badge);
-    this.updateBadge(this.registry.get('layout') as PixelLayout);
+    this.updateBadge(this.layout);
 
     this.offLayout = bus.on('layout', (l) => {
+      this.layout = l;
+      applyPixelCamera(this.cameras.main, l);
       this.drawBackground();
       this.placeLanes();
       this.updateBadge(l);
@@ -108,7 +115,7 @@ export class TestbeckenScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    const { width } = this.scale.gameSize;
+    const width = this.layout.gameWidth;
     const dt = delta / 1000;
     for (const s of this.swimmers) {
       s.x += s.dir * s.speed * dt;
@@ -143,7 +150,7 @@ export class TestbeckenScene extends Phaser.Scene {
   }
 
   private drawBackground(): void {
-    const { width, height } = this.scale.gameSize;
+    const { gameWidth: width, gameHeight: height } = this.layout;
     const skyH = Math.round(height * SKY_SHARE);
     const [sky = '#8FD3F4', surface = '#3FA7A3', deep = '#1E5F5B', ground = '#12342F'] = this.leadColors;
     if (this.textures.exists(BG_KEY)) this.textures.remove(BG_KEY);
@@ -173,7 +180,7 @@ export class TestbeckenScene extends Phaser.Scene {
 
   /** Verteilt die Fische auf Bahnen im Wasser – passend zum aktuellen Format. */
   private placeLanes(): void {
-    const { width, height } = this.scale.gameSize;
+    const { gameWidth: width, gameHeight: height } = this.layout;
     const waterTop = Math.round(height * SKY_SHARE) + 4;
     for (const s of this.swimmers) {
       const seed = s.sprite.getData('laneSeed') as number;

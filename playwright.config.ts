@@ -18,5 +18,7 @@ export default defineConfig({
     { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 720 } } },
     { name: 'iphone', use: { ...devices['iPhone 13'], browserName: 'chromium' } },
     { name: 'android', use: { ...devices['Pixel 7'] } },
+    { name: 'iphone-quer', use: { ...devices['iPhone 13 landscape'], browserName: 'chromium' } },
+    { name: 'android-quer', use: { ...devices['Pixel 7 landscape'] } },
   ],
 });

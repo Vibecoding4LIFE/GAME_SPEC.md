@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 import { CACHE, SCENES, fishAtlasKey } from './keys';
 import { worldById, type WorldsJson } from './worldsJson';
 import { t } from '../i18n';
+import type { PixelLayout } from '../core/pixelScale';
+import { applyPixelCamera } from './pixelCamera';
 
 /** Lädt die Assets einer Welt erst beim Betreten (B3), mit Fortschrittsbalken. */
 export class PreloadScene extends Phaser.Scene {
@@ -16,6 +18,8 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   preload(): void {
+    const layout = this.registry.get('layout') as PixelLayout;
+    applyPixelCamera(this.cameras.main, layout);
     const worlds = this.cache.json.get(CACHE.worlds) as WorldsJson | undefined;
     const world = worlds ? worldById(worlds, this.worldId) : undefined;
     if (!world) {
@@ -25,7 +29,7 @@ export class PreloadScene extends Phaser.Scene {
     const k = world.kuerzel;
     this.load.atlas(fishAtlasKey(k), `assets/fish/${k}/atlas_fish_${k}.png`, `assets/fish/${k}/atlas_fish_${k}.json`);
 
-    const { width, height } = this.scale.gameSize;
+    const { gameWidth: width, gameHeight: height } = layout;
     const barW = Math.floor(width / 2);
     const x = Math.floor((width - barW) / 2);
     const y = Math.floor(height / 2);

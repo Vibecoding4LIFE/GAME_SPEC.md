@@ -1,7 +1,16 @@
 import { test, expect } from '@playwright/test';
 
 interface DebugState {
-  layout: { orientation: string; gameWidth: number; gameHeight: number; deviceZoom: number; cssZoom: number };
+  layout: {
+    orientation: string;
+    gameWidth: number;
+    gameHeight: number;
+    deviceZoom: number;
+    bufferWidth: number;
+    bufferHeight: number;
+    offsetX: number;
+    offsetY: number;
+  };
   renderer: string;
   ready: boolean;
   fishOnScreen: number;
@@ -29,14 +38,17 @@ test('Testbecken zeigt die 20 Fische von Welt 1 pixelgenau', async ({ page }, in
     expect(state.layout.orientation).toBe(viewport.height > viewport.width ? 'portrait' : 'landscape');
   }
 
-  // Canvas: interne Größe exakt 640×360 bzw. 360×640, Anzeige = intern × cssZoom
+  // Canvas-Puffer = Fenster in Gerätepixeln; Spielfläche ganzzahlig skaliert und auf ganzen Pixeln zentriert
   const canvas = await page.evaluate(() => {
     const c = document.querySelector('#game canvas') as HTMLCanvasElement;
     const r = c.getBoundingClientRect();
-    return { w: c.width, h: c.height, cssW: r.width, cssH: r.height, rendering: getComputedStyle(c).imageRendering };
+    return { w: c.width, h: c.height, cssW: r.width, cssH: r.height, dpr: devicePixelRatio, rendering: getComputedStyle(c).imageRendering };
   });
-  expect([canvas.w, canvas.h]).toEqual([state.layout.gameWidth, state.layout.gameHeight]);
-  expect(canvas.cssW).toBeCloseTo(state.layout.gameWidth * state.layout.cssZoom, 1);
+  expect([canvas.w, canvas.h]).toEqual([state.layout.bufferWidth, state.layout.bufferHeight]);
+  expect(Math.abs(canvas.w - canvas.cssW * canvas.dpr)).toBeLessThanOrEqual(1);
+  expect(state.layout.gameWidth * state.layout.deviceZoom).toBeLessThanOrEqual(canvas.w);
+  expect(state.layout.gameHeight * state.layout.deviceZoom).toBeLessThanOrEqual(canvas.h);
+  expect(Number.isInteger(state.layout.offsetX) && Number.isInteger(state.layout.offsetY)).toBe(true);
   expect(canvas.rendering).toMatch(/pixelated|crisp-edges/);
 
   await page.waitForTimeout(800);
@@ -47,6 +59,8 @@ test('Testbecken zeigt die 20 Fische von Welt 1 pixelgenau', async ({ page }, in
 
 test('Drehen aufs Querformat ordnet neu an (Handy)', async ({ page, isMobile }, info) => {
   test.skip(!isMobile, 'nur Handy-Profile');
+  const start = page.viewportSize();
+  test.skip(!start || start.width > start.height, 'startet schon im Querformat');
   await page.goto('/');
   await page.waitForFunction(() => (window as unknown as { __KK?: DebugState }).__KK?.ready === true);
   const vp = page.viewportSize()!;
@@ -54,11 +68,8 @@ test('Drehen aufs Querformat ordnet neu an (Handy)', async ({ page, isMobile }, 
   await page.waitForFunction(
     () => (window as unknown as { __KK: DebugState }).__KK.layout.orientation === 'landscape',
   );
-  const canvas = await page.evaluate(() => {
-    const c = document.querySelector('#game canvas') as HTMLCanvasElement;
-    return [c.width, c.height];
-  });
-  expect(canvas).toEqual([640, 360]);
+  const layout = await page.evaluate(() => (window as unknown as { __KK: DebugState }).__KK.layout);
+  expect([layout.gameWidth, layout.gameHeight]).toEqual([640, 360]);
   await page.waitForTimeout(500);
   await page.screenshot({ path: `test-results/testbecken-${info.project.name}-quer.png` });
 });

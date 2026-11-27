@@ -27,9 +27,15 @@ export interface BuildResult {
 type Row = Record<string, string>;
 
 function readCsv(path: string): Row[] {
-  return parse(readFileSync(path, 'utf8'), {
-    delimiter: ';', columns: true, bom: true, skip_empty_lines: true, trim: true,
-  }) as Row[];
+  try {
+    return parse(readFileSync(path, 'utf8'), {
+      delimiter: ';', columns: true, bom: true, skip_empty_lines: true, trim: true,
+    }) as Row[];
+  } catch (e) {
+    // z. B. abgeschnittene Zeile (falsche Spaltenzahl): als lesbare Meldung statt Stacktrace
+    console.error(`\x1b[31mFEHLER ${path}: ${e instanceof Error ? e.message : String(e)}\x1b[0m`);
+    process.exit(1);
+  }
 }
 
 /** Generierte Schlüssel-Namensräume – alles andere (UI-Texte) bleibt unangetastet. */
