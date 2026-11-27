@@ -51,3 +51,22 @@ Format: Datum · Entscheidung · Begründung · Alternativen.
 ## 2026-11-27 – Spielname
 - **Name: „Catch that Dih!“** (Entscheidung des Nutzers), in Deutsch und Englisch gleich. Ersetzt den Arbeitstitel „Köderkönige“ in Titel, Texten, README, CLAUDE.md und Agenten. `GAME_SPEC.md` bleibt als Original-Spezifikation unverändert.
 - Unverändert bleiben die Spielbegriffe aus der Spec: Titel „Köderkönig/Köderkönigin“ für 100/100, „Goldene Rute des Köderkönigs“, Köder-Item „Bosslocker“ usw.
+
+## 2026-11-27 – Phase 1: Ausrüstung und Balancing (daten-designer)
+Alle Spielzahlen stehen in `Data/balancing.csv` (259 Werte, jede mit Quelle). Wo die Spec nichts sagt, gilt eine **eigene Wahl** (in der Spalte `quelle` markiert), u. a.:
+- Sinkgeschwindigkeit leicht/mittel/schwer 2,5 / 4 / 6 m/s. Grund-Wartezeit 5–15 s (min. 2 s), Wartezeit = Grundwert / (1 + Σ Bissraten-Boni); Zupfer alle 0,8–2 s.
+- Anschlagfenster-Zwischenstufen linear (U +0,1125, S +0,025, E −0,0625 s).
+- Musterfaktor-Grundwert 0,5 (mit 1,0 wäre ab Kraft 6 mit der Startrute nichts haltbar). Grüne Zone mittig bei 0,50, Brocken +0,15. Erschöpfter Fisch zieht mit 0,3.
+- Distanz normiert 1 → 0, Einholen 0,10/s, Flucht 0,12/s. Boss-Ausdauer 45 + x·25 s.
+- Zu früher Anschlag: Bissrate ×0,5 für 5 s. Scheinbiss 35 % (max. 2). Futterplatz-Radius 3 m. Mückenschwarm 50 % je Abend, 120 s.
+- Schnurfarbe #E8EEF2 statt #FFFFFF (Style Guide: kein Reinweiß).
+- Fisch-Tags (`raubfisch`, `friedfisch`, `oberflaeche`, `grund`, `aal`, `forelle`, `lachs`, `mystisch`, `kristall`, `glut`, `riff`, `lagune`, `scheu`) steuern Wetter-, Köder- und Zucken-Effekte (`docs/datenvertrag.md` §5).
+
+**Offene Spec-Fragen (vorläufig entschieden):**
+1. Qualitätsfaktor Q additiv (wie Rechenbeispiel D 2.3 = 234 Punkte), nicht ×1,1 / ×1,2 multiplikativ.
+2. RG hat Flex 41 %, obwohl D 1.6 „20–40 %“ sagt → 41 % übernommen.
+3. Größen-μ-Bonus nur bei RW1 (Tabelle), RW2–RW5 = 0.
+4. Ruf-Stufenformel 100 × n^1,4 als XP **pro Stufe** (nicht kumuliert).
+5. „Scheue Fische“ fürs Stahlvorfach = Tag `scheu`.
+6. „Bissrate +X %“ wirkt auf die Wartezeit, „Fischart +X %“ auf das Spawn-Gewicht.
+7. Welt-Spezialköder bei 10/20 Arten noch offen (Phase 3).
