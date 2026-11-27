@@ -8,6 +8,11 @@ import { BossPhaseRow, FishRow } from '../src/data/schema';
 import { validateDb } from '../src/data/validate';
 import { RARITIES, WORLD_IDS } from '../src/data/types';
 import { buildData } from '../tools/build-data';
+import { Rng, hashSeed } from '../src/core/random';
+import { loadBalancing } from '../src/data/balancing';
+import { loadGear } from '../src/data/gear';
+import { rollSpawn } from '../src/game/spawn';
+import { DAY_PHASES, type ActiveWeather } from '../src/game/types';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = (p: string): unknown => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
@@ -146,5 +151,61 @@ describe('schema', () => {
 });
 
 describe('Regel 7 – Spawn-Simulation', () => {
-  it.todo('würfelt 10.000 Spawns je Welt/Tageszeit/Wetter mit der Spawn-Funktion des Spiels (Phase 1)');
+  // Dieselbe Spawn-Funktion wie im Spiel (src/game/spawn.ts). Je Welt × Tageszeit × Wetter 10.000 Spawns mit
+  // zufälliger Tiefe, Zone, Köder (der Welt) und zufälligen Weltereignissen. W1 wird hart geprüft (Phase 1),
+  // W2–W5 nur gewarnt, bis ihre Weltmechaniken (Phase 4) eingebaut sind.
+  const fishData = loadFishData(readJson('public/data/fish_db.json'));
+  const gear = loadGear(readJson('public/data/gear.json'));
+  const bal = loadBalancing(readJson('public/data/balancing.json'));
+  const N = 10000;
+  const ZONES = ['Ufer', 'Freiwasser', 'Kante'] as const;
+
+  function simulate(wid: (typeof WORLD_IDS)[number]) {
+    const world = worlds.worlds.find((w) => w.id === wid);
+    if (!world) throw new Error(wid);
+    const fish = fishData.filter((f) => f.world === wid);
+    // Bosslocker ruft den Boss absichtlich herbei und gehört nicht in die Zufallsverteilung
+    const baits = gear.baits.filter((x) => (x.worlds.length === 0 || x.worlds.includes(wid)) && !x.summonsWorldBoss);
+    const line = gear.lines[0];
+    if (!line) throw new Error('keine Schnur');
+    const rng = new Rng(hashSeed(`regel7:${wid}`));
+    const total: Record<string, number> = Object.fromEntries(fish.map((f) => [f.id, 0]));
+    const weathers = [...new Set(world.wetter.map((x) => x.wetter))].filter((x): x is ActiveWeather => x !== 'Alle');
+    for (const phase of DAY_PHASES) {
+      for (const weather of weathers) {
+        for (let i = 0; i < N; i++) {
+          const events = world.ereignisse.map((e) => e.ereignis).filter(() => rng.next() < 0.5);
+          const r = rollSpawn({
+            b: bal, world, fish, curios: [], phase, weather, events,
+            depthM: rng.range(world.minTiefeM, world.maxTiefeM), zone: rng.pick(ZONES), bait: rng.pick(baits),
+            line, leader: null, twitching: rng.next() < 0.5, feedingSpot: false, pityCount: 0, allowCurios: false,
+          }, rng);
+          if (r.kind === 'fish') total[r.fish.id] = (total[r.fish.id] ?? 0) + 1;
+        }
+      }
+    }
+    const never = fish.filter((f) => !total[f.id]).map((f) => f.id);
+    const commons = fish.filter((f) => f.rarity === 'Gewoehnlich').map((f) => total[f.id] ?? 0);
+    const meanCommon = commons.reduce((a, c) => a + c, 0) / Math.max(1, commons.length);
+    const rares = fish.filter((f) => f.rarity === 'Selten');
+    // Auslegung: ein Seltener darf nicht öfter erscheinen als ein durchschnittlicher Gewöhnlicher der Welt
+    const rareTooOften = rares.filter((f) => (total[f.id] ?? 0) > meanCommon).map((f) => f.id);
+    // strenger Vergleich (gegen den seltensten Gewöhnlichen) nur als Hinweis
+    const rareAboveRarestCommon = rares.filter((f) => (total[f.id] ?? 0) > Math.min(...commons)).map((f) => f.id);
+    return { total, never, rareTooOften, rareAboveRarestCommon };
+  }
+
+  it('W1: jeder Fisch ist unter irgendeiner Kombination fangbar, kein Seltener öfter als ein Gewöhnlicher', () => {
+    const r = simulate('W1');
+    expect(r.never, JSON.stringify(r.total)).toEqual([]);
+    expect(r.rareTooOften, JSON.stringify(r.total)).toEqual([]);
+    if (r.rareAboveRarestCommon.length) console.warn(`W1: Seltene öfter als der seltenste Gewöhnliche: ${r.rareAboveRarestCommon.join(', ')} – ${JSON.stringify(r.total)}`);
+  });
+
+  it.each(['W2', 'W3', 'W4', 'W5'] as const)('%s: Warnungen (Weltmechaniken folgen in Phase 4)', (wid) => {
+    const r = simulate(wid);
+    if (r.never.length) console.warn(`${wid}: nie gespawnt: ${r.never.join(', ')}`);
+    if (r.rareTooOften.length) console.warn(`${wid}: Seltene öfter als ein Gewöhnlicher: ${r.rareTooOften.join(', ')}`);
+    expect(Object.keys(r.total)).toHaveLength(20);
+  });
 });
