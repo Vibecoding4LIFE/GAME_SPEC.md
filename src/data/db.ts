@@ -170,7 +170,9 @@ export function toWorldDbEntry(
         displayNameKey: weatherKey(w.index, x.wetter),
         nurZeit: x.nur_zeit,
       })),
-    ereignisse: events.filter((x) => x.welt === w.id).map((x) => ({ ereignis: x.ereignis, beschreibung: x.beschreibung_de })),
+    ereignisse: events
+      .filter((x) => x.welt === w.id)
+      .map((x) => ({ ereignis: x.ereignis, beschreibung: x.beschreibung_de, zeit: x.zeit, wetter: x.wetter })),
     fish: own.map((f) => f.id),
     boss: own.find((f) => f.boss)?.id ?? null,
   };

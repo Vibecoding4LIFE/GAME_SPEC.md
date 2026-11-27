@@ -83,20 +83,20 @@ drill.behavior.Zappler.telegraphS;0.3;eigene Wahl;„Schatten zittert“ so lang
 drill.behavior.Sprinter.durationMinS;1.5;D 1.7;Flucht dauert 1,5–3 s
 drill.behavior.Sprinter.durationMaxS;3.0;D 1.7;Flucht dauert 1,5–3 s
 drill.behavior.Sprinter.pullBonus;0.25;D 1.7;+25 % Zug während der Flucht
-drill.behavior.Sprinter.intervalMinS;3;eigene Wahl;Pause zwischen zwei Fluchten (s)
-drill.behavior.Sprinter.intervalMaxS;6;eigene Wahl;Pause zwischen zwei Fluchten (s)
+drill.behavior.Sprinter.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Fluchten (s)
+drill.behavior.Sprinter.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Fluchten (s)
 drill.behavior.Sprinter.telegraphS;0.6;eigene Wahl;„Schatten dreht sich“ so lange vorher
 drill.behavior.Taucher.durationMinS;1.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
 drill.behavior.Taucher.durationMaxS;2.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
 drill.behavior.Taucher.pullBonus;0.15;eigene Wahl;Zugbonus während des Tauchgangs
 drill.behavior.Taucher.distanceFactor;1.5;eigene Wahl: D 1.7 „Distanz wächst stark“;Faktor auf drill.distance.fleePerS
-drill.behavior.Taucher.intervalMinS;3;eigene Wahl;Pause zwischen zwei Tauchgängen (s)
-drill.behavior.Taucher.intervalMaxS;6;eigene Wahl;Pause zwischen zwei Tauchgängen (s)
+drill.behavior.Taucher.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tauchgängen (s)
+drill.behavior.Taucher.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tauchgängen (s)
 drill.behavior.Taucher.telegraphS;0.6;eigene Wahl;„Blasen steigen auf“ so lange vorher
 drill.behavior.Springer.jumpMaxS;1.0;D 1.7;Sprung dauert bis zu 1 s
 drill.behavior.Springer.tensionLimit;0.40;D 1.7;liegt T beim Sprung darüber schüttelt er den Haken ab
-drill.behavior.Springer.intervalMinS;4;eigene Wahl;Pause zwischen zwei Sprüngen (s)
-drill.behavior.Springer.intervalMaxS;7;eigene Wahl;Pause zwischen zwei Sprüngen (s)
+drill.behavior.Springer.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Sprüngen (s)
+drill.behavior.Springer.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Sprüngen (s)
 drill.behavior.Springer.telegraphS;0.6;eigene Wahl;„Wasser wölbt sich“ so lange vorher
 drill.behavior.Springer.exhaustS;1.5;eigene Wahl: D 1.7 „kurz erschöpft (Bonusfenster)“;Dauer des Bonusfensters nach dem Sprung (s)
 drill.behavior.Springer.exhaustStaminaMultiplier;2.0;eigene Wahl;Ausdauer sinkt im Bonusfenster so viel schneller
@@ -111,11 +111,11 @@ drill.behavior.Trickser.fakeTiredMinS;2;eigene Wahl;so lange spielt er müde (Au
 drill.behavior.Trickser.fakeTiredMaxS;4;eigene Wahl;so lange spielt er müde (s)
 drill.behavior.Trickser.fleeS;2.5;eigene Wahl;Dauer der „riesigen Flucht“ (s)
 drill.behavior.Trickser.fleePullBonus;0.6;eigene Wahl: D 1.7 „riesige Flucht“;Zugbonus während der Flucht
-drill.behavior.Trickser.intervalMinS;5;eigene Wahl;Pause zwischen zwei Tricks (s)
-drill.behavior.Trickser.intervalMaxS;8;eigene Wahl;Pause zwischen zwei Tricks (s)
+drill.behavior.Trickser.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
+drill.behavior.Trickser.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
 drill.behavior.Versteckspieler.coverReachS;3;eigene Wahl;so lange schwimmt er ohne Konter bis zur Deckung (s)
-drill.behavior.Versteckspieler.intervalMinS;5;eigene Wahl;Pause zwischen zwei Versteckversuchen (s)
-drill.behavior.Versteckspieler.intervalMaxS;8;eigene Wahl;Pause zwischen zwei Versteckversuchen (s)
+drill.behavior.Versteckspieler.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Versteckversuchen (s)
+drill.behavior.Versteckspieler.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Versteckversuchen (s)
 drill.behavior.Versteckspieler.telegraphS;0.8;eigene Wahl;„Deckung blinkt“ so lange vorher
 drill.behavior.Versteckspieler.haengerTaps;3;D 1.7;Hänger lösen: 3× im Takt tippen
 drill.behavior.Versteckspieler.tapIntervalS;0.5;eigene Wahl: D 1.7 „im Takt“;Takt der Tipps (s)
@@ -133,8 +133,8 @@ drill.behavior.Stromer.intervalMaxS;7;eigene Wahl;Pause zwischen zwei Stromstö�
 drill.behavior.Stromer.telegraphS;0.5;eigene Wahl;„blaue Funken“ so lange vorher
 drill.behavior.Blinker.invisibleMinS;2;D 1.7;2–3 s unsichtbar
 drill.behavior.Blinker.invisibleMaxS;3;D 1.7;2–3 s unsichtbar
-drill.behavior.Blinker.intervalMinS;5;eigene Wahl;Pause zwischen zwei Unsichtbar-Phasen (s)
-drill.behavior.Blinker.intervalMaxS;8;eigene Wahl;Pause zwischen zwei Unsichtbar-Phasen (s)
+drill.behavior.Blinker.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Unsichtbar-Phasen (s)
+drill.behavior.Blinker.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Unsichtbar-Phasen (s)
 drill.behavior.Blinker.telegraphS;0.5;eigene Wahl;„Fisch wird durchsichtig“ so lange vorher
 drill.behavior.Hitzkopf.heatPerS;0.08;eigene Wahl: ca. 12 s bis zum Riss bei Dauerspannung;Hitzeleiste je s bei Spannung in der grünen Zone (Anteil)
 drill.behavior.Hitzkopf.highTensionMultiplier;2;D 1.7;über der grünen Zone heizt die Schnur doppelt
@@ -188,6 +188,7 @@ event.Vollmond.everyNthNight;3;E W1;Vollmond in jeder 3. Nacht
 event.Mueckenschwarm.chancePerCheck;0.5;eigene Wahl;Chance auf Mückenschwarm je Abend
 event.Mueckenschwarm.checkIntervalS;240;eigene Wahl: eine Prüfung je Abendphase;Prüfintervall (s)
 event.Mueckenschwarm.durationS;120;eigene Wahl;Dauer (s)
+lexicon.twoStarCatches;5;D 1.12;★★ ab so vielen Fängen einer Art (oder einmal Kapital)
 size.mu;0.45;D 1.10;Größenwurf x = clamp(Normal(mu, sigma), 0, 1)
 size.sigma;0.18;D 1.10;Standardabweichung des Größenwurfs
 size.grade.Winzling.upTo;0.15;D 1.10;Winzling: x < 0,15

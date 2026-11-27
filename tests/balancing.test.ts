@@ -86,6 +86,13 @@ describe('balancing.json', () => {
     expect(b.xp.level).toMatchObject({ base: 100, exponent: 1.4 });
   });
 
+  it('Lexikon-Sterne (D 1.12) und kurze Verhaltens-Pausen (Abnahme Phase 1)', () => {
+    expect(b.lexicon.twoStarCatches).toBe(5);
+    for (const k of ['Sprinter', 'Taucher', 'Springer', 'Trickser', 'Blinker', 'Versteckspieler'] as const) {
+      expect([b.drill.behavior[k].intervalMinS, b.drill.behavior[k].intervalMaxS], k).toEqual([2.5, 4]);
+    }
+  });
+
   it('Beispiel D 2.3: Hecht Prächtig, Meisterdrill + perfekter Wurf, erster der Runde = 234 Punkte', () => {
     const q = 1 + b.score.quality.masterDrill + b.score.quality.perfectCast;
     expect(Math.round(120 * b.size.grade.Praechtig.factor * q * b.score.variety.first)).toBe(234);

@@ -114,3 +114,11 @@ Enum-Namen als Teilschlüssel (`spawn.base.Selten`, `spawn.weather.Regen.tags.aa
 - `public/data/gear.json` – `{ version, rods, lines, reels, baits, accessories, curios }` direkt im Format der TS-Typen (`RodData` …).
 - `public/data/balancing.json` – siehe 5.3.
 - i18n-Schlüssel aus 5.2 (generierter Namensraum, UI-Schlüssel bleiben unberührt).
+
+### 5.5 `events.csv` – Spalten `zeit` und `wetter` (Nachtrag 27.11.)
+- `zeit`: TimeOfDay-Flags, in denen das Ereignis auftreten kann (Standard `Immer`). Vollmond, Korallenblüte, Polarlicht,
+  Großer Ausbruch, Runennacht = `Nacht`; Mückenschwarm = `Abend`.
+- `wetter`: Ist es gesetzt, ist das Ereignis genau dann aktiv, wenn dieses Wetter herrscht (Sommergewitter = `Gewitter`).
+  Das Wetter muss in der Wettertabelle der Welt stehen.
+- `worlds.json` → `ereignisse[]` bekommt `zeit` und `wetter`. Validator: Ein Pflicht-/ODER-Ereignis muss sich mit der Fangzeit des Fisches überschneiden.
+- Neuer Balancing-Schlüssel `lexicon.twoStarCatches` (D 1.12).

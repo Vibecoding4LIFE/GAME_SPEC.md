@@ -145,8 +145,8 @@
         "durationMinS": 1.5,
         "durationMaxS": 3,
         "pullBonus": 0.25,
-        "intervalMinS": 3,
-        "intervalMaxS": 6,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
         "telegraphS": 0.6
       },
       "Taucher": {
@@ -154,15 +154,15 @@
         "durationMaxS": 2.5,
         "pullBonus": 0.15,
         "distanceFactor": 1.5,
-        "intervalMinS": 3,
-        "intervalMaxS": 6,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
         "telegraphS": 0.6
       },
       "Springer": {
         "jumpMaxS": 1,
         "tensionLimit": 0.4,
-        "intervalMinS": 4,
-        "intervalMaxS": 7,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
         "telegraphS": 0.6,
         "exhaustS": 1.5,
         "exhaustStaminaMultiplier": 2
@@ -183,13 +183,13 @@
         "fakeTiredMaxS": 4,
         "fleeS": 2.5,
         "fleePullBonus": 0.6,
-        "intervalMinS": 5,
-        "intervalMaxS": 8
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4
       },
       "Versteckspieler": {
         "coverReachS": 3,
-        "intervalMinS": 5,
-        "intervalMaxS": 8,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
         "telegraphS": 0.8,
         "haengerTaps": 3,
         "tapIntervalS": 0.5,
@@ -213,8 +213,8 @@
       "Blinker": {
         "invisibleMinS": 2,
         "invisibleMaxS": 3,
-        "intervalMinS": 5,
-        "intervalMaxS": 8,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
         "telegraphS": 0.5
       },
       "Hitzkopf": {
@@ -362,6 +362,9 @@
       "checkIntervalS": 240,
       "durationS": 120
     }
+  },
+  "lexicon": {
+    "twoStarCatches": 5
   },
   "size": {
     "mu": 0.45,

@@ -85,6 +85,14 @@ describe('fish_db', () => {
     expect(by('F039')?.pflichtOder).toEqual([['Korallenbluete'], ['Regen', 'Flut']]);
   });
 
+  it('Ereignisse haben Tageszeit und Wetter-Kopplung (events.csv zeit/wetter)', () => {
+    const ev = (w: string, e: string) => worlds.worlds.find((x) => x.id === w)?.ereignisse.find((x) => x.ereignis === e);
+    expect(ev('W1', 'Mueckenschwarm')).toMatchObject({ zeit: ['Abend'], wetter: null });
+    expect(ev('W1', 'Vollmond')?.zeit).toEqual(['Nacht']);
+    expect(ev('W1', 'Sommergewitter')).toMatchObject({ zeit: ['Immer'], wetter: 'Gewitter' });
+    expect(ev('W5', 'GrosserAusbruch')?.zeit).toEqual(['Nacht']);
+  });
+
   it('loadFishData liefert FishData mit Asset-Namen nach Vertrag', () => {
     const data = loadFishData(readJson('public/data/fish_db.json'));
     expect(data).toHaveLength(100);

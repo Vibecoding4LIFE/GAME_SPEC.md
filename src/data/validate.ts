@@ -63,6 +63,11 @@ export function validateDb(db: FishDb, worlds: WorldDb | readonly WorldDbEntry[]
     const sum = w.wetter.reduce((a, x) => a + x.gewicht, 0);
     if (Math.abs(sum - 100) > 1e-6) warn(w.id, `Wettergewichte ergeben ${sum} statt 100`);
     if (w.leitfarben.length !== 8) err(w.id, `${w.leitfarben.length} Leitfarben statt 8`);
+    for (const e of w.ereignisse) {
+      if (e.zeit.length === 0) err(w.id, `Ereignis ${e.ereignis}: zeit ist leer`);
+      if (e.zeit.includes('Immer') && e.zeit.length > 1) err(w.id, `Ereignis ${e.ereignis}: "Immer" nicht mit anderen Zeiten kombinieren`);
+      if (e.wetter !== null && !w.wetter.some((x) => x.wetter === e.wetter)) err(w.id, `Ereignis ${e.ereignis}: Wetter "${e.wetter}" gibt es in ${w.id} nicht`);
+    }
   }
 
   // ---- Regel 1: IDs lückenlos/eindeutig, Verteilung, Bosse
@@ -213,6 +218,12 @@ function checkConditions(f: FishDbEntry, w: WorldDbEntry, err: Add, warn: Add): 
   const s = f.spawn;
   const nurZeit = (wx: string) => w.wetter.find((x) => x.wetter === wx)?.nurZeit ?? null;
   const timeOk = (t: string | null) => t === null || s.zeit.includes('Immer') || s.zeit.includes(t as never);
+  // Ereignisse mit eigener Tageszeit (events.csv `zeit`) müssen sich mit der Fangzeit des Fisches überschneiden
+  const eventTimeOk = (c: string) => {
+    const e = w.ereignisse.find((x) => x.ereignis === c);
+    if (!e || e.zeit.includes('Immer') || s.zeit.includes('Immer')) return true;
+    return e.zeit.some((t) => s.zeit.includes(t));
+  };
 
   const required = s.wetterPflicht.filter((x) => x !== 'Alle');
   if (required.length) {
@@ -221,8 +232,10 @@ function checkConditions(f: FishDbEntry, w: WorldDbEntry, err: Add, warn: Add): 
     if (possible.length === 0) err(f.id, `kein Pflicht-Wetter (${required.join('|')}) ist in ${w.id} zur Fangzeit möglich`);
   }
   if (s.ereignisPflicht !== 'Keins' && !possibleIn(w, s.ereignisPflicht)) err(f.id, `Pflicht-Ereignis "${s.ereignisPflicht}" steht nicht in den Ereignissen von ${w.id}`);
+  else if (s.ereignisPflicht !== 'Keins' && !eventTimeOk(s.ereignisPflicht)) err(f.id, `Pflicht-Ereignis "${s.ereignisPflicht}" fällt nie in die Fangzeit`);
+  if (s.ereignisBevorzugt !== 'Keins' && !eventTimeOk(s.ereignisBevorzugt)) warn(f.id, `bevorzugtes Ereignis "${s.ereignisBevorzugt}" fällt nie in die Fangzeit`);
   if (s.pflichtOder.length) {
-    const termOk = (term: SpawnCondition[]) => term.every((c) => possibleIn(w, c) && timeOk(nurZeit(c)));
+    const termOk = (term: SpawnCondition[]) => term.every((c) => possibleIn(w, c) && timeOk(nurZeit(c)) && eventTimeOk(c));
     s.pflichtOder.forEach((term) => {
       if (!termOk(term)) warn(f.id, `ODER-Bedingung "${term.join('+')}" ist in ${w.id} nicht erfüllbar`);
     });

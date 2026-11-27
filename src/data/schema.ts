@@ -202,6 +202,9 @@ export const EventRow = z.strictObject({
   welt: z.enum(T.WORLD_IDS),
   ereignis: z.enum(T.WORLD_EVENTS).refine((e) => e !== 'Keins', '"Keins" ist kein Ereignis'),
   beschreibung_de: text,
+  // Phase 1 (datenvertrag.md §5.5): erlaubte Tageszeiten und Kopplung an ein Wetter
+  zeit: opt(flags(T.TIMES_OF_DAY), ['Immer']),
+  wetter: opt(z.enum(T.WEATHERS).refine((w) => w !== 'Alle', '"Alle" ist kein Wetter').nullable(), null),
 });
 export type EventRowT = z.output<typeof EventRow>;
 
@@ -313,7 +316,14 @@ export const WorldDbEntrySchema = z.object({
       nurZeit: z.enum(T.TIMES_OF_DAY).nullable(),
     }),
   ),
-  ereignisse: z.array(z.object({ ereignis: z.enum(T.WORLD_EVENTS), beschreibung: z.string() })),
+  ereignisse: z.array(
+    z.object({
+      ereignis: z.enum(T.WORLD_EVENTS),
+      beschreibung: z.string(),
+      zeit: z.array(z.enum(T.TIMES_OF_DAY)),
+      wetter: z.enum(T.WEATHERS).nullable(),
+    }),
+  ),
   fish: z.array(z.string()),
   boss: z.string().nullable(),
 });

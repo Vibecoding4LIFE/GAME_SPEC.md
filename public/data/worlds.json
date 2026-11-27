@@ -92,15 +92,27 @@
       "ereignisse": [
         {
           "ereignis": "Vollmond",
-          "beschreibung": "Jede 3. Nacht: Episch +50 %, Mondlicht-Säule auf dem Wasser."
+          "beschreibung": "Jede 3. Nacht: Episch +50 %, Mondlicht-Säule auf dem Wasser.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Sommergewitter",
-          "beschreibung": "Barnabas-Bedingung, Blitz-Silhouetten."
+          "beschreibung": "Barnabas-Bedingung, Blitz-Silhouetten.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": "Gewitter"
         },
         {
           "ereignis": "Mueckenschwarm",
-          "beschreibung": "Am Abend: Oberflächenfische springen nach Insekten, Ukelei und Rotfeder +50 %."
+          "beschreibung": "Am Abend: Oberflächenfische springen nach Insekten, Ukelei und Rotfeder +50 %.",
+          "zeit": [
+            "Abend"
+          ],
+          "wetter": null
         }
       ],
       "fish": [
@@ -210,23 +222,43 @@
       "ereignisse": [
         {
           "ereignis": "Flut",
-          "beschreibung": "Zyklisch alle 4 Minuten: Wasserspiegel +1 m, Lagunenfische +30 %, Wurfweite zur Kante +10 %."
+          "beschreibung": "Zyklisch alle 4 Minuten: Wasserspiegel +1 m, Lagunenfische +30 %, Wurfweite zur Kante +10 %.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Ebbe",
-          "beschreibung": "Zyklisch alle 4 Minuten: Gezeitentümpel als Extra-Zone (Gewöhnliche +50 %), Riffkante schwerer erreichbar."
+          "beschreibung": "Zyklisch alle 4 Minuten: Gezeitentümpel als Extra-Zone (Gewöhnliche +50 %), Riffkante schwerer erreichbar.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Vollmond",
-          "beschreibung": "Vollmondnacht."
+          "beschreibung": "Vollmondnacht.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Korallenbluete",
-          "beschreibung": "Seltene Vollmondnacht (1 von 3 Vollmonden): rosa Laichpartikel steigen auf, Episch ×2. Bedingung für den Korallendrachen."
+          "beschreibung": "Seltene Vollmondnacht (1 von 3 Vollmonden): rosa Laichpartikel steigen auf, Episch ×2. Bedingung für den Korallendrachen.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "DelfinBesuch",
-          "beschreibung": "Delfine treiben einen Schwarm zusammen: 20 s Gewöhnliche ×3."
+          "beschreibung": "Delfine treiben einen Schwarm zusammen: 20 s Gewöhnliche ×3.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         }
       ],
       "fish": [
@@ -344,15 +376,27 @@
       "ereignisse": [
         {
           "ereignis": "Polarlicht",
-          "beschreibung": "25 % aller Nächte: Polarlicht-Fische erscheinen, Episch +50 %, Wasser schimmert grün-violett."
+          "beschreibung": "25 % aller Nächte: Polarlicht-Fische erscheinen, Episch +50 %, Wasser schimmert grün-violett.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Walgesang",
-          "beschreibung": "Ein Wal zieht vorbei: alle Fische fliehen 10 s nach oben (Tiefe −10 m für alle Spawns)."
+          "beschreibung": "Ein Wal zieht vorbei: alle Fische fliehen 10 s nach oben (Tiefe −10 m für alle Spawns).",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Eisbergkalbung",
-          "beschreibung": "Ein Brocken stürzt ins Wasser: Welle, Wurfweite −20 % für 15 s, danach Fressrausch."
+          "beschreibung": "Ein Brocken stürzt ins Wasser: Welle, Wurfweite −20 % für 15 s, danach Fressrausch.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         }
       ],
       "fish": [
@@ -462,19 +506,35 @@
       "ereignisse": [
         {
           "ereignis": "Meeresschnee",
-          "beschreibung": "Grundfische +50 %, glitzernde Partikel."
+          "beschreibung": "Grundfische +50 %, glitzernde Partikel.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "BiolumineszenzWelle",
-          "beschreibung": "60 s: Alles im Wasser leuchtet auf, volle Sicht, Episch ×2."
+          "beschreibung": "60 s: Alles im Wasser leuchtet auf, volle Sicht, Episch ×2.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "SchwarzerRaucher",
-          "beschreibung": "Schwarzer-Raucher-Ausbruch: rotes Glühen im Graben. Luminas Bedingung."
+          "beschreibung": "Schwarzer-Raucher-Ausbruch: rotes Glühen im Graben. Luminas Bedingung.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Walfall",
-          "beschreibung": "Walfall-Festmahl: Am Walskelett Grenadierfische ×3 und Schlinger ×2."
+          "beschreibung": "Walfall-Festmahl: Am Walskelett Grenadierfische ×3 und Schlinger ×2.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         }
       ],
       "fish": [
@@ -584,15 +644,27 @@
       "ereignisse": [
         {
           "ereignis": "Ausbruch",
-          "beschreibung": "Alle 2–4 Min: 10 s Grollen, dann 30 s Ausbruch – Lavabomben, Bissrate ×2, Glutfische 15 m höher."
+          "beschreibung": "Alle 2–4 Min: 10 s Grollen, dann 30 s Ausbruch – Lavabomben, Bissrate ×2, Glutfische 15 m höher.",
+          "zeit": [
+            "Immer"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "GrosserAusbruch",
-          "beschreibung": "Selten, max. 1× pro 16 Min, nachts: Der ganze Glutsee erstrahlt. Ignaris' Bedingung."
+          "beschreibung": "Selten, max. 1× pro 16 Min, nachts: Der ganze Glutsee erstrahlt. Ignaris' Bedingung.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         },
         {
           "ereignis": "Runennacht",
-          "beschreibung": "Mitternacht: Die Statuenaugen leuchten violett, mystische Fische +50 %."
+          "beschreibung": "Mitternacht: Die Statuenaugen leuchten violett, mystische Fische +50 %.",
+          "zeit": [
+            "Nacht"
+          ],
+          "wetter": null
         }
       ],
       "fish": [

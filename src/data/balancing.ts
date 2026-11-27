@@ -122,6 +122,7 @@ export const BalancingSchema = obj({
   event: eventRecord(
     obj({ everyNthNight: pos.optional(), chancePerCheck: frac.optional(), checkIntervalS: pos.optional(), durationS: pos.optional() }),
   ),
+  lexicon: obj({ twoStarCatches: pos }),
   size: obj({
     mu: frac,
     sigma: pos,
