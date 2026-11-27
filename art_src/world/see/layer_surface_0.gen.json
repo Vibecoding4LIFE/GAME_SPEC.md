@@ -1,0 +1,20 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "size": [
+  960,
+  10
+ ],
+ "eyes": 0,
+ "ebene": "surface_0",
+ "seed": "fest (siehe see_layers.py)",
+ "x": 0,
+ "y": 114,
+ "parallaxX": 1.0,
+ "kachelbar": true,
+ "skript": "tools/art/see_layers.py"
+}

@@ -715,6 +715,19 @@ def steg() -> Img:
     img.line(53, wall_bot, 56, 92 - oy, wood[1])
     img.rect(55, 86 - oy, 57, 92 - oy, wood[2])
     img.vline(57, 86 - oy, 92 - oy, wood[0])
+    # --- Sitzkisten an den Steg-Plätzen (Sitzfläche = Spielerplatz-y)
+    for spot in L.PLAYER_SPOTS:
+        if spot["typ"] != "steg":
+            continue
+        cx = spot["x"]
+        top = spot["y"] - oy
+        img.rect(cx - 6, top, cx + 6, deck_y - 1, wood[2])
+        img.hline(cx - 6, cx + 6, top, wood[3])
+        img.hline(cx - 6, cx + 6, top + 3, wood[0])
+        img.vline(cx - 6, top, deck_y - 1, wood[3])
+        img.vline(cx + 6, top, deck_y - 1, dark[1])
+        img.set(cx - 4, top + 1, R("Stein", 2))
+        img.set(cx + 4, top + 1, R("Stein", 2))
     # --- Requisiten auf dem Steg
     by = deck_y - 1
     # Eimer mit Fischschwanz
@@ -800,4 +813,21 @@ def foreground() -> Img:
                 d = rng.choice((-1, 1))
                 for k in range(rng.randint(6, 12)):
                     img.set(bx + d * k, by + (k * k) // 14, R("Schilfgruen", 2 if k < 3 else 1))
+    return img
+
+
+# =========================================================================== Nebel (Parallax-Schicht, Morgennebel)
+
+FOG_Y, FOG_H = 92, 40
+
+
+def fog() -> Img:
+    img = Img(W, FOG_H, pal(), wrap=True)
+    for y in range(FOG_H):
+        for x in range(W):
+            band = fbm1(x, W, 6, 300 + (y // 6), 2)
+            core = 1.0 - abs(y - FOG_H * 0.55) / (FOG_H * 0.55)
+            t = max(0.0, min(0.75, (band - 0.35) * 1.6 * core))
+            if bayer(x, y, t):
+                img.set(x, y, R("Wolke", 3) if y < FOG_H * 0.5 else R("Wolke", 2))
     return img

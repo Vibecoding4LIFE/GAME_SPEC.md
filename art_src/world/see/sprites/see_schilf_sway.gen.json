@@ -1,0 +1,30 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_schilf_sway_0",
+  "see_schilf_sway_1",
+  "see_schilf_sway_2"
+ ],
+ "size": [
+  16,
+  40
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 3,
+ "loop": true,
+ "yoyo": true,
+ "anchors": {
+  "fuss": {
+   "x": 8,
+   "y": 39
+  }
+ },
+ "hinweis": "Wiegen ±2 px oben, yoyo",
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

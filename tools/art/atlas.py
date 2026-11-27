@@ -93,11 +93,12 @@ def contact_sheet(sprites, path: str, title: str, light, dark, scale=3, width=15
         ims = [f.im.resize((f.w * scale, f.h * scale), Image.NEAREST) for f in sp.frames]
         w = sum(i.size[0] for i in ims) + 4 * (len(ims) - 1)
         h = max(i.size[1] for i in ims)
-        label = sp.key + (f"  ({len(ims)}f @ {sp.fps} fps)" if len(ims) > 1 or sp.fps else "")
+        label = sp.key + (f"  ({len(ims)}f @ {sp.fps} fps)" if sp.fps else (f"  ({len(ims)}f)" if len(ims) > 1 else ""))
         tw = int(font.getlength(label)) if hasattr(font, "getlength") else len(label) * 6
         cells.append((label, ims, max(w, tw), h))
-    half = width // 2
     gap, lab = 10, 12
+    half = max(width // 2, max(c[2] for c in cells) + 2 * gap)
+    width = half * 2
     rows, row, x = [], [], gap
     for c in cells:
         if row and x + c[2] + gap > half:

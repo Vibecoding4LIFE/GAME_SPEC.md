@@ -103,9 +103,9 @@ def angler(var):
 
 # --------------------------------------------------------------------------- Rute
 
-ROD_W, ROD_H = 64, 50
+ROD_W, ROD_H = 56, 50
 ROD_BUTT = (3, 47)
-ROD_LEN = 58
+ROD_LEN = 56
 ROD_GRIP_S = 9           # Abstand Griffende → Hand
 
 
@@ -116,7 +116,7 @@ def rod_points(bend):
     x, y = ROD_BUTT
     for i in range(ROD_LEN * 4 + 1):
         s = i / 4
-        th = th0 - math.radians(80) * bend * (s / ROD_LEN) ** 2.2
+        th = th0 - math.radians(105) * bend * (s / ROD_LEN) ** 1.8
         pts.append((x, y, th, s))
         x += math.cos(th) * 0.25
         y -= math.sin(th) * 0.25
@@ -200,23 +200,26 @@ def pose(offset):
 
 
 def worm(frame):
-    img = S(11, 14)
-    hook = R("Metall", 2)
-    img.set(3, 0, R("Metall", 3))
-    img.set(4, 0, hook)
-    img.set(3, 1, hook)
-    img.vline(4, 1, 9, hook)
-    img.line(4, 10, 6, 11, hook)
-    img.line(7, 10, 8, 8, hook)
-    img.set(8, 7, R("Metall", 3))
-    w1, w2, w3 = R("Haut", 0), R("Haut", 1), R("Signalrot", 3)
-    for (x, y) in ((3, 3), (5, 4), (3, 5), (5, 6), (3, 7), (5, 8)):
-        img.set(x, y, w2)
-        img.set(x + (1 if x < 4 else -1), y, w1 if y % 4 else w3)
-    tail = [(2, 9), (1, 10), (1, 11), (2, 12)] if frame == 0 else [(3, 9), (2, 10), (2, 11), (3, 12)]
-    tail += [(6, 3), (7, 2)] if frame == 0 else [(6, 3), (7, 4)]
-    for (x, y) in tail:
-        img.set(x, y, w2)
+    """Wurm am Haken: Haken (Metall) mit Öse oben, Wurm in S-Schlaufen, Ende zappelt."""
+    img = S(11, 15)
+    hook, hook_l = R("Metall", 1), R("Metall", 3)
+    img.set(4, 0, hook_l)
+    img.set(5, 0, hook)
+    img.set(4, 1, hook)
+    img.vline(5, 1, 10, hook)
+    img.set(5, 2, hook_l)
+    img.line(5, 11, 6, 12, hook)
+    img.hline(7, 7, 12, hook)
+    img.line(8, 11, 8, 9, hook)
+    img.set(8, 8, hook_l)
+    pink = [R("Haut", 0), R("Haut", 1), R("Signalrot", 3)]
+    loops = [(3, 3), (4, 3), (6, 4), (7, 5), (6, 6), (4, 6), (3, 7), (4, 8), (6, 8), (7, 9)]
+    for i, (x, y) in enumerate(loops):
+        img.set(x, y, pink[2] if i % 3 == 0 else pink[1])
+    tail = [(3, 9), (2, 10), (2, 11), (3, 12), (3, 13)] if frame == 0 else \
+        [(3, 9), (3, 10), (4, 11), (4, 12), (5, 13)]
+    for i, (x, y) in enumerate(tail):
+        img.set(x, y, pink[1] if i % 2 else pink[2])
     img.outline()
     return img
 
@@ -445,7 +448,7 @@ def all_sprites() -> list[Sprite]:
     out.append(Sprite("pose_idle", [pose(0), pose(-1)], fps=2, yoyo=True, anchors=wl))
     out.append(Sprite("pose_nibble", [pose(2), pose(1)], fps=10, anchors=wl, note="Zupfer"))
     out.append(Sprite("pose_bite", [pose(8), pose(10)], fps=8, loop=False, anchors=wl, note="abgetaucht"))
-    out.append(Sprite("bait_wurm_wiggle", [worm(0), worm(1)], fps=4, anchors={"schnur": {"x": 3, "y": 0}}))
+    out.append(Sprite("bait_wurm_wiggle", [worm(0), worm(1)], fps=4, anchors={"schnur": {"x": 4, "y": 0}}))
     out.append(Sprite("kescher_still", [landing_net()], anchors={"griff": {"x": 1, "y": 22}}))
     out.append(Sprite("boat_ruderboot_rock", [boat(0), boat(1)], fps=2, yoyo=True,
                       anchors={"wasserlinie": {"x": BOAT_W // 2, "y": BOAT_WL},

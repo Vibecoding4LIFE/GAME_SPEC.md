@@ -35,10 +35,10 @@ FLOOR_POINTS = [
     (905, 9.6), (925, 6.2), (942, 4.2),
 ]
 
-# Spielerplätze (x = Mitte der Figur, y = Sitzfläche bzw. Wasserlinie)
+# Spielerplätze: Steg → (x, y) = Sitzfläche der Kiste; Boot → (x, y) = Bootsmitte auf der Wasserlinie
 PLAYER_SPOTS = [
-    {"id": "steg_1", "typ": "steg", "x": 124, "y": 104, "blick": "rechts"},
-    {"id": "steg_2", "typ": "steg", "x": 176, "y": 104, "blick": "rechts"},
+    {"id": "steg_1", "typ": "steg", "x": 124, "y": 97, "blick": "rechts"},
+    {"id": "steg_2", "typ": "steg", "x": 172, "y": 97, "blick": "rechts"},
     {"id": "boot_1", "typ": "boot", "x": 330, "y": 120, "blick": "rechts"},
     {"id": "boot_2", "typ": "boot", "x": 412, "y": 120, "blick": "rechts"},
 ]
