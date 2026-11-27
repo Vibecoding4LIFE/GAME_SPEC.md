@@ -1,0 +1,28 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_figures",
+ "frames": [
+  "pose_idle_0",
+  "pose_idle_1"
+ ],
+ "size": [
+  9,
+  28
+ ],
+ "palettes": [
+  "figures"
+ ],
+ "eyes": 0,
+ "fps": 2,
+ "loop": true,
+ "yoyo": true,
+ "anchors": {
+  "wasserlinie": {
+   "x": 4,
+   "y": 10
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

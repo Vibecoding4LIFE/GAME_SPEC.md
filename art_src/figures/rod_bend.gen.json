@@ -1,0 +1,82 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_figures",
+ "frames": [
+  "rod_bend_0",
+  "rod_bend_1",
+  "rod_bend_2",
+  "rod_bend_3"
+ ],
+ "size": [
+  56,
+  50
+ ],
+ "palettes": [
+  "figures"
+ ],
+ "eyes": 0,
+ "fps": null,
+ "loop": true,
+ "yoyo": false,
+ "anchors": [
+  {
+   "griff": {
+    "x": 8,
+    "y": 40
+   },
+   "spitze": {
+    "x": 34,
+    "y": 1
+   },
+   "ende": {
+    "x": 3,
+    "y": 47
+   }
+  },
+  {
+   "griff": {
+    "x": 8,
+    "y": 40
+   },
+   "spitze": {
+    "x": 43,
+    "y": 9
+   },
+   "ende": {
+    "x": 3,
+    "y": 47
+   }
+  },
+  {
+   "griff": {
+    "x": 8,
+    "y": 40
+   },
+   "spitze": {
+    "x": 48,
+    "y": 19
+   },
+   "ende": {
+    "x": 3,
+    "y": 47
+   }
+  },
+  {
+   "griff": {
+    "x": 8,
+    "y": 40
+   },
+   "spitze": {
+    "x": 48,
+    "y": 31
+   },
+   "ende": {
+    "x": 3,
+    "y": 47
+   }
+  }
+ ],
+ "hinweis": "R01 Opas Bambusrute; Frame = Biegestufe (kein Zeit-Clip)",
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

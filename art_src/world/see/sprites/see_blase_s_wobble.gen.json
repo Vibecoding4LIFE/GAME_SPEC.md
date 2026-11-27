@@ -1,0 +1,26 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_blase_s_wobble_0",
+  "see_blase_s_wobble_1",
+  "see_blase_s_wobble_2",
+  "see_blase_s_wobble_3"
+ ],
+ "size": [
+  6,
+  7
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 8,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {},
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

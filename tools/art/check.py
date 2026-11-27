@@ -139,7 +139,9 @@ def main(argv):
     for r in rows:
         print("  ".join(str(r[i]).ljust(widths[i]) for i in range(6)) + "  " + r[6])
     print(f"\n{len(rows)} Fische geprüft, {n_err} mit Fehlern ({os.path.relpath(db, C.ROOT)})")
-    return 1 if n_err else 0
+    import check_world  # Welt-/Figuren-/HUD-Grafiken (harte Regeln F1)
+    world_rc = check_world.main()
+    return 1 if (n_err or world_rc) else 0
 
 
 if __name__ == "__main__":

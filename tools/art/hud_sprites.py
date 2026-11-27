@@ -265,15 +265,15 @@ def arrow(direction, hi):
 
 
 FIN = [
-    "rr.......",
-    "rrr....rr",
-    ".rrr..rrr",
-    "..rrrrrr.",
-    "..rrrrr..",
-    "..rrrrrr.",
-    ".rrr..rrr",
-    "rrr....rr",
-    "rr.......",
+    ".......rr",
+    "......rrr",
+    ".....rrr.",
+    "rrrrrrr..",
+    "rrrrrr...",
+    "rrrrrrr..",
+    ".....rrr.",
+    "......rrr",
+    ".......rr",
 ]
 
 
@@ -288,7 +288,7 @@ def fin_icon(state):
             filled = state == "full" or (state == "half" and x <= 4)
             if filled:
                 c = w[3] if y < 4 else w[2]
-                if x in (2, 5) and 2 <= y <= 6:
+                if (x == 6 and y in (1, 7)) or (x in (2, 4) and y == 4):
                     c = w[1]                        # Flossenstrahlen
             else:
                 c = R("Tinte", 1)
@@ -463,51 +463,41 @@ def clock_icon():
 # --------------------------------------------------------------------------- 9-Slice fürs HTML-UI
 
 def frame_wood_9slice():
-    """48×48, Slice 16 px. Rand: Holzbohlen + Messingecken; Mitte: kachelbares Holz (16 px Periode)."""
-    img = S(48, 48)
-    wood_fill(img, 0, 0, 47, 47)
-    # Rahmenleisten (dunkler, senkrecht/waagerecht) 10 px breit
+    """24×24, Slice 8 px (Ecken 8×8 mit Messingbeschlag). Randstücke und Mitte kacheln mit 8 px Periode."""
+    img = S(24, 24)
     h = [R("Holz", i) for i in range(5)]
-    for y in range(48):
-        for x in range(48):
-            edge = min(x, y, 47 - x, 47 - y)
-            if edge < 10:
-                vertical = min(x, 47 - x) < min(y, 47 - y)
+    for y in range(24):
+        for x in range(24):
+            edge = min(x, y, 23 - x, 23 - y)
+            if edge == 0:
+                c = R("Tinte", 0)
+            elif edge == 1:
+                c = h[4] if (x < 12 and y < 12) else h[3]
+            elif edge < 6:
+                vertical = min(x, 23 - x) < min(y, 23 - y)
                 k = x if vertical else y
-                band = k % 5
-                c = h[2] if band == 0 else (h[1] if band < 4 else h[0])
-                if edge == 9:
-                    c = h[0]
-                if edge == 0:
-                    c = R("Tinte", 0)
-                if edge == 1:
-                    c = h[3]
-                img.set(x, y, c)
-    for (x, y) in ((1, 1), (38, 1), (1, 38), (38, 38)):    # Messing-Eckbeschläge 9×9
-        for yy in range(9):
-            for xx in range(9):
-                if xx < 3 or yy < 3 or (x > 20 and xx > 5) or (y > 20 and yy > 5):
-                    pass
-        brass_frame(img, x, y, x + 8, y + 8, inner=R("Messing", 2), rivets=False)
-        img.set(x + 4, y + 4, R("Messing", 4))
-        img.set(x + 5, y + 5, R("Messing", 0))
-    # Innenfläche kachelbar (16 px Periode, auch in den Randstücken)
-    for y in range(10, 38):
-        for x in range(10, 38):
-            k = y
-            band = k % 4
-            c = h[2] if band == 0 else (h[1] if band < 3 else h[0])
+                c = h[3] if k % 4 == 2 else (h[2] if k % 4 != 1 else h[1])
+            elif edge == 6:
+                c = h[0]
+            elif edge == 7:
+                c = R("Tinte", 1)
+            else:                                  # Mitte: Bohlen, Periode 4 (passt in 8)
+                c = h[2] if y % 4 == 0 else (h[1] if y % 4 < 3 else h[0])
             img.set(x, y, c)
+    for (x, y) in ((1, 1), (17, 1), (1, 17), (17, 17)):   # Messingbeschläge 6×6
+        brass_frame(img, x, y, x + 5, y + 5, inner=R("Messing", 2), rivets=False)
+        img.set(x + 2, y + 2, R("Messing", 4))
+        img.set(x + 3, y + 3, R("Messing", 0))
     return img
 
 
 def frame_parchment_9slice():
-    """48×48, Slice 12 px. Pergament mit Tintenrand und Eckornamenten; Mitte kachelbar (Bayer-Struktur)."""
-    img = S(48, 48)
+    """24×24, Slice 8 px. Pergament mit Tinten-/Holzrand und Eckornament; Mitte kachelt (Bayer, Periode 2)."""
+    img = S(24, 24)
     p = [R("Pergament", i) for i in range(4)]
-    for y in range(48):
-        for x in range(48):
-            edge = min(x, y, 47 - x, 47 - y)
+    for y in range(24):
+        for x in range(24):
+            edge = min(x, y, 23 - x, 23 - y)
             if edge == 0:
                 c = R("Tinte", 0)
             elif edge == 1:
@@ -519,28 +509,23 @@ def frame_parchment_9slice():
             else:
                 c = p[3] if bayer(x, y, 0.75) else p[2]
             img.set(x, y, c)
-    # Eckornamente (Tinte)
-    for (cx, cy, sx, sy) in ((7, 7, 1, 1), (40, 7, -1, 1), (7, 40, 1, -1), (40, 40, -1, -1)):
-        for k in range(4):
-            img.set(cx + sx * k, cy, R("Holz", 1))
-            img.set(cx, cy + sy * k, R("Holz", 1))
-        img.set(cx + sx, cy + sy, R("Holz", 0))
-    # Mitte 12..35 einheitlich kachelbar (Periode 2)
-    for y in range(12, 36):
-        for x in range(12, 36):
-            img.set(x, y, p[3] if bayer(x, y, 0.75) else p[2])
+    for (cx, cy, sx, sy) in ((5, 5, 1, 1), (18, 5, -1, 1), (5, 18, 1, -1), (18, 18, -1, -1)):
+        img.set(cx + sx, cy + sy, R("Holz", 1))
+        img.set(cx + 2 * sx, cy + sy, R("Holz", 1))
+        img.set(cx + sx, cy + 2 * sy, R("Holz", 1))
+        img.set(cx + 2 * sx, cy + 2 * sy, R("Holz", 0))
     return img
 
 
 FRAMES_9SLICE = {
-    "frame_wood": {"datei": "frame_wood.png", "groesse": [48, 48], "slice": 16,
-                   "css": "border: 16px solid transparent; border-image: url(frame_wood.png) 16 fill / 16px round; "
+    "frame_wood": {"datei": "frame_wood.png", "groesse": [24, 24], "slice": 8,
+                   "css": "border: 8px solid transparent; border-image: url(frame_wood.png) 8 fill / 8px round; "
                           "image-rendering: pixelated",
-                   "hinweis": "Randbreite in CSS = 16 px × ganzzahliger Zoom; Mitte kachelt mit 16 px Periode"},
-    "frame_parchment": {"datei": "frame_parchment.png", "groesse": [48, 48], "slice": 12,
-                        "css": "border: 12px solid transparent; border-image: url(frame_parchment.png) 12 fill / 12px "
+                   "hinweis": "Ecken 8×8; Randbreite in CSS = 8 px × ganzzahliger Zoom; Mitte kachelt (Periode 4)"},
+    "frame_parchment": {"datei": "frame_parchment.png", "groesse": [24, 24], "slice": 8,
+                        "css": "border: 8px solid transparent; border-image: url(frame_parchment.png) 8 fill / 8px "
                                "round; image-rendering: pixelated",
-                        "hinweis": "Lexikon/Pergament; Mitte kachelt (Bayer, Periode 2)"},
+                        "hinweis": "Lexikon/Pergament; Ecken 8×8; Mitte kachelt (Bayer, Periode 2)"},
 }
 
 

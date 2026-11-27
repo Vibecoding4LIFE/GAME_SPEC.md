@@ -1,0 +1,14 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "palettes": [
+  "hud"
+ ],
+ "size": [
+  24,
+  24
+ ],
+ "eyes": 0,
+ "slice": 8,
+ "skript": "tools/art/hud_sprites.py"
+}

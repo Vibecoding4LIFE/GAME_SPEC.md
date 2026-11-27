@@ -44,9 +44,9 @@ TOD = ["morgen", "tag", "abend", "nacht"]
 
 # Tageszeit-Overlays: Multiplikations-Tönung (Phaser: setTint, TintModes.MULTIPLY = Standard)
 TOD_TINT = {
-    "morgen": {"oben": ("#F4A6C1", 0.22), "unter": ("#D988AF", 0.18)},
+    "morgen": {"oben": ("#F4A6C1", 0.32), "unter": ("#D988AF", 0.26)},
     "tag": {"oben": ("#FFE066", 0.0), "unter": ("#FFE066", 0.0)},
-    "abend": {"oben": ("#F0BE2C", 0.34), "unter": ("#E8743C", 0.26)},
+    "abend": {"oben": ("#E8743C", 0.40), "unter": ("#E8743C", 0.34)},
     "nacht": {"oben": ("#1F2B5C", 0.62), "unter": ("#111934", 0.58)},
 }
 
@@ -110,8 +110,8 @@ def deco_list():
     d.append({"anim": "see_ente_swim", "x": 560, "y": L.SURFACE_Y, "anker": "wasserlinie", "tiefe": 15,
               "bahn": [520, 900]})
     d.append({"anim": "see_ente_dabble", "x": 640, "y": L.SURFACE_Y, "anker": "wasserlinie", "tiefe": 15})
-    d.append({"frame": "see_reiher_still_0", "x": L.STEG_X1 - 2, "y": L.STEG_DECK_Y - 10, "anker": "fuss",
-              "tiefe": 31, "hinweis": "steht auf dem Poller am Stegende"})
+    d.append({"frame": "see_reiher_still_0", "x": 100, "y": L.STEG_DECK_Y - 1, "anker": "fuss",
+              "tiefe": 31, "hinweis": "steht auf dem Steg neben dem Bootshaus"})
     d.append({"anim": "see_kaulquappen_swim", "x": 230, "y": 150, "tiefe": 16, "zone": "seerosen"})
     for (x, top) in ((360, 0), (420, 0), (790, 0), (860, 0)):
         d.append({"anim": "see_wasserpest_sway", "x": x, "y": L.floor_y(x) + 1, "anker": "fuss", "tiefe": 16})
@@ -331,7 +331,7 @@ def render(world, cam_x, cam_y, w, h, tod="tag", weather=None):
     if fsh:
         names = sorted({n.rsplit("_swim_", 1)[0] for n in fsh.data["frames"] if "_swim_" in n})
         picks = [(names[0], 250, 150), (names[3 % len(names)], 380, 300), (names[13 % len(names)], 540, 440),
-                 (names[19 % len(names)], 560, 560)]
+                 (names[19 % len(names)], 380, 500)]
         for (nm, x, y) in picks:
             items.append((20, len(items), lambda nm=nm, x=x, y=y: put(fsh.frame(f"{nm}_swim_0"), x, y, "unter")))
 
@@ -397,7 +397,7 @@ def previews(world):
     C.ensure_dir(C.CONTACT_DIR)
     out = []
     for (name, cx, cy, w, h) in (("quer", 0, 0, 640, 360), ("quer_tief", 220, 280, 640, 360),
-                                 ("hoch", 60, 0, 360, 640)):
+                                 ("hoch", 300, 0, 360, 640)):
         im = render(world, cx, cy, w, h)
         p = os.path.join(C.CONTACT_DIR, f"see_scene_preview_{name}.png")
         im.convert("RGB").resize((w * 2, h * 2), Image.NEAREST).save(p)
@@ -442,9 +442,9 @@ def main():
     W, H, n = atlas.pack_sprites(huds, OUT_UI, "atlas_hud", GEN_UI, ["hud"])
     print(f"atlas_hud         {n:3d} Frames -> {W}x{H}")
     HUD.frame_wood_9slice().save(os.path.join(OUT_UI, "frame_wood.png"),
-                                 gen={"slice": 16, "skript": "tools/art/hud_sprites.py"}, gen_dir=GEN_UI)
+                                 gen={"slice": 8, "skript": "tools/art/hud_sprites.py"}, gen_dir=GEN_UI)
     HUD.frame_parchment_9slice().save(os.path.join(OUT_UI, "frame_parchment.png"),
-                                      gen={"slice": 12, "skript": "tools/art/hud_sprites.py"}, gen_dir=GEN_UI)
+                                      gen={"slice": 8, "skript": "tools/art/hud_sprites.py"}, gen_dir=GEN_UI)
     with open(os.path.join(OUT_UI, "frames.json"), "w", encoding="utf-8") as fh:
         json.dump({"version": 1, "rahmen": HUD.FRAMES_9SLICE}, fh, indent=1, ensure_ascii=False)
     world = world_json(layers)

@@ -14,7 +14,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test --trace off",
     "data": "tsx tools/build-data.ts",
-    "art": "python3 tools/art/fishgen.py && python3 tools/art/pack.py",
+    "art": "python3 tools/art/build_all.py",
     "lint": "eslint . && tsc --noEmit"
   },
   "dependencies": {

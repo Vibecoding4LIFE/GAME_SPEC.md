@@ -67,12 +67,19 @@ def ground_color(x, y, top, d, lit):
             return hx(GRUND[1])
         if k <= 10 + strata:
             return hx(GRUND[1]) if not bayer(x, y, (k - 3) / 10) else hx(GRUND[0])
-    # tiefe Erdschichten: dunkel und ruhig, nur feine wellige Bänder
-    band = (y + int(5 * math.sin(2 * math.pi * x / 240) + 3 * math.sin(2 * math.pi * x / 96))) % 23
-    if band == 0:
+    # tiefe Erdschichten: dunkel und ruhig; dünne, unterschiedlich dicke Bänder
+    wob = int(5 * math.sin(2 * math.pi * x / 240) + 3 * math.sin(2 * math.pi * x / 96))
+    yy = y + wob
+    pos = yy % 29
+    kind = (yy // 29) % 3
+    if kind == 0 and pos < 2:
         return hx(DH[1]) if bayer(x, y, 0.5) else hx(DH[0])
-    if band in (1, 2):
-        return hx(DH[0]) if bayer(x, y, 0.5) else hx(GRUND[0])
+    if kind == 1 and pos < 3:
+        return hx(GRUND[1]) if bayer(x, y, 0.5) else hx(GRUND[0])
+    if kind == 2 and pos < 1:
+        return hx(DH[0])
+    if k < 50:
+        return hx(DH[0]) if bayer(x, y, 0.25) else hx(GRUND[0])
     return hx(GRUND[0])
 
 
@@ -117,6 +124,59 @@ def draw_ground(img: Img):
             nx, ny = (px + .5 - x) / rx, (py + .5 - y) / ry
             lv = -0.6 * nx - 0.8 * ny
             img.set(px, py, hx("#596375" if lv > 0.3 else ("#2A4B42" if lv > -0.4 else "#331C13")))
+
+
+def draw_earth_details(img: Img):
+    """Wurzeln unter der Uferbank, vergrabene Fundstücke im Querschnitt."""
+    rng = random.Random(808)
+    for i in range(26):
+        x = rng.choice([rng.randrange(0, 280), rng.randrange(900, 960)])
+        y = fy(x) + rng.randint(6, 12)
+        ang = math.pi / 2 + rng.uniform(-0.6, 0.6)
+        for k in range(rng.randint(10, 34)):
+            x += math.cos(ang)
+            y += math.sin(ang)
+            ang += rng.uniform(-0.3, 0.3)
+            img.set(round(x), round(y), hx(DH[2] if k < 6 else DH[1]))
+            if k % 7 == 3:
+                img.set(round(x) + 1, round(y) + 1, hx(DH[1]))
+    # alter Anker (Stein-Rampe), halb vergraben unter dem Krautfeld
+    ax, ay = 380, fy(380) + 46
+    a = [hx("#596375"), hx("#737C8A"), hx("#8D96A0")]
+    img.vline(ax, ay - 12, ay, a[1])
+    img.vline(ax + 1, ay - 12, ay, a[0])
+    img.hline(ax - 3, ax + 4, ay - 10, a[1])
+    for (px, py) in img.disc_pixels(ax + 1, ay - 14, 2, 2):
+        img.set(px, py, a[2] if px <= ax else a[0])
+    for (px, py) in img.disc_pixels(ax + 1, ay - 14, 1, 1):
+        img.set(px, py, hx(GRUND[0]))
+    for d in (-1, 1):
+        for k in range(6):
+            img.set(ax + (k if d > 0 else -k + 1), ay - (k * k) // 8 + 1, a[1] if d < 0 else a[0])
+    # Flaschenpost unter der Uferbank
+    bx, by = 120, fy(120) + 70
+    for k in range(9):
+        img.set(bx + k, by, hx("#3FA7A3" if k < 7 else "#138C90"))
+        img.set(bx + k, by + 1, hx("#138C90" if k < 7 else "#1A6F78"))
+        img.set(bx + k, by + 2, hx("#1A6F78"))
+    img.set(bx + 1, by, hx("#67C2B6"))
+    img.vline(bx + 9, by, by + 2, hx("#A0754B"))
+    img.hline(bx + 2, bx + 5, by + 1, hx("#EEDCA5"))
+    # versteinerter Fisch (Gräten) tief unten
+    fx, fy_ = 860, fy(860) + 120
+    for k in range(12):
+        img.set(fx + k, fy_, hx("#5C7B6A"))
+        if k % 2 == 0 and 1 < k < 10:
+            img.set(fx + k, fy_ - 2, hx("#426256"))
+            img.set(fx + k, fy_ - 1, hx("#5C7B6A"))
+            img.set(fx + k, fy_ + 1, hx("#5C7B6A"))
+            img.set(fx + k, fy_ + 2, hx("#426256"))
+    img.vline(fx - 1, fy_ - 2, fy_ + 2, hx("#5C7B6A"))
+    img.vline(fx - 2, fy_ - 3, fy_ - 2, hx("#426256"))
+    img.vline(fx - 2, fy_ + 2, fy_ + 3, hx("#426256"))
+    for (px, py) in img.disc_pixels(fx + 13, fy_ + .5, 2, 2):
+        img.set(px, py, hx("#426256"))
+    img.set(fx + 13, fy_, hx("#12342F"))
 
 
 def draw_piles(img: Img):
@@ -441,6 +501,7 @@ def lakebed() -> Img:
     draw_piles(img)
     draw_lily_stems(img)
     draw_ground(img)
+    draw_earth_details(img)
     place_on_floor(img, cart_sprite(), L.CART_X, sink=4, rot=-9)
     place_on_floor(img, bike_sprite(), L.BIKE_X, sink=5, rot=14)
     place_on_floor(img, rowboat_wreck(), L.ROWBOAT_X, sink=3, rot=4)

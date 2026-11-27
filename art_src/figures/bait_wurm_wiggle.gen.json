@@ -1,0 +1,28 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_figures",
+ "frames": [
+  "bait_wurm_wiggle_0",
+  "bait_wurm_wiggle_1"
+ ],
+ "size": [
+  11,
+  15
+ ],
+ "palettes": [
+  "figures"
+ ],
+ "eyes": 0,
+ "fps": 4,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "schnur": {
+   "x": 4,
+   "y": 0
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

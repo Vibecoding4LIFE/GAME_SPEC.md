@@ -25,6 +25,10 @@ CLEAR = (0, 0, 0, 0)
 BAYER2 = ((0, 2), (3, 1))
 
 
+def _data(im):
+    return list(im.get_flattened_data()) if hasattr(im, "get_flattened_data") else list(im.getdata())
+
+
 def bayer(x: int, y: int, t: float) -> bool:
     """True, wenn an (x, y) die hellere/nächste Farbe gesetzt wird (t = Anteil 0..1)."""
     return t > (BAYER2[y & 1][x & 1] + 0.5) / 4.0
@@ -269,9 +273,12 @@ class Img:
                             nb.append((dx, dy))
                 if not nb:
                     continue
-                # bevorzugt den Nachbarn unten/rechts (bestimmt den Farbton), sonst irgendeinen
-                dx, dy = nb[0]
-                c = sp[(x + dx) % W if self.wrap else x + dx, y + dy]
+                # Farbton vom ersten Nachbarn mit Palettenfarbe (Augenlicht #FFF nie als Outline-Quelle)
+                cands = [sp[(x + dx) % W if self.wrap else x + dx, y + dy] for dx, dy in nb]
+                pc = [c for c in cands if c[:3] in self.pal.where]
+                c = pc[0] if pc else cands[0]
+                if c == WHITE:
+                    c = (self.pal(next(iter(self.pal.ramps)), 0))
                 if ink is not None:
                     col = ink
                 else:
@@ -288,14 +295,14 @@ class Img:
 
     # Prüfen & Speichern ------------------------------------------------------
     def colors(self) -> set:
-        return {c[:3] for c in self.im.getdata() if c[3] == 255}
+        return {c[:3] for c in _data(self.im) if c[3] == 255}
 
     def validate(self, eyes: int = 0, name: str = "?"):
-        alphas = {c[3] for c in self.im.getdata()}
+        alphas = {c[3] for c in _data(self.im)}
         if not alphas <= {0, 255}:
             raise ValueError(f"{name}: Alpha nicht binär {alphas}")
         cols = self.colors()
-        whites = sum(1 for c in self.im.getdata() if c == WHITE)
+        whites = sum(1 for c in _data(self.im) if c == WHITE)
         bad = {c for c in cols if c not in self.pal.allowed and c != (255, 255, 255)}
         if bad:
             raise ValueError(f"{name}: Farben außerhalb der Palette {sorted(map(C.rgb_to_hex, bad))[:6]}")

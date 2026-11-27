@@ -36,9 +36,9 @@ def R(name, i):
 SKY = {
     "tag": {"stops": ["#407DBC", "#569ACF", "#71B7E1", "#8FD3F4"],
             "cloud": ["#71B7E1", "#B4B8BE", "#D3D3D0", "#F2EFE2"]},
-    "morgen": {"stops": ["#569ACF", "#71B7E1", "#8FD3F4", "#D3D3D0", "#F4A6C1", "#FFE066"],
+    "morgen": {"stops": ["#569ACF", "#71B7E1", "#8FD3F4", "#F4A6C1", "#F2EFE2"],
                "cloud": ["#BE6C9F", "#D988AF", "#F4A6C1", "#F2EFE2"]},
-    "abend": {"stops": ["#2D4473", "#3E5E89", "#BE6C9F", "#E8743C", "#FD9755", "#F0BE2C"],
+    "abend": {"stops": ["#2D4473", "#3E5E89", "#A15090", "#BE6C9F", "#E8743C", "#FD9755", "#F0BE2C"],
               "cloud": ["#A15090", "#D34F25", "#FD9755", "#FFE066"]},
     "nacht": {"stops": ["#111934", "#111934", "#1F2B5C", "#2D4473", "#3E5E89"],
               "cloud": ["#111934", "#1F2B5C", "#2D4473", "#3E5E89"]},
@@ -772,7 +772,7 @@ def steg() -> Img:
 # =========================================================================== Vordergrund (Schilfhalme)
 
 FG_Y, FG_H = 38, 116          # Welt-y 38..153 (Halme reichen unter die Oberfläche)
-FG_CLUMPS = [(26, 18), (262, 12), (512, 22), (690, 14), (900, 26)]
+FG_CLUMPS = [(28, 16), (512, 20), (690, 12), (900, 24)]
 
 
 def foreground() -> Img:
@@ -784,7 +784,7 @@ def foreground() -> Img:
         for i in range(n):
             x = cx - width // 2 + rng.randint(0, width)
             top = rng.randint(4, 46)
-            bottom = FG_H - 1 - rng.randint(0, 10)
+            bottom = surf + rng.randint(2, 14) if rng.random() < 0.7 else FG_H - 1 - rng.randint(0, 10)
             lean = rng.uniform(-6, 6)
             blade = rng.random() < 0.35
             pts = []
@@ -827,7 +827,7 @@ def fog() -> Img:
         for x in range(W):
             band = fbm1(x, W, 6, 300 + (y // 6), 2)
             core = 1.0 - abs(y - FOG_H * 0.55) / (FOG_H * 0.55)
-            t = max(0.0, min(0.75, (band - 0.35) * 1.6 * core))
+            t = max(0.0, min(0.3, (band - 0.4) * 1.2 * core))
             if bayer(x, y, t):
-                img.set(x, y, R("Wolke", 3) if y < FOG_H * 0.5 else R("Wolke", 2))
+                img.set(x, y, R("Wolke", 3))
     return img

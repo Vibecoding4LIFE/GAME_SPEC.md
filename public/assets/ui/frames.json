@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "rahmen": {
+  "frame_wood": {
+   "datei": "frame_wood.png",
+   "groesse": [
+    24,
+    24
+   ],
+   "slice": 8,
+   "css": "border: 8px solid transparent; border-image: url(frame_wood.png) 8 fill / 8px round; image-rendering: pixelated",
+   "hinweis": "Ecken 8×8; Randbreite in CSS = 8 px × ganzzahliger Zoom; Mitte kachelt (Periode 4)"
+  },
+  "frame_parchment": {
+   "datei": "frame_parchment.png",
+   "groesse": [
+    24,
+    24
+   ],
+   "slice": 8,
+   "css": "border: 8px solid transparent; border-image: url(frame_parchment.png) 8 fill / 8px round; image-rendering: pixelated",
+   "hinweis": "Lexikon/Pergament; Ecken 8×8; Mitte kachelt (Bayer, Periode 2)"
+  }
+ }
+}

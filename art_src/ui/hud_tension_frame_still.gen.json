@@ -1,0 +1,29 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_hud",
+ "frames": [
+  "hud_tension_frame_still_0"
+ ],
+ "size": [
+  168,
+  16
+ ],
+ "palettes": [
+  "hud"
+ ],
+ "eyes": 0,
+ "fps": null,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "fenster": {
+   "x": 4,
+   "y": 4,
+   "w": 160,
+   "h": 8
+  }
+ },
+ "hinweis": "Spannungsbalken-Rahmen",
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}
