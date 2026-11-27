@@ -6,6 +6,11 @@
   --icon-2: #ffd75e;
 }
 
+/* Ziffern in Normalgewicht: In Pixelify Sans Fett ähneln 2/5 sonst 8/S. */
+:is(.hud__coins, .hud__badge, .cc__stat dd, .bk__coins, .bk__sell, .bk__size, .lx__cell-nr, .lx__ring-label, .lx__d-nr, .ui-fps) {
+  font-weight: 400;
+}
+
 /* ================================================================== HUD-Leiste */
 .ui-hud {
   position: fixed;
@@ -163,7 +168,7 @@
   height: 104px;
   font-size: var(--fs-s);
   font-weight: 700;
-  background: rgba(217, 164, 65, 0.62);
+  background: rgba(217, 164, 65, 0.86);
   box-shadow: inset 0 4px 0 rgba(246, 220, 140, 0.7), inset 0 -6px 0 rgba(140, 100, 32, 0.8);
   --icon-2: rgba(255, 255, 255, 0.5);
 }
@@ -176,14 +181,14 @@
 }
 
 .ui-touch[data-mode='bite'] .touch__cast {
-  background: rgba(200, 64, 44, 0.75);
+  background: rgba(200, 64, 44, 0.88);
   color: #fff6ea;
   text-shadow: none;
   animation: touch-pulse 400ms steps(2) infinite;
 }
 
 .ui-touch[data-mode='fight'] .touch__cast {
-  background: rgba(63, 154, 76, 0.7);
+  background: rgba(63, 154, 76, 0.88);
   color: #fff6ea;
 }
 
@@ -196,7 +201,7 @@
 .touch__item {
   width: 68px;
   height: 68px;
-  background: rgba(176, 122, 69, 0.6);
+  background: rgba(176, 122, 69, 0.8);
   --icon-2: rgba(255, 244, 194, 0.6);
 }
 
@@ -263,7 +268,7 @@
 
 /* ================================================================== Fang-Karte */
 .catch-card {
-  --dlg-w: 440px;
+  --dlg-w: 480px;
 }
 
 .cc {
@@ -302,7 +307,7 @@
 
 .cc__banner--shiny {
   color: #1a1208;
-  background: linear-gradient(90deg, #ff8f8f 0 16.6%, #ffd36b 0 33.3%, #8ee59a 0 50%, #8fd0ff 0 66.6%, #c9a6ff 0 83.3%, #ffa6e4 0) 0 0 / 200% 100%;
+  background: linear-gradient(90deg, #ff8f8f 0 40px, #ffd36b 0 80px, #8ee59a 0 120px, #8fd0ff 0 160px, #c9a6ff 0 200px, #ffa6e4 0 240px) 0 0 / 240px 100% repeat-x;
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
   animation: cc-shimmer 1.6s steps(12) infinite;
 }
@@ -318,7 +323,7 @@
 }
 
 @keyframes cc-shimmer {
-  to { background-position: 200% 0; }
+  to { background-position: 240px 0; }
 }
 
 @keyframes cc-pulse {
@@ -505,7 +510,7 @@
 .catch-card .ui-dialog__foot .ui-btn {
   flex: 1 1 0;
   min-height: 52px;
-  font-size: var(--fs-l);
+  font-size: var(--fs-m);
 }
 
 .cc__confetti {
@@ -581,7 +586,6 @@
 }
 
 .bk__row {
-  --r: var(--r-gewoehnlich);
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr) auto;
   align-items: center;
@@ -801,7 +805,6 @@
 }
 
 .lx__cell {
-  --r: var(--r-gewoehnlich);
   position: relative;
   width: 100%;
   height: 116px;
@@ -924,7 +927,6 @@
 }
 
 .lx__d-head {
-  --r: var(--r-gewoehnlich);
   display: flex;
   flex-direction: column;
   gap: var(--s2);

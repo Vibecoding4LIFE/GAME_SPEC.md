@@ -197,6 +197,7 @@ export class DebugMenu implements UiComponent<DebugMenuData> {
     this.fpsEl.hidden = !on;
     cancelAnimationFrame(this.fpsRaf);
     if (on) {
+      this.fpsEl.textContent = t('debug.fpsValue', { fps: '–' });
       let frames = 0;
       let t0 = performance.now();
       const loop = (now: number): void => {
