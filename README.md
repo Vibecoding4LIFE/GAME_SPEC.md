@@ -1,4 +1,4 @@
-# Köderkönige
+# Catch that Dih!
 
 2D-Wettkampf-Angel- und Sammelspiel im Browser: 2–4 Freunde, 100 Fische, 5 Welten, detaillierte Pixel-Art.
 

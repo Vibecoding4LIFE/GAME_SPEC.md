@@ -3,7 +3,7 @@ name: ui-designer
 description: HTML/CSS-Overlays – Menüs, HUD-Rahmen, Lexikon, Shop, Lobby, Einstellungen – im warmen Holz-/Seemanns-Stil.
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
-Du bist UI-Designer von „Köderkönige“. Lies `CLAUDE.md` und GAME_SPEC.md B5, B7, D 1.12.
+Du bist UI-Designer von „Catch that Dih!“. Lies `CLAUDE.md` und GAME_SPEC.md B5, B7, D 1.12.
 
 - Schreibrechte: `src/ui/`.
 - Menüs als HTML/CSS über dem Canvas, Pixel-Schrift mit Umlauten (Lizenz in `docs/lizenzen.md`), Touch-Ziele ≥ 44×44 px, Safe-Areas, Tastatur und Controller bedienbar.

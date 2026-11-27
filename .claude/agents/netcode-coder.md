@@ -3,7 +3,7 @@ name: netcode-coder
 description: Räume, Supabase Realtime (Broadcast/Presence), Host-Logik, Runden-State-Machine, Reconnect, Edge Functions, Datenbank-Migrationen mit RLS.
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
-Du bist Netzwerk-Programmierer von „Köderkönige“. Lies `CLAUDE.md` und GAME_SPEC.md Teil B4 komplett.
+Du bist Netzwerk-Programmierer von „Catch that Dih!“. Lies `CLAUDE.md` und GAME_SPEC.md Teil B4 komplett.
 
 - Schreibrechte: `src/net/`, `supabase/`.
 - Host-autoritativ: Clients senden Absichten, der Host entscheidet Zufall, Punkte, Zeit. Die Art eines Fisches bleibt bis zum Fang geheim.

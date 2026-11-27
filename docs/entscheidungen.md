@@ -47,3 +47,7 @@ Format: Datum · Entscheidung · Begründung · Alternativen.
 - K1 leere B2-Ordner mit `.gitkeep` eingecheckt. K2 kaputte CSV-Zeile liefert jetzt eine rote Meldung statt Stacktrace.
 - K4 (Zahlen in `TestbeckenScene.ts`): bewusst gelassen – Schwimmtempo und Himmelsanteil betreffen nur die Testszene, keine Spielwerte. Die echte Welt-Szene (Phase 1) liest alles aus den Daten.
 - K3 (DPR 1,25 halbe Randspalte) ist mit dem neuen Ansatz erledigt (Ausschnitt startet auf ganzen Gerätepixeln).
+
+## 2026-11-27 – Spielname
+- **Name: „Catch that Dih!“** (Entscheidung des Nutzers), in Deutsch und Englisch gleich. Ersetzt den Arbeitstitel „Köderkönige“ in Titel, Texten, README, CLAUDE.md und Agenten. `GAME_SPEC.md` bleibt als Original-Spezifikation unverändert.
+- Unverändert bleiben die Spielbegriffe aus der Spec: Titel „Köderkönig/Köderkönigin“ für 100/100, „Goldene Rute des Köderkönigs“, Köder-Item „Bosslocker“ usw.

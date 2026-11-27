@@ -1,6 +1,6 @@
-# Köderkönige – Dauerregeln für Claude
+# Catch that Dih! – Dauerregeln für Claude
 
-Die vollständige Spezifikation steht in `GAME_SPEC.md`. Diese Datei ist die Kurzfassung, die in jeder Sitzung gilt.
+Die vollständige Spezifikation steht in `GAME_SPEC.md` (dort noch unter dem Arbeitstitel „Köderkönige“). Diese Datei ist die Kurzfassung, die in jeder Sitzung gilt.
 
 ## Projekt
 2D-Wettkampf-Angel- und Sammelspiel im Browser (Handy + PC), 2–4 Freunde online, 100 Fische in 5 Welten.
