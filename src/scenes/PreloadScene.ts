@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { CACHE, SCENES, fishAtlasKey } from './keys';
+import { CACHE, FIGURES_ATLAS, HUD_ATLAS, SCENES, fishAtlasKey, layerKey, startSceneFromUrl, worldAtlasKey } from './keys';
+import type { WorldSee } from './worldSee';
 import { worldById, type WorldsJson } from './worldsJson';
 import { t } from '../i18n';
 import type { PixelLayout } from '../core/pixelScale';
@@ -28,6 +29,17 @@ export class PreloadScene extends Phaser.Scene {
     }
     const k = world.kuerzel;
     this.load.atlas(fishAtlasKey(k), `assets/fish/${k}/atlas_fish_${k}.png`, `assets/fish/${k}/atlas_fish_${k}.json`);
+    // Welt-Grafik (Ebenen, Deko, Figuren, HUD). Die Ebenen-Liste steht in world_<k>.json und wird nach dem Laden nachgeladen.
+    const artKey = CACHE.worldArt(k);
+    if (!this.cache.json.exists(artKey)) {
+      this.load.json(artKey, `assets/worlds/${k}/world_${k}.json`);
+      this.load.once(`filecomplete-json-${artKey}`, (_key: string, _type: string, art: WorldSee) => {
+        for (const e of art.ebenen) this.load.image(layerKey(k, e.id), `assets/worlds/${k}/${e.datei}`);
+      });
+    }
+    this.load.atlas(worldAtlasKey(k), `assets/worlds/${k}/atlas_world_${k}.png`, `assets/worlds/${k}/atlas_world_${k}.json`);
+    this.load.atlas(FIGURES_ATLAS, 'assets/figures/atlas_figures.png', 'assets/figures/atlas_figures.json');
+    this.load.atlas(HUD_ATLAS, 'assets/ui/atlas_hud.png', 'assets/ui/atlas_hud.json');
 
     const { gameWidth: width, gameHeight: height } = layout;
     const barW = Math.floor(width / 2);
@@ -45,6 +57,6 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.scene.start(SCENES.testbecken, { worldId: this.worldId });
+    this.scene.start(startSceneFromUrl(window.location.search), { worldId: this.worldId });
   }
 }

@@ -117,6 +117,8 @@ export interface SessionOptions {
   startWeather?: ActiveWeather;
   /** Wettkampf (Schillernd-Deckel). Freies Angeln: false */
   competition?: boolean;
+  /** Grundtiefe (m) an einer Wurfweite (m) – aus der Weltkarte der Szene; ohne Angabe gilt der tiefste Punkt der Welt */
+  bottomDepthAt?: (distanceM: number) => number;
 }
 
 export interface SessionState {
@@ -312,7 +314,7 @@ export class FishingSession {
     if (waiting) {
       // Sinken
       if (input.sink) {
-        const r = sinkStep(s.baitDepthM, dt, lo.bait, lo.reel, this.world);
+        const r = sinkStep(s.baitDepthM, dt, lo.bait, lo.reel, this.world, this.floorM());
         if (r.lineTooShort && !s.lineTooShort) this.ev.push({ type: 'lineTooShort' });
         s.baitDepthM = r.depthM;
         s.lineTooShort = r.lineTooShort;
@@ -393,6 +395,12 @@ export class FishingSession {
     });
     this.ev.push({ type: 'hooked', fish, behavior: s.drill.behavior, sizeX: size.x });
     this.setRodState('Reeling');
+  }
+
+  /** Grund an der aktuellen Wurfstelle (m). */
+  floorM(): number {
+    const d = this.state.cast?.distanceM;
+    return d === undefined || !this.opts.bottomDepthAt ? Infinity : this.opts.bottomDepthAt(d);
   }
 
   private canFeed(): boolean {
@@ -586,4 +594,11 @@ export class FishingSession {
   }
   debugSetPhase(p: DayPhase): void { for (const e of setPhase(this.clock, p, this.b)) this.ev.push({ type: 'clock', e }); }
   debugForceEvent(e: WorldEvent, on: boolean): void { forceEvent(this.clock, e, on); }
+  /** Wartezeit bis zur Annäherung sofort beenden (Tests, Debug-Menü). */
+  debugSkipWait(): void {
+    const bite = this.state.bite;
+    if (bite && bite.stage === 'wait') bite.t = bite.waitS;
+  }
+  /** Wetter wieder automatisch wechseln lassen. */
+  debugReleaseWeather(): void { this.clock.weatherFixed = false; }
 }

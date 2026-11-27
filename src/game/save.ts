@@ -101,8 +101,14 @@ export const ProfileSchema = z.object({
   catchCounter: int,
 });
 
-export const SaveSchema = z.object({ version: z.literal(SAVE_VERSION), savedAt: z.number(), profile: ProfileSchema });
-export type SaveGame = { version: typeof SAVE_VERSION; savedAt: number; profile: Profile };
+/** Einstellungen, die mit dem Spielstand gespeichert werden (alle optional). */
+export interface Settings { showFps?: boolean; touchHintsSeen?: boolean }
+export const SettingsSchema = z.object({ showFps: z.boolean().optional(), touchHintsSeen: z.boolean().optional() });
+
+export const SaveSchema = z.object({
+  version: z.literal(SAVE_VERSION), savedAt: z.number(), profile: ProfileSchema, settings: SettingsSchema.optional(),
+});
+export type SaveGame = { version: typeof SAVE_VERSION; savedAt: number; profile: Profile; settings?: Settings };
 
 /** Migrationen: alte Version n → n+1 (rohe Objekte). Leer, solange es nur Version 1 gibt. */
 export const MIGRATIONS: Record<number, (raw: Record<string, unknown>) => Record<string, unknown>> = {};
@@ -123,8 +129,8 @@ export function newProfile(gear: GearDb): Profile {
 }
 
 /** Profil → JSON-Text. `now` von außen (kein Date in der reinen Logik). */
-export function serializeSave(profile: Profile, now: number): string {
-  const save: SaveGame = { version: SAVE_VERSION, savedAt: now, profile };
+export function serializeSave(profile: Profile, now: number, settings?: Settings): string {
+  const save: SaveGame = { version: SAVE_VERSION, savedAt: now, profile, ...(settings ? { settings } : {}) };
   return JSON.stringify(save);
 }
 

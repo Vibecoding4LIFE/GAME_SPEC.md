@@ -27,12 +27,14 @@ export interface SinkResult {
   lineTooShort: boolean;
 }
 
-/** Ein Zeitschritt Sinken (nur solange „Sinken“ gehalten wird). */
-export function sinkStep(depthM: number, dt: number, bait: BaitData, reel: ReelData, world: WorldDbEntry): SinkResult {
-  const limit = depthLimitM(reel, world);
+/** Ein Zeitschritt Sinken (nur solange „Sinken“ gehalten wird). `floorM` = Grund an der Wurfstelle (Karte der Szene). */
+export function sinkStep(
+  depthM: number, dt: number, bait: BaitData, reel: ReelData, world: WorldDbEntry, floorM = Infinity,
+): SinkResult {
+  const limit = Math.min(depthLimitM(reel, world), floorM);
   const next = Math.min(limit, depthM + sinkSpeedMs(bait, reel, world) * dt);
   const atLimit = next >= limit;
-  return { depthM: next, atLimit, lineTooShort: atLimit && limit < world.maxTiefeM };
+  return { depthM: next, atLimit, lineTooShort: atLimit && lineCapacityM(reel, world) < Math.min(world.maxTiefeM, floorM) };
 }
 
 /** Zucken: der Köder steigt um `depth.twitch.liftM`. */

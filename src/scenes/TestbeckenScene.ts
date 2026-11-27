@@ -9,6 +9,7 @@ import type { PixelLayout } from '../core/pixelScale';
 import { applyPixelCamera } from './pixelCamera';
 import type { DebugState } from '../main';
 import { t } from '../i18n';
+import { mountFullscreenButton } from '../ui/fullscreen';
 
 /** Nur für die Testszene: Schwimmtempo in Spielpixeln pro Sekunde je Größenklasse. */
 const TEST_SPEED: Record<string, number> = { S: 22, M: 17, L: 13, XL: 10, Boss: 7 };
@@ -90,6 +91,9 @@ export class TestbeckenScene extends Phaser.Scene {
     });
     this.placeLanes();
 
+    // Vollbild-Knopf: in der Welt-Szene hat ihn die HudOverlay-Leiste, hier (Testszene) ein eigener
+    mountFullscreenButton(document.getElementById('overlay'));
+
     this.badge = document.createElement('div');
     this.badge.className = 'overlay-badge';
     document.getElementById('overlay')?.prepend(this.badge);
@@ -110,6 +114,7 @@ export class TestbeckenScene extends Phaser.Scene {
     const debug = this.registry.get('debug') as DebugState | undefined;
     if (debug) {
       debug.fishOnScreen = this.swimmers.length;
+      debug.scene = 'testbecken';
       debug.ready = true;
     }
   }

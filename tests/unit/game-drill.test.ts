@@ -145,9 +145,10 @@ describe('Drill-Formeln (D 1.6)', () => {
   it('Determinismus: gleicher Seed → gleicher Verlauf', () => {
     const a = runDrill(fishById('F014'), gear, 42, 'good');
     const c = runDrill(fishById('F014'), gear, 42, 'good');
-    expect(a.events).toEqual(c.events);
+    expect(a.trace).toEqual(c.trace);
     expect(a.timeS).toBe(c.timeS);
-    expect(runDrill(fishById('F014'), gear, 43, 'good').events).not.toEqual(a.events);
+    // anderer Seed → anderer Verlauf (Ereignisse mit Zeitstempel; die reine Folge kann zufällig gleich sein)
+    expect(runDrill(fishById('F014'), gear, 43, 'good').trace).not.toEqual(a.trace);
   });
 });
 

@@ -24,7 +24,7 @@ test('Testbecken zeigt die 20 Fische von Welt 1 pixelgenau', async ({ page }, in
   });
   page.on('pageerror', (e) => consoleErrors.push(e.message));
 
-  await page.goto('/');
+  await page.goto('/?szene=testbecken');
   await page.waitForFunction(() => (window as unknown as { __KK?: DebugState }).__KK?.ready === true, null, {
     timeout: 30_000,
   });
@@ -61,7 +61,7 @@ test('Drehen aufs Querformat ordnet neu an (Handy)', async ({ page, isMobile }, 
   test.skip(!isMobile, 'nur Handy-Profile');
   const start = page.viewportSize();
   test.skip(!start || start.width > start.height, 'startet schon im Querformat');
-  await page.goto('/');
+  await page.goto('/?szene=testbecken');
   await page.waitForFunction(() => (window as unknown as { __KK?: DebugState }).__KK?.ready === true);
   const vp = page.viewportSize()!;
   await page.setViewportSize({ width: vp.height, height: vp.width });

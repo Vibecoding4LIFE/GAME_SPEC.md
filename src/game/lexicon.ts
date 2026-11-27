@@ -1,7 +1,7 @@
 // src/game/lexicon.ts – Fischlexikon (D 1.12): unbekannt → gesichtet → gefangen, Anzahl, Rekorde, Sterne, Weltfortschritt.
 // Zustandswerte wie in src/ui/types.ts (`LexiconEntryState`), damit die Overlays den Spielstand direkt anzeigen können.
 import { SIZE_GRADES, type FishId, type SizeGrade } from '../data/types';
-import { PENDING_DATA } from './pending';
+import type { Balancing } from '../data/balancing';
 
 export type LexiconState = 'unknown' | 'seen' | 'caught';
 
@@ -49,10 +49,10 @@ export function recordCatch(lex: Lexicon, c: CatchForLexicon): { isNew: boolean;
 }
 
 /** ★ gefangen · ★★ n× gefangen oder einmal Kapital (oder größer) · ★★★ Riesig oder Schillernd. */
-export function starsFor(e: LexiconEntry | undefined): 0 | 1 | 2 | 3 {
+export function starsFor(e: LexiconEntry | undefined, b: Balancing): 0 | 1 | 2 | 3 {
   if (!e || e.state !== 'caught' || e.count < 1) return 0;
   if (e.bestTier === 'Riesig' || e.shiny) return 3;
-  if (e.count >= PENDING_DATA.lexiconTwoStarCatches || gradeRank(e.bestTier) >= gradeRank('Kapital')) return 2;
+  if (e.count >= b.lexicon.twoStarCatches || gradeRank(e.bestTier) >= gradeRank('Kapital')) return 2;
   return 1;
 }
 

@@ -41,7 +41,7 @@ export function goodDrillBot(s: DrillState, mem: { lastTapS: number; lastDir: Dr
 /** Schlechter Spieler: kurbelt immer, lenkt nie. */
 export const badDrillBot = (): DrillInput => ({ reel: true, steer: 0, rodUp: false, tap: false });
 
-export interface DrillRun { outcome: DrillOutcome | null; timeS: number; master: boolean; state: DrillState; events: string[] }
+export interface DrillRun { outcome: DrillOutcome | null; timeS: number; master: boolean; state: DrillState; events: string[]; trace: string[] }
 
 export function runDrill(
   fish: FishData, gear: Loadout, seed: number, bot: 'good' | 'bad', behavior: FightBehavior | null = null, maxS = 240,
@@ -49,11 +49,16 @@ export function runDrill(
   const s = createDrill(fish, gear, b, new Rng(seed), { sizeX: b.size.mu, forceBehavior: behavior, world: 'W1', weather: 'Sonnig' });
   const mem = { lastTapS: -Infinity, lastDir: s.pullDir };
   const events: string[] = [];
+  const trace: string[] = [];
   while (!s.outcome && s.elapsedS < maxS) {
     const input = bot === 'good' ? goodDrillBot(s, mem) : badDrillBot();
-    for (const e of stepDrill(s, input, DT).events) events.push(e.type === 'action' || e.type === 'telegraph' ? `${e.type}:${e.action}` : e.type);
+    for (const e of stepDrill(s, input, DT).events) {
+      const name = e.type === 'action' || e.type === 'telegraph' ? `${e.type}:${e.action}` : e.type;
+      events.push(name);
+      trace.push(`${name}@${s.elapsedS.toFixed(3)}`);
+    }
   }
-  return { outcome: s.outcome, timeS: s.elapsedS, master: s.masterDrill, state: s, events };
+  return { outcome: s.outcome, timeS: s.elapsedS, master: s.masterDrill, state: s, events, trace };
 }
 
 /**

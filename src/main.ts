@@ -5,7 +5,7 @@ import { detectLanguage, setLanguage, t } from './i18n';
 import { BootScene } from './scenes/BootScene';
 import { PreloadScene } from './scenes/PreloadScene';
 import { TestbeckenScene } from './scenes/TestbeckenScene';
-import { mountFullscreenButton } from './ui/fullscreen';
+import { WeltScene, type WeltDebug } from './scenes/WeltScene';
 
 setLanguage(detectLanguage(navigator.languages));
 document.title = t('app.title');
@@ -36,7 +36,7 @@ const game = new Phaser.Game({
     zoom: 1,
   },
   input: { activePointers: 3 },
-  scene: [BootScene, PreloadScene, TestbeckenScene],
+  scene: [BootScene, PreloadScene, TestbeckenScene, WeltScene],
 });
 
 function applyLayout(bufferWidth: number, bufferHeight: number): void {
@@ -72,8 +72,6 @@ try {
   observer.observe(gameHost);
 }
 
-mountFullscreenButton(document.getElementById('overlay'));
-
 /** Debug-Zustand für Browser-Tests (Playwright) – enthält keine Geheimnisse. */
 export interface DebugState {
   layout: PixelLayout;
@@ -81,6 +79,10 @@ export interface DebugState {
   ready: boolean;
   fishOnScreen: number;
   errors: string[];
+  /** aktive Szene ('testbecken' | 'welt') */
+  scene: string;
+  /** Welt-Szene: Anzeige-Zustand und Debug-Hooks (siehe WeltScene) */
+  welt?: WeltDebug;
 }
 
 const debugState: DebugState = {
@@ -89,6 +91,7 @@ const debugState: DebugState = {
   ready: false,
   fishOnScreen: 0,
   errors: [],
+  scene: '',
 };
 window.addEventListener('error', (e) => debugState.errors.push(String(e.message)));
 game.events.once(Phaser.Core.Events.READY, () => {

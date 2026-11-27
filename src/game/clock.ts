@@ -3,7 +3,6 @@
 import type { Balancing } from '../data/balancing';
 import type { Rng } from '../core/random';
 import type { WorldEvent } from '../data/types';
-import { PENDING_DATA } from './pending';
 import { weightedPick } from './spawn';
 import { DAY_PHASES, type ActiveWeather, type DayPhase, type WorldDbEntry } from './types';
 
@@ -97,17 +96,21 @@ function scheduleLightning(c: ClockState, b: Balancing, rng: Rng): void {
     : Infinity;
 }
 
+/** Erlaubte Tageszeiten eines Ereignisses (worlds.json `ereignisse[].zeit`, „Immer“ = jede). */
+export const eventTimeAllowed = (zeit: readonly string[], phase: DayPhase): boolean =>
+  zeit.length === 0 || zeit.includes('Immer') || zeit.includes(phase);
+
 /** Ist ein Ereignis per Zeitplan aktiv (Vollmond jede n-te Nacht, an Wetter gekoppelte Ereignisse)? */
 function scheduledEvents(c: ClockState, world: WorldDbEntry, b: Balancing): WorldEvent[] {
   const out: WorldEvent[] = [];
   const phase = phaseAt(c.dayTimeS, b);
-  for (const { ereignis } of world.ereignisse) {
-    const cfg = b.event[ereignis as Exclude<WorldEvent, 'Keins'>];
+  for (const e of world.ereignisse) {
+    const cfg = b.event[e.ereignis as Exclude<WorldEvent, 'Keins'>];
     if (cfg?.everyNthNight !== undefined) {
-      if (phase === 'Nacht' && (dayAt(c.dayTimeS, b) + 1) % cfg.everyNthNight === 0) out.push(ereignis);
+      // „jede n-te Nacht“: gezählt werden die Nächte (Tag 0 = erste Nacht); erlaubte Tageszeit aus worlds.json
+      if (eventTimeAllowed(e.zeit, phase) && (dayAt(c.dayTimeS, b) + 1) % cfg.everyNthNight === 0) out.push(e.ereignis);
     }
-    const w = PENDING_DATA.eventFromWeather[ereignis];
-    if (w && c.weather === w) out.push(ereignis);
+    if (e.wetter && c.weather === e.wetter && eventTimeAllowed(e.zeit, phase)) out.push(e.ereignis);
   }
   return out;
 }
@@ -144,12 +147,10 @@ export function stepClock(c: ClockState, dt: number, world: WorldDbEntry, b: Bal
 
   // Zufällige Ereignisse (chancePerCheck / checkIntervalS / durationS), ggf. nur zu bestimmten Tageszeiten
   c.events = c.events.filter((e) => e.untilS > c.dayTimeS);
-  for (const { ereignis } of world.ereignisse) {
+  for (const { ereignis, zeit } of world.ereignisse) {
     const cfg = b.event[ereignis as Exclude<WorldEvent, 'Keins'>];
     if (cfg?.chancePerCheck === undefined || cfg.checkIntervalS === undefined || cfg.durationS === undefined) continue;
-    const times = PENDING_DATA.eventAllowedTimes[ereignis];
-    const allowed = !times || times.includes(phase);
-    if (!allowed) {
+    if (!eventTimeAllowed(zeit, phase)) {
       delete c.nextCheckS[ereignis];
       c.events = c.events.filter((e) => e.evt !== ereignis);
       continue;

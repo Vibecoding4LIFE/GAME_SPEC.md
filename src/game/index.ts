@@ -12,4 +12,3 @@ export * from './clock';
 export * from './lexicon';
 export * from './save';
 export * from './session';
-export { PENDING_DATA } from './pending';
