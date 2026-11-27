@@ -1,0 +1,490 @@
+{
+  "version": 1,
+  "cast": {
+    "cycleS": 1.2,
+    "zone": {
+      "uferMax": 0.3,
+      "freiwasserMax": 0.75
+    },
+    "perfect": {
+      "windowMinDefault": 0.92,
+      "windowMinFloor": 0.86,
+      "biteRateBonus": 0.1
+    },
+    "miss": {
+      "below": 0.1,
+      "landingPower": 0.03
+    },
+    "wind": {
+      "Gewitter": 0.1,
+      "Sturm": 0.1,
+      "Schneesturm": 0.15
+    }
+  },
+  "depth": {
+    "sinkSpeedMs": {
+      "leicht": 2.5,
+      "mittel": 4,
+      "schwer": 6
+    },
+    "twitch": {
+      "raubfischBonus": 0.25,
+      "friedfischMalus": 0.15,
+      "activeS": 2,
+      "liftM": 0.3
+    }
+  },
+  "bite": {
+    "wait": {
+      "minS": 5,
+      "maxS": 15,
+      "floorS": 2,
+      "noFishRetryS": 4
+    },
+    "nibble": {
+      "intervalMinS": 0.8,
+      "intervalMaxS": 2
+    },
+    "window": {
+      "baseS": 0.6,
+      "rarityBonusS": {
+        "Gewoehnlich": 0.2,
+        "Ungewoehnlich": 0.1125,
+        "Selten": 0.025,
+        "Episch": -0.0625,
+        "Legendaer": -0.15
+      }
+    },
+    "perfect": {
+      "windowFraction": 0.4,
+      "staminaReduction": 0.15
+    },
+    "earlyStrike": {
+      "penaltyS": 5,
+      "biteRateFactor": 0.5
+    },
+    "toothedCutChance": 0.15,
+    "curioShare": 0.04,
+    "fakeBite": {
+      "chance": 0.35,
+      "maxCount": 2,
+      "flashS": 0.25
+    }
+  },
+  "drill": {
+    "tensionScale": 100,
+    "crankFactor": 60,
+    "reliefFactor": 60,
+    "fishPullFactor": 10,
+    "patternBase": 0.5,
+    "counterBonus": 0.3,
+    "progress": {
+      "belowZone": 0.3,
+      "aboveZone": 0.6
+    },
+    "stamina": {
+      "counterMultiplier": 1.5,
+      "baseS": {
+        "Gewoehnlich": 6,
+        "Ungewoehnlich": 9,
+        "Selten": 13,
+        "Episch": 20,
+        "Legendaer": 45
+      },
+      "legendaerMaxS": 70,
+      "sizeFactorMin": 0.8,
+      "sizeFactorMax": 1.4
+    },
+    "exhausted": {
+      "zoneMultiplier": 1.5,
+      "pullFactor": 0.3
+    },
+    "break": {
+      "tension": 1,
+      "baseS": 0.35
+    },
+    "unhook": {
+      "tension": 0.05,
+      "durationS": 1.5
+    },
+    "zone": {
+      "strengthPenalty": 0.015,
+      "minWidth": 0.1,
+      "center": 0.5,
+      "redFrom": 0.9
+    },
+    "distance": {
+      "start": 1,
+      "retrievePerS": 0.1,
+      "minWhileFresh": 0.15,
+      "fleePerS": 0.12,
+      "max": 1.5
+    },
+    "cold": {
+      "Schnee": 0.8,
+      "Schneesturm": 0.8
+    },
+    "pressure": {
+      "fromM": 1000
+    },
+    "telegraph": {
+      "defaultS": 0.6
+    },
+    "behavior": {
+      "Ruhig": {
+        "pull": 1
+      },
+      "Zappler": {
+        "intervalMinS": 0.5,
+        "intervalMaxS": 1,
+        "spikeMin": 0.1,
+        "spikeMax": 0.15,
+        "telegraphS": 0.3
+      },
+      "Sprinter": {
+        "durationMinS": 1.5,
+        "durationMaxS": 3,
+        "pullBonus": 0.25,
+        "intervalMinS": 3,
+        "intervalMaxS": 6,
+        "telegraphS": 0.6
+      },
+      "Taucher": {
+        "durationMinS": 1.5,
+        "durationMaxS": 2.5,
+        "pullBonus": 0.15,
+        "distanceFactor": 1.5,
+        "intervalMinS": 3,
+        "intervalMaxS": 6,
+        "telegraphS": 0.6
+      },
+      "Springer": {
+        "jumpMaxS": 1,
+        "tensionLimit": 0.4,
+        "intervalMinS": 4,
+        "intervalMaxS": 7,
+        "telegraphS": 0.6,
+        "exhaustS": 1.5,
+        "exhaustStaminaMultiplier": 2
+      },
+      "Zickzack": {
+        "intervalMinS": 0.6,
+        "intervalMaxS": 1.2,
+        "telegraphS": 0.25
+      },
+      "Brocken": {
+        "pullBonus": 0.2,
+        "zoneOffset": 0.15,
+        "staminaMultiplier": 1.25
+      },
+      "Trickser": {
+        "telegraphS": 0.4,
+        "fakeTiredMinS": 2,
+        "fakeTiredMaxS": 4,
+        "fleeS": 2.5,
+        "fleePullBonus": 0.6,
+        "intervalMinS": 5,
+        "intervalMaxS": 8
+      },
+      "Versteckspieler": {
+        "coverReachS": 3,
+        "intervalMinS": 5,
+        "intervalMaxS": 8,
+        "telegraphS": 0.8,
+        "haengerTaps": 3,
+        "tapIntervalS": 0.5,
+        "tapToleranceS": 0.15
+      },
+      "Aufblaeher": {
+        "intervalMinS": 5,
+        "intervalMaxS": 7,
+        "durationS": 3,
+        "pullMultiplier": 2,
+        "retrieveMultiplier": 0.5,
+        "telegraphS": 0.5,
+        "exhaustS": 1.5
+      },
+      "Stromer": {
+        "invertS": 1.5,
+        "intervalMinS": 4,
+        "intervalMaxS": 7,
+        "telegraphS": 0.5
+      },
+      "Blinker": {
+        "invisibleMinS": 2,
+        "invisibleMaxS": 3,
+        "intervalMinS": 5,
+        "intervalMaxS": 8,
+        "telegraphS": 0.5
+      },
+      "Hitzkopf": {
+        "heatPerS": 0.08,
+        "highTensionMultiplier": 2,
+        "coolPerS": 0.15,
+        "breakAt": 1
+      }
+    }
+  },
+  "spawn": {
+    "base": {
+      "Gewoehnlich": 100,
+      "Ungewoehnlich": 35,
+      "Selten": 12,
+      "Episch": 3,
+      "Legendaer": 0.6
+    },
+    "zoneMismatch": 0.3,
+    "weatherPreferred": 2,
+    "eventPreferred": 2,
+    "bait": {
+      "favorite": 2,
+      "neutral": 1,
+      "disliked": 0.3
+    },
+    "pity": {
+      "step": 0.08,
+      "max": 0.8
+    },
+    "weather": {
+      "Sonnig": {
+        "tags": {
+          "oberflaeche": 1.3,
+          "raubfisch": 0.8
+        }
+      },
+      "Bewoelkt": {
+        "tags": {
+          "raubfisch": 1.2
+        }
+      },
+      "Regen": {
+        "biteRate": 0.15,
+        "tags": {
+          "aal": 1.5,
+          "forelle": 1.5,
+          "lachs": 1.5
+        }
+      },
+      "Gewitter": {
+        "rarity": {
+          "Episch": 2,
+          "Legendaer": 2
+        }
+      },
+      "Nebel": {
+        "tags": {
+          "mystisch": 1.5
+        }
+      }
+    },
+    "event": {
+      "Vollmond": {
+        "rarity": {
+          "Episch": 1.5
+        }
+      },
+      "Mueckenschwarm": {
+        "fish": {
+          "F005": 1.5,
+          "F006": 1.5
+        }
+      },
+      "Flut": {
+        "tags": {
+          "lagune": 1.3
+        }
+      },
+      "Ebbe": {
+        "rarity": {
+          "Gewoehnlich": 1.5
+        }
+      },
+      "Korallenbluete": {
+        "rarity": {
+          "Episch": 2
+        }
+      },
+      "DelfinBesuch": {
+        "rarity": {
+          "Gewoehnlich": 3
+        }
+      },
+      "Polarlicht": {
+        "rarity": {
+          "Episch": 1.5
+        }
+      },
+      "Meeresschnee": {
+        "tags": {
+          "grund": 1.5
+        }
+      },
+      "BiolumineszenzWelle": {
+        "rarity": {
+          "Episch": 2
+        }
+      },
+      "Walfall": {
+        "fish": {
+          "F066": 3,
+          "F070": 2
+        }
+      },
+      "Ausbruch": {
+        "biteRate": 1
+      },
+      "Runennacht": {
+        "tags": {
+          "mystisch": 1.5
+        }
+      }
+    },
+    "futterplatz": {
+      "tags": {
+        "friedfisch": 1.5
+      },
+      "durationS": 30,
+      "radiusM": 3
+    },
+    "haenger": {
+      "chance": 0.08,
+      "taps": 3,
+      "tapIntervalS": 0.5,
+      "tapToleranceS": 0.15
+    }
+  },
+  "event": {
+    "Vollmond": {
+      "everyNthNight": 3
+    },
+    "Mueckenschwarm": {
+      "chancePerCheck": 0.5,
+      "checkIntervalS": 240,
+      "durationS": 120
+    }
+  },
+  "size": {
+    "mu": 0.45,
+    "sigma": 0.18,
+    "grade": {
+      "Winzling": {
+        "upTo": 0.15,
+        "factor": 0.8
+      },
+      "Normal": {
+        "upTo": 0.7,
+        "factor": 1
+      },
+      "Praechtig": {
+        "upTo": 0.88,
+        "factor": 1.2
+      },
+      "Kapital": {
+        "upTo": 0.97,
+        "factor": 1.35
+      },
+      "Riesig": {
+        "upTo": 1,
+        "factor": 1.5
+      }
+    },
+    "display": {
+      "winzlingShrinkPx": 2,
+      "riesigZoomSteps": 1
+    }
+  },
+  "shiny": {
+    "baseOneIn": 250,
+    "badgeOneIn": 200,
+    "capOneIn": 60,
+    "pointsMultiplier": 3,
+    "competitionBonusCap": 600,
+    "pearls": 1,
+    "sparkleIntervalS": 2
+  },
+  "score": {
+    "quality": {
+      "masterDrill": 0.2,
+      "perfectCast": 0.1,
+      "perfectStrike": 0.05
+    },
+    "variety": {
+      "first": 1.25,
+      "second": 1,
+      "third": 0.85,
+      "later": 0.7
+    },
+    "finale": {
+      "multiplier": 1.5,
+      "lastS": 60
+    }
+  },
+  "time": {
+    "dayLengthS": 960,
+    "phaseLengthS": 240
+  },
+  "weather": {
+    "changeMinS": 180,
+    "changeMaxS": 300,
+    "forecastCount": 1,
+    "shadowVisibility": {
+      "Nebel": 0.5
+    },
+    "lightning": {
+      "revealS": 0.5,
+      "intervalMinS": 8,
+      "intervalMaxS": 20
+    }
+  },
+  "xp": {
+    "catch": {
+      "Gewoehnlich": 5,
+      "Ungewoehnlich": 12,
+      "Selten": 30,
+      "Episch": 80,
+      "Legendaer": 250
+    },
+    "newSpeciesMultiplier": 2,
+    "roundPlayed": 20,
+    "roundWon": 40,
+    "dailyQuest": 30,
+    "level": {
+      "base": 100,
+      "exponent": 1.4,
+      "max": 50
+    }
+  },
+  "sell": {
+    "baseFactor": 1,
+    "shinyMultiplier": 3
+  },
+  "gear": {
+    "accessorySlots": 1,
+    "secondSlotReputation": 10
+  },
+  "catchup": {
+    "tailwind": {
+      "behind1": 0.25,
+      "bonus1": 0.15,
+      "behind2": 0.5,
+      "bonus2": 0.25,
+      "nibbleReduction": 1
+    },
+    "hiddenScoreLastS": 30,
+    "beginner": {
+      "maxReputation": 5,
+      "saves": 2,
+      "tensionAfterSave": 0.3
+    },
+    "specialAwardCoins": 50
+  },
+  "reward": {
+    "placeBase": {
+      "first": 200,
+      "second": 150,
+      "third": 120,
+      "fourth": 100
+    },
+    "pointsShare": 0.1
+  }
+}

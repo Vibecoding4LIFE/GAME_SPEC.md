@@ -1,10 +1,12 @@
 // src/data/validate.ts – zeilenübergreifende Prüfungen (Teil G 6.9) und Asset-Prüfung (Vertrag §4).
 // Läuft ohne Node-APIs (auch in Deno/Edge Functions): Dateizugriff nur über einen übergebenen Reader.
 import { clipFrameCount, atlasKeyFor, nr3, slugify, assetKeyFor } from './db';
+import type { Balancing } from './balancing';
+import type { GearDb } from './gear';
 import type { FishDb, FishDbEntry, WorldDb, WorldDbEntry } from './schema';
 import {
-  CANVAS_BY_SIZE, RARITIES, SPRITE_CLIPS, WORLD_IDS, WORLD_KUERZEL,
-  type Rarity, type SpawnCondition, type SpriteClip, type WorldId,
+  BAIT_IDS, CANVAS_BY_SIZE, RARITIES, SPRITE_CLIPS, WORLD_IDS, WORLD_KUERZEL,
+  type FishTag, type Rarity, type SpawnCondition, type SpriteClip, type WorldId,
 } from './types';
 
 export interface Issue { id: string; msg: string }
@@ -92,6 +94,7 @@ export function validateDb(db: FishDb, worlds: WorldDb | readonly WorldDbEntry[]
   for (const f of db.fish) {
     const w = worldById.get(f.welt);
     checkFields(f, err, warn);
+    checkTags(f, err, warn);
     checkSizeAndDrill(f, err);
     checkBoss(f, err, warn);
     if (!w) { err(f.id, `Welt ${f.welt} unbekannt`); continue; }
@@ -156,6 +159,18 @@ function checkFields(f: FishDbEntry, err: Add, warn: Add): void {
   if (f.spawn.wetterPflicht.length === 0) err(f.id, 'wetter_pflicht ist leer (Standard "Alle")');
   if (f.spawn.wetterPflicht.includes('Alle') && f.spawn.wetterPflicht.length > 1) err(f.id, '"Alle" darf nicht mit anderem Pflicht-Wetter kombiniert werden');
   if (f.spawn.wetterBevorzugt.includes('Alle')) err(f.id, '"Alle" ist als bevorzugtes Wetter sinnlos');
+}
+
+/** Tag-Regeln (datenvertrag.md §5). */
+function checkTags(f: FishDbEntry, err: Add, warn: Add): void {
+  const has = (t: FishTag) => f.tags.includes(t);
+  if (has('raubfisch') === has('friedfisch')) err(f.id, 'tags: genau einer von "raubfisch" oder "friedfisch" erwartet');
+  if (has('oberflaeche') && has('grund')) err(f.id, 'tags: "oberflaeche" und "grund" schließen sich aus');
+  if (has('leucht') !== f.art.leuchtet) err(f.id, 'tags: "leucht" passt nicht zu leuchtet');
+  if (has('zahnfisch') !== f.biss.zahnfisch) err(f.id, 'tags: "zahnfisch" passt nicht zu zahnfisch');
+  if ((has('riff') || has('lagune')) && f.welt !== 'W2') warn(f.id, 'tags: "riff"/"lagune" außerhalb des Regenbogenriffs');
+  if (has('lagune') && f.spawn.tiefeM[0] > 5) warn(f.id, 'tags: "lagune", aber Tiefe beginnt unter der Lagune (0–5 m)');
+  if (has('glut') && f.welt !== 'W5') warn(f.id, 'tags: "glut" außerhalb der Glutgrotte');
 }
 
 function checkSizeAndDrill(f: FishDbEntry, err: Add): void {
@@ -288,6 +303,119 @@ export function validateAssets(db: FishDb, rootDir: string, reader: AssetReader)
       const sz = frames[`${f.assetKey}_swim_0`]?.sourceSize;
       if (sz && (sz.w !== cw || sz.h !== ch)) warnings.push({ id: f.id, msg: `swim_0 ist ${sz.w}x${sz.h}, Canvas laut Daten ${cw}x${ch}` });
     }
+  }
+  return { errors, warnings };
+}
+
+// ------------------------------------------------------------------ Phase 1: Ausrüstung und Balancing (Vertrag §5)
+
+/** Pflicht-IDs aus Teil D 3.3. */
+export const REQUIRED_GEAR_IDS = {
+  rods: ['R01', 'R02', 'R03', 'R04', 'R05', 'R06', 'RW1', 'RW2', 'RW3', 'RW4', 'RW5', 'RG'],
+  lines: ['L01', 'L02', 'L03', 'L04', 'L05', 'L06', 'Z-V'],
+  reels: ['RO1', 'RO2', 'RO3', 'RO4', 'RO5', 'RO6', 'RO7', 'RO8'],
+  baits: [...BAIT_IDS],
+} as const;
+
+/**
+ * Ausrüstung gegen Spec-Pflichten, Fischdaten und Balancing prüfen:
+ * Pflicht-IDs, eindeutige IDs, Preise ≥ 0, Quelle/Preis passend, Köder-Referenzen aus fish.csv,
+ * Tags der Köder, Fundstücke je Welt, Fisch-/Ereignis-Referenzen in balancing.
+ */
+export function validateGear(gear: GearDb, db: FishDb, balancing: Balancing, worlds: WorldDb | readonly WorldDbEntry[]): Report {
+  const errors: Issue[] = [];
+  const warnings: Issue[] = [];
+  const err = (id: string, msg: string) => errors.push({ id, msg });
+  const warn = (id: string, msg: string) => warnings.push({ id, msg });
+  const wl = worldList(worlds);
+
+  const lists = {
+    rods: gear.rods, lines: gear.lines, reels: gear.reels, baits: gear.baits, accessories: gear.accessories, curios: gear.curios,
+  } as const;
+  for (const [cat, list] of Object.entries(lists) as [keyof typeof lists, readonly { id: string }[]][]) {
+    const seen = new Set<string>();
+    for (const x of list) {
+      if (seen.has(x.id)) err(x.id, `${cat}: ID doppelt`);
+      seen.add(x.id);
+    }
+    const req = (REQUIRED_GEAR_IDS as Record<string, readonly string[]>)[cat] ?? [];
+    for (const id of req) if (!seen.has(id)) err(id, `${cat}: Pflicht-ID fehlt (Teil D 3.3)`);
+  }
+  const priced = [...gear.rods, ...gear.lines, ...gear.reels, ...gear.baits, ...gear.accessories] as { id: string; priceCoins: number; pricePearls?: number }[];
+  for (const x of priced) {
+    if (!(x.priceCoins >= 0)) err(x.id, `Preis ${x.priceCoins} < 0`);
+    if (x.pricePearls !== undefined && !(x.pricePearls >= 0)) err(x.id, `Perlenpreis ${x.pricePearls} < 0`);
+  }
+
+  // Ruten
+  const starts = gear.rods.filter((r) => r.source === 'Start');
+  if (starts.length !== 1) err('rods', `${starts.length} Startruten statt genau 1`);
+  for (const r of gear.rods) {
+    if (r.source === 'Shop' && r.priceCoins <= 0) err(r.id, 'Shop-Rute ohne Preis');
+    if (r.source !== 'Shop' && r.priceCoins > 0) err(r.id, `Quelle ${r.source}, aber Preis ${r.priceCoins}`);
+    if (r.perfectWindowMin < balancing.cast.perfect.windowMinFloor) err(r.id, `Perfekt-Fenster ab ${r.perfectWindowMin} ist größer als erlaubt (${balancing.cast.perfect.windowMinFloor})`);
+    if (r.flexGreenZone < balancing.drill.zone.minWidth) err(r.id, `Flex ${r.flexGreenZone} unter der Mindestbreite der grünen Zone`);
+    if (r.sizeMuBonus > 0 && r.abilityWorld === null) warn(r.id, 'Größen-μ-Bonus ohne Welt (gilt überall)');
+    if (r.abilities.length && r.ability !== r.abilities[0]?.ability) err(r.id, 'ability ≠ erste Fähigkeit');
+  }
+  const byTier = [...gear.rods].filter((r) => r.source === 'Shop' || r.source === 'Start').sort((a, b) => a.tier - b.tier);
+  for (let i = 1; i < byTier.length; i++) {
+    const a = byTier[i - 1]; const b = byTier[i];
+    if (a && b && b.priceCoins < a.priceCoins) warn(b.id, `Stufe ${b.tier} ist billiger als Stufe ${a.tier}`);
+  }
+
+  // Schnüre / Rollen
+  if (gear.lines.filter((l) => l.priceCoins === 0).length !== 1) err('lines', 'genau eine Startschnur (Preis 0) erwartet');
+  if (gear.reels.filter((l) => l.priceCoins === 0).length !== 1) err('reels', 'genau eine Startrolle (Preis 0) erwartet');
+  for (const l of gear.lines) if (l.isLeader && !l.protectsToothed) warn(l.id, 'Vorfach ohne Zahnschutz');
+
+  // Köder
+  const baitIds = new Set(gear.baits.map((b) => b.id as string));
+  const usedTags = new Set(db.fish.flatMap((f) => f.tags));
+  for (const b of gear.baits) {
+    if (b.infinite && b.priceCoins > 0) err(b.id, 'unendlicher Köder mit Preis');
+    if (b.summonsWorldBoss && b.priceCoinsPerWorldFactor <= 0) warn(b.id, 'Bosslocker ohne Preis × Weltfaktor');
+    for (const t of [...Object.keys(b.tagBonus), ...b.targetTags]) if (!usedTags.has(t as FishTag)) warn(b.id, `Tag "${t}" trägt kein Fisch`);
+  }
+  for (const f of db.fish) {
+    for (const k of [...f.spawn.koederMag, ...f.spawn.koederMagNicht]) if (!baitIds.has(k)) err(f.id, `Köder "${k}" steht nicht in baits.csv`);
+  }
+
+  // Zubehör
+  const lamps = gear.accessories.filter((a) => a.effect === 'Lichtradius').sort((a, b) => a.tier - b.tier);
+  for (let i = 1; i < lamps.length; i++) {
+    const a = lamps[i - 1]; const b = lamps[i];
+    if (a && b && b.value <= a.value) err(b.id, 'Lichtradius muss mit der Stufe steigen');
+  }
+
+  // Fundstücke
+  for (const c of gear.curios) {
+    if (c.coinsMin > c.coinsMax) err(c.id, `muenzen_min ${c.coinsMin} > muenzen_max ${c.coinsMax}`);
+    if (c.reward === 'Sammelteil' && (c.collectCount < 2 || !c.rewardRef)) err(c.id, 'Sammelteil braucht sammelzahl ≥ 2 und belohnung_ref');
+    if (c.reward === 'Hut' && !c.rewardRef) err(c.id, 'Hut braucht belohnung_ref');
+  }
+  for (const w of WORLD_IDS) if (!gear.curios.some((c) => c.worlds.length === 0 || c.worlds.includes(w))) err(w, 'kein Fundstück in dieser Welt');
+
+  // Balancing-Referenzen: Fisch-IDs und Ereignisse müssen existieren
+  const fishById = new Map(db.fish.map((f) => [f.id, f]));
+  for (const [evt, eff] of Object.entries(balancing.spawn.event)) {
+    const inWorlds = wl.filter((w) => w.ereignisse.some((e) => e.ereignis === evt));
+    if (inWorlds.length === 0) err(`spawn.event.${evt}`, 'Ereignis kommt in keiner Welt vor (events.csv)');
+    for (const id of Object.keys(eff?.fish ?? {})) {
+      const f = fishById.get(id);
+      if (!f) err(`spawn.event.${evt}.fish.${id}`, 'Fisch unbekannt');
+      else if (!inWorlds.some((w) => w.id === f.welt)) warn(`spawn.event.${evt}.fish.${id}`, `Fisch lebt in ${f.welt}, Ereignis gibt es dort nicht`);
+    }
+  }
+  for (const evt of Object.keys(balancing.event)) {
+    if (!wl.some((w) => w.ereignisse.some((e) => e.ereignis === evt))) err(`event.${evt}`, 'Ereignis kommt in keiner Welt vor (events.csv)');
+  }
+  for (const tag of [
+    ...Object.values(balancing.spawn.weather).flatMap((e) => Object.keys(e?.tags ?? {})),
+    ...Object.values(balancing.spawn.event).flatMap((e) => Object.keys(e?.tags ?? {})),
+    ...Object.keys(balancing.spawn.futterplatz.tags ?? {}),
+  ]) {
+    if (!usedTags.has(tag as FishTag)) warn('balancing', `Tag "${tag}" trägt kein Fisch`);
   }
   return { errors, warnings };
 }

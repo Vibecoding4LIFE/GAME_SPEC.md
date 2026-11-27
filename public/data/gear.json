@@ -1,0 +1,1373 @@
+{
+  "version": 1,
+  "rods": [
+    {
+      "id": "R01",
+      "nameKey": "rod.r01.name",
+      "descKey": "rod.r01.desc",
+      "tier": 1,
+      "source": "Start",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 1,
+      "castMaxDistanceM": 20,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.92,
+      "flexGreenZone": 0.26,
+      "relief": 1,
+      "reactionBonusS": 0,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "Keine",
+      "abilities": [],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r01",
+      "bendFrames": [
+        "rod_r01_bend_0",
+        "rod_r01_bend_1",
+        "rod_r01_bend_2",
+        "rod_r01_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "R02",
+      "nameKey": "rod.r02.name",
+      "descKey": "rod.r02.desc",
+      "tier": 2,
+      "source": "Shop",
+      "priceCoins": 600,
+      "pricePearls": 0,
+      "requiredReputation": 3,
+      "castMaxDistanceM": 28,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.91,
+      "flexGreenZone": 0.29,
+      "relief": 1.1,
+      "reactionBonusS": 0.05,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "Keine",
+      "abilities": [],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r02",
+      "bendFrames": [
+        "rod_r02_bend_0",
+        "rod_r02_bend_1",
+        "rod_r02_bend_2",
+        "rod_r02_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "R03",
+      "nameKey": "rod.r03.name",
+      "descKey": "rod.r03.desc",
+      "tier": 3,
+      "source": "Shop",
+      "priceCoins": 2500,
+      "pricePearls": 0,
+      "requiredReputation": 8,
+      "castMaxDistanceM": 36,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.9,
+      "flexGreenZone": 0.32,
+      "relief": 1.2,
+      "reactionBonusS": 0.1,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "Keine",
+      "abilities": [],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r03",
+      "bendFrames": [
+        "rod_r03_bend_0",
+        "rod_r03_bend_1",
+        "rod_r03_bend_2",
+        "rod_r03_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "R04",
+      "nameKey": "rod.r04.name",
+      "descKey": "rod.r04.desc",
+      "tier": 4,
+      "source": "Shop",
+      "priceCoins": 8000,
+      "pricePearls": 0,
+      "requiredReputation": 15,
+      "castMaxDistanceM": 44,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.89,
+      "flexGreenZone": 0.35,
+      "relief": 1.3,
+      "reactionBonusS": 0.15,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "TaucherKonter",
+      "abilities": [
+        {
+          "ability": "TaucherKonter",
+          "value": 0.1
+        }
+      ],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r04",
+      "bendFrames": [
+        "rod_r04_bend_0",
+        "rod_r04_bend_1",
+        "rod_r04_bend_2",
+        "rod_r04_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "R05",
+      "nameKey": "rod.r05.name",
+      "descKey": "rod.r05.desc",
+      "tier": 5,
+      "source": "Shop",
+      "priceCoins": 20000,
+      "pricePearls": 0,
+      "requiredReputation": 25,
+      "castMaxDistanceM": 52,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.88,
+      "flexGreenZone": 0.38,
+      "relief": 1.4,
+      "reactionBonusS": 0.2,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "WindImmun",
+      "abilities": [
+        {
+          "ability": "WindImmun",
+          "value": 0
+        }
+      ],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r05",
+      "bendFrames": [
+        "rod_r05_bend_0",
+        "rod_r05_bend_1",
+        "rod_r05_bend_2",
+        "rod_r05_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "R06",
+      "nameKey": "rod.r06.name",
+      "descKey": "rod.r06.desc",
+      "tier": 6,
+      "source": "Shop",
+      "priceCoins": 50000,
+      "pricePearls": 0,
+      "requiredReputation": 35,
+      "castMaxDistanceM": 60,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.86,
+      "flexGreenZone": 0.4,
+      "relief": 1.5,
+      "reactionBonusS": 0.25,
+      "counterBonus": 0.35,
+      "sizeMuBonus": 0,
+      "ability": "StarkerKonter",
+      "abilities": [
+        {
+          "ability": "StarkerKonter",
+          "value": 0.35
+        }
+      ],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_r06",
+      "bendFrames": [
+        "rod_r06_bend_0",
+        "rod_r06_bend_1",
+        "rod_r06_bend_2",
+        "rod_r06_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RW1",
+      "nameKey": "rod.rw1.name",
+      "descKey": "rod.rw1.desc",
+      "tier": 3,
+      "source": "Sammlung",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 36,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.9,
+      "flexGreenZone": 0.33,
+      "relief": 1.2,
+      "reactionBonusS": 0.1,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0.05,
+      "ability": "HaengerLeicht",
+      "abilities": [
+        {
+          "ability": "HaengerLeicht",
+          "value": 1
+        }
+      ],
+      "abilityWorld": "W1",
+      "abilityAffectsOnlyWorld": true,
+      "rodSprite": "rod_rw1",
+      "bendFrames": [
+        "rod_rw1_bend_0",
+        "rod_rw1_bend_1",
+        "rod_rw1_bend_2",
+        "rod_rw1_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RW2",
+      "nameKey": "rod.rw2.name",
+      "descKey": "rod.rw2.desc",
+      "tier": 4,
+      "source": "Sammlung",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 44,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.89,
+      "flexGreenZone": 0.36,
+      "relief": 1.3,
+      "reactionBonusS": 0.15,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "StroemungHalb",
+      "abilities": [
+        {
+          "ability": "StroemungHalb",
+          "value": 0.5
+        }
+      ],
+      "abilityWorld": "W2",
+      "abilityAffectsOnlyWorld": true,
+      "rodSprite": "rod_rw2",
+      "bendFrames": [
+        "rod_rw2_bend_0",
+        "rod_rw2_bend_1",
+        "rod_rw2_bend_2",
+        "rod_rw2_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RW3",
+      "nameKey": "rod.rw3.name",
+      "descKey": "rod.rw3.desc",
+      "tier": 4,
+      "source": "Sammlung",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 46,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.89,
+      "flexGreenZone": 0.36,
+      "relief": 1.3,
+      "reactionBonusS": 0.15,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "KaelteImmun",
+      "abilities": [
+        {
+          "ability": "KaelteImmun",
+          "value": 1
+        },
+        {
+          "ability": "EislochLangsamer",
+          "value": 0.5
+        }
+      ],
+      "abilityWorld": "W3",
+      "abilityAffectsOnlyWorld": true,
+      "rodSprite": "rod_rw3",
+      "bendFrames": [
+        "rod_rw3_bend_0",
+        "rod_rw3_bend_1",
+        "rod_rw3_bend_2",
+        "rod_rw3_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RW4",
+      "nameKey": "rod.rw4.name",
+      "descKey": "rod.rw4.desc",
+      "tier": 5,
+      "source": "Sammlung",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 52,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.88,
+      "flexGreenZone": 0.38,
+      "relief": 1.4,
+      "reactionBonusS": 0.2,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "LampePlusEins",
+      "abilities": [
+        {
+          "ability": "LampePlusEins",
+          "value": 1
+        },
+        {
+          "ability": "BlinkerHalbSichtbar",
+          "value": 0.5
+        }
+      ],
+      "abilityWorld": "W4",
+      "abilityAffectsOnlyWorld": true,
+      "rodSprite": "rod_rw4",
+      "bendFrames": [
+        "rod_rw4_bend_0",
+        "rod_rw4_bend_1",
+        "rod_rw4_bend_2",
+        "rod_rw4_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RW5",
+      "nameKey": "rod.rw5.name",
+      "descKey": "rod.rw5.desc",
+      "tier": 5,
+      "source": "Sammlung",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 54,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.88,
+      "flexGreenZone": 0.39,
+      "relief": 1.4,
+      "reactionBonusS": 0.2,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "HitzeMinus30",
+      "abilities": [
+        {
+          "ability": "HitzeMinus30",
+          "value": 0.7
+        }
+      ],
+      "abilityWorld": "W5",
+      "abilityAffectsOnlyWorld": true,
+      "rodSprite": "rod_rw5",
+      "bendFrames": [
+        "rod_rw5_bend_0",
+        "rod_rw5_bend_1",
+        "rod_rw5_bend_2",
+        "rod_rw5_bend_3"
+      ],
+      "lineColor": "#E8EEF2",
+      "lineParticles": null
+    },
+    {
+      "id": "RG",
+      "nameKey": "rod.rg.name",
+      "descKey": "rod.rg.desc",
+      "tier": 6,
+      "source": "Komplett",
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "requiredReputation": 0,
+      "castMaxDistanceM": 60,
+      "castCycleS": 1.2,
+      "perfectWindowMin": 0.86,
+      "flexGreenZone": 0.41,
+      "relief": 1.5,
+      "reactionBonusS": 0.25,
+      "counterBonus": 0.3,
+      "sizeMuBonus": 0,
+      "ability": "SchillerndGlobal",
+      "abilities": [
+        {
+          "ability": "SchillerndGlobal",
+          "value": 200
+        }
+      ],
+      "abilityWorld": null,
+      "abilityAffectsOnlyWorld": false,
+      "rodSprite": "rod_rg",
+      "bendFrames": [
+        "rod_rg_bend_0",
+        "rod_rg_bend_1",
+        "rod_rg_bend_2",
+        "rod_rg_bend_3"
+      ],
+      "lineColor": "#FFC83D",
+      "lineParticles": "gold"
+    }
+  ],
+  "lines": [
+    {
+      "id": "L01",
+      "nameKey": "line.l01.name",
+      "descKey": "line.l01.desc",
+      "priceCoins": 0,
+      "requiredReputation": 1,
+      "breakReserveS": 0,
+      "biteRateBonus": 0,
+      "protection": [],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 1000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "L02",
+      "nameKey": "line.l02.name",
+      "descKey": "line.l02.desc",
+      "priceCoins": 400,
+      "requiredReputation": 2,
+      "breakReserveS": 0.15,
+      "biteRateBonus": 0,
+      "protection": [],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 1000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "L03",
+      "nameKey": "line.l03.name",
+      "descKey": "line.l03.desc",
+      "priceCoins": 1500,
+      "requiredReputation": 6,
+      "breakReserveS": 0.1,
+      "biteRateBonus": 0.1,
+      "protection": [],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 1000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "L04",
+      "nameKey": "line.l04.name",
+      "descKey": "line.l04.desc",
+      "priceCoins": 4000,
+      "requiredReputation": 12,
+      "breakReserveS": 0.2,
+      "biteRateBonus": 0.1,
+      "protection": [
+        "Kaelte"
+      ],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 1000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "L05",
+      "nameKey": "line.l05.name",
+      "descKey": "line.l05.desc",
+      "priceCoins": 8000,
+      "requiredReputation": 20,
+      "breakReserveS": 0.25,
+      "biteRateBonus": 0.1,
+      "protection": [
+        "Kaelte",
+        "Druck"
+      ],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 11000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "L06",
+      "nameKey": "line.l06.name",
+      "descKey": "line.l06.desc",
+      "priceCoins": 22000,
+      "requiredReputation": 30,
+      "breakReserveS": 0.3,
+      "biteRateBonus": 0.1,
+      "protection": [
+        "Kaelte",
+        "Druck",
+        "Hitze"
+      ],
+      "heatMultiplier": 0.5,
+      "maxDepthPressureM": 11000,
+      "isLeader": false,
+      "protectsToothed": false,
+      "shyBiteRateMod": 0
+    },
+    {
+      "id": "Z-V",
+      "nameKey": "line.zv.name",
+      "descKey": "line.zv.desc",
+      "priceCoins": 900,
+      "requiredReputation": 5,
+      "breakReserveS": 0,
+      "biteRateBonus": 0,
+      "protection": [],
+      "heatMultiplier": 1,
+      "maxDepthPressureM": 1000,
+      "isLeader": true,
+      "protectsToothed": true,
+      "shyBiteRateMod": -0.05
+    }
+  ],
+  "reels": [
+    {
+      "id": "RO1",
+      "nameKey": "reel.ro1.name",
+      "descKey": "reel.ro1.desc",
+      "priceCoins": 0,
+      "requiredReputation": 1,
+      "crankPower": 1,
+      "retrieveSpeed": 1,
+      "lineCapacityM": 25,
+      "isDeepSeaWinch": false,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 0
+    },
+    {
+      "id": "RO2",
+      "nameKey": "reel.ro2.name",
+      "descKey": "reel.ro2.desc",
+      "priceCoins": 500,
+      "requiredReputation": 2,
+      "crankPower": 1.1,
+      "retrieveSpeed": 1.1,
+      "lineCapacityM": 40,
+      "isDeepSeaWinch": false,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 0
+    },
+    {
+      "id": "RO3",
+      "nameKey": "reel.ro3.name",
+      "descKey": "reel.ro3.desc",
+      "priceCoins": 2000,
+      "requiredReputation": 7,
+      "crankPower": 1.2,
+      "retrieveSpeed": 1.2,
+      "lineCapacityM": 60,
+      "isDeepSeaWinch": false,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 0
+    },
+    {
+      "id": "RO4",
+      "nameKey": "reel.ro4.name",
+      "descKey": "reel.ro4.desc",
+      "priceCoins": 7000,
+      "requiredReputation": 14,
+      "crankPower": 1.3,
+      "retrieveSpeed": 1.3,
+      "lineCapacityM": 80,
+      "isDeepSeaWinch": false,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 0
+    },
+    {
+      "id": "RO5",
+      "nameKey": "reel.ro5.name",
+      "descKey": "reel.ro5.desc",
+      "priceCoins": 10000,
+      "requiredReputation": 20,
+      "crankPower": 1.3,
+      "retrieveSpeed": 1.2,
+      "lineCapacityM": 2000,
+      "isDeepSeaWinch": true,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 270
+    },
+    {
+      "id": "RO6",
+      "nameKey": "reel.ro6.name",
+      "descKey": "reel.ro6.desc",
+      "priceCoins": 22000,
+      "requiredReputation": 25,
+      "crankPower": 1.4,
+      "retrieveSpeed": 1.3,
+      "lineCapacityM": 6000,
+      "isDeepSeaWinch": true,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 800
+    },
+    {
+      "id": "RO7",
+      "nameKey": "reel.ro7.name",
+      "descKey": "reel.ro7.desc",
+      "priceCoins": 40000,
+      "requiredReputation": 30,
+      "crankPower": 1.5,
+      "retrieveSpeed": 1.4,
+      "lineCapacityM": 11000,
+      "isDeepSeaWinch": true,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 1470
+    },
+    {
+      "id": "RO8",
+      "nameKey": "reel.ro8.name",
+      "descKey": "reel.ro8.desc",
+      "priceCoins": 55000,
+      "requiredReputation": 35,
+      "crankPower": 1.6,
+      "retrieveSpeed": 1.5,
+      "lineCapacityM": 11000,
+      "isDeepSeaWinch": true,
+      "fallbackCapacityM": 80,
+      "descentSpeedMs": 1470
+    }
+  ],
+  "baits": [
+    {
+      "id": "K01",
+      "nameKey": "bait.k01.name",
+      "descKey": "bait.k01.desc",
+      "infinite": true,
+      "reusable": true,
+      "packSize": 1,
+      "priceCoins": 0,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch",
+        "raubfisch"
+      ],
+      "worlds": [
+        "W1",
+        "W2"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K02",
+      "nameKey": "bait.k02.name",
+      "descKey": "bait.k02.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 10,
+      "priceCoins": 50,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "leicht",
+      "sinkSpeed": 0.625,
+      "sinkSpeedMs": 2.5,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1.3,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {
+        "Gewoehnlich": 1.3
+      },
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch"
+      ],
+      "worlds": [
+        "W1"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K03",
+      "nameKey": "bait.k03.name",
+      "descKey": "bait.k03.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 10,
+      "priceCoins": 40,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "leicht",
+      "sinkSpeed": 0.625,
+      "sinkSpeedMs": 2.5,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch"
+      ],
+      "worlds": [
+        "W1"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": true,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K04",
+      "nameKey": "bait.k04.name",
+      "descKey": "bait.k04.desc",
+      "infinite": false,
+      "reusable": true,
+      "packSize": 1,
+      "priceCoins": 300,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "schwer",
+      "sinkSpeed": 1.5,
+      "sinkSpeedMs": 6,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1.5,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "raubfisch"
+      ],
+      "worlds": [],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K05",
+      "nameKey": "bait.k05.name",
+      "descKey": "bait.k05.desc",
+      "infinite": false,
+      "reusable": true,
+      "packSize": 1,
+      "priceCoins": 800,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {
+        "raubfisch": 1.4
+      },
+      "targetTags": [
+        "raubfisch"
+      ],
+      "worlds": [],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 2,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K06",
+      "nameKey": "bait.k06.name",
+      "descKey": "bait.k06.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 10,
+      "priceCoins": 120,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {
+        "riff": 1.4
+      },
+      "targetTags": [
+        "riff"
+      ],
+      "worlds": [
+        "W2",
+        "W3"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K07",
+      "nameKey": "bait.k07.name",
+      "descKey": "bait.k07.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 10,
+      "priceCoins": 200,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {
+        "Selten": 1.2
+      },
+      "tagBonus": {},
+      "targetTags": [
+        "raubfisch"
+      ],
+      "worlds": [
+        "W2",
+        "W3",
+        "W4"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K08",
+      "nameKey": "bait.k08.name",
+      "descKey": "bait.k08.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 10,
+      "priceCoins": 250,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0.25,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "schwarm"
+      ],
+      "worlds": [
+        "W3"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K09",
+      "nameKey": "bait.k09.name",
+      "descKey": "bait.k09.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 5,
+      "priceCoins": 400,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "schwer",
+      "sinkSpeed": 1.5,
+      "sinkSpeedMs": 6,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {
+        "leucht": 1.5
+      },
+      "targetTags": [
+        "leucht"
+      ],
+      "worlds": [
+        "W4"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": true,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K10",
+      "nameKey": "bait.k10.name",
+      "descKey": "bait.k10.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 5,
+      "priceCoins": 500,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {
+        "glut": 1.5
+      },
+      "targetTags": [
+        "glut"
+      ],
+      "worlds": [
+        "W5"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": true,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K11",
+      "nameKey": "bait.k11.name",
+      "descKey": "bait.k11.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 3,
+      "priceCoins": 800,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "schwer",
+      "sinkSpeed": 1.5,
+      "sinkSpeedMs": 6,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {
+        "kristall": 1.8
+      },
+      "targetTags": [
+        "kristall"
+      ],
+      "worlds": [
+        "W5"
+      ],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K12",
+      "nameKey": "bait.k12.name",
+      "descKey": "bait.k12.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 5,
+      "priceCoins": 600,
+      "pricePearls": 0,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "schwer",
+      "sinkSpeed": 1.5,
+      "sinkSpeedMs": 6,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0.08,
+      "commonMod": 0.5,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {
+        "Gewoehnlich": 0.5
+      },
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch",
+        "raubfisch"
+      ],
+      "worlds": [],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K13",
+      "nameKey": "bait.k13.name",
+      "descKey": "bait.k13.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 3,
+      "priceCoins": 0,
+      "pricePearls": 2,
+      "priceCoinsPerWorldFactor": 0,
+      "sinkClass": "mittel",
+      "sinkSpeed": 1,
+      "sinkSpeedMs": 4,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 2,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch",
+        "raubfisch"
+      ],
+      "worlds": [],
+      "summonsBoss": null,
+      "summonsWorldBoss": false,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 0
+    },
+    {
+      "id": "K14",
+      "nameKey": "bait.k14.name",
+      "descKey": "bait.k14.desc",
+      "infinite": false,
+      "reusable": false,
+      "packSize": 1,
+      "priceCoins": 0,
+      "pricePearls": 1,
+      "priceCoinsPerWorldFactor": 800,
+      "sinkClass": "schwer",
+      "sinkSpeed": 1.5,
+      "sinkSpeedMs": 6,
+      "biteRateBonus": 0,
+      "sizeMuBonus": 0,
+      "commonMod": 1,
+      "shinyMultiplier": 1,
+      "twitchBonus": 1,
+      "rarityMods": {},
+      "tagBonus": {},
+      "targetTags": [
+        "friedfisch",
+        "raubfisch"
+      ],
+      "worlds": [],
+      "summonsBoss": null,
+      "summonsWorldBoss": true,
+      "retrieveDiveM": 0,
+      "createsFeedingSpot": false,
+      "glowsInDark": false,
+      "heatproof": false,
+      "unlockSpeciesInWorld": 15
+    }
+  ],
+  "accessories": [
+    {
+      "id": "Z01",
+      "nameKey": "accessory.z01.name",
+      "descKey": "accessory.z01.desc",
+      "priceCoins": 1500,
+      "requiredReputation": 4,
+      "tier": 1,
+      "effect": "KescherRettung",
+      "value": 1,
+      "worlds": []
+    },
+    {
+      "id": "Z02",
+      "nameKey": "accessory.z02.name",
+      "descKey": "accessory.z02.desc",
+      "priceCoins": 3000,
+      "requiredReputation": 8,
+      "tier": 1,
+      "effect": "EcholotRand",
+      "value": 1,
+      "worlds": []
+    },
+    {
+      "id": "Z03",
+      "nameKey": "accessory.z03.name",
+      "descKey": "accessory.z03.desc",
+      "priceCoins": 2000,
+      "requiredReputation": 6,
+      "tier": 1,
+      "effect": "WetterVorschau",
+      "value": 2,
+      "worlds": []
+    },
+    {
+      "id": "Z04",
+      "nameKey": "accessory.z04.name",
+      "descKey": "accessory.z04.desc",
+      "priceCoins": 1200,
+      "requiredReputation": 5,
+      "tier": 1,
+      "effect": "FutterplatzUeberall",
+      "value": 1,
+      "worlds": []
+    },
+    {
+      "id": "Z05",
+      "nameKey": "accessory.z05.name",
+      "descKey": "accessory.z05.desc",
+      "priceCoins": 800,
+      "requiredReputation": 12,
+      "tier": 1,
+      "effect": "EislochTipps",
+      "value": 1,
+      "worlds": [
+        "W3"
+      ]
+    },
+    {
+      "id": "Z06",
+      "nameKey": "accessory.z06.name",
+      "descKey": "accessory.z06.desc",
+      "priceCoins": 3000,
+      "requiredReputation": 20,
+      "tier": 1,
+      "effect": "Lichtradius",
+      "value": 32,
+      "worlds": [
+        "W4"
+      ]
+    },
+    {
+      "id": "Z07",
+      "nameKey": "accessory.z07.name",
+      "descKey": "accessory.z07.desc",
+      "priceCoins": 8000,
+      "requiredReputation": 22,
+      "tier": 2,
+      "effect": "Lichtradius",
+      "value": 48,
+      "worlds": [
+        "W4"
+      ]
+    },
+    {
+      "id": "Z08",
+      "nameKey": "accessory.z08.name",
+      "descKey": "accessory.z08.desc",
+      "priceCoins": 15000,
+      "requiredReputation": 25,
+      "tier": 3,
+      "effect": "Lichtradius",
+      "value": 64,
+      "worlds": [
+        "W4"
+      ]
+    },
+    {
+      "id": "Z09",
+      "nameKey": "accessory.z09.name",
+      "descKey": "accessory.z09.desc",
+      "priceCoins": 30000,
+      "requiredReputation": 30,
+      "tier": 4,
+      "effect": "Lichtradius",
+      "value": 96,
+      "worlds": [
+        "W4"
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "id": "C01",
+      "nameKey": "curio.c01.name",
+      "textKey": "curio.c01.text",
+      "worlds": [
+        "W1"
+      ],
+      "weight": 40,
+      "coinsMin": 1,
+      "coinsMax": 1,
+      "coinsTimesWorldFactor": false,
+      "reward": "Muenzen",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C02",
+      "nameKey": "curio.c02.name",
+      "textKey": "curio.c02.text",
+      "worlds": [
+        "W1"
+      ],
+      "weight": 20,
+      "coinsMin": 5,
+      "coinsMax": 5,
+      "coinsTimesWorldFactor": false,
+      "reward": "Muenzen",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C03",
+      "nameKey": "curio.c03.name",
+      "textKey": "curio.c03.text",
+      "worlds": [],
+      "weight": 25,
+      "coinsMin": 2,
+      "coinsMax": 2,
+      "coinsTimesWorldFactor": false,
+      "reward": "Hinweis",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C04",
+      "nameKey": "curio.c04.name",
+      "textKey": "curio.c04.text",
+      "worlds": [],
+      "weight": 5,
+      "coinsMin": 100,
+      "coinsMax": 500,
+      "coinsTimesWorldFactor": true,
+      "reward": "Muenzen",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C05",
+      "nameKey": "curio.c05.name",
+      "textKey": "curio.c05.text",
+      "worlds": [
+        "W2"
+      ],
+      "weight": 50,
+      "coinsMin": 4,
+      "coinsMax": 4,
+      "coinsTimesWorldFactor": false,
+      "reward": "Muenzen",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C06",
+      "nameKey": "curio.c06.name",
+      "textKey": "curio.c06.text",
+      "worlds": [
+        "W3"
+      ],
+      "weight": 15,
+      "coinsMin": 10,
+      "coinsMax": 10,
+      "coinsTimesWorldFactor": false,
+      "reward": "Hut",
+      "rewardRef": "hat_wikinger",
+      "collectCount": 0
+    },
+    {
+      "id": "C07",
+      "nameKey": "curio.c07.name",
+      "textKey": "curio.c07.text",
+      "worlds": [
+        "W4"
+      ],
+      "weight": 40,
+      "coinsMin": 15,
+      "coinsMax": 15,
+      "coinsTimesWorldFactor": false,
+      "reward": "Muenzen",
+      "rewardRef": null,
+      "collectCount": 0
+    },
+    {
+      "id": "C08",
+      "nameKey": "curio.c08.name",
+      "textKey": "curio.c08.text",
+      "worlds": [
+        "W5"
+      ],
+      "weight": 45,
+      "coinsMin": 5,
+      "coinsMax": 5,
+      "coinsTimesWorldFactor": false,
+      "reward": "Sammelteil",
+      "rewardRef": "pose_drache",
+      "collectCount": 10
+    }
+  ]
+}

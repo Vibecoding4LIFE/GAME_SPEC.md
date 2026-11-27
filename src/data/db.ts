@@ -6,8 +6,8 @@ import {
   type WorldDb, type WorldDbEntry, type WorldRowT,
 } from './schema';
 import {
-  SPRITE_CLIPS, WORLD_KUERZEL,
-  type BossPhase, type FishData, type SizeClass, type SpriteClip, type WorldKuerzel,
+  FISH_TAGS, SPRITE_CLIPS, WORLD_KUERZEL,
+  type BossPhase, type FishData, type FishTag, type SizeClass, type SpriteClip, type WorldKuerzel,
 } from './types';
 
 export const DB_VERSION = 1 as const;
@@ -47,6 +47,18 @@ export const bossPhaseKeys = (fishId: string, phase: number) => {
   const k = `boss.${fishId.slice(1)}.phase${phase}`;
   return { name: k, ansage: `${k}.ansage` };
 };
+
+/**
+ * Tags aus der Spalte `tags` plus abgeleitete Tags (datenvertrag.md §5):
+ * `leucht` ⇐ leuchtet, `zahnfisch` ⇐ zahnfisch, `schwarm` ⇐ schwarm max ≥ 2. Reihenfolge wie FISH_TAGS.
+ */
+export function fishTags(f: Pick<FishRowT, 'tags' | 'leuchtet' | 'zahnfisch' | 'schwarm'>): FishTag[] {
+  const set = new Set<FishTag>(f.tags);
+  if (f.leuchtet) set.add('leucht');
+  if (f.zahnfisch) set.add('zahnfisch');
+  if (f.schwarm.max >= 2) set.add('schwarm');
+  return FISH_TAGS.filter((t) => set.has(t));
+}
 
 // ------------------------------------------------------------------ CSV → JSON
 
@@ -102,6 +114,7 @@ export function toFishDbEntry(f: FishRowT, phases: readonly BossPhaseRowT[] = []
       leuchtet: f.leuchtet,
     },
     texte: { lexikon: f.lexikon_text, hinweis: f.hinweis_text },
+    tags: fishTags(f),
   };
   if (f.boss || own.length > 0) {
     entry.bossPhasen = own.map((p) => {
@@ -271,5 +284,6 @@ export function toFishData(e: FishDbEntry): FishData {
       shinyColors: e.art.schillerndFarben,
       features: e.art.merkmale,
     },
+    tags: e.tags,
   };
 }

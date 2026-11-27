@@ -96,7 +96,10 @@
       "texte": {
         "lexikon": "Der Klassiker. Jeder Angler fängt hier sein erstes.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 0–8 m Tiefe (Freiwasser)."
-      }
+      },
+      "tags": [
+        "friedfisch"
+      ]
     },
     {
       "id": "F002",
@@ -197,7 +200,10 @@
       "texte": {
         "lexikon": "Trägt Streifen wie ein Tiger, ist aber eher Hauskatze.",
         "hinweis": "Angler erzählen, er beißt tagsüber, am liebsten bei Sonnenschein oder bewölktem Himmel – in 2–10 m Tiefe (Freiwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch"
+      ]
     },
     {
       "id": "F003",
@@ -292,7 +298,11 @@
       "texte": {
         "lexikon": "Flach wie ein Teller, glitschig wie Seife. Saugt den Seegrund ab wie ein Staubsauger.",
         "hinweis": "Es heißt, er beißt abends und nachts – in 8–15 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F004",
@@ -393,7 +403,12 @@
       "texte": {
         "lexikon": "Auch „Doktorfisch“ genannt: Früher hieß es, ihr Schleim heilt andere Fische.",
         "hinweis": "Man munkelt, er beißt morgens, am liebsten bei bewölktem Himmel oder Regen – in 3–15 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "scheu"
+      ]
     },
     {
       "id": "F005",
@@ -492,7 +507,12 @@
       "texte": {
         "lexikon": "Aus seinen Schuppen machte man früher künstliche Perlen. Echt glänzend!",
         "hinweis": "Opa Otto schwört, er beißt tagsüber, am liebsten bei Sonnenschein – in 0–3 m Tiefe (Uferzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche",
+        "schwarm"
+      ]
     },
     {
       "id": "F006",
@@ -591,7 +611,11 @@
       "texte": {
         "lexikon": "Rote Flossen, goldene Flanken – das Rotauge in Festtagskleidung.",
         "hinweis": "Angler erzählen, er beißt tagsüber und abends, am liebsten bei Sonnenschein – in 0–4 m Tiefe (Uferzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche"
+      ]
     },
     {
       "id": "F007",
@@ -686,7 +710,11 @@
       "texte": {
         "lexikon": "Klein, neugierig und immer mit der Nase am Boden. Ein echter Spürhund.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 10–25 m Tiefe (Tiefes Loch)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F008",
@@ -784,7 +812,11 @@
       "texte": {
         "lexikon": "Kam aus Nordamerika und hat sich einfach breitgemacht.",
         "hinweis": "Man munkelt, er beißt tagsüber, am liebsten bei Sonnenschein – in 0–5 m Tiefe (Uferzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche"
+      ]
     },
     {
       "id": "F009",
@@ -883,7 +915,12 @@
       "texte": {
         "lexikon": "Kann über 50 Jahre alt werden – und erinnert sich an jeden Haken.",
         "hinweis": "Opa Otto schwört, er beißt morgens und abends, am liebsten bei bewölktem Himmel – in 5–15 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "scheu"
+      ]
     },
     {
       "id": "F010",
@@ -986,7 +1023,12 @@
       "texte": {
         "lexikon": "Seine Augen sehen im Dunkeln so gut, dass sie leuchten. Taschenlampe inklusive.",
         "hinweis": "Angler erzählen, er beißt abends und nachts, am liebsten bei bewölktem Himmel oder Regen – in 8–20 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "leucht",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F011",
@@ -1080,7 +1122,12 @@
       "texte": {
         "lexikon": "Schwimmt zum Laichen bis in die Sargassosee – über 5.000 km. Ganz ohne Navi!",
         "hinweis": "Es heißt, er beißt nachts, am liebsten bei Regen oder Gewitter – in 10–25 m Tiefe (Tiefes Loch)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "aal"
+      ]
     },
     {
       "id": "F012",
@@ -1177,7 +1224,12 @@
       "texte": {
         "lexikon": "Trägt immer einen Regenbogen bei sich, auch wenn es gar nicht regnet.",
         "hinweis": "Man munkelt, er beißt morgens, am liebsten bei Regen oder bewölktem Himmel – in 2–8 m Tiefe (Freiwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "forelle",
+        "scheu"
+      ]
     },
     {
       "id": "F013",
@@ -1277,7 +1329,11 @@
       "texte": {
         "lexikon": "Halb Frosch, halb Fisch, ganz Quatschkopf. Quaaak!",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit, am liebsten bei Regen – in 0–2 m Tiefe (Uferzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche"
+      ]
     },
     {
       "id": "F014",
@@ -1381,7 +1437,11 @@
       "texte": {
         "lexikon": "Lauert im Kraut und schießt hervor wie ein Pfeil.",
         "hinweis": "Angler erzählen, er beißt morgens und abends, am liebsten bei bewölktem Himmel oder Regen – in 3–15 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F015",
@@ -1476,7 +1536,11 @@
       "texte": {
         "lexikon": "Seine Vorfahren schwammen schon neben den Dinosauriern. Er hat es nicht eilig.",
         "hinweis": "Es heißt, er beißt nachts – in 15–25 m Tiefe (Tiefes Loch)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F016",
@@ -1575,7 +1639,12 @@
       "texte": {
         "lexikon": "So alt, dass ihr ein Garten auf dem Rücken wächst. Die Schnecke zahlt keine Miete.",
         "hinweis": "Man munkelt, er beißt morgens, am liebsten bei Regen oder Morgennebel – in 10–20 m Tiefe (Krautfeld)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "mystisch"
+      ]
     },
     {
       "id": "F017",
@@ -1671,7 +1740,13 @@
       "texte": {
         "lexikon": "Wer ihn sieht, darf sich was wünschen. Sagt Opa Otto.",
         "hinweis": "Nur in Nächten ohne Regen – dann blinkt er in 0–5 m Tiefe (Uferzone). Bei Vollmond besonders oft."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "oberflaeche",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F018",
@@ -1773,7 +1848,11 @@
       "texte": {
         "lexikon": "Der größte Süßwasserfisch Europas. Soll schon mal eine Ente verschluckt haben – natürlich nur aus Versehen.",
         "hinweis": "Angler erzählen, er beißt nachts, am liebsten bei Gewitter oder Regen – in 15–25 m Tiefe (Tiefes Loch)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F019",
@@ -1870,7 +1949,13 @@
       "texte": {
         "lexikon": "Jemand hat ihn vor 100 Jahren aus einem Gartenteich ausgesetzt. Seitdem blüht er.",
         "hinweis": "Es heißt, er beißt morgens, am liebsten bei Sonnenschein – in 0–5 m Tiefe (Uferzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche",
+        "mystisch",
+        "scheu"
+      ]
     },
     {
       "id": "F020",
@@ -1980,6 +2065,10 @@
         "lexikon": "Fünf Blinker im Kiefer, null Respekt vor Anglern. Wer ihn fängt, wird zur Legende.",
         "hinweis": "Barnabas schläft. Er kommt nur nachts bei Gewitter oder Vollmond aus dem Tiefen Loch (15–25 m)."
       },
+      "tags": [
+        "raubfisch",
+        "zahnfisch"
+      ],
       "bossPhasen": [
         {
           "phase": 1,
@@ -2117,7 +2206,12 @@
       "texte": {
         "lexikon": "Wohnt in einer Anemone, die alle anderen nesselt. Bester Bodyguard der Welt.",
         "hinweis": "Opa Otto schwört, er beißt tagsüber – in 0–6 m Tiefe (Lagune)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff",
+        "lagune"
+      ]
     },
     {
       "id": "F022",
@@ -2212,7 +2306,11 @@
       "texte": {
         "lexikon": "Sucht immer irgendwen.",
         "hinweis": "Angler erzählen, er beißt tagsüber, am liebsten bei Sonnenschein – in 3–15 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F023",
@@ -2306,7 +2404,13 @@
       "texte": {
         "lexikon": "Trägt Streifen wie eine Uniform und steht trotzdem nie stramm.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 0–8 m Tiefe (Lagune)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff",
+        "lagune",
+        "schwarm"
+      ]
     },
     {
       "id": "F024",
@@ -2399,7 +2503,11 @@
       "texte": {
         "lexikon": "Pickt mit seiner Pinzettenschnauze Futter aus jeder Ritze. Sehr ordentlich!",
         "hinweis": "Man munkelt, er beißt tagsüber – in 5–15 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F025",
@@ -2496,7 +2604,11 @@
       "texte": {
         "lexikon": "Macht aus Korallen Sand. Ja, wirklich.",
         "hinweis": "Opa Otto schwört, er beißt morgens, am liebsten bei Sonnenschein – in 5–15 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F026",
@@ -2587,7 +2699,12 @@
       "texte": {
         "lexikon": "Bewacht seine Eier wie ein Feldwebel. Rührt euch!",
         "hinweis": "Angler erzählen, er beißt tagsüber – in 0–6 m Tiefe (Lagune)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff",
+        "lagune"
+      ]
     },
     {
       "id": "F027",
@@ -2682,7 +2799,12 @@
       "texte": {
         "lexikon": "Liegt gern im Sand und tut so, als wäre er gar nicht da.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 10–20 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "riff"
+      ]
     },
     {
       "id": "F028",
@@ -2775,7 +2897,11 @@
       "texte": {
         "lexikon": "Schwimmt wie ein Spielzeug-U-Boot.",
         "hinweis": "Man munkelt, er beißt tagsüber, am liebsten bei Sonnenschein – in 3–10 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F029",
@@ -2870,7 +2996,11 @@
       "texte": {
         "lexikon": "Wird er nervös, wird er rund. Sehr rund.",
         "hinweis": "Opa Otto schwört, er beißt abends – in 5–15 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F030",
@@ -2965,7 +3095,11 @@
       "texte": {
         "lexikon": "Sieht aus wie ein Zirkuszelt mit Flossen. Bitte nicht anfassen – die Stacheln sind giftig!",
         "hinweis": "Angler erzählen, er beißt abends und nachts – in 10–25 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "riff"
+      ]
     },
     {
       "id": "F031",
@@ -3059,7 +3193,11 @@
       "texte": {
         "lexikon": "Seine Rückenflosse weht wie ein Wimpel. Immer bereit für die Parade.",
         "hinweis": "Es heißt, er beißt tagsüber – in 5–15 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ]
     },
     {
       "id": "F032",
@@ -3154,7 +3292,12 @@
       "texte": {
         "lexikon": "Knackt Krebse wie ein Nussknacker. Die Zebrastreifen gibt es gratis dazu.",
         "hinweis": "Man munkelt, er beißt nachts – in 10–25 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "riff",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F033",
@@ -3252,7 +3395,13 @@
       "texte": {
         "lexikon": "Riecht ein bisschen nach Jahrmarkt. Bitte ganz vorsichtig drillen!",
         "hinweis": "Opa Otto schwört, er beißt tagsüber, am liebsten bei Sonnenschein – in 0–8 m Tiefe (Lagune)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff",
+        "lagune",
+        "scheu"
+      ]
     },
     {
       "id": "F034",
@@ -3351,7 +3500,12 @@
       "texte": {
         "lexikon": "Grinst immer, auch wenn es nichts zu lachen gibt. Das liegt an den Zähnen.",
         "hinweis": "Angler erzählen, er beißt morgens und abends – in 15–30 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "riff",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F035",
@@ -3446,7 +3600,11 @@
       "texte": {
         "lexikon": "Neugierig wie ein Hund und groß wie ein Sofa. Er möchte nur Hallo sagen.",
         "hinweis": "Es heißt, er beißt tagsüber – in 20–35 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "riff"
+      ]
     },
     {
       "id": "F036",
@@ -3541,7 +3699,12 @@
       "texte": {
         "lexikon": "Kleiner als dein Daumen, bunter als dein ganzer Malkasten.",
         "hinweis": "Man munkelt, er beißt abends – in 5–12 m Tiefe (Riffdach)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "riff",
+        "scheu"
+      ]
     },
     {
       "id": "F037",
@@ -3637,7 +3800,12 @@
       "texte": {
         "lexikon": "Wenn er springt, gibt es einen Regenbogen gratis dazu.",
         "hinweis": "Opa Otto schwört, er beißt tagsüber, am liebsten bei Sonnenschein – in 10–25 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "kristall",
+        "riff"
+      ]
     },
     {
       "id": "F038",
@@ -3734,7 +3902,11 @@
       "texte": {
         "lexikon": "Schnellster Fisch im Meer.",
         "hinweis": "Angler erzählen, er beißt tagsüber, am liebsten bei Sonnenschein – in 30–50 m Tiefe (Blauwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "riff"
+      ]
     },
     {
       "id": "F039",
@@ -3839,7 +4011,12 @@
       "texte": {
         "lexikon": "Ein wandelndes Riff mit Hörnchen. Die Mitbewohner sind inklusive.",
         "hinweis": "Es heißt, er beißt nachts nur bei der Korallenblüte oder Tropenschauern bei Flut – in 15–30 m Tiefe (Riffkante)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "riff"
+      ]
     },
     {
       "id": "F040",
@@ -3943,6 +4120,10 @@
         "lexikon": "Die Herrscherin des Riffs. Wenn sie gleitet, halten sogar die Wellen den Atem an.",
         "hinweis": "Die Kaiserin zeigt sich nur in Vollmondnächten oder bei Flut zum Sonnenuntergang – draußen im Blauwasser (30–50 m)."
       },
+      "tags": [
+        "friedfisch",
+        "riff"
+      ],
       "bossPhasen": [
         {
           "phase": 1,
@@ -4098,7 +4279,10 @@
       "texte": {
         "lexikon": "Hat Frostschutz im Blut und fühlt sich bei minus 2 °C pudelwohl.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 0–20 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "friedfisch"
+      ]
     },
     {
       "id": "F042",
@@ -4194,7 +4378,11 @@
       "texte": {
         "lexikon": "Kommt nie allein. Wo eine Lodde ist, sind tausend weitere.",
         "hinweis": "Angler erzählen, er beißt morgens – in 0–10 m Tiefe (Eisloch)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "schwarm"
+      ]
     },
     {
       "id": "F043",
@@ -4287,7 +4475,10 @@
       "texte": {
         "lexikon": "Unterhält sich angeblich mit Blubberpupsen. Selbst Forscher mussten kichern.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit, am liebsten bei bewölktem Himmel – in 5–20 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "friedfisch"
+      ]
     },
     {
       "id": "F044",
@@ -4382,7 +4573,11 @@
       "texte": {
         "lexikon": "Sieht grimmig aus und brummt, wenn man ihn hochhebt. Echt jetzt.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit – in 20–45 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F045",
@@ -4476,7 +4671,12 @@
       "texte": {
         "lexikon": "Lebt weiter nördlich als jeder andere Süßwasserfisch. Frostbeule? Nie gehört.",
         "hinweis": "Opa Otto schwört, er beißt morgens, am liebsten bei Schnee – in 0–15 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "forelle",
+        "scheu"
+      ]
     },
     {
       "id": "F046",
@@ -4573,7 +4773,10 @@
       "texte": {
         "lexikon": "Kann über 70 Jahre alt werden. Die Glupschaugen hatte er schon als Baby.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit – in 20–40 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch"
+      ]
     },
     {
       "id": "F047",
@@ -4669,7 +4872,11 @@
       "texte": {
         "lexikon": "Kein Flöckchen gleicht dem anderen. Diese Grundeln auch nicht.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit, am liebsten bei Schnee – in 0–5 m Tiefe (Eisloch)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F048",
@@ -4763,7 +4970,11 @@
       "texte": {
         "lexikon": "Hat kein rotes Blut. Kein Witz.",
         "hinweis": "Man munkelt, er beißt nachts – in 20–45 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F049",
@@ -4858,7 +5069,11 @@
       "texte": {
         "lexikon": "Hat beide Augen auf einer Seite. Als Baby schwamm er noch ganz normal.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit, am liebsten bei bewölktem Himmel – in 30–60 m Tiefe (Fjordgrund)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F050",
@@ -4953,7 +5168,12 @@
       "texte": {
         "lexikon": "Sieht gruselig aus, ist aber eigentlich schüchtern.",
         "hinweis": "Angler erzählen, er beißt nachts – in 25–50 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F051",
@@ -5046,7 +5266,11 @@
       "texte": {
         "lexikon": "Saugt sich mit dem Bauch an Felsen fest. Männchen tragen einen orangen Bauch, Weibchen Blaugrün – das Lexikon zeigt beide.",
         "hinweis": "Es heißt, er beißt tagsüber – in 10–30 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F052",
@@ -5143,7 +5367,12 @@
       "texte": {
         "lexikon": "Springt Wasserfälle hinauf, um nach Hause zu kommen. Und du beschwerst dich über Treppen?",
         "hinweis": "Man munkelt, er beißt morgens, am liebsten bei Regen – in 5–20 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "lachs",
+        "scheu"
+      ]
     },
     {
       "id": "F053",
@@ -5240,7 +5469,12 @@
       "texte": {
         "lexikon": "Ihre Flossen klirren leise, wenn sie springt. Bitte nicht auftauen.",
         "hinweis": "Opa Otto schwört, er beißt morgens nur bei Schnee – in 0–15 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "forelle",
+        "mystisch"
+      ]
     },
     {
       "id": "F054",
@@ -5334,7 +5568,10 @@
       "texte": {
         "lexikon": "Lebt im kältesten Meer der Welt – mit eingebautem Frostschutz, versteht sich.",
         "hinweis": "Angler erzählen, er beißt nachts – in 40–70 m Tiefe (Fjordgrund)."
-      }
+      },
+      "tags": [
+        "raubfisch"
+      ]
     },
     {
       "id": "F055",
@@ -5429,7 +5666,10 @@
       "texte": {
         "lexikon": "Der Narwal wollte einen Fisch sein. Der Hornhecht wollte ein Horn. Beide sind zufrieden.",
         "hinweis": "Es heißt, er beißt nachts, am liebsten bei Polarlicht – in 15–35 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch"
+      ]
     },
     {
       "id": "F056",
@@ -5525,7 +5765,11 @@
       "texte": {
         "lexikon": "Klirrt beim Fang wie ein Windspiel. Handschuhe empfohlen.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit nur bei Schneesturm – in 30–50 m Tiefe (Eisbergwurzeln)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "aal"
+      ]
     },
     {
       "id": "F057",
@@ -5616,7 +5860,12 @@
       "texte": {
         "lexikon": "Trägt das Nordlicht auf der Haut. Taschenlampe? Braucht er nicht.",
         "hinweis": "Opa Otto schwört, er beißt nachts nur bei Polarlicht – in 5–25 m Tiefe (Kaltwasser)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F058",
@@ -5714,7 +5963,12 @@
       "texte": {
         "lexikon": "Kann sich nicht entscheiden, ob er Fisch oder Walross ist. Also ist er beides.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit, am liebsten bei bewölktem Himmel oder Eisnebel – in 30–60 m Tiefe (Fjordgrund)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "mystisch"
+      ]
     },
     {
       "id": "F059",
@@ -5811,7 +6065,11 @@
       "texte": {
         "lexikon": "Wo er schwimmt, schneit es. Sein Panzer ist älter als so mancher Gletscher.",
         "hinweis": "Es heißt, er beißt nachts, am liebsten bei Schneesturm – in 40–70 m Tiefe (Fjordgrund)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F060",
@@ -5909,6 +6167,12 @@
         "lexikon": "Grönlandhaie können über 400 Jahre alt werden. Grimmbart hat aufgehört zu zählen.",
         "hinweis": "Grimmbart hat keine Eile. Er steigt nur nachts im Schneesturm vom Fjordgrund (50–70 m) auf."
       },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "leucht",
+        "zahnfisch"
+      ],
       "bossPhasen": [
         {
           "phase": 1,
@@ -6066,7 +6330,12 @@
       "texte": {
         "lexikon": "Steigt jede Nacht Hunderte Meter nach oben zum Futtern und taucht morgens wieder ab – die größte Wanderung der Welt.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 200–1.000 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "leucht",
+        "schwarm"
+      ]
     },
     {
       "id": "F062",
@@ -6159,7 +6428,11 @@
       "texte": {
         "lexikon": "Die Lichter am Bauch machen ihn von unten unsichtbar. Eine Tarnkappe aus Licht!",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit – in 200–1.000 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "leucht"
+      ]
     },
     {
       "id": "F063",
@@ -6253,7 +6526,11 @@
       "texte": {
         "lexikon": "Vermutlich das häufigste Wirbeltier der Erde, und kaum jemand kennt es.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 500–1.500 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "leucht"
+      ]
     },
     {
       "id": "F064",
@@ -6346,7 +6623,11 @@
       "texte": {
         "lexikon": "Unten in der Tiefe sieht er ganz normal aus. Erst oben, ohne Wasserdruck, zerfließt er zum traurigen Blob. Also bitte nicht auslachen!",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit – in 600–1.200 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F065",
@@ -6441,7 +6722,12 @@
       "texte": {
         "lexikon": "Seine Zähne passen nicht ins Maul. Nachts steigt er bis auf 200 m herauf, um zu jagen.",
         "hinweis": "Opa Otto schwört, er beißt nachts – in 500–2.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "leucht",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F066",
@@ -6535,7 +6821,11 @@
       "texte": {
         "lexikon": "Schwanz wie eine Ratte, Augen wie Untertassen. Liebt Walfall-Festmahle.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit, am liebsten bei einem Walfall-Festmahl – in 1.000–4.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F067",
@@ -6633,7 +6923,11 @@
       "texte": {
         "lexikon": "Schwärzer als die Nacht – und hat seine eigene Taschenlampe am Kinn.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 1.000–2.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "leucht"
+      ]
     },
     {
       "id": "F068",
@@ -6726,7 +7020,12 @@
       "texte": {
         "lexikon": "Ein Maul mit etwas Fisch dran. Schluckt Beute, die fast so groß ist wie er selbst.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit – in 1.000–3.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "aal",
+        "leucht"
+      ]
     },
     {
       "id": "F069",
@@ -6821,7 +7120,11 @@
       "texte": {
         "lexikon": "Sieht fies aus, passt aber in deine Hand.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 2.000–5.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F070",
@@ -6914,7 +7217,10 @@
       "texte": {
         "lexikon": "Hat einen Fisch verschluckt, der größer ist als er selbst. Und jetzt? Verdauungsspaziergang.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit, am liebsten bei einem Walfall-Festmahl – in 700–3.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch"
+      ]
     },
     {
       "id": "F071",
@@ -7010,7 +7316,12 @@
       "texte": {
         "lexikon": "Die Punkte vorne sind seine Nase. Die Augen sind im Kopf. Ja, wirklich.",
         "hinweis": "Es heißt, er beißt nachts – in 600–800 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F072",
@@ -7104,7 +7415,12 @@
       "texte": {
         "lexikon": "Halb Qualle, halb Fisch, voll geladen. Vorsicht, es knistert!",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit – in 200–1.000 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F073",
@@ -7198,7 +7514,13 @@
       "texte": {
         "lexikon": "Wer einen Schwarm sieht, sieht Sternschnuppen. Wünsch dir was!",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit nur bei einer Biolumineszenz-Welle – in 1.000–3.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "leucht",
+        "schwarm"
+      ]
     },
     {
       "id": "F074",
@@ -7293,7 +7615,11 @@
       "texte": {
         "lexikon": "Er angelt selbst, nur besser als du.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit – in 1.000–4.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "leucht"
+      ]
     },
     {
       "id": "F075",
@@ -7387,7 +7713,11 @@
       "texte": {
         "lexikon": "Schießt seinen Kiefer nach vorn wie eine Schublade. Schnapp!",
         "hinweis": "Es heißt, er beißt nachts – in 300–1.300 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F076",
@@ -7482,7 +7812,14 @@
       "texte": {
         "lexikon": "Man sieht ihm bis ins Herz. Und das schlägt ganz schön schnell, wenn du ihn drillst.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit, am liebsten bei Meeresschnee – in 2.000–5.000 m Tiefe (Mitternachtszone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "mystisch",
+        "kristall",
+        "leucht"
+      ]
     },
     {
       "id": "F077",
@@ -7578,7 +7915,11 @@
       "texte": {
         "lexikon": "Galt als vor 66 Millionen Jahren ausgestorben, bis man 1938 einen fand.",
         "hinweis": "Opa Otto schwört, er beißt nachts – in 150–700 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F078",
@@ -7673,7 +8014,11 @@
       "texte": {
         "lexikon": "Vermutlich der Ursprung vieler Seeschlangen-Sagen.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit, am liebsten bei Sturm – in 200–1.000 m Tiefe (Dämmerzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch"
+      ]
     },
     {
       "id": "F079",
@@ -7766,7 +8111,13 @@
       "texte": {
         "lexikon": "Man sieht ihn nur, wenn er leuchtet. Und wenn er nicht leuchtet, ist er trotzdem da.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit nur bei einer Biolumineszenz-Welle – in 4.000–6.000 m Tiefe (Abgrundzone)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F080",
@@ -7865,6 +8216,11 @@
         "lexikon": "Die Königin der Tiefe. Ihr Licht hat noch kein U-Boot gesehen und zurückgemeldet.",
         "hinweis": "Wenn die Schlote rot glühen, erwacht Lumina – ganz unten im Tiefseegraben (6.000–11.000 m)."
       },
+      "tags": [
+        "raubfisch",
+        "leucht",
+        "zahnfisch"
+      ],
       "bossPhasen": [
         {
           "phase": 1,
@@ -8018,7 +8374,11 @@
       "texte": {
         "lexikon": "Lebt in Wirklichkeit nur in einer einzigen warmen Wasserhöhle in Nevada und ist dort stark bedroht. Hier unten hat er ein zweites Zuhause gefunden.",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 0–5 m Tiefe (Thermalbecken)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "oberflaeche"
+      ]
     },
     {
       "id": "F082",
@@ -8111,7 +8471,10 @@
       "texte": {
         "lexikon": "Schwimmt im echten Leben in über 40 °C heißen Sodaseen. Badewanne? Viel zu kalt!",
         "hinweis": "Angler erzählen, er beißt tagsüber – in 0–8 m Tiefe (Thermalbecken)."
-      }
+      },
+      "tags": [
+        "friedfisch"
+      ]
     },
     {
       "id": "F083",
@@ -8204,7 +8567,13 @@
       "texte": {
         "lexikon": "Pustet Aschewölkchen, wenn sie flieht. Niesen inklusive.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit, am liebsten bei Aschenregen – in 5–20 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F084",
@@ -8300,7 +8669,13 @@
       "texte": {
         "lexikon": "Eine Handvoll Wunderkerzen mit Flossen. Nicht in der Hosentasche aufbewahren!",
         "hinweis": "Man munkelt, er beißt nachts – in 0–10 m Tiefe (Thermalbecken)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "glut",
+        "leucht",
+        "schwarm"
+      ]
     },
     {
       "id": "F085",
@@ -8393,7 +8768,11 @@
       "texte": {
         "lexikon": "Kuschelt am liebsten zwischen Röhrenwürmern an heißen Schloten. Gemütlich!",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit – in 10–25 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund"
+      ]
     },
     {
       "id": "F086",
@@ -8486,7 +8865,13 @@
       "texte": {
         "lexikon": "Schwimmt nicht. Treibt.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit, am liebsten bei einem Ausbruch – in 0–10 m Tiefe (Thermalbecken)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "oberflaeche",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F087",
@@ -8580,7 +8965,12 @@
       "texte": {
         "lexikon": "Riecht nach faulen Eiern. Fang ihn trotzdem.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit – in 5–20 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "kristall"
+      ]
     },
     {
       "id": "F088",
@@ -8673,7 +9063,11 @@
       "texte": {
         "lexikon": "Glänzt wie ein Spiegel aus Vulkanglas. Bitte nicht fallen lassen.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit – in 20–40 m Tiefe (Kristallhöhlen)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund"
+      ]
     },
     {
       "id": "F089",
@@ -8766,7 +9160,11 @@
       "texte": {
         "lexikon": "Hat keine Augen, findet aber jeden Kristallköder. Hört er die Kristalle singen?",
         "hinweis": "Opa Otto schwört, er beißt zu jeder Tageszeit, und Kristallköder liebt er über alles – in 20–40 m Tiefe (Kristallhöhlen)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "kristall"
+      ]
     },
     {
       "id": "F090",
@@ -8860,7 +9258,12 @@
       "texte": {
         "lexikon": "Außen kalt, innen glühend. Wie ein Lavakuchen mit Flossen.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit – in 40–55 m Tiefe (Magmakammer)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F091",
@@ -8956,7 +9359,12 @@
       "texte": {
         "lexikon": "Lächelt immer, auch wenn seine Kiemen brennen. Ein echter Sonnenschein.",
         "hinweis": "Es heißt, er beißt nachts, am liebsten bei Dampfnebel – in 10–30 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F092",
@@ -9051,7 +9459,10 @@
       "texte": {
         "lexikon": "Pfeift wie ein Teekessel, wenn er sich aufbläst. Zeit für eine Tasse Tee?",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit, am liebsten bei Dampfnebel – in 5–20 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "friedfisch"
+      ]
     },
     {
       "id": "F093",
@@ -9144,7 +9555,13 @@
       "texte": {
         "lexikon": "Sieht aus wie flüssige Lava und benimmt sich auch so. Nicht streicheln!",
         "hinweis": "Opa Otto schwört, er beißt nachts – in 40–55 m Tiefe (Magmakammer)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "glut",
+        "leucht",
+        "zahnfisch"
+      ]
     },
     {
       "id": "F094",
@@ -9238,7 +9655,13 @@
       "texte": {
         "lexikon": "Wenn er verglüht, schlüpft er aus seiner eigenen Asche neu.",
         "hinweis": "Angler erzählen, er beißt zu jeder Tageszeit nur bei einem Ausbruch – in 0–15 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "mystisch",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F095",
@@ -9333,7 +9756,13 @@
       "texte": {
         "lexikon": "Seine Haut sieht aus wie ein Pflasterweg aus Lava. Bitte nicht drüberlaufen.",
         "hinweis": "Es heißt, er beißt nachts – in 40–60 m Tiefe (Magmakammer)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "grund",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F096",
@@ -9427,7 +9856,11 @@
       "texte": {
         "lexikon": "Lebte vor 360 Millionen Jahren. Hat nie erfahren, dass er ausgestorben ist.",
         "hinweis": "Man munkelt, er beißt zu jeder Tageszeit, und Kristallköder liebt er über alles – in 20–40 m Tiefe (Kristallhöhlen)."
-      }
+      },
+      "tags": [
+        "raubfisch",
+        "kristall"
+      ]
     },
     {
       "id": "F097",
@@ -9522,7 +9955,12 @@
       "texte": {
         "lexikon": "Mal ist er hier, mal ist er da. Wer ihm folgt, verirrt sich – oder fängt ihn.",
         "hinweis": "Opa Otto schwört, er beißt nachts nur bei der Runennacht, und Kristallköder liebt er über alles – in 20–40 m Tiefe (Kristallhöhlen)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "leucht"
+      ]
     },
     {
       "id": "F098",
@@ -9617,7 +10055,13 @@
       "texte": {
         "lexikon": "Ist den Lavafall hinaufgeschwommen und zum Drachen geworden. Und was hast du heute geschafft?",
         "hinweis": "Angler erzählen, er beißt nachts, am liebsten bei einem Ausbruch – in 0–20 m Tiefe (Schwefelschlote)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "mystisch",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F099",
@@ -9714,7 +10158,14 @@
       "texte": {
         "lexikon": "Frisst Felsen. Zum Nachtisch Kristalle.",
         "hinweis": "Es heißt, er beißt zu jeder Tageszeit nur bei Erdbeben, und Kristallköder liebt er über alles – in 40–60 m Tiefe (Magmakammer)."
-      }
+      },
+      "tags": [
+        "friedfisch",
+        "grund",
+        "kristall",
+        "glut",
+        "leucht"
+      ]
     },
     {
       "id": "F100",
@@ -9812,6 +10263,12 @@
         "lexikon": "Der Drache unter dem Vulkan. Sein Atem bringt sogar Lava ins Schwitzen.",
         "hinweis": "Ignaris erwacht nur bei einem Großen Ausbruch in der Nacht – tief im Glutsee (55–60 m)."
       },
+      "tags": [
+        "raubfisch",
+        "glut",
+        "leucht",
+        "zahnfisch"
+      ],
       "bossPhasen": [
         {
           "phase": 1,

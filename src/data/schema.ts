@@ -134,6 +134,8 @@ export const FishRow = z.strictObject({
   name_en: text,
   lexikon_text_en: text,
   hinweis_text_en: text,
+  // Phase 1 (datenvertrag.md §5): Verhaltens-Tags ohne die abgeleiteten (leucht, zahnfisch, schwarm)
+  tags: opt(flags(T.FISH_TAGS), []),
 });
 export type FishRowT = z.output<typeof FishRow>;
 
@@ -276,6 +278,7 @@ export const FishDbEntrySchema = z.object({
   }),
   texte: z.object({ lexikon: z.string(), hinweis: z.string() }),
   bossPhasen: z.array(BossPhaseDbSchema).optional(),
+  tags: z.array(z.enum(T.FISH_TAGS)),
 });
 export type FishDbEntry = z.output<typeof FishDbEntrySchema>;
 
@@ -318,3 +321,239 @@ export type WorldDbEntry = z.output<typeof WorldDbEntrySchema>;
 
 export const WorldDbSchema = z.object({ version: z.literal(1), worlds: z.array(WorldDbEntrySchema) });
 export type WorldDb = z.output<typeof WorldDbSchema>;
+
+
+// ================================================================ Phase 1: Ausrüstung (datenvertrag.md §5)
+
+const coins = int.pipe(z.number().min(0, 'Preis muss ≥ 0 sein'));
+const rep = int.pipe(z.number().min(0).max(50));
+const frac = num.pipe(z.number().min(0).max(1));
+const worldList = opt(flags(T.WORLD_IDS), []);
+
+/** "A:1.3|B:0.5" → { A: 1.3, B: 0.5 } (Schlüssel aus einem Enum, keine Dopplungen). */
+export const kvList = <const E extends readonly [string, ...string[]]>(vals: E) =>
+  z
+    .string()
+    .transform(splitList)
+    .pipe(
+      z.array(
+        z
+          .string()
+          .regex(/^[^:]+:-?\d+(\.\d+)?$/, 'Format "Schlüssel:Zahl" erwartet')
+          .transform((x) => {
+            const i = x.indexOf(':');
+            return [x.slice(0, i).trim(), Number(x.slice(i + 1))] as const;
+          })
+          .pipe(z.tuple([z.enum(vals), z.number()])),
+      ),
+    )
+    .refine((l) => new Set(l.map(([k]) => k)).size === l.length, 'Schlüssel doppelt')
+    .transform((l) => Object.fromEntries(l) as Partial<Record<E[number], number>>);
+
+/** "HaengerLeicht:1|KaelteImmun" → [{ ability, value }] (Wert ohne Angabe = 1). */
+export const abilityList = z
+  .string()
+  .transform(splitList)
+  .pipe(
+    z.array(
+      z
+        .string()
+        .regex(/^[A-Za-z][A-Za-z0-9]*(:-?\d+(\.\d+)?)?$/, 'Format "Faehigkeit:Zahl" erwartet')
+        .transform((x) => {
+          const [a, v] = x.split(':');
+          return { ability: (a ?? '').trim(), value: v === undefined ? 1 : Number(v) };
+        })
+        .pipe(z.object({ ability: z.enum(T.ROD_ABILITIES).refine((a) => a !== 'Keine', '"Keine" nicht auflisten'), value: z.number() })),
+    ),
+  );
+
+/** Schnurfarbe: "#RRGGBB" (Reinweiß ist hier erlaubt, Standard laut 6.5). */
+const lineColor = z.string().trim().regex(/^#[0-9A-Fa-f]{6}$/, 'Hex-Farbe "#RRGGBB" erwartet').transform((s) => s.toUpperCase());
+const names = { name_de: text, name_en: text, beschreibung_de: text, beschreibung_en: text };
+
+export const RodRow = z.strictObject({
+  id: z.string().trim().regex(/^R(\d{2}|W\d|G)$/, 'ID im Format R01 / RW1 / RG erwartet'),
+  stufe: int.pipe(z.number().min(1).max(6)),
+  quelle: z.enum(T.UNLOCK_SOURCES),
+  preis_muenzen: coins,
+  preis_perlen: opt(coins, 0),
+  ruf: rep,
+  wurfweite_m: num.pipe(z.number().positive()),
+  wurf_zyklus_s: opt(num.pipe(z.number().positive()), 1.2),
+  perfekt_ab: opt(frac, 0.92),
+  flex: opt(frac, 0.26),
+  entlastung: opt(num.pipe(z.number().positive()), 1.0),
+  reaktion_s: opt(num.pipe(z.number().min(0)), 0),
+  konter: opt(frac, 0.3),
+  groessen_mu: opt(num.pipe(z.number().min(0).max(0.5)), 0),
+  faehigkeiten: opt(abilityList, []),
+  faehigkeit_welt: opt(z.enum(T.WORLD_IDS).nullable(), null),
+  nur_welt: opt(bool, true),
+  schnurfarbe: opt(lineColor, '#FFFFFF'),
+  schnur_partikel: opt(z.string().trim().regex(/^[a-z_]+$/, 'Partikel-Key nur a–z und _').nullable(), null),
+  ...names,
+});
+export type RodRowT = z.output<typeof RodRow>;
+
+export const LineRow = z.strictObject({
+  id: z.string().trim().regex(/^(L\d{2}|Z-V)$/, 'ID im Format L01 oder Z-V erwartet'),
+  preis_muenzen: coins,
+  ruf: rep,
+  reserve_s: opt(num.pipe(z.number().min(0)), 0),
+  bissrate_bonus: opt(num, 0),
+  schutz: opt(flags(T.LINE_PROTECTIONS), []),
+  hitze_faktor: opt(num.pipe(z.number().positive()), 1),
+  druck_max_m: opt(num.pipe(z.number().positive()), 1000),
+  vorfach: opt(bool, false),
+  zahnschutz: opt(bool, false),
+  scheu_mod: opt(num, 0),
+  ...names,
+});
+export type LineRowT = z.output<typeof LineRow>;
+
+export const ReelRow = z.strictObject({
+  id: z.string().trim().regex(/^RO\d+$/, 'ID im Format RO1 erwartet'),
+  preis_muenzen: coins,
+  ruf: rep,
+  kurbelkraft: opt(num.pipe(z.number().positive()), 1),
+  einholtempo: opt(num.pipe(z.number().positive()), 1),
+  kapazitaet_m: opt(num.pipe(z.number().positive()), 25),
+  tiefseewinde: opt(bool, false),
+  kapazitaet_sonst_m: opt(num.pipe(z.number().positive()), 80),
+  abstieg_ms: opt(num.pipe(z.number().min(0)), 0),
+  ...names,
+});
+export type ReelRowT = z.output<typeof ReelRow>;
+
+export const BaitRow = z.strictObject({
+  id: z.enum(T.BAIT_IDS),
+  unendlich: opt(bool, false),
+  dauerhaft: opt(bool, false),
+  packung: opt(int.pipe(z.number().min(1)), 1),
+  preis_muenzen: coins,
+  preis_perlen: opt(coins, 0),
+  preis_weltfaktor: opt(coins, 0),
+  gewicht: z.enum(T.SINK_CLASSES),
+  bissrate_bonus: opt(num, 0),
+  groessen_mu: opt(num.pipe(z.number().min(0).max(0.5)), 0),
+  seltenheit_mods: opt(kvList(T.RARITIES), {}),
+  tag_bonus: opt(kvList(T.FISH_TAGS), {}),
+  schillernd_mult: opt(num.pipe(z.number().positive()), 1),
+  zucken_mult: opt(num.pipe(z.number().positive()), 1),
+  welten: worldList,
+  wirkt_auf: opt(flags(T.FISH_TAGS), []),
+  einhol_tiefe_m: opt(num.pipe(z.number().min(0)), 0),
+  futterplatz: opt(bool, false),
+  leuchtet_dunkel: opt(bool, false),
+  hitzefest: opt(bool, false),
+  bosslocker: opt(bool, false),
+  ab_arten: opt(int.pipe(z.number().min(0).max(20)), 0),
+  ...names,
+});
+export type BaitRowT = z.output<typeof BaitRow>;
+
+export const AccessoryRow = z.strictObject({
+  id: z.string().trim().regex(/^Z\d{2}$/, 'ID im Format Z01 erwartet'),
+  preis_muenzen: coins,
+  ruf: rep,
+  stufe: opt(int.pipe(z.number().min(1)), 1),
+  effekt: z.enum(T.ACCESSORY_EFFECTS),
+  wert: num,
+  welten: worldList,
+  ...names,
+});
+export type AccessoryRowT = z.output<typeof AccessoryRow>;
+
+export const CurioRow = z.strictObject({
+  id: z.string().trim().regex(/^C\d{2}$/, 'ID im Format C01 erwartet'),
+  welten: worldList,
+  gewicht: num.pipe(z.number().positive()),
+  muenzen_min: coins,
+  muenzen_max: coins,
+  mal_weltfaktor: opt(bool, false),
+  belohnung: z.enum(T.CURIO_REWARDS),
+  belohnung_ref: opt(z.string().trim().regex(/^[a-z_]+$/, 'Referenz nur a–z und _').nullable(), null),
+  sammelzahl: opt(int.pipe(z.number().min(0)), 0),
+  name_de: text,
+  name_en: text,
+  text_de: text,
+  text_en: text,
+});
+export type CurioRowT = z.output<typeof CurioRow>;
+
+// ---------------------------------------------------------------- Data/balancing.csv
+
+export const BalancingRow = z.strictObject({
+  schluessel: z.string().trim().regex(/^[a-z][A-Za-z]*(\.[A-Za-z0-9]+)+$/, 'Schlüssel im Format "gruppe.name" (Punkt-getrennt) erwartet'),
+  wert: num,
+  quelle: text,
+  beschreibung: text,
+});
+export type BalancingRowT = z.output<typeof BalancingRow>;
+
+// ---------------------------------------------------------------- public/data/gear.json (Typen aus 6.5 + §5)
+
+const worldIds = z.array(z.enum(T.WORLD_IDS));
+const nonNeg = z.number().min(0);
+const rarityMap = z.partialRecord(z.enum(T.RARITIES), z.number());
+const tagMap = z.partialRecord(z.enum(T.FISH_TAGS), z.number());
+
+export const RodDataSchema = z.object({
+  id: z.string(), nameKey: z.string(), descKey: z.string(),
+  tier: z.number().int().min(1).max(6), source: z.enum(T.UNLOCK_SOURCES),
+  priceCoins: nonNeg, pricePearls: nonNeg, requiredReputation: nonNeg,
+  castMaxDistanceM: z.number().positive(), castCycleS: z.number().positive(), perfectWindowMin: z.number().min(0).max(1),
+  flexGreenZone: z.number().min(0).max(1), relief: z.number().positive(), reactionBonusS: nonNeg,
+  counterBonus: z.number().min(0).max(1), sizeMuBonus: nonNeg,
+  ability: z.enum(T.ROD_ABILITIES),
+  abilities: z.array(z.object({ ability: z.enum(T.ROD_ABILITIES), value: z.number() })),
+  abilityWorld: z.enum(T.WORLD_IDS).nullable(), abilityAffectsOnlyWorld: z.boolean(),
+  rodSprite: z.string(), bendFrames: z.tuple([z.string(), z.string(), z.string(), z.string()]),
+  lineColor: z.string(), lineParticles: z.string().nullable(),
+});
+
+export const LineDataSchema = z.object({
+  id: z.string(), nameKey: z.string(), descKey: z.string(), priceCoins: nonNeg, requiredReputation: nonNeg,
+  breakReserveS: nonNeg, biteRateBonus: z.number(), protection: z.array(z.enum(T.LINE_PROTECTIONS)),
+  heatMultiplier: z.number().positive(), maxDepthPressureM: z.number().positive(),
+  isLeader: z.boolean(), protectsToothed: z.boolean(), shyBiteRateMod: z.number(),
+});
+
+export const ReelDataSchema = z.object({
+  id: z.string(), nameKey: z.string(), descKey: z.string(), priceCoins: nonNeg, requiredReputation: nonNeg,
+  crankPower: z.number().positive(), retrieveSpeed: z.number().positive(), lineCapacityM: z.number().positive(),
+  isDeepSeaWinch: z.boolean(), fallbackCapacityM: z.number().positive(), descentSpeedMs: nonNeg,
+});
+
+export const BaitDataSchema = z.object({
+  id: z.enum(T.BAIT_IDS), nameKey: z.string(), descKey: z.string(),
+  infinite: z.boolean(), reusable: z.boolean(), packSize: z.number().int().min(1), priceCoins: nonNeg, pricePearls: nonNeg,
+  priceCoinsPerWorldFactor: nonNeg,
+  sinkClass: z.enum(T.SINK_CLASSES), sinkSpeed: z.number().positive(), sinkSpeedMs: z.number().positive(),
+  biteRateBonus: z.number(), sizeMuBonus: nonNeg, commonMod: z.number().min(0), shinyMultiplier: z.number().positive(),
+  twitchBonus: z.number().positive(), rarityMods: rarityMap, tagBonus: tagMap, targetTags: z.array(z.enum(T.FISH_TAGS)),
+  worlds: worldIds, summonsBoss: z.string().regex(/^F\d{3}$/).transform((x) => x as T.FishId).nullable(), summonsWorldBoss: z.boolean(),
+  retrieveDiveM: nonNeg, createsFeedingSpot: z.boolean(), glowsInDark: z.boolean(), heatproof: z.boolean(),
+  unlockSpeciesInWorld: z.number().int().min(0).max(20),
+});
+
+export const AccessoryDataSchema = z.object({
+  id: z.string(), nameKey: z.string(), descKey: z.string(), priceCoins: nonNeg, requiredReputation: nonNeg,
+  tier: z.number().int().min(1), effect: z.enum(T.ACCESSORY_EFFECTS), value: z.number(), worlds: worldIds,
+});
+
+export const CurioDataSchema = z.object({
+  id: z.string(), nameKey: z.string(), textKey: z.string(), worlds: worldIds, weight: z.number().positive(),
+  coinsMin: nonNeg, coinsMax: nonNeg, coinsTimesWorldFactor: z.boolean(), reward: z.enum(T.CURIO_REWARDS),
+  rewardRef: z.string().nullable(), collectCount: z.number().int().min(0),
+});
+
+export const GearDbSchema = z.object({
+  version: z.literal(1),
+  rods: z.array(RodDataSchema),
+  lines: z.array(LineDataSchema),
+  reels: z.array(ReelDataSchema),
+  baits: z.array(BaitDataSchema),
+  accessories: z.array(AccessoryDataSchema),
+  curios: z.array(CurioDataSchema),
+});

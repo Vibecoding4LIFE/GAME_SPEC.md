@@ -1,0 +1,9 @@
+id;welten;gewicht;muenzen_min;muenzen_max;mal_weltfaktor;belohnung;belohnung_ref;sammelzahl;name_de;name_en;text_de;text_en
+C01;W1;40;1;1;0;Muenzen;;0;Alter Stiefel;Old Boot;Hat jemand seinen Stiefel vermisst?;Has anyone lost a boot?
+C02;W1;20;5;5;0;Muenzen;;0;Rostiges Fahrrad;Rusty Bicycle;Die Klingel geht noch. Sonst nichts.;The bell still works. Nothing else does.
+C03;;25;2;2;0;Hinweis;;0;Flaschenpost;Message in a Bottle;Drin steckt ein Zettel mit einem Tipp zu einem seltenen Fisch.;There's a note inside with a tip about a rare fish.
+C04;;5;100;500;1;Muenzen;;0;Schatzkiste;Treasure Chest;Schwer, nass und voller Münzen.;Heavy, soggy and full of coins.
+C05;W2;50;4;4;0;Muenzen;;0;Kokosnuss;Coconut;Von einer Insel herübergetrieben. Oder vom Himmel gefallen.;Drifted over from some island. Or fell from the sky.
+C06;W3;15;10;10;0;Hut;hat_wikinger;0;Wikingerhelm;Viking Helmet;Passt wie angegossen. Ab jetzt kannst du ihn als Hut tragen.;Fits perfectly. You can now wear it as a hat.
+C07;W4;40;15;15;0;Muenzen;;0;Gesunkene Tiefseesonde;Sunken Deep-Sea Probe;Die Seriennummer ist abgeblättert. Sie piept noch leise.;The serial number has flaked off. It still beeps softly.
+C08;W5;45;5;5;0;Sammelteil;pose_drache;10;Drachenei-Splitter;Dragon Egg Shard;Noch warm. 10 Splitter ergeben die Drachen-Pose.;Still warm. 10 shards make the dragon bobber.

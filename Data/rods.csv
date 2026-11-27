@@ -1,0 +1,13 @@
+id;stufe;quelle;preis_muenzen;preis_perlen;ruf;wurfweite_m;wurf_zyklus_s;perfekt_ab;flex;entlastung;reaktion_s;konter;groessen_mu;faehigkeiten;faehigkeit_welt;nur_welt;schnurfarbe;schnur_partikel;name_de;name_en;beschreibung_de;beschreibung_en
+R01;1;Start;0;0;1;20;1.2;0.92;0.26;1.0;0.00;0.30;0;;;0;#E8EEF2;;Opas Bambusrute;Grandpa's Bamboo Rod;Alt, krumm und zuverlässig. Damit fängt jede Anglerkarriere an.;Old, bent and reliable. Every fishing career starts here.
+R02;2;Shop;600;0;3;28;1.2;0.91;0.29;1.1;0.05;0.30;0;;;0;#E8EEF2;;Glasfaser-Flitzer;Fiberglass Flicker;Leicht und flott. Wirft weiter als Bambus.;Light and quick. Casts farther than bamboo.
+R03;3;Shop;2500;0;8;36;1.2;0.90;0.32;1.2;0.10;0.30;0;;;0;#E8EEF2;;Karbon-Kracher;Carbon Cracker;Steif genug für kräftige Fische. Erreicht die Kante.;Stiff enough for strong fish. Reaches the drop-off.
+R04;4;Shop;8000;0;15;44;1.2;0.89;0.35;1.3;0.15;0.30;0;TaucherKonter:0.10;;0;#E8EEF2;;Titan-Tiefgang;Titanium Deepdiver;Konter gegen Taucher +10 %.;Counter against divers +10%.
+R05;5;Shop;20000;0;25;52;1.2;0.88;0.38;1.4;0.20;0.30;0;WindImmun:0;;0;#E8EEF2;;Sturmbrecher;Stormbreaker;Wind lenkt deine Würfe nicht mehr ab.;Wind no longer pushes your casts off course.
+R06;6;Shop;50000;0;35;60;1.2;0.86;0.40;1.5;0.25;0.35;0;StarkerKonter:0.35;;0;#E8EEF2;;Neptun-Meisterrute;Neptune Master Rod;Konterbonus 0,35 statt 0,30.;Counter bonus 0.35 instead of 0.30.
+RW1;3;Sammlung;0;0;0;36;1.2;0.90;0.33;1.2;0.10;0.30;0.05;HaengerLeicht:1;W1;1;#E8EEF2;;Seerosenrute;Water Lily Rod;Hänger lösen sich mit 1 Tipp. Im Sonnenspiegelsee beißen größere Fische.;Snags come loose with 1 tap. Bigger fish bite in Sunmirror Lake.
+RW2;4;Sammlung;0;0;0;44;1.2;0.89;0.36;1.3;0.15;0.30;0;StroemungHalb:0.5;W2;1;#E8EEF2;;Korallenrute;Coral Rod;Strömung wirkt nur halb so stark.;Currents only pull half as hard.
+RW3;4;Sammlung;0;0;0;46;1.2;0.89;0.36;1.3;0.15;0.30;0;KaelteImmun:1|EislochLangsamer:0.5;W3;1;#E8EEF2;;Frostzahn-Rute;Frostfang Rod;Immun gegen Kälte. Eislöcher frieren halb so schnell zu.;Immune to cold. Ice holes freeze half as fast.
+RW4;5;Sammlung;0;0;0;52;1.2;0.88;0.38;1.4;0.20;0.30;0;LampePlusEins:1|BlinkerHalbSichtbar:0.5;W4;1;#E8EEF2;;Laternenrute;Lantern Rod;Köderlampe +1 Stufe. Blinker bleiben halb sichtbar.;Lure lamp +1 level. Blinkers stay half visible.
+RW5;5;Sammlung;0;0;0;54;1.2;0.88;0.39;1.4;0.20;0.30;0;HitzeMinus30:0.7;W5;1;#E8EEF2;;Glutrute;Ember Rod;Die Schnur heizt sich 30 % langsamer auf.;Your line heats up 30% slower.
+RG;6;Komplett;0;0;0;60;1.2;0.86;0.41;1.5;0.25;0.30;0;SchillerndGlobal:200;;0;#FFC83D;gold;Goldene Rute des Köderkönigs;Golden Rod of the Bait King;Schillernd-Chance 1 : 200 in jeder Welt. Die Schnur glitzert golden.;Shiny chance 1 in 200 in every world. The line sparkles gold.

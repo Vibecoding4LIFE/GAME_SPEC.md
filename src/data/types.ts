@@ -55,6 +55,8 @@ export type BossSpecial = (typeof BOSS_SPECIALS)[number];
 export const ROD_ABILITIES = [
   'Keine', 'TaucherKonter', 'WindImmun', 'StarkerKonter', 'HaengerLeicht', 'StroemungHalb',
   'KaelteImmun', 'LampePlusEins', 'HitzeMinus30', 'SchillerndGlobal',
+  // Ergänzung Phase 1 (Zweitfähigkeiten aus D 3.3, datenvertrag.md §5)
+  'EislochLangsamer', 'BlinkerHalbSichtbar',
 ] as const;
 export type RodAbility = (typeof ROD_ABILITIES)[number];
 
@@ -94,6 +96,47 @@ export const PREFERRED_FEATURES = [
 export const BAIT_IDS = [
   'K01', 'K02', 'K03', 'K04', 'K05', 'K06', 'K07', 'K08', 'K09', 'K10', 'K11', 'K12', 'K13', 'K14',
 ] as const;
+
+// ---- Ergänzungen Phase 1 (docs/datenvertrag.md §5) ----
+
+/**
+ * Verhaltens-Tags je Fisch (Spalte `tags` in fish.csv). Sie steuern Wetter-, Ereignis-, Zucken- und Köderregeln.
+ * `leucht`, `zahnfisch`, `schwarm` werden vom Build aus `leuchtet`, `zahnfisch`, `schwarm` abgeleitet
+ * und dürfen nicht von Hand in der Spalte stehen.
+ */
+export const FISH_TAGS = [
+  'raubfisch', 'friedfisch',                 // genau einer von beiden je Fisch
+  'oberflaeche', 'grund',                    // Lebensraum (Sonnig +30 %, Meeresschnee +50 %)
+  'aal', 'forelle', 'lachs',                 // Regen +50 %
+  'mystisch',                                // Nebel / Runennacht +50 %
+  'kristall', 'glut',                        // Kristallköder K11 / Glutwurm K10
+  'riff', 'lagune',                          // Garnele K06 / Flut +30 %
+  'scheu',                                   // Stahlvorfach: −5 % Bissrate
+  'leucht', 'zahnfisch', 'schwarm',          // abgeleitet
+] as const;
+export type FishTag = (typeof FISH_TAGS)[number];
+export const DERIVED_FISH_TAGS = ['leucht', 'zahnfisch', 'schwarm'] as const satisfies readonly FishTag[];
+
+/** Größenklassen nach dem Größenwurf x (D 1.10). */
+export const SIZE_GRADES = ['Winzling', 'Normal', 'Praechtig', 'Kapital', 'Riesig'] as const;
+export type SizeGrade = (typeof SIZE_GRADES)[number];
+
+/** Ködergewicht → Sinkgeschwindigkeit aus balancing `depth.sinkSpeedMs.<klasse>` (D 1.4). */
+export const SINK_CLASSES = ['leicht', 'mittel', 'schwer'] as const;
+export type SinkClass = (typeof SINK_CLASSES)[number];
+
+export const ACCESSORY_EFFECTS = [
+  'KescherRettung',       // rettet n× pro Runde einen ausschlitzenden Fisch
+  'EcholotRand',          // Schatten mit Rand in Seltenheitsfarbe
+  'WetterVorschau',       // zeigt die nächsten n Wetterwechsel
+  'FutterplatzUeberall',  // Futterplatz in jeder Welt
+  'EislochTipps',         // Eisloch mit n Tipps freihacken
+  'Lichtradius',          // Köderlampe: Lichtradius in px (W4)
+] as const;
+export type AccessoryEffect = (typeof ACCESSORY_EFFECTS)[number];
+
+export const CURIO_REWARDS = ['Muenzen', 'Hinweis', 'Hut', 'Sammelteil'] as const;
+export type CurioReward = (typeof CURIO_REWARDS)[number];
 
 /** Pflicht-/ODER-Bedingungen dürfen Wetter- oder Ereignis-Schlüssel sein. */
 export type SpawnCondition = Weather | WorldEvent;
@@ -207,6 +250,8 @@ export interface FishData {
   /** Alternative Pflicht-Bedingungen (DNF): äußeres Array = ODER, inneres = UND. [] = keine. */
   requiredAny: SpawnCondition[][];
   art: FishArt;
+  /** Verhaltens-Tags inkl. abgeleiteter (`leucht`, `zahnfisch`, `schwarm`), siehe FISH_TAGS. */
+  tags: FishTag[];
 }
 
 export interface BossPhase {
@@ -320,8 +365,8 @@ export interface RodData {
   sizeMuBonus: number;            // Größen-Würfel (Welt-Ruten); Standard 0
 
   // Spezial
-  ability: RodAbility;
-  abilityWorld: WorldId | null;   // null = überall
+  ability: RodAbility;            // Hauptfähigkeit (= abilities[0] oder "Keine")
+  abilityWorld: WorldId | null;   // null = überall; gilt auch für sizeMuBonus
   abilityAffectsOnlyWorld: boolean;   // bleibt im Ausgleichsmodus aktiv; Standard true
 
   // Optik
@@ -329,7 +374,14 @@ export interface RodData {
   bendFrames: [string, string, string, string];   // 4 Biegestufen
   lineColor: string;              // Standard "#FFFFFF"
   lineParticles: string | null;   // Partikel-Config-Key (Goldene Rute)
+
+  // ---- Ergänzungen Phase 1 (datenvertrag.md §5) ----
+  descKey: string;                // "rod.r01.desc"
+  /** Alle Fähigkeiten mit Zahlenwert (Bedeutung je Fähigkeit siehe datenvertrag.md §5). */
+  abilities: RodAbilityEntry[];
 }
+
+export interface RodAbilityEntry { ability: RodAbility; value: number }
 
 export interface LineData {
   id: LineId; nameKey: string; priceCoins: number; requiredReputation: number;
@@ -338,6 +390,11 @@ export interface LineData {
   protection: LineProtection[];   // Kaelte | Druck | Hitze
   heatMultiplier: number;         // Hitzeschild 0.5; Standard 1
   maxDepthPressureM: number;      // Standard 1000
+  // ---- Ergänzungen Phase 1 ----
+  descKey: string;
+  isLeader: boolean;              // Stahlvorfach Z-V: Aufsatz, an/aus, zusätzlich zur Schnur
+  protectsToothed: boolean;       // kein Abbiss durch Zahnfische
+  shyBiteRateMod: number;         // Bissrate-Änderung bei Fischen mit Tag "scheu" (Z-V −0.05)
 }
 
 export interface ReelData {
@@ -348,6 +405,8 @@ export interface ReelData {
   isDeepSeaWinch: boolean;        // Kapazität nur in W4, sonst fallbackCapacityM
   fallbackCapacityM: number;      // Standard 80
   descentSpeedMs: number;         // Winde: schneller Abstieg; Standard 0
+  // ---- Ergänzungen Phase 1 ----
+  descKey: string;
 }
 
 export interface BaitData {
@@ -360,6 +419,46 @@ export interface BaitData {
   shinyMultiplier: number;        // Glücksköder 2; Standard 1
   twitchBonus: number;            // Blinker 1.5; Standard 1
   worlds: WorldId[];              // wo er wirkt (leer = überall)
-  summonsBoss: FishId | null;     // Bosslocker
+  summonsBoss: FishId | null;     // Bosslocker mit festem Boss (K14 nutzt summonsWorldBoss)
+  // ---- Ergänzungen Phase 1 (datenvertrag.md §5) ----
+  descKey: string;
+  sinkClass: SinkClass;
+  /** Sinkgeschwindigkeit in m/s, beim Build aus balancing depth.sinkSpeedMs.<sinkClass> aufgelöst. */
+  sinkSpeedMs: number;
+  /** Seltenheits-Multiplikatoren auf das Spawn-Gewicht (K02 Gewöhnlich 1.3, K07 Selten 1.2, K12 Gewöhnlich 0.5). */
+  rarityMods: Partial<Record<Rarity, number>>;
+  /** Tag-Multiplikatoren auf das Spawn-Gewicht (K05 raubfisch 1.4, K06 riff 1.4, K09 leucht 1.5 …). */
+  tagBonus: Partial<Record<FishTag, number>>;
+  /** Zielgruppe für Shop/Lexikon (beschreibend). */
+  targetTags: FishTag[];
+  retrieveDiveM: number;          // Wobbler: taucht beim Einholen n m tiefer
+  createsFeedingSpot: boolean;    // Brotflocke: "Füttern" (balancing spawn.futterplatz)
+  glowsInDark: boolean;           // Leuchtköder: weit sichtbar in der Dunkelheit
+  heatproof: boolean;             // Glutwurm
+  summonsWorldBoss: boolean;      // Bosslocker: Boss der aktuellen Welt
+  priceCoinsPerWorldFactor: number; // Bosslocker: + n × Weltfaktor Münzen
+  unlockSpeciesInWorld: number;   // Verkauf erst ab n/20 Arten der Welt (0 = immer)
+}
+
+export interface AccessoryData {
+  id: string;                     // "Z01"
+  nameKey: string; descKey: string;
+  priceCoins: number; requiredReputation: number;
+  tier: number;                   // Köderlampe I–IV = 1–4, sonst 1
+  effect: AccessoryEffect;
+  value: number;                  // Bedeutung je Effekt (Rettungen, Wetterwechsel, Tipps, px)
+  worlds: WorldId[];              // wo er wirkt (leer = überall)
+}
+
+export interface CurioData {
+  id: string;                     // "C01"
+  nameKey: string; textKey: string;
+  worlds: WorldId[];              // leer = alle Welten
+  weight: number;                 // relatives Gewicht innerhalb der Fundstücke einer Welt
+  coinsMin: number; coinsMax: number;
+  coinsTimesWorldFactor: boolean; // Schatzkiste: 100–500 × Weltfaktor
+  reward: CurioReward;
+  rewardRef: string | null;       // Hut-/Kosmetik-ID
+  collectCount: number;           // Sammelteil: so viele ergeben rewardRef (0 = sofort)
 }
 
