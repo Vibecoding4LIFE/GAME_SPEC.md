@@ -29,9 +29,9 @@ export function titleScale(w: number, h: number, maxCssW: number, maxCssH: numbe
  * Baut die eingefärbte Pixelgrafik aus einer 1-Bit-Maske (reine Logik, testbar).
  * `mask` hat die Größe w×h (1 = Schrift). Ergebnis: RGBA, Größe w×(h+2) (Platz für den Schatten).
  */
-export function colorizeTitle(mask: Uint8Array, w: number, h: number): Uint8ClampedArray {
+export function colorizeTitle(mask: Uint8Array, w: number, h: number): Uint8ClampedArray<ArrayBuffer> {
   const H = h + 2;
-  const out = new Uint8ClampedArray(w * H * 4);
+  const out = new Uint8ClampedArray(new ArrayBuffer(w * H * 4));
   const at = (x: number, y: number): number => (x >= 0 && y >= 0 && x < w && y < h ? (mask[y * w + x] ?? 0) : 0);
   const outline = (x: number, y: number): boolean => {
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (at(x + dx, y + dy)) return true;
