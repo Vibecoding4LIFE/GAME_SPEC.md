@@ -129,10 +129,18 @@ export class RoomSession {
     return { ok: false, reason: 'zeit', detail: `kein sync nach ${o.joinTimeoutMs ?? 15000} ms` };
   }
 
+  private readonly onPageHide = (e: PageTransitionEvent): void => {
+    // Tab zu / Neuladen: sauber abmelden (Host → alle sehen sofort „Runde beendet“). Bleibt die Seite im
+    // Back-Forward-Cache (persisted), ebenfalls schließen: eingefrorene Verbindungen sind nutzlos.
+    void e;
+    this.close();
+  };
+
   private start(hostTickMs: number): void {
     // Hintergrund-Tabs drosseln Timer (Chrome: höchstens 1×/s) – siehe Hinweis an den Host (B4)
     if (this.host) this.hostTimer = setInterval(() => this.host?.tick(), hostTickMs);
     this.pumpTimer = setInterval(() => this.pump(), 100);
+    window.addEventListener('pagehide', this.onPageHide);
   }
 
   private pump(): void {
@@ -158,6 +166,7 @@ export class RoomSession {
     this.closedFlag = true;
     if (this.hostTimer) clearInterval(this.hostTimer);
     if (this.pumpTimer) clearInterval(this.pumpTimer);
+    window.removeEventListener('pagehide', this.onPageHide);
     if (this.host) this.host.close();
     this.client.leave();
     if (!this.transport.closed) this.transport.close();

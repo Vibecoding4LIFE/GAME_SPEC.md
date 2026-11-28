@@ -44,7 +44,7 @@ export type ClientEvent =
   | { type: 'scores' }
   | { type: 'results' }
   | { type: 'catch'; data: CatchData; mine: boolean }
-  | { type: 'rodState'; spieler: PlayerId; zustand: RodState; grund?: RodReason }
+  | { type: 'rodState'; spieler: PlayerId; zustand: RodState; grund?: RodReason; schein?: boolean; wurf?: DataOf<'rodState'>['wurf'] }
   | { type: 'bite'; spieler: PlayerId }
   | { type: 'emote'; from: PlayerId; id: EmoteId }
   | { type: 'drill'; e: DrillEvent }
@@ -96,6 +96,8 @@ export class NetClient {
   feed: CatchData[] = [];
   rods = new Map<PlayerId, RodState>();
   shadows: ShadowView[] = [];
+  /** Empfangszeit der Schatten (lokale Uhr, ms) – zum Weiterschwimmen bis zur nächsten Nachricht */
+  shadowsAt = 0;
   own: OwnLine = freshOwn();
   hostId: PlayerId | null = null;
   readonly clock = new ClockSync();
@@ -358,7 +360,7 @@ export class NetClient {
 
   private applyRod(d: DataOf<'rodState'>): void {
     this.rods.set(d.spieler, d.zustand);
-    this.ev.push({ type: 'rodState', spieler: d.spieler, zustand: d.zustand, grund: d.grund });
+    this.ev.push({ type: 'rodState', spieler: d.spieler, zustand: d.zustand, grund: d.grund, schein: d.schein, wurf: d.wurf });
     if (d.spieler !== this.id) return;
     const o = this.own;
     o.lastGrund = d.grund ?? null;
@@ -405,6 +407,7 @@ export class NetClient {
   }
 
   private applyShadows(d: DataOf<'shadows'>): void {
+    this.shadowsAt = this.now;
     const idx = this.roundData?.spieler.findIndex((p) => p.id === this.id) ?? -1;
     this.shadows = d.s.map(([id, sizeClass, xDm, dDm, v, mask]) => ({
       id, sizeClass, xM: xDm / 10, depthM: dDm / 10, speedMs: v / 100, known: idx >= 0 && (mask & (1 << idx)) !== 0,

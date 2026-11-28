@@ -4,6 +4,8 @@ export const SCENES = {
   preload: 'Preload',
   testbecken: 'Testbecken',
   welt: 'Welt',
+  menu: 'Menu',
+  raum: 'Raum',
 } as const;
 
 export const CACHE = {

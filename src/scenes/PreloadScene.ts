@@ -9,6 +9,7 @@ import { LOADING_KEY } from './BootScene';
 import type { LoadingScreen } from '../ui/loadingScreen';
 import { spriteFromTexture, type TextureLike } from '../ui/sprite';
 import type { DebugState } from '../main';
+import { registerNetScenes } from './MenuScene';
 
 /** Lädt die Assets einer Welt erst beim Betreten (B3), mit Fortschrittsbalken. */
 export class PreloadScene extends Phaser.Scene {
@@ -74,7 +75,9 @@ export class PreloadScene extends Phaser.Scene {
     void screen.waitForStart().then(() => {
       if (debug) debug.loading = { visible: false, waiting: false };
       this.registry.remove(LOADING_KEY);
-      this.scene.start(target, { worldId: this.worldId });
+      // Nach dem Start: Startmenü (Allein angeln / Raum erstellen / Raum beitreten, B4)
+      registerNetScenes(this);
+      this.scene.start(SCENES.menu, { worldId: this.worldId });
     });
   }
 }

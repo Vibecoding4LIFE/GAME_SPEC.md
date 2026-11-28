@@ -135,7 +135,7 @@ export class LobbyScreen {
   private readonly modeEl = h('span', { class: 'net-value' });
   private view: LobbyView | null = null;
 
-  constructor(private readonly cb: LobbyCallbacks) {
+  constructor(cb: LobbyCallbacks) {
     this.dlg = new Dialog({ title: t('net.lobby.title'), className: 'net-lobby', closable: false });
     const share = button(t('net.lobby.share'), { variant: 'wood', cls: 'net-share' });
     share.addEventListener('click', () => cb.onShare());
