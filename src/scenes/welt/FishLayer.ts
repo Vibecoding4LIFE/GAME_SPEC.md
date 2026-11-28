@@ -6,7 +6,7 @@ import type { DrillState } from '../../game/drill';
 import type { ShadowView } from '../../game/shadows';
 import { HUD_ATLAS, worldAtlasKey } from '../keys';
 import { VIEW } from '../sceneConfig';
-import { depthToY, distanceToX, hexToInt, type WorldSee } from '../worldSee';
+import { depthToY, distanceToX, hexToInt, seabedY, type WorldSee } from '../worldSee';
 import { pin, type Pt } from './assets';
 
 const shadowKey = (c: SizeClass) => `shadow_${c}`;
@@ -40,12 +40,28 @@ function makeShadowTextures(scene: Phaser.Scene, color: string): void {
 
 export interface HookedView { fish: FishData; drill: DrillState; startX: number; startY: number }
 
+interface Bubble { sprite: Phaser.GameObjects.Sprite; life: number; vy: number }
+
+/**
+ * Vorwarnungen (Telegraph) aus D 1.7 als Bild, alle auf ganzen Pixeln:
+ * Zappler Schatten zittert · Sprinter Schatten dreht sich + Wasserstreifen · Taucher Blasen steigen auf ·
+ * Springer Wasser wölbt sich, Schatten steigt · Trickser einzelnes Flossenzucken · Versteckspieler Schatten steuert
+ * auf Deckung zu, Deckung blinkt · Aufbläher Fisch wird rund · Stromer blaue Funken · Blinker wird durchsichtig.
+ * (Zickzack „Pfeil blinkt“, Stromer „Balken flackert“ und Hitzkopf „Schnur glüht“ zeichnen HUD bzw. Angler.)
+ */
 export class FishLayer {
   private pool: { sprite: Phaser.GameObjects.Image; icon: Phaser.GameObjects.Image }[] = [];
   private hooked!: Phaser.GameObjects.Sprite;
   private hookedKey = '';
   private crumbs!: Phaser.GameObjects.Sprite;
+  private fx!: Phaser.GameObjects.Graphics;
+  private bubbles: Bubble[] = [];
+  private bubbleAcc = 0;
   private reveal = 0;
+  private lastFace: 'left' | 'right' = 'left';
+  private coverOffset = 0;
+  /** aktuell sichtbare Vorwarnung (für Tests/QA) */
+  telegraphShown: string | null = null;
 
   constructor(private readonly scene: Phaser.Scene, private readonly layer: Phaser.GameObjects.Layer, private readonly art: WorldSee, private readonly originX: number) {}
 
@@ -62,7 +78,14 @@ export class FishLayer {
     this.crumbs = this.scene.add.sprite(0, 0, worldAtlasKey(this.art.kuerzel), `${this.art.futterplatz.anim}_0`).setDepth(d - 1).setVisible(false);
     pin(this.crumbs);
     if (this.scene.anims.exists(this.art.futterplatz.anim)) this.crumbs.play(this.art.futterplatz.anim);
-    this.layer.add([this.hooked, this.crumbs]);
+    this.fx = this.scene.add.graphics().setDepth(d + 2);
+    for (let i = 0; i < VIEW.telegraph.bubbles; i++) {
+      const b = pin(this.scene.add.sprite(0, 0, worldAtlasKey(this.art.kuerzel), 'see_blase_s_wobble_0')).setDepth(d + 2).setVisible(false);
+      if (this.scene.anims.exists('see_blase_s_wobble')) b.play({ key: 'see_blase_s_wobble', startFrame: i % 4 });
+      this.bubbles.push({ sprite: b, life: 0, vy: 0 });
+      this.layer.add(b);
+    }
+    this.layer.add([this.hooked, this.crumbs, this.fx]);
   }
 
   /** Blitz enthüllt alle Schatten für `s` Sekunden (D 1.9). */
@@ -84,16 +107,40 @@ export class FishLayer {
     });
   }
 
-  /** Gehakter Fisch: zwischen Wurfstelle (Distanz 1) und Boot/Steg (0), Sprung über die Oberfläche. Liefert das Maul. */
-  updateHooked(h: HookedView | null, rodTip: Pt): Pt | null {
-    if (!h) { this.hooked.setVisible(false); this.hookedKey = ''; return null; }
+  /** Nächste Deckung (Seerosen, Kraut, Wurzelstock) zur Fischposition. */
+  private nearestCover(x: number, y: number) {
+    let best = this.art.deckung[0];
+    let bestD = Infinity;
+    for (const c of this.art.deckung) {
+      const d = Math.abs(c.x + c.w / 2 - x) + Math.abs(c.y + c.h / 2 - y) / 2;
+      if (d < bestD) { bestD = d; best = c; }
+    }
+    return best;
+  }
+
+  /** Gehakter Fisch: zwischen Wurfstelle (Distanz 1) und Boot/Steg (0), mit Vorwarnungen. Liefert das Maul. */
+  updateHooked(h: HookedView | null, rodTip: Pt, dt: number): Pt | null {
+    this.fx.clear();
+    this.telegraphShown = null;
+    if (!h) {
+      this.hooked.setVisible(false);
+      this.hookedKey = '';
+      this.coverOffset = 0;
+      for (const b of this.bubbles) b.sprite.setVisible(false);
+      return null;
+    }
     const d = h.drill;
+    const T = VIEW.telegraph;
+    const now = this.scene.time.now;
     const f = Math.max(0, Math.min(1.5, d.distance));
     const surf = this.art.oberflaecheY;
     let x = rodTip.x + (h.startX - rodTip.x) * f;
     let y = surf + (h.startY - surf) * Math.min(1, f);
-    if (d.stage.kind === 'dive') y += (h.startY - surf) * 0.25;
-    if (d.stage.kind === 'jump') y = surf - VIEW.jumpPx;
+    const st = d.stage;
+    const tele = st.kind === 'telegraph' ? st.next ?? null : null;
+    const prog = st.total > 0 && Number.isFinite(st.total) ? Math.min(1, Math.max(0, 1 - st.left / st.total)) : 0;
+    if (st.kind === 'dive') y += (h.startY - surf) * T.diveDepthShare;
+    if (st.kind === 'jump') y = surf - VIEW.jumpPx;
     const key = `${h.fish.assetKey}_struggle`;
     if (this.hookedKey !== key) {
       this.hookedKey = key;
@@ -102,11 +149,106 @@ export class FishLayer {
       // Art bleibt bis zum Fang verborgen: dunkle Silhouette
       this.hooked.setTint(hexToInt(VIEW.colors.shadow)).setTintMode(Phaser.TintModes.FILL);
     }
-    // Blickrichtung = Zugrichtung (Sprites schauen nach rechts); beim Tauchen zum Boot hin
-    const left = d.pullDir !== 'right';
+    const halfH = Math.round(this.hooked.height / 2);
+    let face: 'left' | 'right' = d.pullDir === 'right' ? 'right' : d.pullDir === 'left' ? 'left' : this.lastFace;
+    let scaleY = 1;
+    let alpha = d.invisible ? d.visibility : 1;
+
+    // Versteckspieler: zur Deckung hin ziehen (Vorwarnung + Aktion), Deckung blinkt
+    const cover = this.nearestCover(x, y);
+    const toCover = tele === 'cover' || st.kind === 'cover';
+    const coverTarget = cover ? cover.x + cover.w / 2 - x : 0;
+    const want = toCover ? Math.sign(coverTarget) * Math.min(Math.abs(coverTarget), T.coverPullPx) : 0;
+    this.coverOffset += (want - this.coverOffset) * Math.min(1, dt * T.coverPullPerS);
+    x += this.coverOffset;
+
+    if (tele) this.telegraphShown = tele;
+    switch (tele) {
+      case 'spike': // Schatten zittert
+        x += Math.floor(now / T.jitterMs) % 2 ? 1 : -1;
+        y += Math.floor(now / (T.jitterMs * 1.5)) % 2 ? 1 : 0;
+        break;
+      case 'sprint': // Schatten dreht sich (zur kommenden Fluchtrichtung), Wasserstreifen
+        if (prog > 1 / 2 && st.dir && st.dir !== 'down') face = st.dir;
+        else if (prog > 1 / 4) face = face === 'left' ? 'right' : 'left';
+        break;
+      case 'jump': { // Schatten steigt, Wasser wölbt sich
+        y = y + (surf + halfH - y) * prog;
+        const w = T.bulgeW;
+        const hgt = Math.max(1, Math.round(T.bulgeH * prog));
+        this.fx.fillStyle(hexToInt(VIEW.colors.foam), 1);
+        for (let i = 0; i < w; i++) {
+          const u = (i / (w - 1)) * 2 - 1;
+          this.fx.fillRect(Math.round(x - w / 2 + i), Math.round(surf - hgt * (1 - u * u)), 1, 1);
+        }
+        break;
+      }
+      case 'flee': // einzelnes Flossenzucken direkt zu Beginn der Vorwarnung
+        if (prog < T.finFlickShare) { face = face === 'left' ? 'right' : 'left'; y -= 1; }
+        break;
+      case 'inflate': // Fisch wird rund (pulsierend)
+        scaleY = Math.floor(now / T.inflatePulseMs) % 2 ? 2 : 1;
+        break;
+      case 'invisible': // Fisch wird durchsichtig
+        alpha = Math.max(T.fadeMin, 1 - Math.round(prog * 4) / 4 * (1 - T.fadeMin));
+        break;
+      default: break;
+    }
+    if (st.kind === 'inflate') scaleY = 2;
+
+    // Am Wasser- und Bodenprofil klemmen (beim Tauchen nicht im Uferhang)
     x = Math.round(x);
+    const bottom = seabedY(this.art, x) - halfH * scaleY - 1;
+    if (st.kind !== 'jump') y = Math.min(y, bottom);
     y = Math.round(Math.min(y, this.art.grundTiefsterY));
-    this.hooked.setVisible(true).setPosition(x, y).setFlipX(left).setAlpha(d.invisible ? d.visibility : 1);
+    this.lastFace = face;
+    const left = face === 'left';
+    this.hooked.setVisible(true).setPosition(x, y).setFlipX(left).setAlpha(alpha).setScale(1, scaleY);
+
+    // Wasserstreifen (Sprinter: Vorwarnung + Flucht)
+    if (tele === 'sprint' || st.kind === 'sprint') {
+      this.fx.fillStyle(hexToInt(VIEW.colors.foam), 1);
+      const back = left ? 1 : -1;
+      for (let i = 0; i < 3; i++) {
+        const len = T.streakLen - i * 3 + (Math.floor(now / 90 + i) % 3);
+        const sx = x + back * (Math.round(this.hooked.width / 2) + 2);
+        const sy = y - 3 + i * 3;
+        this.fx.fillRect(back > 0 ? sx : sx - len, sy, len, 1);
+      }
+    }
+    // Blasen (Taucher: Vorwarnung + Tauchgang)
+    this.bubbleAcc += tele === 'dive' || st.kind === 'dive' ? dt * T.bubblesPerS : 0;
+    for (const b of this.bubbles) {
+      if (b.life <= 0 && this.bubbleAcc >= 1) {
+        this.bubbleAcc -= 1;
+        b.life = T.bubbleLifeS;
+        b.vy = T.bubbleRisePxS;
+        b.sprite.setPosition(x + Math.round((Math.random() - 1 / 2) * this.hooked.width / 2), y - halfH);
+      }
+      if (b.life > 0) {
+        b.life -= dt;
+        const ny = Math.max(surf + 2, b.sprite.y - b.vy * dt);
+        b.sprite.setVisible(b.life > 0).setPosition(Math.round(b.sprite.x), Math.round(ny));
+      } else b.sprite.setVisible(false);
+    }
+    // Blaue Funken (Stromer: Vorwarnung + Stromstoß)
+    if (tele === 'shock' || st.kind === 'shock') {
+      const seed = Math.floor(now / T.sparkMs);
+      const cols = [hexToInt(VIEW.colors.spark), hexToInt(VIEW.colors.sparkLight)];
+      for (let i = 0; i < T.sparks; i++) {
+        const a = ((seed * 37 + i * 101) % 360) * (Math.PI / 180);
+        const r = halfH + 2 + ((seed + i * 7) % 5);
+        const px = Math.round(x + Math.cos(a) * (r + this.hooked.width / 4));
+        const py = Math.round(y + Math.sin(a) * r);
+        this.fx.fillStyle(cols[i % 2] ?? 0xffffff, 1).fillRect(px, py, 1, 1).fillRect(px + (i % 2 ? 1 : -1), py, 1, 1);
+      }
+    }
+    // Deckung blinkt (Versteckspieler)
+    if (toCover && cover && Math.floor(now / T.coverBlinkMs) % 2 === 0) {
+      this.fx.lineStyle(1, hexToInt(VIEW.colors.warn), 1);
+      this.fx.strokeRect(cover.x + 1 / 2, cover.y + 1 / 2, cover.w - 1, cover.h - 1);
+    }
+
     // Maul an der Seite, in die der Fisch schaut
     const mouthDx = Math.round(this.hooked.width / 2) * (left ? -1 : 1);
     return { x: x + mouthDx, y };

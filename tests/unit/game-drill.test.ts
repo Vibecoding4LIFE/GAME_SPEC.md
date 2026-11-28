@@ -318,3 +318,36 @@ describe('Erlebbarkeit (QA M3): erste Aktion früh, mindestens 2 Aktionen je Dri
     expect(min).toBeGreaterThanOrEqual(beh === 'Aufblaeher' ? 1 : 2);
   });
 });
+
+describe('Falsche Reaktion wird bestraft (QA M-2, D 1.7)', () => {
+  // Fische wie im QA-Prüfskript (tests/qa/phase1-spiel.qa.ts, PLAN)
+  const CASES: [FightBehavior, FishId, boolean][] = [
+    ['Sprinter', 'F014', false], ['Taucher', 'F010', false], ['Springer', 'F012', false],
+    ['Trickser', 'F004', true], ['Aufblaeher', 'F004', true], ['Stromer', 'F004', true],
+  ];
+  it.each(CASES)('%s: naiver Spieler (Spannung mittig, nie reagieren) verliert ≥ 2/3, guter Spieler fängt ≥ 95 %%', (beh, id, force) => {
+    const fish = fishById(id);
+    let naiveCaught = 0;
+    for (let seed = 1; seed <= 6; seed++) if (runDrill(fish, gear, seed, 'naive', force ? beh : null).outcome === 'caught') naiveCaught++;
+    expect(naiveCaught).toBeLessThanOrEqual(2);
+    let good = 0;
+    for (let seed = 1; seed <= 20; seed++) if (runDrill(fish, gear, seed, 'good', force ? beh : null).outcome === 'caught') good++;
+    expect(good / 20).toBeGreaterThanOrEqual(0.95);
+  });
+  it('immer kurbeln verliert bei jeder Verhaltensart', () => {
+    for (const beh of FIGHT_BEHAVIORS) expect(runDrill(fishById('F004'), gear, 3, 'bad', beh).outcome).not.toBe('caught');
+  });
+  it('Vorwarnung kennt schon die Richtung der kommenden Aktion (für die Darstellung)', () => {
+    const s = mk('F014');
+    const tele: DrillState['pullDir'][] = [];
+    const acts: DrillState['pullDir'][] = [];
+    while (!s.outcome && s.elapsedS < 30) {
+      for (const e of stepDrill(s, goodDrillBot(s, { lastTapS: -Infinity, lastDir: 'left' }), DT).events) {
+        if (e.type === 'telegraph' && e.action === 'sprint' && e.dir) tele.push(e.dir);
+        if (e.type === 'action' && e.action === 'sprint') acts.push(e.dir);
+      }
+    }
+    expect(tele.length).toBeGreaterThan(0);
+    expect(acts.slice(0, tele.length)).toEqual(tele.slice(0, acts.length));
+  });
+});

@@ -38,20 +38,28 @@ export function goodDrillBot(s: DrillState, mem: { lastTapS: number; lastDir: Dr
   return { reel: s.tension < target, steer, rodUp, tap };
 }
 
+/** Naiver Spieler (QA-Gegenprobe): hält die Spannung mittig, lenkt nie, reißt nie hoch, reagiert auf keine Vorwarnung;
+ * löst nur Hänger im Takt. */
+export function naiveDrillBot(s: DrillState, mem: { lastTapS: number }): DrillInput {
+  let tap = false;
+  if (s.snag && s.elapsedS - mem.lastTapS >= b.drill.behavior.Versteckspieler.tapIntervalS - 1e-9) { tap = true; mem.lastTapS = s.elapsedS; }
+  return { reel: s.tension < (s.zone.lo + s.zone.hi) / 2, steer: 0, rodUp: false, tap };
+}
+
 /** Schlechter Spieler: kurbelt immer, lenkt nie. */
 export const badDrillBot = (): DrillInput => ({ reel: true, steer: 0, rodUp: false, tap: false });
 
 export interface DrillRun { outcome: DrillOutcome | null; timeS: number; master: boolean; state: DrillState; events: string[]; trace: string[] }
 
 export function runDrill(
-  fish: FishData, gear: Loadout, seed: number, bot: 'good' | 'bad', behavior: FightBehavior | null = null, maxS = 240,
+  fish: FishData, gear: Loadout, seed: number, bot: 'good' | 'bad' | 'naive', behavior: FightBehavior | null = null, maxS = 240,
 ): DrillRun {
   const s = createDrill(fish, gear, b, new Rng(seed), { sizeX: b.size.mu, forceBehavior: behavior, world: 'W1', weather: 'Sonnig' });
   const mem = { lastTapS: -Infinity, lastDir: s.pullDir };
   const events: string[] = [];
   const trace: string[] = [];
   while (!s.outcome && s.elapsedS < maxS) {
-    const input = bot === 'good' ? goodDrillBot(s, mem) : badDrillBot();
+    const input = bot === 'good' ? goodDrillBot(s, mem) : bot === 'naive' ? naiveDrillBot(s, mem) : badDrillBot();
     for (const e of stepDrill(s, input, DT).events) {
       const name = e.type === 'action' || e.type === 'telegraph' ? `${e.type}:${e.action}` : e.type;
       events.push(name);

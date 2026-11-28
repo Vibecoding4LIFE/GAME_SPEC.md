@@ -35,7 +35,15 @@ export const VIEW = {
   /** Ruf-Stufen-Anzeige: Farbe der Schnur, falls die Rute keine hat */
   fallbackLineColor: '#E8EEF2',
   /** Grundfarben für generierte Schatten/Balken (aus der Weltpalette W1) */
-  colors: { shadow: '#12342F', heat: '#E8743C', heatBg: '#2A4B42', text: '#F3EAD2', textDark: '#12342F', warn: '#FF6F59', fake: '#FFA23A' },
+  /** Vorwarnungen (D 1.7) als Bild */
+  telegraph: {
+    jitterMs: 40, bulgeW: 18, bulgeH: 3, finFlickShare: 0.3, inflatePulseMs: 90, fadeMin: 0.35, streakLen: 12,
+    bubbles: 10, bubblesPerS: 9, bubbleLifeS: 1.1, bubbleRisePxS: 28, sparkMs: 60, sparks: 6,
+    coverPullPx: 40, coverPullPerS: 3, coverBlinkMs: 140, arrowBlinkMs: 70, barFlickerMs: 80, diveDepthShare: 0.25,
+  },
+  /** Schnur glüht je Hitze-Anteil (Hitzkopf): ab 1/3 orange, ab 2/3 rot-orange */
+  lineGlow: ['#FFA23A', '#E8743C'],
+  colors: { foam: '#E8F6F4', spark: '#3FA9F5', sparkLight: '#8FD3F4', shadow: '#12342F', heat: '#E8743C', heatBg: '#2A4B42', text: '#F3EAD2', textDark: '#12342F', warn: '#FF6F59', fake: '#FFA23A' },
   /** Autosave spätestens alle n s */
   autosaveS: 20,
 } as const;

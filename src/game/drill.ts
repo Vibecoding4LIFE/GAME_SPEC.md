@@ -49,7 +49,8 @@ export interface DrillOptions {
 }
 
 type StageKind = DrillAction | 'rest' | 'telegraph' | 'exhaust' | 'snag';
-interface Stage { kind: StageKind; left: number; next?: DrillAction }
+/** Abschnitt: `total` = Gesamtdauer (für Vorwarn-Animationen), `dir` = Zugrichtung der (kommenden) Aktion. */
+export interface Stage { kind: StageKind; left: number; total: number; next?: DrillAction; dir?: PullDir }
 
 export type DrillGear = Pick<Loadout, 'rod' | 'line' | 'leader' | 'reel'>;
 
@@ -85,6 +86,8 @@ export interface DrillState {
   visibility: number;
   /** Rute in diesem Tauchgang hochgerissen */
   rodUpArmed: boolean;
+  /** Trickser: Spannungsspitze zu Fluchtbeginn → Riss im nächsten Prüfschritt */
+  snapPending: boolean;
   countering: boolean;
   cover: { away: number; countered: number } | null;
   snag: { count: number; needed: number; sinceTap: number } | null;
@@ -99,7 +102,7 @@ export interface DrillState {
 }
 
 export type DrillEvent =
-  | { type: 'telegraph'; action: DrillAction; inS: number }
+  | { type: 'telegraph'; action: DrillAction; inS: number; dir?: PullDir }
   | { type: 'action'; action: DrillAction; durationS: number; dir: PullDir }
   | { type: 'actionEnd'; action: DrillAction }
   | { type: 'spike'; amount: number }
@@ -213,31 +216,46 @@ function restS(s: DrillState): number {
  */
 function firstRestS(s: DrillState): number {
   const rest = restS(s);
-  if (!Number.isFinite(rest)) return rest;
-  const B = s.b.drill.behavior as unknown as Record<string, { firstActionMaxS?: number; telegraphS?: number }>;
-  const cfg = B[s.behavior];
-  if (!cfg?.firstActionMaxS) return rest;
-  // Trickser beginnt mit der Schein-Müdigkeit (ohne Vorwarnung davor)
-  const lead = s.behavior === 'Trickser' ? 0 : (cfg.telegraphS ?? 0);
-  return Math.min(rest, Math.max(0, cfg.firstActionMaxS - lead));
+  const cfg = firstActionCfg(s);
+  if (!Number.isFinite(rest) || !cfg) return rest;
+  return Math.min(rest, Math.max(0, cfg.maxS - cfg.leadS));
+}
+
+/** `firstActionMaxS` und Vorlauf (Vorwarnung; Trickser beginnt mit der Schein-Müdigkeit ohne Vorwarnung). */
+function firstActionCfg(s: DrillState): { maxS: number; leadS: number } | null {
+  const B = s.b.drill.behavior;
+  switch (s.behavior) {
+    case 'Zappler': return { maxS: B.Zappler.firstActionMaxS, leadS: B.Zappler.telegraphS };
+    case 'Sprinter': return { maxS: B.Sprinter.firstActionMaxS, leadS: B.Sprinter.telegraphS };
+    case 'Taucher': return { maxS: B.Taucher.firstActionMaxS, leadS: B.Taucher.telegraphS };
+    case 'Springer': return { maxS: B.Springer.firstActionMaxS, leadS: B.Springer.telegraphS };
+    case 'Zickzack': return { maxS: B.Zickzack.firstActionMaxS, leadS: B.Zickzack.telegraphS };
+    case 'Trickser': return { maxS: B.Trickser.firstActionMaxS, leadS: 0 };
+    case 'Versteckspieler': return { maxS: B.Versteckspieler.firstActionMaxS, leadS: B.Versteckspieler.telegraphS };
+    case 'Aufblaeher': return { maxS: B.Aufblaeher.firstActionMaxS, leadS: B.Aufblaeher.telegraphS };
+    case 'Stromer': return { maxS: B.Stromer.firstActionMaxS, leadS: B.Stromer.telegraphS };
+    case 'Blinker': return { maxS: B.Blinker.firstActionMaxS, leadS: B.Blinker.telegraphS };
+    default: return null;
+  }
 }
 
 /** Abschnitte einer Aktion (Telegraph → Aktion → ggf. Erschöpfung). */
 function planAction(s: DrillState): Stage[] {
   const B = s.b.drill.behavior;
   const r = s.rng;
-  const tg = (inS: number, next: DrillAction): Stage => ({ kind: 'telegraph', left: inS, next });
+  const st = (kind: StageKind, left: number, dir?: PullDir): Stage => ({ kind, left, total: left, ...(dir ? { dir } : {}) });
+  const tg = (inS: number, next: DrillAction, dir?: PullDir): Stage => ({ kind: 'telegraph', left: inS, total: inS, next, ...(dir ? { dir } : {}) });
   switch (s.behavior) {
-    case 'Zappler': return [tg(B.Zappler.telegraphS, 'spike'), { kind: 'spike', left: 0 }];
-    case 'Sprinter': return [tg(B.Sprinter.telegraphS, 'sprint'), { kind: 'sprint', left: r.range(B.Sprinter.durationMinS, B.Sprinter.durationMaxS) }];
-    case 'Taucher': return [tg(B.Taucher.telegraphS, 'dive'), { kind: 'dive', left: r.range(B.Taucher.durationMinS, B.Taucher.durationMaxS) }];
-    case 'Springer': return [tg(B.Springer.telegraphS, 'jump'), { kind: 'jump', left: B.Springer.jumpMaxS }, { kind: 'exhaust', left: B.Springer.exhaustS }];
-    case 'Zickzack': return [tg(B.Zickzack.telegraphS, 'zigzag'), { kind: 'zigzag', left: 0 }];
-    case 'Trickser': return [{ kind: 'fake', left: r.range(B.Trickser.fakeTiredMinS, B.Trickser.fakeTiredMaxS) }, tg(B.Trickser.telegraphS, 'flee'), { kind: 'flee', left: B.Trickser.fleeS }];
-    case 'Versteckspieler': return [tg(B.Versteckspieler.telegraphS, 'cover'), { kind: 'cover', left: Infinity }];
-    case 'Aufblaeher': return [tg(B.Aufblaeher.telegraphS, 'inflate'), { kind: 'inflate', left: B.Aufblaeher.durationS }, { kind: 'exhaust', left: B.Aufblaeher.exhaustS }];
-    case 'Stromer': return [tg(B.Stromer.telegraphS, 'shock'), { kind: 'shock', left: B.Stromer.invertS }];
-    case 'Blinker': return [tg(B.Blinker.telegraphS, 'invisible'), { kind: 'invisible', left: r.range(B.Blinker.invisibleMinS, B.Blinker.invisibleMaxS) }];
+    case 'Zappler': return [tg(B.Zappler.telegraphS, 'spike'), st('spike', 0)];
+    case 'Sprinter': { const d = sideOf(r); return [tg(B.Sprinter.telegraphS, 'sprint', d), st('sprint', r.range(B.Sprinter.durationMinS, B.Sprinter.durationMaxS), d)]; }
+    case 'Taucher': return [tg(B.Taucher.telegraphS, 'dive', 'down'), st('dive', r.range(B.Taucher.durationMinS, B.Taucher.durationMaxS), 'down')];
+    case 'Springer': return [tg(B.Springer.telegraphS, 'jump'), st('jump', B.Springer.jumpMaxS), st('exhaust', B.Springer.exhaustS)];
+    case 'Zickzack': return [tg(B.Zickzack.telegraphS, 'zigzag'), st('zigzag', 0)];
+    case 'Trickser': { const d = sideOf(r); return [st('fake', r.range(B.Trickser.fakeTiredMinS, B.Trickser.fakeTiredMaxS)), tg(B.Trickser.telegraphS, 'flee', d), st('flee', B.Trickser.fleeS, d)]; }
+    case 'Versteckspieler': { const d = sideOf(r); return [tg(B.Versteckspieler.telegraphS, 'cover', d), st('cover', Infinity, d)]; }
+    case 'Aufblaeher': return [tg(B.Aufblaeher.telegraphS, 'inflate'), st('inflate', B.Aufblaeher.durationS), st('exhaust', B.Aufblaeher.exhaustS)];
+    case 'Stromer': return [tg(B.Stromer.telegraphS, 'shock'), st('shock', B.Stromer.invertS)];
+    case 'Blinker': { const d = sideOf(r); return [tg(B.Blinker.telegraphS, 'invisible', d), st('invisible', r.range(B.Blinker.invisibleMinS, B.Blinker.invisibleMaxS), d)]; }
     default: return [];
   }
 }
@@ -250,7 +268,7 @@ function enterStage(s: DrillState, st: Stage, ev: DrillEvent[]): void {
   const B = s.b.drill.behavior;
   if (st.kind === 'telegraph' && st.next) {
     if (st.next === 'dive') s.rodUpArmed = false;
-    ev.push({ type: 'telegraph', action: st.next, inS: st.left });
+    ev.push({ type: 'telegraph', action: st.next, inS: st.left, ...(st.dir ? { dir: st.dir } : {}) });
     return;
   }
   if (!isAction(st.kind)) return;
@@ -261,7 +279,12 @@ function enterStage(s: DrillState, st: Stage, ev: DrillEvent[]): void {
       ev.push({ type: 'spike', amount });
       break;
     }
-    case 'sprint': case 'flee': case 'cover': s.pullDir = sideOf(s.rng); break;
+    case 'sprint': case 'cover': s.pullDir = st.dir ?? sideOf(s.rng); break;
+    case 'flee':
+      s.pullDir = st.dir ?? sideOf(s.rng);
+      // „nicht gierig werden“: wer zu Fluchtbeginn noch Spannung hält, verliert die Schnur (D 1.7, QA M-2)
+      if (s.tension > B.Trickser.fleeTensionLimit) s.snapPending = true;
+      break;
     case 'dive': s.pullDir = 'down'; break;
     case 'zigzag': s.pullDir = s.pullDir === 'down' ? sideOf(s.rng) : flip(s.pullDir); ev.push({ type: 'dirChange', dir: s.pullDir }); break;
     case 'shock': s.inverted = true; break;
@@ -269,7 +292,7 @@ function enterStage(s: DrillState, st: Stage, ev: DrillEvent[]): void {
       s.invisible = true;
       const half = s.opts.world ? rodAbilityValue(s.gear.rod, 'BlinkerHalbSichtbar', s.opts.world) : null;
       s.visibility = half ?? 0;
-      s.pullDir = sideOf(s.rng);
+      s.pullDir = st.dir ?? sideOf(s.rng);
       break;
     }
     default: break;
@@ -293,13 +316,13 @@ function advance(s: DrillState, ev: DrillEvent[]): void {
   leaveStage(s, ev);
   const next = s.queue.shift();
   if (next) { enterStage(s, next, ev); return; }
-  if (s.stage.kind !== 'rest') { s.stage = { kind: 'rest', left: restS(s) }; return; }
+  if (s.stage.kind !== 'rest') { s.stage = { kind: 'rest', left: restS(s), total: 0 }; return; }
   // Pause vorbei → neue Aktion planen
   s.queue = planAction(s);
   s.actionCount++;
   const first = s.queue.shift();
   if (first) enterStage(s, first, ev);
-  else s.stage = { kind: 'rest', left: Infinity };
+  else s.stage = { kind: 'rest', left: Infinity, total: 0 };
 }
 
 // ------------------------------------------------------------------ Erzeugen & Schritt
@@ -316,8 +339,8 @@ export function createDrill(fish: FishData, gear: DrillGear, b: Balancing, rng: 
     stamina: start, staminaMax: max, displayStamina: start, exhausted: false,
     behavior: fish.primaryBehavior, bossPhase: -1, strength: fish.strength,
     pullDir: sideOf(rng), zone: { lo: 0, hi: 0 },
-    stage: { kind: 'rest', left: 0 }, queue: [], actionCount: 0,
-    inverted: false, invisible: false, visibility: 1, rodUpArmed: false, countering: false,
+    stage: { kind: 'rest', left: 0, total: 0 }, queue: [], actionCount: 0,
+    inverted: false, invisible: false, visibility: 1, rodUpArmed: false, snapPending: false, countering: false,
     cover: null, snag: null, heat: 0, breakTimer: 0, unhookTimer: 0, masterDrill: true,
     beginnerSaves: opts.beginnerSaves ?? 0, netSaves: opts.netSaves ?? 0, outcome: null,
   };
@@ -327,7 +350,7 @@ export function createDrill(fish: FishData, gear: DrillGear, b: Balancing, rng: 
   s.strength = cb.strength;
   updateZone(s);
   s.tension = (s.zone.lo + s.zone.hi) / 2;
-  s.stage = { kind: 'rest', left: firstRestS(s) };
+  s.stage = { kind: 'rest', left: firstRestS(s), total: 0 };
   return s;
 }
 
@@ -378,7 +401,7 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
   if (cb.behavior !== s.behavior && s.stage.kind === 'rest') {
     s.behavior = cb.behavior;
     ev.push({ type: 'behaviorChange', behavior: cb.behavior });
-    s.stage = { kind: 'rest', left: firstRestS(s) };
+    s.stage = { kind: 'rest', left: firstRestS(s), total: 0 };
   }
   s.bossPhase = cb.phase;
   s.strength = cb.strength;
@@ -400,7 +423,15 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
   // 4) Spannung
   const pull = (s.strength * patternFactor(s) * counterF * D.fishPullFactor) / scale;
   const own = input.reel ? (s.gear.reel.crankPower * D.crankFactor) / scale : -(s.gear.rod.relief * D.reliefFactor) / scale;
-  s.tension = clamp(s.tension + (own + pull) * dt, 0, D.break.tension);
+  // Unbeantwortete Aktion (D 1.7, QA M-2): Sprinter ohne Gegenhalten, Taucher ohne Hochreißen, Stromer ohne
+  // (umgekehrtes) Gegensteuern → die Spannung steigt zusätzlich, schneller als die Rute entlasten kann
+  const B = D.behavior;
+  const sk = s.stage.kind;
+  const unanswered = s.countering ? 0
+    : sk === 'sprint' ? B.Sprinter.unansweredTensionPerS
+    : sk === 'dive' ? B.Taucher.unansweredTensionPerS
+    : sk === 'shock' ? B.Stromer.unansweredTensionPerS : 0;
+  s.tension = clamp(s.tension + (own + pull + unanswered) * dt, 0, D.break.tension);
   updateZone(s);
   const { lo, hi } = s.zone;
   const inZone = s.tension >= lo && s.tension <= hi;
@@ -442,7 +473,7 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
       const needed = (s.opts.world ? rodAbilityValue(s.gear.rod, 'HaengerLeicht', s.opts.world) : null) ?? D.behavior.Versteckspieler.haengerTaps;
       leaveStage(s, ev);
       s.snag = { count: 0, needed, sinceTap: 0 };
-      s.stage = { kind: 'snag', left: Infinity };
+      s.stage = { kind: 'snag', left: Infinity, total: 0 };
       ev.push({ type: 'snag', tapsNeeded: needed });
     } else if (s.cover.countered >= reach) {
       advance(s, ev);
@@ -460,7 +491,7 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
       ev.push({ type: 'tap', ok, count: s.snag.count, needed: s.snag.needed });
       if (s.snag.count >= s.snag.needed) {
         s.snag = null;
-        s.stage = { kind: 'rest', left: restS(s) };
+        s.stage = { kind: 'rest', left: restS(s), total: 0 };
         ev.push({ type: 'snagFreed' });
       }
     }
@@ -482,10 +513,13 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
   // 11) Meisterdrill
   if (s.tension >= D.zone.redFrom || s.tension < D.unhook.tension) s.masterDrill = false;
 
-  // 12) Schnurriss
-  if (s.tension >= D.break.tension) {
+  // 12) Schnurriss (aufgebläht hält die Schnur nur bis inflateBreakTension; Trickser-Spitze reißt sofort)
+  const breakAt = k === 'inflate' ? Math.min(D.break.tension, B.Aufblaeher.inflateBreakTension) : D.break.tension;
+  const snap = s.snapPending;
+  s.snapPending = false;
+  if (snap || s.tension >= breakAt) {
     s.breakTimer += dt;
-    if (s.breakTimer > breakDelayS(s.gear, s.opts.depthM ?? 0, b)) {
+    if (snap || s.breakTimer > breakDelayS(s.gear, s.opts.depthM ?? 0, b)) {
       if (s.beginnerSaves > 0) {
         s.beginnerSaves--;
         s.tension = b.catchup.beginner.tensionAfterSave;

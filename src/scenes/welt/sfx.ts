@@ -11,6 +11,8 @@ export interface SfxEvents extends Record<string, unknown> {
   fakeBite: Record<string, never>;
   bite: Record<string, never>;
   telegraph: { action: string };
+  /** Aufbläher wird rund (D 1.7 „Quietsch-Sound“) */
+  squeak: Record<string, never>;
   /** 10× je s im Drill: Schnur-Ton (Tonhöhe nach Spannung), Rollen-Surren beim Kurbeln */
   lineTension: { tension: number; reeling: boolean };
   catch: { shiny: boolean };

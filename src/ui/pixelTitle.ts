@@ -66,10 +66,12 @@ export function renderPixelTitle(canvas: HTMLCanvasElement, text: string, o: Pix
   const dpr = o.dpr ?? (window.devicePixelRatio || 1);
   const probe = document.createElement('canvas').getContext('2d');
   if (!probe) return false;
-  const font = `700 ${BASE_PX}px 'Pixelify Sans'`;
+  // Normalschnitt: Fett schließt bei 11 px die Öffnungen (C wird zu O); die Dicke kommt stattdessen aus der Verbreiterung unten.
+  const font = `400 ${BASE_PX}px 'Pixelify Sans'`;
   probe.font = font;
   // Jedes Zeichen auf ganze Pixel setzen, damit die Strichstärken gleich bleiben
-  const glyphs = [...text].map((ch) => ({ ch, adv: Math.max(1, Math.round(probe.measureText(ch).width)) }));
+  // +1 px je Zeichen: Platz für die waagerechte Verbreiterung (2 px breite Senkrechte = kräftiger Schriftzug)
+  const glyphs = [...text].map((ch) => ({ ch, adv: Math.max(1, Math.round(probe.measureText(ch).width)) + 1 }));
   const textW = glyphs.reduce((s, g) => s + g.adv, 0);
   const w = textW + PAD * 2;
   const h = BASE_PX + PAD * 2;
@@ -90,6 +92,8 @@ export function renderPixelTitle(canvas: HTMLCanvasElement, text: string, o: Pix
   const a = mctx.getImageData(0, 0, w, h).data;
   const mask = new Uint8Array(w * h);
   for (let i = 0; i < w * h; i++) mask[i] = (a[i * 4 + 3] ?? 0) >= 110 ? 1 : 0;
+  // Senkrechte Striche um 1 px nach rechts verbreitern
+  for (let y = 0; y < h; y++) for (let x = w - 1; x > 0; x--) if (mask[y * w + x - 1]) mask[y * w + x] = 1;
   const rgba = colorizeTitle(mask, w, h);
   const H = h + 2;
   const small = document.createElement('canvas');

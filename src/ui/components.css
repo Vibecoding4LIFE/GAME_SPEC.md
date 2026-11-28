@@ -166,26 +166,38 @@
 
 .touch__cast {
   position: relative;
-  width: 116px;
+  width: 108px;
   height: 134px;
   padding: 0;
   font: inherit;
   border: 0;
   color: #fff6ea;
-  background: url('/assets/ui/btn_action.png') no-repeat;
-  background-size: 408px 216px;
-  background-position: calc(7px - var(--act-col) * 102px) 0;
-  image-rendering: pixelated;
+  background: none;
   touch-action: none;
   -webkit-touch-callout: none;
   user-select: none;
   cursor: pointer;
-  opacity: 0.94;
   --icon-2: rgba(255, 255, 255, 0.4);
 }
 
-.touch__cast.is-pressed {
-  background-position: calc(7px - var(--act-col) * 102px) -108px;
+/* Der runde Knopf selbst: genau eine Zelle aus btn_action.png (102 × 108 px = 34 × 36 Kunstpixel × 3) */
+.touch__cast::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 102px;
+  height: 108px;
+  background: url('/assets/ui/btn_action.png') no-repeat;
+  background-size: 408px 216px;
+  background-position: calc(var(--act-col) * -102px) 0;
+  image-rendering: pixelated;
+  opacity: 0.94;
+}
+
+.touch__cast.is-pressed::before {
+  background-position: calc(var(--act-col) * -102px) -108px;
+  opacity: 1;
 }
 
 .touch__cast > .px-icon-wrap {
@@ -1127,11 +1139,16 @@
   font: inherit;
   font-size: 16px;
   min-height: var(--touch);
-  padding: 6px 8px;
+  padding: 6px 36px 6px 10px;
   color: var(--tinte);
-  background: var(--pergament-hell);
-  border: 2px solid var(--holz-tief);
+  appearance: none;
+  -webkit-appearance: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 4' width='14' height='8' shape-rendering='crispEdges'%3E%3Cpath fill='%232a1e1a' d='M0 0h7v1H0zM1 1h5v1H1zM2 2h3v1H2zM3 3h1v1H3z'/%3E%3C/svg%3E") no-repeat right 12px center,
+    var(--pergament-hell);
+  border: 2px solid var(--tinte);
   border-radius: 0;
+  box-shadow: inset 0 2px 0 var(--pergament-dunkel), 0 2px 0 rgba(10, 6, 2, 0.45);
 }
 
 .dbg__field--check {
@@ -1149,11 +1166,24 @@
   cursor: pointer;
 }
 
+/* Pixel-Kästchen: Pergament mit Tinten-Rand, Haken in Grün */
 .dbg__check {
+  flex: none;
   width: 28px;
   height: 28px;
   margin: 8px;
-  accent-color: var(--messing);
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--pergament-hell);
+  border: 2px solid var(--tinte);
+  box-shadow: inset 0 2px 0 var(--pergament-dunkel), 0 2px 0 rgba(10, 6, 2, 0.45);
+  cursor: pointer;
+}
+
+.dbg__check:checked {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 7' width='16' height='14' shape-rendering='crispEdges'%3E%3Cpath fill='%23229d4b' d='M6 0h2v2H6zM5 2h2v1H5zM4 3h2v1H4zM0 3h2v1H0zM1 4h4v1H1zM2 5h2v1H2z'/%3E%3C/svg%3E") no-repeat center,
+    var(--pergament-hell);
 }
 
 .dbg__hint {
@@ -1248,7 +1278,7 @@
 }
 
 .touch__steer {
-  min-width: 76px;
+  min-width: 68px;
   min-height: 72px;
 }
 
@@ -1260,8 +1290,9 @@
 }
 
 .touch__small:disabled {
-  opacity: 0.4;
-  filter: grayscale(0.7);
+  opacity: 0.6;
+  color: var(--tau);
+  filter: saturate(0.5);
 }
 
 .touch__rodup.is-alert {
@@ -1387,7 +1418,7 @@
 /* Angelschnur von oben zur Pose, die auf der Wasserlinie wippt */
 .ld__line {
   position: absolute;
-  left: calc(74% + var(--z) * 3px);
+  left: calc(80% + var(--z) * 3px);
   top: 0;
   width: calc(var(--z) * 1px);
   height: calc(var(--wl) - var(--z) * 8px);
@@ -1396,7 +1427,7 @@
 
 .ld__bobber {
   position: absolute;
-  left: 74%;
+  left: 80%;
   top: calc(var(--wl) - var(--z) * 8px);
   width: calc(var(--z) * 7px);
   height: calc(var(--z) * 12px);
@@ -1576,7 +1607,7 @@
 
 /* ================================================================== Einführung */
 .intro {
-  --dlg-w: 460px;
+  --dlg-w: 480px;
 }
 
 .intro__steps {
@@ -1585,19 +1616,50 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   font-size: var(--fs-m);
   line-height: 1.25;
 }
 
+/* Jeder Schritt als Pergament-Zettel auf dem Holzbrett */
+.intro__step {
+  padding: 8px 12px 10px;
+  color: var(--tinte);
+  background: var(--pergament);
+  background-image: repeating-linear-gradient(0deg, rgba(120, 80, 30, 0.06) 0 2px, transparent 2px 6px);
+  border: 2px solid var(--tinte);
+  box-shadow: inset 0 2px 0 var(--pergament-hell), inset 0 -2px 0 var(--pergament-dunkel), 0 3px 0 rgba(10, 6, 2, 0.45);
+  animation: intro-step 260ms steps(4) both;
+}
+
+.intro__step:nth-child(2) { animation-delay: 70ms; }
+.intro__step:nth-child(3) { animation-delay: 140ms; }
+.intro__step:nth-child(4) { animation-delay: 210ms; }
+
+@keyframes intro-step {
+  from { transform: translateX(-12px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
 .intro__step-title {
   display: block;
+  margin-bottom: 2px;
+  font-size: var(--fs-m);
+  color: var(--holz-dunkel);
 }
 
 .intro__step-how {
   display: block;
   font-size: var(--fs-s);
-  opacity: 0.9;
+  color: var(--tinte);
+}
+
+.intro .ui-dialog__foot .ui-btn {
+  min-height: 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__step { animation: none; }
 }
 
 /* ================================================================== Schillernd (D 1.11) */
@@ -1641,4 +1703,66 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cc__sparkle { animation: none; opacity: 0.8; }
+}
+
+/* ================================================================== Feinschliff (UI-Überarbeitung) */
+/* Fang-Karte: Kopf trägt nur die Tau-Kante (Titel ist für Screenreader) */
+.catch-card .ui-dialog__head {
+  padding: 0;
+  min-height: 0;
+}
+
+/* Lexikon im flachen Querformat: Kreis ausblenden (x/20 steht im Text), damit das Raster Platz hat */
+@media (max-height: 500px) {
+  .lx__ringbox {
+    display: none;
+  }
+
+  .lx__top {
+    gap: var(--s2);
+  }
+
+  .lx__top-text {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  .lx__world {
+    font-size: var(--fs-m);
+  }
+
+  .lexicon .ui-dialog__title {
+    font-size: var(--fs-m);
+  }
+
+  .lexicon .lx {
+    gap: var(--s2);
+  }
+}
+
+/* Lexikon-Kacheln blenden gestaffelt ein */
+.lx__grid > li {
+  animation: lx-in 200ms steps(3) both;
+}
+
+.lx__grid > li:nth-child(4n + 2) { animation-delay: 30ms; }
+.lx__grid > li:nth-child(4n + 3) { animation-delay: 60ms; }
+.lx__grid > li:nth-child(4n + 4) { animation-delay: 90ms; }
+
+@keyframes lx-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Eimer-Zeilen: Holzleiste statt flacher Fläche */
+.bk__row {
+  box-shadow: inset 0 2px 0 rgba(255, 241, 199, 0.08), 0 2px 0 rgba(10, 6, 2, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lx__grid > li {
+    animation: none;
+  }
 }

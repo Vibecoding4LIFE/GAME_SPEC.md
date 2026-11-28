@@ -64,6 +64,10 @@ export interface WeltDebug {
   feedback: Partial<Record<FeedbackKind, number>>;
   /** Bildschirm wackelt gerade */
   shaking: boolean;
+  /** im Bild gezeigte Vorwarnung (z. B. 'jump') bzw. null */
+  telegraph: string | null;
+  /** Logik angehalten (Hook freezeAtTelegraph) */
+  frozen: boolean;
   /** Eingabezustand (Modus der Knöpfe, Lenken −1…1, Kurbeln, Sinken) */
   input: { mode: string; steer: number; reeling: boolean; sinking: boolean };
   fps: number;
@@ -74,6 +78,9 @@ export interface WeltDebug {
     forceFish(id: string | null): void;
     forceBehavior(b: string | null): void;
     forceShiny(on: boolean): void;
+    /** Logik anhalten, sobald die Vorwarnung `action` ('jump', 'dive' …, 'heat' für Hitzkopf) sichtbar ist */
+    freezeAtTelegraph(action: string | null): void;
+    resume(): void;
     setWeather(w: string | null): void;
     setPhase(p: string): void;
     skipWait(): void;
@@ -133,6 +140,9 @@ export class WeltScene extends Phaser.Scene {
   /** Flanken aus Frames ohne Logikschritt (90/120-Hz-Displays) für den nächsten Schritt aufheben */
   private carry: Pick<SessionInput, 'reelPressed' | 'rodUp' | 'strike' | 'feed' | 'retrieve'> = { reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
   private shakeLeft = 0;
+  /** Debug/QA: Spiellogik anhalten, sobald diese Vorwarnung (oder 'heat') sichtbar ist; Zeichnen läuft weiter */
+  private freezeOn: string | null = null;
+  private frozen = false;
   private shakeAmp = 0;
   private lastSfxS = 0;
   private coarse = false;
@@ -325,6 +335,7 @@ export class WeltScene extends Phaser.Scene {
     const s = this.session;
     this.logicAcc += frameS;
     let first = true;
+    if (this.frozen) this.logicAcc = 0;
     while (this.logicAcc >= VIEW.logicStepS) {
       this.logicAcc -= VIEW.logicStepS;
       // Flanken (Tippen, Anschlag, Wisch, Einholen) gelten nur im ersten Teilschritt
@@ -332,6 +343,13 @@ export class WeltScene extends Phaser.Scene {
         : first ? human : { ...human, reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
       first = false;
       for (const e of s.step(VIEW.logicStepS, input)) this.onEvent(e);
+      const dr = s.state.drill;
+      if (this.freezeOn && dr && ((dr.stage.kind === 'telegraph' && dr.stage.next === this.freezeOn)
+        || (this.freezeOn === 'heat' && dr.heat >= this.gd.balancing.drill.behavior.Hitzkopf.breakAt / 2))) {
+        this.frozen = true;
+        this.logicAcc = 0;
+        break;
+      }
     }
     this.carry = first
       ? { reelPressed: human.reelPressed, rodUp: human.rodUp, strike: human.strike, feed: human.feed, retrieve: human.retrieve }
@@ -437,6 +455,7 @@ export class WeltScene extends Phaser.Scene {
         else if (d.type === 'telegraph') sfx.emit('telegraph', { action: d.action });
         if (d.type === 'action' && d.action === 'jump') this.shake(2, 0.3);
         if (d.type === 'telegraph' && d.action === 'invisible') this.fire('blinker'); // „nach Vibration und Ton spielen“ (D 1.7)
+        if (d.type === 'telegraph' && d.action === 'inflate') sfx.emit('squeak', {}); // „Quietsch-Sound“ (D 1.7)
         if (d.type === 'snag') this.fire('snag');
         break;
       }
@@ -503,12 +522,13 @@ export class WeltScene extends Phaser.Scene {
 
     const tipBefore = this.angler.tip();
     const hooked = st.rodState === 'Reeling' && st.drill && st.hooked ? { fish: st.hooked.fish, drill: st.drill, startX: this.hookedStart.x, startY: this.hookedStart.y } : null;
-    const mouth = this.fishLayer.updateHooked(hooked, tipBefore);
+    const mouth = this.fishLayer.updateHooked(hooked, tipBefore, dt);
     this.fishLayer.updateFeeding(st.feedingSpot ? { x: distanceToX(this.art, spotX, st.feedingSpot.distanceM) } : null, this.backdrop.tintFor(phase, true));
     const bend = st.drill ? rodBendStage(st.drill.tension, 4) : st.rodState === 'Bite' ? 2 : st.rodState === 'Nibble' ? 1 : 0;
     this.angler.update({
       dt, bend, bobber, baitX: castX, baitY, fishMouth: mouth, flight: this.castFlight, shake: !!st.snag,
       tint: this.backdrop.tintFor(phase, false), marker: this.marker,
+      lineGlow: st.drill && st.drill.behavior === 'Hitzkopf' ? st.drill.heat / b.drill.behavior.Hitzkopf.breakAt : 0,
     });
 
     this.positionCamera(false);
@@ -651,11 +671,13 @@ export class WeltScene extends Phaser.Scene {
   private makeDebug(): WeltDebug {
     return {
       rodState: 'Idle', phase: '', weather: '', tension: 0, zone: null, behavior: null, pullDir: null, depthM: 0, snag: null, catches: 0, escapes: 0, coins: 0,
-      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, introOpen: false, feedback: {}, shaking: false, input: { mode: 'menu', steer: 0, reeling: false, sinking: false }, fps: 0, updateMs: 0, camera: { x: 0, y: 0 },
+      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, introOpen: false, feedback: {}, shaking: false, telegraph: null, frozen: false, input: { mode: 'menu', steer: 0, reeling: false, sinking: false }, fps: 0, updateMs: 0, camera: { x: 0, y: 0 },
       hooks: {
         forceFish: (id) => this.session.debugForceFish(id as FishId | null),
         forceBehavior: (b) => this.session.debugForceBehavior(b as FightBehavior | null),
         forceShiny: (on) => this.session.debugForceShiny(on),
+        freezeAtTelegraph: (a) => { this.freezeOn = a; if (!a) this.frozen = false; },
+        resume: () => { this.frozen = false; }, // Ziel bleibt gesetzt (freezeAtTelegraph(null) löscht es)
         setWeather: (w) => (w ? this.session.debugSetWeather(w as never) : this.session.debugReleaseWeather()),
         setPhase: (p) => this.session.debugSetPhase(p as DayPhase),
         skipWait: () => this.session.debugSkipWait(),
@@ -688,6 +710,8 @@ export class WeltScene extends Phaser.Scene {
     d.introOpen = this.intro.visible;
     d.feedback = { ...this.feedback.counts };
     d.shaking = this.shakeLeft > 0;
+    d.telegraph = this.fishLayer.telegraphShown ?? (st.drill?.behavior === 'Hitzkopf' && st.drill.heat > 0 ? 'heat' : null);
+    d.frozen = this.frozen;
     d.input = { mode: this.input2.mode, steer: this.input2.steer, reeling: this.input2.reeling, sinking: this.input2.sinking };
     d.fps = Math.round(this.game.loop.actualFps);
     d.camera = { ...this.cam };

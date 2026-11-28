@@ -11,7 +11,7 @@
 //   retrieve {}            Schnur ohne Fisch einholen
 //   results {…}            Platzierung, Münzen, Sonderauszeichnungen (D 2.5/2.6)
 //   deny {grund}           Beitritt abgelehnt (Raum gesperrt/voll)
-// Feldnamen folgen der Spec (deutsch, ohne Umlaute). Zeiten: `ts`, `ende`, `t0/t1` in ms; Dauern in s.
+// Feldnamen folgen der Spec (deutsch, ohne Umlaute). Zeiten: `ts`, `ende`, `t0/t1` in ms (Uhrwerte, auch < 0); Dauern in s.
 import { z } from 'zod';
 import {
   FIGHT_BEHAVIORS, SIZE_CLASSES, SIZE_GRADES, TIMES_OF_DAY, WEATHERS, WORLD_EVENTS, WORLD_IDS,
@@ -151,7 +151,7 @@ export const CatchDataSchema = obj({
   perfekterWurf: z.boolean(),
   perfekterAnschlag: z.boolean(),
   /** Fangzeit (Host-Uhr, ms) */
-  t: nonNeg,
+  t: num,
 });
 export type CatchData = z.output<typeof CatchDataSchema>;
 const ScoreEntry = obj({ spieler: PlayerIdSchema, punkte: int.nullable(), faenge: int, rueckenwind: z.union([z.literal(0), z.literal(1), z.literal(2)]).nullable() });
@@ -180,9 +180,9 @@ export const PhaseEndDataSchema = obj({
   runde: int,
   phase: z.enum(ROUND_PHASES),
   /** B4: der eine Zeitwert (Host-Uhr, ms) */
-  ende: nonNeg.nullable(),
+  ende: num.nullable(),
   /** Ende der Angelzeit (ms), damit der Rundentimer ohne zweite Nachricht läuft */
-  angelEnde: nonNeg.nullable(),
+  angelEnde: num.nullable(),
 });
 export type PhaseEndData = z.output<typeof PhaseEndDataSchema>;
 const ResultEntry = obj({
@@ -225,8 +225,8 @@ export type JoinData = z.output<typeof JoinData>;
 const DenyData = obj({ grund: z.enum(['gesperrt', 'voll', 'ungueltig']) });
 const LeaveData = obj({});
 const ReadyData = obj({ bereit: z.boolean() });
-const PingData = obj({ t0: nonNeg });
-const PongData = obj({ t0: nonNeg, t1: nonNeg });
+const PingData = obj({ t0: num });
+const PongData = obj({ t0: num, t1: num });
 
 // ------------------------------------------------------------------ Umschlag
 
@@ -237,7 +237,7 @@ const envelope = <T extends string, D extends z.ZodType>(type: T, data: D) =>
     /** laufende Nummer je Absender (ab 1) */
     seq: int,
     /** Absender-Uhr (ms) */
-    ts: nonNeg,
+    ts: num,
     /** gezielte Nachricht (sync, pong, deny); fehlt = an alle */
     to: PlayerIdSchema.optional(),
     data,
@@ -298,7 +298,7 @@ export class Outbox {
 
   make<T extends MessageType>(type: T, data: DataOf<T>, to?: PlayerId): MessageOf<T> {
     this.seq++;
-    const m = { type, from: this.from, seq: this.seq, ts: Math.max(0, Math.round(this.now())), data } as Record<string, unknown>;
+    const m = { type, from: this.from, seq: this.seq, ts: Math.round(this.now()), data } as Record<string, unknown>;
     if (to !== undefined) m.to = to;
     return m as MessageOf<T>;
   }

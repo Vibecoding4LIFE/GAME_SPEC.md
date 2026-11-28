@@ -87,6 +87,7 @@ drill.behavior.Sprinter.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede A
 drill.behavior.Sprinter.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Fluchten (s)
 drill.behavior.Sprinter.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Sprinter.telegraphS;0.6;eigene Wahl;„Schatten dreht sich“ so lange vorher
+drill.behavior.Sprinter.unansweredTensionPerS;1.2;eigene Wahl: QA M-2, D 1.7 „Rute gegenhalten“;Spannung steigt während der Flucht zusätzlich um so viel je s, solange die Rute NICHT gegen die Zugrichtung geführt wird (Anteil/s)
 drill.behavior.Taucher.durationMinS;1.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
 drill.behavior.Taucher.durationMaxS;2.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
 drill.behavior.Taucher.pullBonus;0.15;eigene Wahl;Zugbonus während des Tauchgangs
@@ -95,6 +96,7 @@ drill.behavior.Taucher.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Ak
 drill.behavior.Taucher.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tauchgängen (s)
 drill.behavior.Taucher.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Taucher.telegraphS;0.6;eigene Wahl;„Blasen steigen auf“ so lange vorher
+drill.behavior.Taucher.unansweredTensionPerS;1.2;eigene Wahl: QA M-2, D 1.7 „Rute hochreißen“;Spannung steigt während des Tauchgangs zusätzlich um so viel je s, solange die Rute NICHT hochgerissen wurde (Anteil/s)
 drill.behavior.Springer.jumpMaxS;1.0;D 1.7;Sprung dauert bis zu 1 s
 drill.behavior.Springer.tensionLimit;0.40;D 1.7;liegt T beim Sprung darüber schüttelt er den Haken ab
 drill.behavior.Springer.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Sprüngen (s)
@@ -115,6 +117,7 @@ drill.behavior.Trickser.fakeTiredMinS;2;eigene Wahl;so lange spielt er müde (Au
 drill.behavior.Trickser.fakeTiredMaxS;4;eigene Wahl;so lange spielt er müde (s)
 drill.behavior.Trickser.fleeS;2.5;eigene Wahl;Dauer der „riesigen Flucht“ (s)
 drill.behavior.Trickser.fleePullBonus;0.6;eigene Wahl: D 1.7 „riesige Flucht“;Zugbonus während der Flucht
+drill.behavior.Trickser.fleeTensionLimit;0.4;eigene Wahl: QA M-2, D 1.7 „nicht gierig werden, sofort loslassen“;liegt die Spannung zu Beginn der Flucht darüber, reißt die Schnur (Spannungsspitze)
 drill.behavior.Trickser.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
 drill.behavior.Trickser.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
 drill.behavior.Trickser.firstActionMaxS;2.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
@@ -134,11 +137,13 @@ drill.behavior.Aufblaeher.pullMultiplier;2;D 1.7;„doppeltes Gewicht“: Zug ×
 drill.behavior.Aufblaeher.retrieveMultiplier;0.5;D 1.7;Einholen halbiert
 drill.behavior.Aufblaeher.telegraphS;0.5;eigene Wahl;„Fisch wird rund“ so lange vorher
 drill.behavior.Aufblaeher.exhaustS;1.5;eigene Wahl: D 1.7 „danach erschöpft“;Erschöpfung nach dem Aufblähen (s)
+drill.behavior.Aufblaeher.inflateBreakTension;0.45;eigene Wahl: QA M-2, D 1.7 „doppeltes Gewicht, Spannung senken“;aufgebläht reißt die Schnur schon ab dieser Spannung (Anteil) nach der üblichen Riss-Verzögerung
 drill.behavior.Stromer.invertS;1.5;D 1.7;Konter-Steuerung 1,5 s vertauscht
 drill.behavior.Stromer.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (QA M3), vorher 4–7 s;Pause zwischen zwei Stromstößen (s)
 drill.behavior.Stromer.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (QA M3), vorher 4–7 s;Pause zwischen zwei Stromstößen (s)
 drill.behavior.Stromer.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Stromer.telegraphS;0.5;eigene Wahl;„blaue Funken“ so lange vorher
+drill.behavior.Stromer.unansweredTensionPerS;1.2;eigene Wahl: QA M-2, D 1.7 „bewusst umgekehrt steuern“;Spannung steigt während des Stromstoßes zusätzlich um so viel je s, solange NICHT (umgekehrt) gegengesteuert wird (Anteil/s)
 drill.behavior.Blinker.invisibleMinS;2;D 1.7;2–3 s unsichtbar
 drill.behavior.Blinker.invisibleMaxS;3;D 1.7;2–3 s unsichtbar
 drill.behavior.Blinker.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Unsichtbar-Phasen (s)

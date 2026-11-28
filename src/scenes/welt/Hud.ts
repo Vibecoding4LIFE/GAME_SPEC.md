@@ -288,6 +288,9 @@ export class Hud {
       const frame = c >= f.redFrom ? 'rot' : c >= d.zone.lo && c <= d.zone.hi ? 'gruen' : c > d.zone.hi ? 'gelb' : 'leer';
       tile.setFrame(`hud_tension_zone_${frame}_still_0`);
     });
+    // Stromer: „Balken flackert“ während des Stromstoßes (D 1.7)
+    const flicker = d.stage.kind === 'shock' && Math.floor(this.scene.time.now / VIEW.telegraph.barFlickerMs) % 2 === 1;
+    for (const tile of this.tensionTiles) tile.setAlpha(flicker ? 1 / 2 : 1);
     // Nadel: 3 px breiter heller Balken mit dunkler Kontur, ragt oben und unten über den Rahmen
     const nx = L.tension.x + (tw.x + Math.round(d.tension * tw.w)) * s;
     const top = L.tension.y - 2 * s;
@@ -309,7 +312,9 @@ export class Hud {
       fin.setFrame(v >= 1 ? 'hud_stamina_full_still_0' : v >= 1 / 2 ? 'hud_stamina_half_still_0' : 'hud_stamina_empty_still_0');
     });
 
-    const showArrow = !d.invisible && !d.snag;
+    // Zickzack: „Pfeil blinkt“ während der Vorwarnung (D 1.7)
+    const zigTele = d.stage.kind === 'telegraph' && d.stage.next === 'zigzag';
+    const showArrow = !d.invisible && !d.snag && !(zigTele && Math.floor(this.scene.time.now / VIEW.telegraph.arrowBlinkMs) % 2 === 1);
     this.arrow.setVisible(showArrow);
     if (showArrow) {
       const key = `hud_arrow_${d.pullDir}_pulse`;

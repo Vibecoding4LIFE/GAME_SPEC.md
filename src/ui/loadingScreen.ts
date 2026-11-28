@@ -50,7 +50,7 @@ export class LoadingScreen {
     window.addEventListener('resize', this.onResize);
     this.layout();
     // Schriftzug erst zeichnen, wenn die Pixel-Schrift da ist (bis dahin steht der Titel als Text)
-    void document.fonts?.load(`700 11px 'Pixelify Sans'`, t('app.title')).then(() => this.drawLogo()).catch(() => undefined);
+    void document.fonts?.load(`400 11px 'Pixelify Sans'`, t('app.title')).then(() => this.drawLogo()).catch(() => undefined);
   }
 
   /** Fortschritt 0…1 */
@@ -93,7 +93,7 @@ export class LoadingScreen {
   }
 
   private drawLogo(): void {
-    if (!document.fonts?.check(`700 11px 'Pixelify Sans'`)) return;
+    if (!document.fonts?.check(`400 11px 'Pixelify Sans'`)) return;
     const w = window.innerWidth;
     const { waterline } = loadingLayout(w, window.innerHeight);
     const ok = renderPixelTitle(this.logo, t('app.title'), {

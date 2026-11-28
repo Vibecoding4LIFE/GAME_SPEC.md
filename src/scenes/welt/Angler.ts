@@ -25,6 +25,8 @@ export interface AnglerFrame {
   shake: boolean;
   tint: number;
   marker: 'none' | 'nibble' | 'bite' | 'fake';
+  /** Hitzkopf: Hitze 0…1 → Schnur glüht orange (D 1.7) */
+  lineGlow?: number;
 }
 
 export class Angler {
@@ -125,7 +127,9 @@ export class Angler {
     stepRope(this.rope, f.dt, tip.x, tip.y, end.x, end.y, fighting ? VIEW.rope.slackFight : slack);
     const pts = this.rope.points.map((p) => ({ x: Math.round(p.x), y: Math.round(p.y) }));
     this.line.clear();
-    this.line.fillStyle(this.lineColor, 1);
+    const g = f.lineGlow ?? 0;
+    const glow = g >= 2 / 3 ? VIEW.lineGlow[1] : g >= 1 / 3 ? VIEW.lineGlow[0] : null;
+    this.line.fillStyle(glow ? hexToInt(glow) : this.lineColor, 1);
     for (const p of rasterPolyline(pts)) this.line.fillRect(p.x, p.y, 1, 1);
     if (inWater && baitPos.y > bob.y) rasterLine(bob.x, bob.y, baitPos.x, baitPos.y, (x, y) => this.line.fillRect(x, y, 1, 1));
 
