@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1249236511,
+  "fishId": "F099",
+  "assetKey": "fish_grotte_099_felsenfresser",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "risse",
+    "merkmale": [
+      "kristalle",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 100.671,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#5A4E4E",
+      "#8A7E7A",
+      "#F46036",
+      "#4A4040",
+      "#FFB627"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#232127",
+      "#3D373B",
+      "#5A4E4E",
+      "#776765",
+      "#94817D"
+    ],
+    "belly": [
+      "#635C5F",
+      "#8A7E7A",
+      "#B1A29B"
+    ],
+    "acc": [
+      "#961323",
+      "#D02419",
+      "#F46036"
+    ],
+    "fin": [
+      "#272326",
+      "#4A4040",
+      "#6E605F"
+    ],
+    "iris": [
+      "#FFB627"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

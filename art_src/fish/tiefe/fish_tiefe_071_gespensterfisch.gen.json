@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2245398645,
+  "fishId": "F071",
+  "assetKey": "fish_tiefe_071_gespensterfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [
+      "kuppel",
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 48.564,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#2E3440",
+      "#4A5260",
+      "#7CFF6B",
+      "#3A4250",
+      "#7CFF6B"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1A1D25",
+      "#2E3440",
+      "#434D5B",
+      "#596776",
+      "#708393"
+    ],
+    "belly": [
+      "#2C323E",
+      "#4A5260",
+      "#697584"
+    ],
+    "acc": [
+      "#1FAB67",
+      "#1DD95F",
+      "#7CFF6B"
+    ],
+    "fin": [
+      "#1F232D",
+      "#3A4250",
+      "#576473"
+    ],
+    "iris": [
+      "#7CFF6B"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

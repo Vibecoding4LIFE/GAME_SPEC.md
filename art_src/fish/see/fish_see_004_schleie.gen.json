@@ -1,0 +1,84 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2679826000,
+  "fishId": "F004",
+  "assetKey": "fish_see_004_schleie",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "keins",
+    "merkmale": [
+      "barteln"
+    ],
+    "scale_px_per_unit": 47.257,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3F5326",
+      "#B9A24A",
+      "#D8C25A",
+      "#2C3A1C",
+      "#C8302C"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#0C230B",
+      "#243B18",
+      "#3F5326",
+      "#5E6B3D",
+      "#7E8555"
+    ],
+    "belly": [
+      "#9B7A1E",
+      "#B9A24A",
+      "#E1C777"
+    ],
+    "acc": [
+      "#977114",
+      "#BD970A",
+      "#D8C25A"
+    ],
+    "fin": [
+      "#111B0D",
+      "#2C3A1C",
+      "#4F5938"
+    ],
+    "iris": [
+      "#C8302C"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

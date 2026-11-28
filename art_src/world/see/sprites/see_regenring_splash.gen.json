@@ -1,0 +1,30 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_regenring_splash_0",
+  "see_regenring_splash_1",
+  "see_regenring_splash_2"
+ ],
+ "size": [
+  15,
+  6
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 12,
+ "loop": false,
+ "yoyo": false,
+ "anchors": {
+  "wasserlinie": {
+   "x": 7,
+   "y": 5
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

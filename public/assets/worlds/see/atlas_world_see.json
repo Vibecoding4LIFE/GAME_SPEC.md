@@ -1,0 +1,1806 @@
+{
+ "frames": {
+  "see_seerose_blatt_a_still_0": {
+   "frame": {
+    "x": 116,
+    "y": 167,
+    "w": 19,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 19,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 19,
+    "h": 7
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 9,
+     "y": 5
+    }
+   }
+  },
+  "see_seerose_blatt_b_still_0": {
+   "frame": {
+    "x": 139,
+    "y": 167,
+    "w": 15,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 7
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 7,
+     "y": 5
+    }
+   }
+  },
+  "see_seerose_blatt_c_still_0": {
+   "frame": {
+    "x": 89,
+    "y": 167,
+    "w": 23,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 23,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 23,
+    "h": 7
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 11,
+     "y": 5
+    }
+   }
+  },
+  "see_seerose_bluete_still_0": {
+   "frame": {
+    "x": 240,
+    "y": 148,
+    "w": 13,
+    "h": 9
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 13,
+    "h": 9
+   },
+   "sourceSize": {
+    "w": 13,
+    "h": 9
+   },
+   "anchors": {
+    "fuss": {
+     "x": 6,
+     "y": 9
+    }
+   }
+  },
+  "see_schilf_sway_0": {
+   "frame": {
+    "x": 139,
+    "y": 3,
+    "w": 16,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 40
+   },
+   "anchors": {
+    "fuss": {
+     "x": 8,
+     "y": 39
+    }
+   }
+  },
+  "see_schilf_sway_1": {
+   "frame": {
+    "x": 159,
+    "y": 3,
+    "w": 16,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 40
+   },
+   "anchors": {
+    "fuss": {
+     "x": 8,
+     "y": 39
+    }
+   }
+  },
+  "see_schilf_sway_2": {
+   "frame": {
+    "x": 179,
+    "y": 3,
+    "w": 16,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 40
+   },
+   "anchors": {
+    "fuss": {
+     "x": 8,
+     "y": 39
+    }
+   }
+  },
+  "see_wasserpest_sway_0": {
+   "frame": {
+    "x": 67,
+    "y": 3,
+    "w": 14,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 50
+   },
+   "anchors": {
+    "fuss": {
+     "x": 7,
+     "y": 49
+    }
+   }
+  },
+  "see_wasserpest_sway_1": {
+   "frame": {
+    "x": 85,
+    "y": 3,
+    "w": 14,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 50
+   },
+   "anchors": {
+    "fuss": {
+     "x": 7,
+     "y": 49
+    }
+   }
+  },
+  "see_wasserpest_sway_2": {
+   "frame": {
+    "x": 103,
+    "y": 3,
+    "w": 14,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 50
+   },
+   "anchors": {
+    "fuss": {
+     "x": 7,
+     "y": 49
+    }
+   }
+  },
+  "see_wasserpest_sway_3": {
+   "frame": {
+    "x": 121,
+    "y": 3,
+    "w": 14,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 50
+   },
+   "anchors": {
+    "fuss": {
+     "x": 7,
+     "y": 49
+    }
+   }
+  },
+  "see_libelle_fly_0": {
+   "frame": {
+    "x": 51,
+    "y": 167,
+    "w": 15,
+    "h": 8
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 8
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 8
+   }
+  },
+  "see_libelle_fly_1": {
+   "frame": {
+    "x": 70,
+    "y": 167,
+    "w": 15,
+    "h": 8
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 8
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 8
+   }
+  },
+  "see_ente_swim_0": {
+   "frame": {
+    "x": 183,
+    "y": 125,
+    "w": 20,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 16
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 10,
+     "y": 11
+    }
+   }
+  },
+  "see_ente_swim_1": {
+   "frame": {
+    "x": 207,
+    "y": 125,
+    "w": 20,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 16
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 10,
+     "y": 11
+    }
+   }
+  },
+  "see_ente_dabble_0": {
+   "frame": {
+    "x": 181,
+    "y": 95,
+    "w": 16,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 20
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 8,
+     "y": 10
+    }
+   }
+  },
+  "see_ente_dabble_1": {
+   "frame": {
+    "x": 201,
+    "y": 95,
+    "w": 16,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 20
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 8,
+     "y": 10
+    }
+   }
+  },
+  "see_frosch_idle_0": {
+   "frame": {
+    "x": 130,
+    "y": 148,
+    "w": 14,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 11
+   },
+   "anchors": {
+    "fuss": {
+     "x": 6,
+     "y": 10
+    }
+   }
+  },
+  "see_frosch_quak_0": {
+   "frame": {
+    "x": 148,
+    "y": 148,
+    "w": 14,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 11
+   },
+   "anchors": {
+    "fuss": {
+     "x": 6,
+     "y": 10
+    }
+   }
+  },
+  "see_frosch_quak_1": {
+   "frame": {
+    "x": 166,
+    "y": 148,
+    "w": 14,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 11
+   },
+   "anchors": {
+    "fuss": {
+     "x": 6,
+     "y": 10
+    }
+   }
+  },
+  "see_kaulquappen_swim_0": {
+   "frame": {
+    "x": 55,
+    "y": 125,
+    "w": 28,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 16
+   }
+  },
+  "see_kaulquappen_swim_1": {
+   "frame": {
+    "x": 87,
+    "y": 125,
+    "w": 28,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 16
+   }
+  },
+  "see_kaulquappen_swim_2": {
+   "frame": {
+    "x": 119,
+    "y": 125,
+    "w": 28,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 16
+   }
+  },
+  "see_kaulquappen_swim_3": {
+   "frame": {
+    "x": 151,
+    "y": 125,
+    "w": 28,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 16
+   }
+  },
+  "see_gluehwuermchen_glow_0": {
+   "frame": {
+    "x": 192,
+    "y": 167,
+    "w": 7,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 7,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 7,
+    "h": 7
+   }
+  },
+  "see_gluehwuermchen_glow_1": {
+   "frame": {
+    "x": 203,
+    "y": 167,
+    "w": 7,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 7,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 7,
+    "h": 7
+   }
+  },
+  "see_gluehwuermchen_glow_2": {
+   "frame": {
+    "x": 214,
+    "y": 167,
+    "w": 7,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 7,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 7,
+    "h": 7
+   }
+  },
+  "see_gluehwuermchen_glow_3": {
+   "frame": {
+    "x": 225,
+    "y": 167,
+    "w": 7,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 7,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 7,
+    "h": 7
+   }
+  },
+  "see_blase_s_wobble_0": {
+   "frame": {
+    "x": 236,
+    "y": 167,
+    "w": 6,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 6,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 6,
+    "h": 7
+   }
+  },
+  "see_blase_s_wobble_1": {
+   "frame": {
+    "x": 246,
+    "y": 167,
+    "w": 6,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 6,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 6,
+    "h": 7
+   }
+  },
+  "see_blase_s_wobble_2": {
+   "frame": {
+    "x": 3,
+    "y": 180,
+    "w": 6,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 6,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 6,
+    "h": 7
+   }
+  },
+  "see_blase_s_wobble_3": {
+   "frame": {
+    "x": 13,
+    "y": 180,
+    "w": 6,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 6,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 6,
+    "h": 7
+   }
+  },
+  "see_blase_m_wobble_0": {
+   "frame": {
+    "x": 3,
+    "y": 167,
+    "w": 8,
+    "h": 9
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 8,
+    "h": 9
+   },
+   "sourceSize": {
+    "w": 8,
+    "h": 9
+   }
+  },
+  "see_blase_m_wobble_1": {
+   "frame": {
+    "x": 15,
+    "y": 167,
+    "w": 8,
+    "h": 9
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 8,
+    "h": 9
+   },
+   "sourceSize": {
+    "w": 8,
+    "h": 9
+   }
+  },
+  "see_blase_m_wobble_2": {
+   "frame": {
+    "x": 27,
+    "y": 167,
+    "w": 8,
+    "h": 9
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 8,
+    "h": 9
+   },
+   "sourceSize": {
+    "w": 8,
+    "h": 9
+   }
+  },
+  "see_blase_m_wobble_3": {
+   "frame": {
+    "x": 39,
+    "y": 167,
+    "w": 8,
+    "h": 9
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 8,
+    "h": 9
+   },
+   "sourceSize": {
+    "w": 8,
+    "h": 9
+   }
+  },
+  "see_blase_l_wobble_0": {
+   "frame": {
+    "x": 184,
+    "y": 148,
+    "w": 10,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 10,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 10,
+    "h": 11
+   }
+  },
+  "see_blase_l_wobble_1": {
+   "frame": {
+    "x": 198,
+    "y": 148,
+    "w": 10,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 10,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 10,
+    "h": 11
+   }
+  },
+  "see_blase_l_wobble_2": {
+   "frame": {
+    "x": 212,
+    "y": 148,
+    "w": 10,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 10,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 10,
+    "h": 11
+   }
+  },
+  "see_blase_l_wobble_3": {
+   "frame": {
+    "x": 226,
+    "y": 148,
+    "w": 10,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 10,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 10,
+    "h": 11
+   }
+  },
+  "see_lichtfleck_shimmer_0": {
+   "frame": {
+    "x": 200,
+    "y": 180,
+    "w": 20,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 5
+   }
+  },
+  "see_lichtfleck_shimmer_1": {
+   "frame": {
+    "x": 224,
+    "y": 180,
+    "w": 20,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 5
+   }
+  },
+  "see_lichtfleck_shimmer_2": {
+   "frame": {
+    "x": 3,
+    "y": 191,
+    "w": 20,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 5
+   }
+  },
+  "see_lichtfleck_shimmer_3": {
+   "frame": {
+    "x": 27,
+    "y": 191,
+    "w": 20,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 20,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 20,
+    "h": 5
+   }
+  },
+  "see_regentropfen_still_0": {
+   "frame": {
+    "x": 69,
+    "y": 191,
+    "w": 1,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 1,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 1,
+    "h": 5
+   }
+  },
+  "see_regenring_splash_0": {
+   "frame": {
+    "x": 143,
+    "y": 180,
+    "w": 15,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 6
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 7,
+     "y": 5
+    }
+   }
+  },
+  "see_regenring_splash_1": {
+   "frame": {
+    "x": 162,
+    "y": 180,
+    "w": 15,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 6
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 7,
+     "y": 5
+    }
+   }
+  },
+  "see_regenring_splash_2": {
+   "frame": {
+    "x": 181,
+    "y": 180,
+    "w": 15,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 6
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 7,
+     "y": 5
+    }
+   }
+  },
+  "see_kruemelwolke_drift_0": {
+   "frame": {
+    "x": 3,
+    "y": 95,
+    "w": 34,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 26
+   }
+  },
+  "see_kruemelwolke_drift_1": {
+   "frame": {
+    "x": 41,
+    "y": 95,
+    "w": 34,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 26
+   }
+  },
+  "see_kruemelwolke_drift_2": {
+   "frame": {
+    "x": 79,
+    "y": 95,
+    "w": 34,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 26
+   }
+  },
+  "see_kruemelwolke_drift_3": {
+   "frame": {
+    "x": 117,
+    "y": 95,
+    "w": 34,
+    "h": 26
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 34,
+    "h": 26
+   },
+   "sourceSize": {
+    "w": 34,
+    "h": 26
+   }
+  },
+  "see_sonne_still_0": {
+   "frame": {
+    "x": 155,
+    "y": 95,
+    "w": 22,
+    "h": 22
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 22
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 22
+   }
+  },
+  "see_mond_voll_still_0": {
+   "frame": {
+    "x": 3,
+    "y": 148,
+    "w": 15,
+    "h": 15
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 15
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 15
+   }
+  },
+  "see_mond_sichel_still_0": {
+   "frame": {
+    "x": 231,
+    "y": 125,
+    "w": 15,
+    "h": 15
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 15,
+    "h": 15
+   },
+   "sourceSize": {
+    "w": 15,
+    "h": 15
+   }
+  },
+  "see_wolke_a_still_0": {
+   "frame": {
+    "x": 3,
+    "y": 125,
+    "w": 48,
+    "h": 19
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 48,
+    "h": 19
+   },
+   "sourceSize": {
+    "w": 48,
+    "h": 19
+   }
+  },
+  "see_wolke_b_still_0": {
+   "frame": {
+    "x": 22,
+    "y": 148,
+    "w": 32,
+    "h": 14
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 14
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 14
+   }
+  },
+  "see_stern_twinkle_0": {
+   "frame": {
+    "x": 51,
+    "y": 191,
+    "w": 5,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 5,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 5,
+    "h": 5
+   }
+  },
+  "see_stern_twinkle_1": {
+   "frame": {
+    "x": 60,
+    "y": 191,
+    "w": 5,
+    "h": 5
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 5,
+    "h": 5
+   },
+   "sourceSize": {
+    "w": 5,
+    "h": 5
+   }
+  },
+  "see_schwalbe_fly_0": {
+   "frame": {
+    "x": 158,
+    "y": 167,
+    "w": 13,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 13,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 13,
+    "h": 7
+   }
+  },
+  "see_schwalbe_fly_1": {
+   "frame": {
+    "x": 175,
+    "y": 167,
+    "w": 13,
+    "h": 7
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 13,
+    "h": 7
+   },
+   "sourceSize": {
+    "w": 13,
+    "h": 7
+   }
+  },
+  "see_reiher_still_0": {
+   "frame": {
+    "x": 199,
+    "y": 3,
+    "w": 18,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 18,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 18,
+    "h": 32
+   },
+   "anchors": {
+    "fuss": {
+     "x": 9,
+     "y": 31
+    }
+   }
+  },
+  "see_wasserlaeufer_skate_0": {
+   "frame": {
+    "x": 74,
+    "y": 191,
+    "w": 9,
+    "h": 4
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 4
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 4
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 3
+    }
+   }
+  },
+  "see_wasserlaeufer_skate_1": {
+   "frame": {
+    "x": 87,
+    "y": 191,
+    "w": 9,
+    "h": 4
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 4
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 4
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 3
+    }
+   }
+  },
+  "see_muecken_swarm_0": {
+   "frame": {
+    "x": 58,
+    "y": 148,
+    "w": 14,
+    "h": 12
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 12
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 12
+   }
+  },
+  "see_muecken_swarm_1": {
+   "frame": {
+    "x": 76,
+    "y": 148,
+    "w": 14,
+    "h": 12
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 12
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 12
+   }
+  },
+  "see_muecken_swarm_2": {
+   "frame": {
+    "x": 94,
+    "y": 148,
+    "w": 14,
+    "h": 12
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 12
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 12
+   }
+  },
+  "see_muecken_swarm_3": {
+   "frame": {
+    "x": 112,
+    "y": 148,
+    "w": 14,
+    "h": 12
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 12
+   },
+   "sourceSize": {
+    "w": 14,
+    "h": 12
+   }
+  },
+  "see_mondsaeule_shimmer_0": {
+   "frame": {
+    "x": 23,
+    "y": 180,
+    "w": 26,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 6
+   },
+   "anchors": {
+    "oben": {
+     "x": 13,
+     "y": 0
+    }
+   }
+  },
+  "see_mondsaeule_shimmer_1": {
+   "frame": {
+    "x": 53,
+    "y": 180,
+    "w": 26,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 6
+   },
+   "anchors": {
+    "oben": {
+     "x": 13,
+     "y": 0
+    }
+   }
+  },
+  "see_mondsaeule_shimmer_2": {
+   "frame": {
+    "x": 83,
+    "y": 180,
+    "w": 26,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 6
+   },
+   "anchors": {
+    "oben": {
+     "x": 13,
+     "y": 0
+    }
+   }
+  },
+  "see_mondsaeule_shimmer_3": {
+   "frame": {
+    "x": 113,
+    "y": 180,
+    "w": 26,
+    "h": 6
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 6
+   },
+   "sourceSize": {
+    "w": 26,
+    "h": 6
+   },
+   "anchors": {
+    "oben": {
+     "x": 13,
+     "y": 0
+    }
+   }
+  },
+  "see_blitz_a_still_0": {
+   "frame": {
+    "x": 3,
+    "y": 3,
+    "w": 28,
+    "h": 88
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 88
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 88
+   }
+  },
+  "see_blitz_b_still_0": {
+   "frame": {
+    "x": 35,
+    "y": 3,
+    "w": 28,
+    "h": 88
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 28,
+    "h": 88
+   },
+   "sourceSize": {
+    "w": 28,
+    "h": 88
+   }
+  }
+ },
+ "meta": {
+  "app": "tools/art/atlas.py",
+  "version": "0.3.0",
+  "image": "atlas_world_see.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 256,
+   "h": 256
+  },
+  "scale": "1",
+  "padding": 2,
+  "extrude": 1,
+  "palettes": [
+   "see",
+   "see_ext"
+  ],
+  "clips": {
+   "see_schilf_sway": 3,
+   "see_wasserpest_sway": 4,
+   "see_libelle_fly": 16,
+   "see_ente_swim": 4,
+   "see_ente_dabble": 5,
+   "see_frosch_quak": 6,
+   "see_kaulquappen_swim": 8,
+   "see_gluehwuermchen_glow": 6,
+   "see_blase_s_wobble": 8,
+   "see_blase_m_wobble": 8,
+   "see_blase_l_wobble": 8,
+   "see_lichtfleck_shimmer": 5,
+   "see_regenring_splash": 12,
+   "see_kruemelwolke_drift": 4,
+   "see_stern_twinkle": 2,
+   "see_schwalbe_fly": 10,
+   "see_wasserlaeufer_skate": 6,
+   "see_muecken_swarm": 10,
+   "see_mondsaeule_shimmer": 4
+  },
+  "anims": {
+   "see_schilf_sway": {
+    "frames": 3,
+    "fps": 3,
+    "loop": true,
+    "yoyo": true
+   },
+   "see_wasserpest_sway": {
+    "frames": 4,
+    "fps": 4,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_libelle_fly": {
+    "frames": 2,
+    "fps": 16,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_ente_swim": {
+    "frames": 2,
+    "fps": 4,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_ente_dabble": {
+    "frames": 2,
+    "fps": 5,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_frosch_quak": {
+    "frames": 2,
+    "fps": 6,
+    "loop": true,
+    "yoyo": true
+   },
+   "see_kaulquappen_swim": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_gluehwuermchen_glow": {
+    "frames": 4,
+    "fps": 6,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_blase_s_wobble": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_blase_m_wobble": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_blase_l_wobble": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_lichtfleck_shimmer": {
+    "frames": 4,
+    "fps": 5,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_regenring_splash": {
+    "frames": 3,
+    "fps": 12,
+    "loop": false,
+    "yoyo": false
+   },
+   "see_kruemelwolke_drift": {
+    "frames": 4,
+    "fps": 4,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_stern_twinkle": {
+    "frames": 2,
+    "fps": 2,
+    "loop": true,
+    "yoyo": true
+   },
+   "see_schwalbe_fly": {
+    "frames": 2,
+    "fps": 10,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_wasserlaeufer_skate": {
+    "frames": 2,
+    "fps": 6,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_muecken_swarm": {
+    "frames": 4,
+    "fps": 10,
+    "loop": true,
+    "yoyo": false
+   },
+   "see_mondsaeule_shimmer": {
+    "frames": 4,
+    "fps": 4,
+    "loop": true,
+    "yoyo": false
+   }
+  }
+ }
+}

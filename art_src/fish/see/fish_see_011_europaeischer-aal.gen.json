@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 403979681,
+  "fishId": "F011",
+  "assetKey": "fish_see_011_europaeischer-aal",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "saum",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 85.449,
+    "eye_size": 6,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#4A4A26",
+      "#D8C66A",
+      "#6E6A3A",
+      "#3E3D22",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#161C07",
+      "#2F3316",
+      "#4A4A26",
+      "#67623E",
+      "#857B57"
+    ],
+    "belly": [
+      "#BC9C2F",
+      "#D8C66A",
+      "#FFEBB0"
+    ],
+    "acc": [
+      "#322703",
+      "#52460E",
+      "#6E6A3A"
+    ],
+    "fin": [
+      "#1E1F17",
+      "#3E3D22",
+      "#615D40"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

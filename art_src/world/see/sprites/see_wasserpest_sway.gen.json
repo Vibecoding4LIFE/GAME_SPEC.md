@@ -1,0 +1,31 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_wasserpest_sway_0",
+  "see_wasserpest_sway_1",
+  "see_wasserpest_sway_2",
+  "see_wasserpest_sway_3"
+ ],
+ "size": [
+  14,
+  50
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 4,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "fuss": {
+   "x": 7,
+   "y": 49
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

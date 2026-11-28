@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 768099288,
+  "fishId": "F034",
+  "assetKey": "fish_riff_034_grosser-barrakuda",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "merkmale": [
+      "zaehne",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 75.127,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#C9D0D6",
+      "#E8ECEF",
+      "#3A4450",
+      "#3E4650",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6F7A8F",
+      "#8C96A6",
+      "#AAB2BE",
+      "#C9D0D6",
+      "#E4EFF7"
+    ],
+    "belly": [
+      "#979FAE",
+      "#BFC5CE",
+      "#E8ECEF"
+    ],
+    "acc": [
+      "#1F252E",
+      "#3A4450",
+      "#576673"
+    ],
+    "fin": [
+      "#22272F",
+      "#3E4650",
+      "#5C6873"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

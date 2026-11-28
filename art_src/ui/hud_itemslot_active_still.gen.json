@@ -1,0 +1,29 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_hud",
+ "frames": [
+  "hud_itemslot_active_still_0"
+ ],
+ "size": [
+  30,
+  30
+ ],
+ "palettes": [
+  "hud"
+ ],
+ "eyes": 0,
+ "fps": null,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "fenster": {
+   "x": 5,
+   "y": 5,
+   "w": 20,
+   "h": 20
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

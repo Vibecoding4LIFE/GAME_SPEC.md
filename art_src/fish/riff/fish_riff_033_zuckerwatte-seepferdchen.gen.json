@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2357595376,
+  "fishId": "F033",
+  "assetKey": "fish_riff_033_zuckerwatte-seepferdchen",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "seepferdchen",
+    "schwanz": "spitz",
+    "muster": "marmor",
+    "merkmale": [
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 28.903,
+    "eye_size": 4,
+    "vb": 0.0,
+    "leuchtet": false,
+    "palette_base": [
+      "#FFB8D8",
+      "#FFD8EA",
+      "#A9D6F5",
+      "#F7C8E0",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#A35D9E",
+      "#C27AB0",
+      "#E198C3",
+      "#FFB8D8",
+      "#FFE7EE"
+    ],
+    "belly": [
+      "#A391A8",
+      "#D0B4C9",
+      "#FFD8EA"
+    ],
+    "acc": [
+      "#5F88B6",
+      "#82AED5",
+      "#A9D6F5"
+    ],
+    "fin": [
+      "#AA7AA2",
+      "#D1A0C0",
+      "#F7C8E0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

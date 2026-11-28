@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1487936767,
+  "fishId": "F009",
+  "assetKey": "fish_see_009_schuppenkarpfen",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "schuppen",
+    "merkmale": [
+      "barteln"
+    ],
+    "scale_px_per_unit": 65.958,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#A87B2E",
+      "#E5C77A",
+      "#F2DE9E",
+      "#8A4B2A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#744202",
+      "#905D0D",
+      "#A87B2E",
+      "#BD9B52",
+      "#D3BB75"
+    ],
+    "belly": [
+      "#AB7300",
+      "#C89D48",
+      "#E5C77A"
+    ],
+    "acc": [
+      "#B68A3F",
+      "#D4B46E",
+      "#F2DE9E"
+    ],
+    "fin": [
+      "#652912",
+      "#8A4B2A",
+      "#AB714A"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

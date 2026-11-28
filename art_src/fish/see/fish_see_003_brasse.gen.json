@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4209568809,
+  "fishId": "F003",
+  "assetKey": "fish_see_003_brasse",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 37.028,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#9C7A3C",
+      "#D9C38A",
+      "#5A4626",
+      "#7D6E86",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6C4002",
+      "#885B10",
+      "#9C7A3C",
+      "#B2995C",
+      "#CBB77C"
+    ],
+    "belly": [
+      "#BB9A5C",
+      "#D9C38A",
+      "#FEEBB3"
+    ],
+    "acc": [
+      "#382710",
+      "#5A4626",
+      "#796946"
+    ],
+    "fin": [
+      "#574D66",
+      "#7D6E86",
+      "#A491A9"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

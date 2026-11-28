@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4221724610,
+  "fishId": "F015",
+  "assetKey": "fish_see_015_sterlet",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "hai",
+    "muster": "platten",
+    "merkmale": [
+      "schnauze_lang",
+      "barteln"
+    ],
+    "scale_px_per_unit": 67.381,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#7A6A55",
+      "#E2D49A",
+      "#D9D3C4",
+      "#6A5B48",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#3D3939",
+      "#5B5147",
+      "#7A6A55",
+      "#94866E",
+      "#AEA388"
+    ],
+    "belly": [
+      "#A6823C",
+      "#C3AB6B",
+      "#E2D49A"
+    ],
+    "acc": [
+      "#86888C",
+      "#AFADA8",
+      "#D9D3C4"
+    ],
+    "fin": [
+      "#433C34",
+      "#6A5B48",
+      "#8C7E68"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

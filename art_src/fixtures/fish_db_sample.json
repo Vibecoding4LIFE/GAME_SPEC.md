@@ -1,0 +1,922 @@
+{
+ "version": 1,
+ "_hinweis": "Test-Fixture der Pixel-Pipeline (nicht die echte DB).",
+ "fish": [
+  {
+   "id": "F001",
+   "nr": 1,
+   "name": "Rotauge",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "rotauge",
+   "assetKey": "fish_see_001_rotauge",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "S",
+    "canvas": [
+     32,
+     16
+    ]
+   },
+   "art": {
+    "koerperform": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "farben": [
+     "#5E8C86",
+     "#D9DEE2",
+     "#C8CED6",
+     "#E0603A",
+     "#D8282E"
+    ],
+    "schillerndFarben": [
+     "#5E8C86",
+     "#D9DEE2",
+     "#C8CED6",
+     "#E0603A",
+     "#D8282E"
+    ],
+    "merkmale": [],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F002",
+   "nr": 2,
+   "name": "Flussbarsch",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "flussbarsch",
+   "assetKey": "fish_see_002_flussbarsch",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "S",
+    "canvas": [
+     32,
+     16
+    ]
+   },
+   "art": {
+    "koerperform": "normal",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "farben": [
+     "#5B6B2F",
+     "#E2C65A",
+     "#2E3418",
+     "#E4572E"
+    ],
+    "schillerndFarben": [
+     "#5B6B2F",
+     "#E2C65A",
+     "#2E3418",
+     "#E4572E"
+    ],
+    "merkmale": [
+     "stacheln"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F003",
+   "nr": 3,
+   "name": "Brasse",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "brasse",
+   "assetKey": "fish_see_003_brasse",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "farben": [
+     "#6A5A2E",
+     "#D8C890",
+     "#B89A50",
+     "#7A6A80"
+    ],
+    "schillerndFarben": [
+     "#6A5A2E",
+     "#D8C890",
+     "#B89A50",
+     "#7A6A80"
+    ],
+    "merkmale": [],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F009",
+   "nr": 9,
+   "name": "Schuppenkarpfen",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "schuppenkarpfen",
+   "assetKey": "fish_see_009_schuppenkarpfen",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "schuppen",
+    "farben": [
+     "#7A5A26",
+     "#E2C27A",
+     "#F2D58A",
+     "#8A3E26"
+    ],
+    "schillerndFarben": [
+     "#7A5A26",
+     "#E2C27A",
+     "#F2D58A",
+     "#8A3E26"
+    ],
+    "merkmale": [
+     "barteln"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F011",
+   "nr": 11,
+   "name": "Europäischer Aal",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "europaeischer-aal",
+   "assetKey": "fish_see_011_europaeischer-aal",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "aal",
+    "schwanz": "saum",
+    "muster": "keins",
+    "farben": [
+     "#4A4528",
+     "#D9C77A",
+     "#6B6338",
+     "#5A5230"
+    ],
+    "schillerndFarben": [
+     "#4A4528",
+     "#D9C77A",
+     "#6B6338",
+     "#5A5230"
+    ],
+    "merkmale": [],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F014",
+   "nr": 14,
+   "name": "Hecht",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "hecht",
+   "assetKey": "fish_see_014_hecht",
+   "seltenheit": "Selten",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "farben": [
+     "#5B6B2F",
+     "#E8E4C9",
+     "#E9D86A",
+     "#8A4B2A",
+     "#E8C838"
+    ],
+    "schillerndFarben": [
+     "#5B6B2F",
+     "#E8E4C9",
+     "#E9D86A",
+     "#8A4B2A",
+     "#E8C838"
+    ],
+    "merkmale": [
+     "zaehne"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F015",
+   "nr": 15,
+   "name": "Sterlet",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "sterlet",
+   "assetKey": "fish_see_015_sterlet",
+   "seltenheit": "Selten",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "schlank",
+    "schwanz": "hai",
+    "muster": "platten",
+    "farben": [
+     "#6E6250",
+     "#E2D29A",
+     "#E8E0C8",
+     "#7A6A58"
+    ],
+    "schillerndFarben": [
+     "#6E6250",
+     "#E2D29A",
+     "#E8E0C8",
+     "#7A6A58"
+    ],
+    "merkmale": [
+     "barteln",
+     "schnauze_lang"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F017",
+   "nr": 17,
+   "name": "Glühwürmchen-Barsch",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "gluehwuermchen-barsch",
+   "assetKey": "fish_see_017_gluehwuermchen-barsch",
+   "seltenheit": "Selten",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "normal",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "farben": [
+     "#1E2F5C",
+     "#6E86B8",
+     "#D6F25A",
+     "#2A3F78",
+     "#E8F070"
+    ],
+    "schillerndFarben": [
+     "#1E2F5C",
+     "#6E86B8",
+     "#D6F25A",
+     "#2A3F78",
+     "#E8F070"
+    ],
+    "merkmale": [
+     "stacheln"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": true
+   }
+  },
+  {
+   "id": "F018",
+   "nr": 18,
+   "name": "Europäischer Wels",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "europaeischer-wels",
+   "assetKey": "fish_see_018_europaeischer-wels",
+   "seltenheit": "Episch",
+   "boss": false,
+   "groesse": {
+    "klasse": "XL",
+    "canvas": [
+     128,
+     64
+    ]
+   },
+   "art": {
+    "koerperform": "kopflastig",
+    "schwanz": "rund",
+    "muster": "marmor",
+    "farben": [
+     "#4A4F3E",
+     "#C9C2A8",
+     "#2E3226",
+     "#3E4234"
+    ],
+    "schillerndFarben": [
+     "#4A4F3E",
+     "#C9C2A8",
+     "#2E3226",
+     "#3E4234"
+    ],
+    "merkmale": [
+     "barteln",
+     "maul_gross"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F020",
+   "nr": 20,
+   "name": "Der Alte Barnabas",
+   "welt": "W1",
+   "weltKuerzel": "see",
+   "slug": "der-alte-barnabas",
+   "assetKey": "fish_see_020_der-alte-barnabas",
+   "seltenheit": "Legendaer",
+   "boss": true,
+   "groesse": {
+    "klasse": "Boss",
+    "canvas": [
+     256,
+     128
+    ]
+   },
+   "art": {
+    "koerperform": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "farben": [
+     "#3F5A2A",
+     "#D8D2A8",
+     "#C9A84A",
+     "#6A4A2A",
+     "#F2D440"
+    ],
+    "schillerndFarben": [
+     "#3F5A2A",
+     "#D8D2A8",
+     "#C9A84A",
+     "#6A4A2A",
+     "#F2D440"
+    ],
+    "merkmale": [
+     "krone",
+     "zaehne",
+     "haken",
+     "moos"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F024",
+   "nr": 24,
+   "name": "Kupferstreifen-Pinzettfisch",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "kupferstreifen-pinzettfisch",
+   "assetKey": "fish_riff_024_kupferstreifen-pinzettfisch",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "scheibe",
+    "schwanz": "gerade",
+    "muster": "querstreifen",
+    "farben": [
+     "#D8DCE0",
+     "#F2F0EA",
+     "#E07A2A",
+     "#E8E2D0"
+    ],
+    "schillerndFarben": [
+     "#D8DCE0",
+     "#F2F0EA",
+     "#E07A2A",
+     "#E8E2D0"
+    ],
+    "merkmale": [
+     "schnauze_lang"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F027",
+   "nr": 27,
+   "name": "Blaupunktrochen",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "blaupunktrochen",
+   "assetKey": "fish_riff_027_blaupunktrochen",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "rochen",
+    "schwanz": "spitz",
+    "muster": "punkte",
+    "farben": [
+     "#C9A15A",
+     "#F2E2B8",
+     "#2E8FE0",
+     "#A8823E",
+     "#E8B830"
+    ],
+    "schillerndFarben": [
+     "#C9A15A",
+     "#F2E2B8",
+     "#2E8FE0",
+     "#A8823E",
+     "#E8B830"
+    ],
+    "merkmale": [],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F028",
+   "nr": 28,
+   "name": "Gelber Kofferfisch",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "gelber-kofferfisch",
+   "assetKey": "fish_riff_028_gelber-kofferfisch",
+   "seltenheit": "Gewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "S",
+    "canvas": [
+     32,
+     16
+    ]
+   },
+   "art": {
+    "koerperform": "kugel",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "farben": [
+     "#F2D02E",
+     "#F8E890",
+     "#1A1A22",
+     "#E8B820"
+    ],
+    "schillerndFarben": [
+     "#F2D02E",
+     "#F8E890",
+     "#1A1A22",
+     "#E8B820"
+    ],
+    "merkmale": [],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F032",
+   "nr": 32,
+   "name": "Zebramuräne",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "zebramuraene",
+   "assetKey": "fish_riff_032_zebramuraene",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "aal",
+    "schwanz": "saum",
+    "muster": "ringe",
+    "farben": [
+     "#4A2E1E",
+     "#6A4630",
+     "#F0E8DC",
+     "#3E2618"
+    ],
+    "schillerndFarben": [
+     "#4A2E1E",
+     "#6A4630",
+     "#F0E8DC",
+     "#3E2618"
+    ],
+    "merkmale": [
+     "zaehne"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F033",
+   "nr": 33,
+   "name": "Zuckerwatte-Seepferdchen",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "zuckerwatte-seepferdchen",
+   "assetKey": "fish_riff_033_zuckerwatte-seepferdchen",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "seepferdchen",
+    "schwanz": "spitz",
+    "muster": "marmor",
+    "farben": [
+     "#F4A6C8",
+     "#FBE0EC",
+     "#8FCFF4",
+     "#E890B8"
+    ],
+    "schillerndFarben": [
+     "#F4A6C8",
+     "#FBE0EC",
+     "#8FCFF4",
+     "#E890B8"
+    ],
+    "merkmale": [
+     "krone"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F038",
+   "nr": 38,
+   "name": "Segelfisch",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "segelfisch",
+   "assetKey": "fish_riff_038_segelfisch",
+   "seltenheit": "Episch",
+   "boss": false,
+   "groesse": {
+    "klasse": "XL",
+    "canvas": [
+     128,
+     64
+    ]
+   },
+   "art": {
+    "koerperform": "torpedo",
+    "schwanz": "sichel",
+    "muster": "punkte",
+    "farben": [
+     "#1E3A8A",
+     "#C8D4E0",
+     "#14182A",
+     "#2848B8"
+    ],
+    "schillerndFarben": [
+     "#1E3A8A",
+     "#C8D4E0",
+     "#14182A",
+     "#2848B8"
+    ],
+    "merkmale": [
+     "segel",
+     "schnauze_lang"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F040",
+   "nr": 40,
+   "name": "Kaiserin Coralina",
+   "welt": "W2",
+   "weltKuerzel": "riff",
+   "slug": "kaiserin-coralina",
+   "assetKey": "fish_riff_040_kaiserin-coralina",
+   "seltenheit": "Legendaer",
+   "boss": true,
+   "groesse": {
+    "klasse": "Boss",
+    "canvas": [
+     256,
+     128
+    ]
+   },
+   "art": {
+    "koerperform": "rochen",
+    "schwanz": "spitz",
+    "muster": "wellen",
+    "farben": [
+     "#2A2A78",
+     "#F0EEE8",
+     "#FF6F9E",
+     "#3A3A9A",
+     "#7FE0D0"
+    ],
+    "schillerndFarben": [
+     "#2A2A78",
+     "#F0EEE8",
+     "#FF6F9E",
+     "#3A3A9A",
+     "#7FE0D0"
+    ],
+    "merkmale": [
+     "krone"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F049",
+   "nr": 49,
+   "name": "Atlantischer Heilbutt",
+   "welt": "W3",
+   "weltKuerzel": "fjord",
+   "slug": "atlantischer-heilbutt",
+   "assetKey": "fish_fjord_049_atlantischer-heilbutt",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "L",
+    "canvas": [
+     96,
+     48
+    ]
+   },
+   "art": {
+    "koerperform": "plattfisch",
+    "schwanz": "rund",
+    "muster": "marmor",
+    "farben": [
+     "#6A5A3A",
+     "#F0ECE0",
+     "#4A3E28",
+     "#7A6A48"
+    ],
+    "schillerndFarben": [
+     "#6A5A3A",
+     "#F0ECE0",
+     "#4A3E28",
+     "#7A6A48"
+    ],
+    "merkmale": [
+     "maul_gross"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F074",
+   "nr": 74,
+   "name": "Tiefsee-Anglerfisch",
+   "welt": "W4",
+   "weltKuerzel": "tiefe",
+   "slug": "tiefsee-anglerfisch",
+   "assetKey": "fish_tiefe_074_tiefsee-anglerfisch",
+   "seltenheit": "Selten",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "kopflastig",
+    "schwanz": "rund",
+    "muster": "keins",
+    "farben": [
+     "#2A2438",
+     "#4A4058",
+     "#FEE440",
+     "#3A3248"
+    ],
+    "schillerndFarben": [
+     "#2A2438",
+     "#4A4058",
+     "#FEE440",
+     "#3A3248"
+    ],
+    "merkmale": [
+     "leuchtangel",
+     "zaehne",
+     "maul_gross"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": true
+   }
+  },
+  {
+   "id": "F078",
+   "nr": 78,
+   "name": "Riemenfisch",
+   "welt": "W4",
+   "weltKuerzel": "tiefe",
+   "slug": "riemenfisch",
+   "assetKey": "fish_tiefe_078_riemenfisch",
+   "seltenheit": "Episch",
+   "boss": false,
+   "groesse": {
+    "klasse": "XL",
+    "canvas": [
+     128,
+     64
+    ]
+   },
+   "art": {
+    "koerperform": "band",
+    "schwanz": "spitz",
+    "muster": "flecken",
+    "farben": [
+     "#C8D0DC",
+     "#E8ECF0",
+     "#5A6A88",
+     "#E0302E"
+    ],
+    "schillerndFarben": [
+     "#C8D0DC",
+     "#E8ECF0",
+     "#5A6A88",
+     "#E0302E"
+    ],
+    "merkmale": [
+     "krone"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  },
+  {
+   "id": "F090",
+   "nr": 90,
+   "name": "Glutbarsch",
+   "welt": "W5",
+   "weltKuerzel": "grotte",
+   "slug": "glutbarsch",
+   "assetKey": "fish_grotte_090_glutbarsch",
+   "seltenheit": "Ungewoehnlich",
+   "boss": false,
+   "groesse": {
+    "klasse": "M",
+    "canvas": [
+     64,
+     32
+    ]
+   },
+   "art": {
+    "koerperform": "normal",
+    "schwanz": "gegabelt",
+    "muster": "risse",
+    "farben": [
+     "#2A2024",
+     "#4A3A3A",
+     "#FFB627",
+     "#3B2A2F",
+     "#F46036"
+    ],
+    "schillerndFarben": [
+     "#2A2024",
+     "#4A3A3A",
+     "#FFB627",
+     "#3B2A2F",
+     "#F46036"
+    ],
+    "merkmale": [
+     "stacheln",
+     "flammen"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": true
+   }
+  },
+  {
+   "id": "F096",
+   "nr": 96,
+   "name": "Amethyst-Panzerfisch",
+   "welt": "W5",
+   "weltKuerzel": "grotte",
+   "slug": "amethyst-panzerfisch",
+   "assetKey": "fish_grotte_096_amethyst-panzerfisch",
+   "seltenheit": "Selten",
+   "boss": false,
+   "groesse": {
+    "klasse": "XL",
+    "canvas": [
+     128,
+     64
+    ]
+   },
+   "art": {
+    "koerperform": "kopflastig",
+    "schwanz": "hai",
+    "muster": "platten",
+    "farben": [
+     "#3E3A44",
+     "#8A8290",
+     "#B57BEA",
+     "#4A4450"
+    ],
+    "schillerndFarben": [
+     "#3E3A44",
+     "#8A8290",
+     "#B57BEA",
+     "#4A4450"
+    ],
+    "merkmale": [
+     "kristalle",
+     "zaehne"
+    ],
+    "text": "(Fixture)",
+    "schillernd": "(Fixture)",
+    "leuchtet": false
+   }
+  }
+ ]
+}

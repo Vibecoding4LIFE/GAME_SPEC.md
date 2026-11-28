@@ -1,0 +1,23 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_hud",
+ "frames": [
+  "hud_wind_left_flutter_0",
+  "hud_wind_left_flutter_1"
+ ],
+ "size": [
+  18,
+  9
+ ],
+ "palettes": [
+  "hud"
+ ],
+ "eyes": 0,
+ "fps": 4,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {},
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

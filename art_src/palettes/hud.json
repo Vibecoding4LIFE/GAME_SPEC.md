@@ -1,0 +1,205 @@
+{
+  "kuerzel": "hud",
+  "hinweis": "HUD Holz-Messing + Seltenheitsfarben B5",
+  "ramps": [
+    {
+      "name": "Holz",
+      "base": "#7A4A28",
+      "colors": [
+        "#471C0C",
+        "#633115",
+        "#7A4A28",
+        "#90653F",
+        "#A68057"
+      ]
+    },
+    {
+      "name": "Messing",
+      "base": "#D4A640",
+      "colors": [
+        "#A46D1F",
+        "#BF8823",
+        "#D4A640",
+        "#E6C668",
+        "#FFE38D"
+      ]
+    },
+    {
+      "name": "Pergament",
+      "base": "#E6D4A6",
+      "colors": [
+        "#BE9863",
+        "#D2B684",
+        "#E6D4A6",
+        "#FFF1C7"
+      ]
+    },
+    {
+      "name": "Tinte",
+      "base": "#2A1E1A",
+      "colors": [
+        "#2A1E1A",
+        "#41332C"
+      ]
+    },
+    {
+      "name": "Signalrot",
+      "base": "#D63A30",
+      "colors": [
+        "#B6152E",
+        "#D63A30",
+        "#EC6340",
+        "#FA8E62"
+      ]
+    },
+    {
+      "name": "Orange",
+      "base": "#F08A24",
+      "colors": [
+        "#D66C15",
+        "#F08A24",
+        "#FCAF5D",
+        "#FFD6A3"
+      ]
+    },
+    {
+      "name": "Warngelb",
+      "base": "#F2D03A",
+      "colors": [
+        "#E0AF01",
+        "#F2D03A",
+        "#FEEDB8"
+      ]
+    },
+    {
+      "name": "Gruen",
+      "base": "#4FB848",
+      "colors": [
+        "#229D4B",
+        "#4FB848",
+        "#87CF5D",
+        "#B6E677"
+      ]
+    },
+    {
+      "name": "Wasser",
+      "base": "#3FA7A3",
+      "colors": [
+        "#1A6F78",
+        "#138C90",
+        "#3FA7A3",
+        "#67C2B6"
+      ]
+    },
+    {
+      "name": "Wolke",
+      "base": "#F2EFE2",
+      "colors": [
+        "#B4B8BE",
+        "#D3D3D0",
+        "#F2EFE2"
+      ]
+    },
+    {
+      "name": "Gewoehnlich",
+      "base": "#B0B7C3",
+      "colors": [
+        "#949CAC",
+        "#B0B7C3",
+        "#C8D3E1"
+      ]
+    },
+    {
+      "name": "Ungewoehnlich",
+      "base": "#5BD16B",
+      "colors": [
+        "#0AB763",
+        "#5BD16B",
+        "#95E87F"
+      ]
+    },
+    {
+      "name": "Selten",
+      "base": "#3FA9F5",
+      "colors": [
+        "#298AE4",
+        "#3FA9F5",
+        "#72C6F9"
+      ]
+    },
+    {
+      "name": "Episch",
+      "base": "#A86BFF",
+      "colors": [
+        "#834FF1",
+        "#A86BFF",
+        "#C690FA"
+      ]
+    },
+    {
+      "name": "Legendaer",
+      "base": "#FFC83D",
+      "colors": [
+        "#EAA81A",
+        "#FFC83D",
+        "#FDECB8"
+      ]
+    }
+  ],
+  "colors": [
+    "#471C0C",
+    "#633115",
+    "#7A4A28",
+    "#90653F",
+    "#A68057",
+    "#A46D1F",
+    "#BF8823",
+    "#D4A640",
+    "#E6C668",
+    "#FFE38D",
+    "#BE9863",
+    "#D2B684",
+    "#E6D4A6",
+    "#FFF1C7",
+    "#2A1E1A",
+    "#41332C",
+    "#B6152E",
+    "#D63A30",
+    "#EC6340",
+    "#FA8E62",
+    "#D66C15",
+    "#F08A24",
+    "#FCAF5D",
+    "#FFD6A3",
+    "#E0AF01",
+    "#F2D03A",
+    "#FEEDB8",
+    "#229D4B",
+    "#4FB848",
+    "#87CF5D",
+    "#B6E677",
+    "#1A6F78",
+    "#138C90",
+    "#3FA7A3",
+    "#67C2B6",
+    "#B4B8BE",
+    "#D3D3D0",
+    "#F2EFE2",
+    "#949CAC",
+    "#B0B7C3",
+    "#C8D3E1",
+    "#0AB763",
+    "#5BD16B",
+    "#95E87F",
+    "#298AE4",
+    "#3FA9F5",
+    "#72C6F9",
+    "#834FF1",
+    "#A86BFF",
+    "#C690FA",
+    "#EAA81A",
+    "#FFC83D",
+    "#FDECB8"
+  ],
+  "count": 53
+}

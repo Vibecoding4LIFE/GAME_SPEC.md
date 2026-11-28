@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3825609855,
+  "fishId": "F092",
+  "assetKey": "fish_grotte_092_dampfkugler",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "kugel",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "merkmale": [
+      "stacheln"
+    ],
+    "scale_px_per_unit": 28.465,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#B8562E",
+      "#D8885A",
+      "#E8C080",
+      "#A04A28",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#82070B",
+      "#A03115",
+      "#B8562E",
+      "#D07847",
+      "#E79A63"
+    ],
+    "belly": [
+      "#B85D36",
+      "#D8885A",
+      "#FAB27E"
+    ],
+    "acc": [
+      "#AC6C24",
+      "#CA9653",
+      "#E8C080"
+    ],
+    "fin": [
+      "#7C220C",
+      "#A04A28",
+      "#C27348"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 518811178,
+  "fishId": "F087",
+  "assetKey": "fish_grotte_087_schwefelkarpfling",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "gegabelt",
+    "muster": "schuppen",
+    "merkmale": [
+      "kristalle",
+      "lippen"
+    ],
+    "scale_px_per_unit": 37.647,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#E8D43A",
+      "#F2E68A",
+      "#9AC85A",
+      "#D8C030",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#825813",
+      "#9E741C",
+      "#B99224",
+      "#D2B22E",
+      "#E8D43A"
+    ],
+    "belly": [
+      "#B79127",
+      "#D6BB53",
+      "#F2E68A"
+    ],
+    "acc": [
+      "#10850A",
+      "#61A634",
+      "#9AC85A"
+    ],
+    "fin": [
+      "#B89611",
+      "#D8C030",
+      "#FFE595"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,1333 @@
+{
+ "version": 1,
+ "welt": "W1",
+ "kuerzel": "see",
+ "generator": "tools/art/see_world.py 0.3.0",
+ "groesse": {
+  "w": 960,
+  "h": 640
+ },
+ "ansicht": {
+  "quer": {
+   "w": 640,
+   "h": 360
+  },
+  "hoch": {
+   "w": 360,
+   "h": 640
+  }
+ },
+ "pixelProMeter": 20,
+ "oberflaecheY": 120,
+ "maxTiefeM": 25,
+ "grundTiefsterY": 620,
+ "kamera": {
+  "quer": {
+   "scrollX": [
+    0,
+    320
+   ],
+   "scrollY": [
+    0,
+    280
+   ],
+   "regel": "bei 0 m scrollY = 0 (Oberfläche auf y = 120); beim Sinken folgt die Kamera dem Köder, max. scrollY = 280 (25 m sichtbar)"
+  },
+  "hoch": {
+   "scrollX": [
+    0,
+    600
+   ],
+   "scrollY": [
+    0,
+    0
+   ],
+   "regel": "ganze Höhe sichtbar; waagerecht folgt die Kamera dem eigenen Platz/Köder"
+  },
+  "rundung": "scrollX/scrollY immer Math.round"
+ },
+ "ebenen": [
+  {
+   "id": "sky_abend",
+   "datei": "layer_sky_abend.png",
+   "x": 0,
+   "y": 0,
+   "w": 960,
+   "h": 124,
+   "parallaxX": 0.1,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 0,
+   "tintGruppe": "himmel",
+   "tageszeit": "abend"
+  },
+  {
+   "id": "sky_morgen",
+   "datei": "layer_sky_morgen.png",
+   "x": 0,
+   "y": 0,
+   "w": 960,
+   "h": 124,
+   "parallaxX": 0.1,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 0,
+   "tintGruppe": "himmel",
+   "tageszeit": "morgen"
+  },
+  {
+   "id": "sky_nacht",
+   "datei": "layer_sky_nacht.png",
+   "x": 0,
+   "y": 0,
+   "w": 960,
+   "h": 124,
+   "parallaxX": 0.1,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 0,
+   "tintGruppe": "himmel",
+   "tageszeit": "nacht"
+  },
+  {
+   "id": "sky_tag",
+   "datei": "layer_sky_tag.png",
+   "x": 0,
+   "y": 0,
+   "w": 960,
+   "h": 124,
+   "parallaxX": 0.1,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 0,
+   "tintGruppe": "himmel",
+   "tageszeit": "tag"
+  },
+  {
+   "id": "far",
+   "datei": "layer_far.png",
+   "x": 0,
+   "y": 46,
+   "w": 960,
+   "h": 68,
+   "parallaxX": 0.3,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 3,
+   "tintGruppe": "oben"
+  },
+  {
+   "id": "mid",
+   "datei": "layer_mid.png",
+   "x": 0,
+   "y": 76,
+   "w": 960,
+   "h": 38,
+   "parallaxX": 0.6,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 4,
+   "tintGruppe": "oben"
+  },
+  {
+   "id": "water",
+   "datei": "layer_water.png",
+   "x": 0,
+   "y": 120,
+   "w": 960,
+   "h": 520,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 10,
+   "tintGruppe": "unter"
+  },
+  {
+   "id": "godrays",
+   "datei": "layer_godrays.png",
+   "x": 0,
+   "y": 120,
+   "w": 960,
+   "h": 230,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 11,
+   "tintGruppe": "unter",
+   "nurTageszeit": [
+    "morgen",
+    "tag",
+    "abend"
+   ],
+   "hinweis": "Lichtstrahlen; bei Bewölkt/Regen ausblenden (Alpha zur Laufzeit erlaubt)"
+  },
+  {
+   "id": "surface_0",
+   "datei": "layer_surface_0.png",
+   "x": 0,
+   "y": 114,
+   "w": 960,
+   "h": 10,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 12,
+   "tintGruppe": "oben",
+   "animation": {
+    "key": "surface",
+    "frame": 0,
+    "frames": 4,
+    "fps": 4
+   }
+  },
+  {
+   "id": "surface_1",
+   "datei": "layer_surface_1.png",
+   "x": 0,
+   "y": 114,
+   "w": 960,
+   "h": 10,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 12,
+   "tintGruppe": "oben",
+   "animation": {
+    "key": "surface",
+    "frame": 1,
+    "frames": 4,
+    "fps": 4
+   }
+  },
+  {
+   "id": "surface_2",
+   "datei": "layer_surface_2.png",
+   "x": 0,
+   "y": 114,
+   "w": 960,
+   "h": 10,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 12,
+   "tintGruppe": "oben",
+   "animation": {
+    "key": "surface",
+    "frame": 2,
+    "frames": 4,
+    "fps": 4
+   }
+  },
+  {
+   "id": "surface_3",
+   "datei": "layer_surface_3.png",
+   "x": 0,
+   "y": 114,
+   "w": 960,
+   "h": 10,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 12,
+   "tintGruppe": "oben",
+   "animation": {
+    "key": "surface",
+    "frame": 3,
+    "frames": 4,
+    "fps": 4
+   }
+  },
+  {
+   "id": "lakebed",
+   "datei": "layer_lakebed.png",
+   "x": 0,
+   "y": 120,
+   "w": 960,
+   "h": 520,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 13,
+   "tintGruppe": "unter"
+  },
+  {
+   "id": "steg",
+   "datei": "layer_steg.png",
+   "x": 0,
+   "y": 20,
+   "w": 232,
+   "h": 100,
+   "parallaxX": 1.0,
+   "parallaxY": 1.0,
+   "kachelbar": false,
+   "tiefe": 30,
+   "tintGruppe": "oben"
+  },
+  {
+   "id": "foreground",
+   "datei": "layer_foreground.png",
+   "x": 0,
+   "y": 38,
+   "w": 960,
+   "h": 116,
+   "parallaxX": 1.15,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 40,
+   "tintGruppe": "oben"
+  },
+  {
+   "id": "fog",
+   "datei": "layer_fog.png",
+   "x": 0,
+   "y": 92,
+   "w": 960,
+   "h": 40,
+   "parallaxX": 0.8,
+   "parallaxY": 1.0,
+   "kachelbar": true,
+   "tiefe": 41,
+   "tintGruppe": "oben",
+   "nurWetter": [
+    "Nebel"
+   ]
+  }
+ ],
+ "tiefenOrdnung": {
+  "himmel": 0,
+  "sonneMond": 1,
+  "wolken": 2,
+  "ferne": 3,
+  "mitte": 4,
+  "wasser": 10,
+  "godrays": 11,
+  "oberflaeche": 12,
+  "seegrund": 13,
+  "dekoUnterWasser": 16,
+  "fische": 20,
+  "schnur": 21,
+  "steg": 30,
+  "boote": 31,
+  "spieler": 32,
+  "rute": 33,
+  "dekoUeberWasser": 35,
+  "vordergrund": 40,
+  "nebel": 41,
+  "hud": 100
+ },
+ "tageszeiten": {
+  "morgen": {
+   "himmel": "sky_morgen",
+   "tint": {
+    "oben": "#FBE3EB",
+    "unter": "#F5E0EA",
+    "himmel": "#FFFFFF"
+   },
+   "overlay": {
+    "oben": {
+     "farbe": "#F4A6C1",
+     "alpha": 0.32
+    },
+    "unter": {
+     "farbe": "#D988AF",
+     "alpha": 0.26
+    }
+   },
+   "sonne": true,
+   "mond": false
+  },
+  "tag": {
+   "himmel": "sky_tag",
+   "tint": {
+    "oben": "#FFFFFF",
+    "unter": "#FFFFFF",
+    "himmel": "#FFFFFF"
+   },
+   "overlay": {
+    "oben": {
+     "farbe": "#FFE066",
+     "alpha": 0.0
+    },
+    "unter": {
+     "farbe": "#FFE066",
+     "alpha": 0.0
+    }
+   },
+   "sonne": true,
+   "mond": false
+  },
+  "abend": {
+   "himmel": "sky_abend",
+   "tint": {
+    "oben": "#F6C7B1",
+    "unter": "#F7D0BD",
+    "himmel": "#FFFFFF"
+   },
+   "overlay": {
+    "oben": {
+     "farbe": "#E8743C",
+     "alpha": 0.4
+    },
+    "unter": {
+     "farbe": "#E8743C",
+     "alpha": 0.34
+    }
+   },
+   "sonne": true,
+   "mond": false
+  },
+  "nacht": {
+   "himmel": "sky_nacht",
+   "tint": {
+    "oben": "#747C9A",
+    "unter": "#757A89",
+    "himmel": "#FFFFFF"
+   },
+   "overlay": {
+    "oben": {
+     "farbe": "#1F2B5C",
+     "alpha": 0.62
+    },
+    "unter": {
+     "farbe": "#111934",
+     "alpha": 0.58
+    }
+   },
+   "sonne": false,
+   "mond": true
+  }
+ },
+ "sonnenbahn": {
+  "x": [
+   60,
+   900
+  ],
+  "yHoch": 18,
+  "yHorizont": 100,
+  "hinweis": "Sonne/Mond als Atlas-Frames"
+ },
+ "tiefenschichten": [
+  {
+   "name": "Uferzone",
+   "minM": 0,
+   "maxM": 3,
+   "yMin": 120,
+   "yMax": 180,
+   "hudFarbe": "#67C2B6"
+  },
+  {
+   "name": "Freiwasser",
+   "minM": 3,
+   "maxM": 8,
+   "yMin": 180,
+   "yMax": 280,
+   "hudFarbe": "#138C90"
+  },
+  {
+   "name": "Krautfeld",
+   "minM": 8,
+   "maxM": 15,
+   "yMin": 280,
+   "yMax": 420,
+   "hudFarbe": "#3A8D34"
+  },
+  {
+   "name": "Tiefes Loch",
+   "minM": 15,
+   "maxM": 25,
+   "yMin": 420,
+   "yMax": 620,
+   "hudFarbe": "#2A4B42"
+  }
+ ],
+ "seegrund": {
+  "hinweis": "Grundlinie (x, y) alle 8 px; Köder kann nicht tiefer als der Grund an seiner x-Position",
+  "polyline": [
+   [
+    0,
+    186
+   ],
+   [
+    8,
+    186
+   ],
+   [
+    16,
+    186
+   ],
+   [
+    24,
+    188
+   ],
+   [
+    32,
+    189
+   ],
+   [
+    40,
+    190
+   ],
+   [
+    48,
+    189
+   ],
+   [
+    56,
+    188
+   ],
+   [
+    64,
+    186
+   ],
+   [
+    72,
+    184
+   ],
+   [
+    80,
+    184
+   ],
+   [
+    88,
+    185
+   ],
+   [
+    96,
+    187
+   ],
+   [
+    104,
+    189
+   ],
+   [
+    112,
+    191
+   ],
+   [
+    120,
+    192
+   ],
+   [
+    128,
+    192
+   ],
+   [
+    136,
+    191
+   ],
+   [
+    144,
+    190
+   ],
+   [
+    152,
+    188
+   ],
+   [
+    160,
+    188
+   ],
+   [
+    168,
+    188
+   ],
+   [
+    176,
+    190
+   ],
+   [
+    184,
+    191
+   ],
+   [
+    192,
+    192
+   ],
+   [
+    200,
+    192
+   ],
+   [
+    208,
+    191
+   ],
+   [
+    216,
+    189
+   ],
+   [
+    224,
+    188
+   ],
+   [
+    232,
+    186
+   ],
+   [
+    240,
+    186
+   ],
+   [
+    248,
+    188
+   ],
+   [
+    256,
+    191
+   ],
+   [
+    264,
+    195
+   ],
+   [
+    272,
+    202
+   ],
+   [
+    280,
+    211
+   ],
+   [
+    288,
+    224
+   ],
+   [
+    296,
+    246
+   ],
+   [
+    304,
+    276
+   ],
+   [
+    312,
+    309
+   ],
+   [
+    320,
+    345
+   ],
+   [
+    328,
+    374
+   ],
+   [
+    336,
+    396
+   ],
+   [
+    344,
+    412
+   ],
+   [
+    352,
+    419
+   ],
+   [
+    360,
+    422
+   ],
+   [
+    368,
+    424
+   ],
+   [
+    376,
+    424
+   ],
+   [
+    384,
+    423
+   ],
+   [
+    392,
+    421
+   ],
+   [
+    400,
+    419
+   ],
+   [
+    408,
+    418
+   ],
+   [
+    416,
+    418
+   ],
+   [
+    424,
+    418
+   ],
+   [
+    432,
+    419
+   ],
+   [
+    440,
+    421
+   ],
+   [
+    448,
+    427
+   ],
+   [
+    456,
+    438
+   ],
+   [
+    464,
+    452
+   ],
+   [
+    472,
+    470
+   ],
+   [
+    480,
+    493
+   ],
+   [
+    488,
+    518
+   ],
+   [
+    496,
+    542
+   ],
+   [
+    504,
+    567
+   ],
+   [
+    512,
+    588
+   ],
+   [
+    520,
+    601
+   ],
+   [
+    528,
+    610
+   ],
+   [
+    536,
+    616
+   ],
+   [
+    544,
+    619
+   ],
+   [
+    552,
+    620
+   ],
+   [
+    560,
+    620
+   ],
+   [
+    568,
+    620
+   ],
+   [
+    576,
+    620
+   ],
+   [
+    584,
+    620
+   ],
+   [
+    592,
+    620
+   ],
+   [
+    600,
+    620
+   ],
+   [
+    608,
+    620
+   ],
+   [
+    616,
+    620
+   ],
+   [
+    624,
+    620
+   ],
+   [
+    632,
+    619
+   ],
+   [
+    640,
+    618
+   ],
+   [
+    648,
+    616
+   ],
+   [
+    656,
+    611
+   ],
+   [
+    664,
+    603
+   ],
+   [
+    672,
+    592
+   ],
+   [
+    680,
+    579
+   ],
+   [
+    688,
+    562
+   ],
+   [
+    696,
+    540
+   ],
+   [
+    704,
+    515
+   ],
+   [
+    712,
+    492
+   ],
+   [
+    720,
+    466
+   ],
+   [
+    728,
+    444
+   ],
+   [
+    736,
+    430
+   ],
+   [
+    744,
+    421
+   ],
+   [
+    752,
+    416
+   ],
+   [
+    760,
+    415
+   ],
+   [
+    768,
+    416
+   ],
+   [
+    776,
+    417
+   ],
+   [
+    784,
+    418
+   ],
+   [
+    792,
+    420
+   ],
+   [
+    800,
+    420
+   ],
+   [
+    808,
+    420
+   ],
+   [
+    816,
+    420
+   ],
+   [
+    824,
+    419
+   ],
+   [
+    832,
+    418
+   ],
+   [
+    840,
+    417
+   ],
+   [
+    848,
+    415
+   ],
+   [
+    856,
+    410
+   ],
+   [
+    864,
+    404
+   ],
+   [
+    872,
+    396
+   ],
+   [
+    880,
+    384
+   ],
+   [
+    888,
+    364
+   ],
+   [
+    896,
+    339
+   ],
+   [
+    904,
+    315
+   ],
+   [
+    912,
+    287
+   ],
+   [
+    920,
+    259
+   ],
+   [
+    928,
+    235
+   ],
+   [
+    936,
+    215
+   ],
+   [
+    944,
+    201
+   ],
+   [
+    952,
+    191
+   ],
+   [
+    960,
+    186
+   ]
+  ]
+ },
+ "spielerplaetze": [
+  {
+   "id": "steg_1",
+   "typ": "steg",
+   "x": 124,
+   "y": 97,
+   "blick": "rechts"
+  },
+  {
+   "id": "steg_2",
+   "typ": "steg",
+   "x": 172,
+   "y": 97,
+   "blick": "rechts"
+  },
+  {
+   "id": "boot_1",
+   "typ": "boot",
+   "x": 330,
+   "y": 120,
+   "blick": "rechts"
+  },
+  {
+   "id": "boot_2",
+   "typ": "boot",
+   "x": 412,
+   "y": 120,
+   "blick": "rechts"
+  }
+ ],
+ "spielerplatzRegeln": {
+  "steg": "Figur angler_<v>_sit_still_0 mit Anker 'sitz' auf (x, y)",
+  "boot": "boat_ruderboot_rock mit Anker 'wasserlinie' auf (x, y); Figur mit 'sitz' auf Boot-Anker 'sitz'; Boot vor der Figur zeichnen",
+  "rute": "rod_bend_<n> mit Anker 'griff' auf Figuren-Anker 'hand'; Schnur beginnt am Anker 'spitze'"
+ },
+ "deckung": [
+  {
+   "id": "seerosen",
+   "typ": "seerosen",
+   "x": 200,
+   "y": 120,
+   "w": 100,
+   "h": 60,
+   "tiefeM": [
+    0,
+    3
+   ]
+  },
+  {
+   "id": "kraut_1",
+   "typ": "kraut",
+   "x": 330,
+   "y": 280,
+   "w": 136,
+   "h": 148,
+   "tiefeM": [
+    8,
+    15
+   ]
+  },
+  {
+   "id": "kraut_2",
+   "typ": "kraut",
+   "x": 742,
+   "y": 280,
+   "w": 144,
+   "h": 148,
+   "tiefeM": [
+    8,
+    15
+   ]
+  },
+  {
+   "id": "wurzelstock",
+   "typ": "kraut",
+   "x": 458,
+   "y": 450,
+   "w": 72,
+   "h": 130,
+   "tiefeM": [
+    16.5,
+    23
+   ]
+  }
+ ],
+ "futterplatz": {
+  "anim": "see_kruemelwolke_drift",
+  "anker": "mitte",
+  "hinweis": "Dauer und Bonus stehen in den Spieldaten (Spec: 30 s, Friedfische +50 %)"
+ },
+ "deko": [
+  {
+   "frame": "see_seerose_blatt_a_still_0",
+   "x": 214,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 14
+  },
+  {
+   "frame": "see_seerose_blatt_c_still_0",
+   "x": 232,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 14
+  },
+  {
+   "frame": "see_seerose_blatt_b_still_0",
+   "x": 251,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 14
+  },
+  {
+   "frame": "see_seerose_blatt_a_still_0",
+   "x": 270,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 14
+  },
+  {
+   "frame": "see_seerose_blatt_c_still_0",
+   "x": 287,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 14
+  },
+  {
+   "frame": "see_seerose_bluete_still_0",
+   "x": 232,
+   "y": 117,
+   "anker": "fuss",
+   "tiefe": 15
+  },
+  {
+   "frame": "see_seerose_bluete_still_0",
+   "x": 270,
+   "y": 117,
+   "anker": "fuss",
+   "tiefe": 15
+  },
+  {
+   "anim": "see_frosch_idle",
+   "x": 252,
+   "y": 118,
+   "anker": "fuss",
+   "tiefe": 15,
+   "regen": "see_frosch_quak"
+  },
+  {
+   "anim": "see_schilf_sway",
+   "x": 256,
+   "y": 121,
+   "anker": "fuss",
+   "tiefe": 15,
+   "flipX": false
+  },
+  {
+   "anim": "see_schilf_sway",
+   "x": 470,
+   "y": 121,
+   "anker": "fuss",
+   "tiefe": 15,
+   "flipX": true
+  },
+  {
+   "anim": "see_schilf_sway",
+   "x": 720,
+   "y": 121,
+   "anker": "fuss",
+   "tiefe": 15,
+   "flipX": false
+  },
+  {
+   "anim": "see_ente_swim",
+   "x": 560,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 15,
+   "bahn": [
+    520,
+    900
+   ]
+  },
+  {
+   "anim": "see_ente_dabble",
+   "x": 640,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 15
+  },
+  {
+   "frame": "see_reiher_still_0",
+   "x": 100,
+   "y": 103,
+   "anker": "fuss",
+   "tiefe": 31,
+   "hinweis": "steht auf dem Steg neben dem Bootshaus"
+  },
+  {
+   "anim": "see_kaulquappen_swim",
+   "x": 230,
+   "y": 150,
+   "tiefe": 16,
+   "zone": "seerosen"
+  },
+  {
+   "anim": "see_wasserpest_sway",
+   "x": 360,
+   "y": 423,
+   "anker": "fuss",
+   "tiefe": 16
+  },
+  {
+   "anim": "see_wasserpest_sway",
+   "x": 420,
+   "y": 419,
+   "anker": "fuss",
+   "tiefe": 16
+  },
+  {
+   "anim": "see_wasserpest_sway",
+   "x": 790,
+   "y": 420,
+   "anker": "fuss",
+   "tiefe": 16
+  },
+  {
+   "anim": "see_wasserpest_sway",
+   "x": 860,
+   "y": 408,
+   "anker": "fuss",
+   "tiefe": 16
+  },
+  {
+   "anim": "see_lichtfleck_shimmer",
+   "x": 40,
+   "y": 187,
+   "tiefe": 16,
+   "nurTag": true
+  },
+  {
+   "anim": "see_lichtfleck_shimmer",
+   "x": 104,
+   "y": 186,
+   "tiefe": 16,
+   "nurTag": true
+  },
+  {
+   "anim": "see_lichtfleck_shimmer",
+   "x": 168,
+   "y": 185,
+   "tiefe": 16,
+   "nurTag": true
+  },
+  {
+   "anim": "see_lichtfleck_shimmer",
+   "x": 236,
+   "y": 183,
+   "tiefe": 16,
+   "nurTag": true
+  },
+  {
+   "anim": "see_libelle_fly",
+   "x": 300,
+   "y": 96,
+   "tiefe": 35,
+   "bahn": [
+    220,
+    560
+   ]
+  },
+  {
+   "anim": "see_wasserlaeufer_skate",
+   "x": 600,
+   "y": 120,
+   "anker": "wasserlinie",
+   "tiefe": 15
+  }
+ ],
+ "spawnZonen": [
+  {
+   "anim": "see_gluehwuermchen_glow",
+   "rect": [
+    0,
+    60,
+    960,
+    56
+   ],
+   "nur": [
+    "nacht"
+   ],
+   "anzahl": 14
+  },
+  {
+   "anim": "see_schwalbe_fly",
+   "rect": [
+    0,
+    20,
+    960,
+    60
+   ],
+   "nur": [
+    "abend"
+   ],
+   "anzahl": 3
+  },
+  {
+   "anim": "see_muecken_swarm",
+   "rect": [
+    200,
+    90,
+    600,
+    24
+   ],
+   "ereignis": "Mueckenschwarm",
+   "anzahl": 4
+  },
+  {
+   "anim": "see_stern_twinkle",
+   "rect": [
+    0,
+    0,
+    960,
+    70
+   ],
+   "nur": [
+    "nacht"
+   ],
+   "anzahl": 12
+  },
+  {
+   "anim": "see_blase_m_wobble",
+   "rect": [
+    0,
+    140,
+    960,
+    480
+   ],
+   "anzahl": 6,
+   "steigt": true
+  },
+  {
+   "frame": "see_regentropfen_still_0",
+   "rect": [
+    0,
+    0,
+    960,
+    120
+   ],
+   "wetter": [
+    "Regen",
+    "Gewitter"
+   ],
+   "anzahl": 80,
+   "faellt": true
+  },
+  {
+   "anim": "see_regenring_splash",
+   "rect": [
+    0,
+    119,
+    960,
+    2
+   ],
+   "wetter": [
+    "Regen",
+    "Gewitter"
+   ],
+   "anzahl": 10
+  },
+  {
+   "anim": "see_mondsaeule_shimmer",
+   "rect": [
+    380,
+    114,
+    200,
+    6
+   ],
+   "ereignis": "Vollmond",
+   "anzahl": 1
+  },
+  {
+   "frame": "see_blitz_a_still_0",
+   "rect": [
+    0,
+    0,
+    960,
+    100
+   ],
+   "wetter": [
+    "Gewitter"
+   ],
+   "anzahl": 1
+  }
+ ],
+ "atlanten": {
+  "welt": "assets/worlds/see/atlas_world_see.json",
+  "figuren": "assets/figures/atlas_figures.json",
+  "hud": "assets/ui/atlas_hud.json",
+  "fische": "assets/fish/see/atlas_fish_see.json"
+ }
+}

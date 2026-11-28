@@ -1,0 +1,10 @@
+id;preis_muenzen;ruf;stufe;effekt;wert;welten;name_de;name_en;beschreibung_de;beschreibung_en
+Z01;1500;4;1;KescherRettung;1;;Kescher;Landing Net;Rettet einmal pro Runde einen Fisch, der im letzten Moment ausschlitzt.;Once per round, saves a fish that shakes the hook at the last moment.
+Z02;3000;8;1;EcholotRand;1;;Echolot;Fish Finder;Schatten zeigen einen Rand in Seltenheitsfarbe.;Shadows get an outline in their rarity color.
+Z03;2000;6;1;WetterVorschau;2;;Wetterradio;Weather Radio;Zeigt die nächsten 2 Wetterwechsel.;Shows the next 2 weather changes.
+Z04;1200;5;1;FutterplatzUeberall;1;;Futterkelle;Groundbait Scoop;Futterplatz in jeder Welt, mit passendem Köder.;Set a feeding spot in any world with the right bait.
+Z05;800;12;1;EislochTipps;1;W3;Eispickel;Ice Pick;Eislöcher mit 1 statt 3 Tipps freihacken.;Clear ice holes with 1 tap instead of 3.
+Z06;3000;20;1;Lichtradius;32;W4;Köderlampe I;Lure Lamp I;Lichtradius 32 px in der Leuchtenden Tiefe.;Light radius 32 px in the Glowing Deep.
+Z07;8000;22;2;Lichtradius;48;W4;Köderlampe II;Lure Lamp II;Lichtradius 48 px in der Leuchtenden Tiefe.;Light radius 48 px in the Glowing Deep.
+Z08;15000;25;3;Lichtradius;64;W4;Köderlampe III;Lure Lamp III;Lichtradius 64 px in der Leuchtenden Tiefe.;Light radius 64 px in the Glowing Deep.
+Z09;30000;30;4;Lichtradius;96;W4;Köderlampe IV;Lure Lamp IV;Lichtradius 96 px in der Leuchtenden Tiefe.;Light radius 96 px in the Glowing Deep.

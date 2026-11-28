@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1942370237,
+  "fishId": "F035",
+  "assetKey": "fish_riff_035_napoleon-lippfisch",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "hochrueckig",
+    "schwanz": "rund",
+    "muster": "wellen",
+    "merkmale": [
+      "buckel",
+      "lippen"
+    ],
+    "scale_px_per_unit": 95.206,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#2E8A8A",
+      "#6ABFB0",
+      "#1E5A6A",
+      "#2A7A80",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#06505A",
+      "#156D73",
+      "#2E8A8A",
+      "#55A69F",
+      "#7AC3B5"
+    ],
+    "belly": [
+      "#2B9B93",
+      "#6ABFB0",
+      "#99E5CF"
+    ],
+    "acc": [
+      "#001824",
+      "#053848",
+      "#1E5A6A"
+    ],
+    "fin": [
+      "#065660",
+      "#2A7A80",
+      "#569F9E"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3435269966,
+  "fishId": "F086",
+  "assetKey": "fish_grotte_086_bimsstein-barsch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "punkte",
+    "merkmale": [],
+    "scale_px_per_unit": 48.843,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#C8C0B8",
+      "#DCD6D0",
+      "#6E6660",
+      "#B0A8A0",
+      "#F49A3A"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#696D7C",
+      "#878890",
+      "#A7A3A4",
+      "#C8C0B8",
+      "#E7DED2"
+    ],
+    "belly": [
+      "#8A8B95",
+      "#B2B0B2",
+      "#DCD6D0"
+    ],
+    "acc": [
+      "#27272C",
+      "#494546",
+      "#6E6660"
+    ],
+    "fin": [
+      "#878484",
+      "#B0A8A0",
+      "#D7CEC2"
+    ],
+    "iris": [
+      "#F49A3A"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

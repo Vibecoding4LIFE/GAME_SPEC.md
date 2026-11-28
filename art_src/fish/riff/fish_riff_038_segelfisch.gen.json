@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1600365713,
+  "fishId": "F038",
+  "assetKey": "fish_riff_038_segelfisch",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "sichel",
+    "muster": "querstreifen",
+    "merkmale": [
+      "segel",
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 81.496,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#1B3A8A",
+      "#D9E2EA",
+      "#8FD3F4",
+      "#1E4FB0",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#071036",
+      "#15245D",
+      "#1B3A8A",
+      "#2659A1",
+      "#3978B7"
+    ],
+    "belly": [
+      "#8B95A7",
+      "#B1BBC8",
+      "#D9E2EA"
+    ],
+    "acc": [
+      "#4184B8",
+      "#66ABD6",
+      "#8FD3F4"
+    ],
+    "fin": [
+      "#192B7F",
+      "#1E4FB0",
+      "#3279CF"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_figures",
+ "frames": [
+  "pose_nibble_0",
+  "pose_nibble_1"
+ ],
+ "size": [
+  9,
+  28
+ ],
+ "palettes": [
+  "figures"
+ ],
+ "eyes": 0,
+ "fps": 10,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "wasserlinie": {
+   "x": 4,
+   "y": 10
+  }
+ },
+ "hinweis": "Zupfer",
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

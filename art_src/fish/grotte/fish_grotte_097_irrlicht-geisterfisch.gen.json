@@ -1,0 +1,84 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2738063284,
+  "fishId": "F097",
+  "assetKey": "fish_grotte_097_irrlicht-geisterfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "spitz",
+    "muster": "keins",
+    "merkmale": [
+      "flammen"
+    ],
+    "scale_px_per_unit": 47.828,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#8E44AD",
+      "#B07AD8",
+      "#F2A6D8",
+      "#6A2A90",
+      "#F4F0F8"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#49117E",
+      "#6D239D",
+      "#8E44AD",
+      "#B062BD",
+      "#D17FCD"
+    ],
+    "belly": [
+      "#8555BD",
+      "#B07AD8",
+      "#DD9FF4"
+    ],
+    "acc": [
+      "#A059A2",
+      "#C97FBC",
+      "#F2A6D8"
+    ],
+    "fin": [
+      "#3E1564",
+      "#6A2A90",
+      "#9350AA"
+    ],
+    "iris": [
+      "#F4F0F8"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

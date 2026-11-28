@@ -1,0 +1,29 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_frosch_quak_0",
+  "see_frosch_quak_1"
+ ],
+ "size": [
+  14,
+  11
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 1,
+ "fps": 6,
+ "loop": true,
+ "yoyo": true,
+ "anchors": {
+  "fuss": {
+   "x": 6,
+   "y": 10
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

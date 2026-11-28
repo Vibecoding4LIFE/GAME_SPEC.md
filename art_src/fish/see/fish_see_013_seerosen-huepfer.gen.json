@@ -1,0 +1,87 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 5507157,
+  "fishId": "F013",
+  "assetKey": "fish_see_013_seerosen-huepfer",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "flecken",
+    "merkmale": [
+      "froschbeine",
+      "glupschaugen",
+      "blume",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 40.935,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#6BBF4A",
+      "#D8EFA0",
+      "#2E6B2A",
+      "#4E9A3A",
+      "#F2E05A"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#178546",
+      "#1DA634",
+      "#6BBF4A",
+      "#9FD864",
+      "#CEF282"
+    ],
+    "belly": [
+      "#A09C2D",
+      "#BBC66A",
+      "#D8EFA0"
+    ],
+    "acc": [
+      "#002512",
+      "#01481C",
+      "#2E6B2A"
+    ],
+    "fin": [
+      "#1B752E",
+      "#4E9A3A",
+      "#87BC5B"
+    ],
+    "iris": [
+      "#F2E05A"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

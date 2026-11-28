@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1410125146,
+  "fishId": "F055",
+  "assetKey": "fish_fjord_055_narwal-hornhecht",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "sichel",
+    "muster": "flecken",
+    "merkmale": [
+      "horn",
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 64.292,
+    "eye_size": 6,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#9AB8A0",
+      "#DCE8E0",
+      "#6A7470",
+      "#8AA898",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#657D7B",
+      "#7F9A8D",
+      "#9AB8A0",
+      "#BAD5B9",
+      "#DCF2D3"
+    ],
+    "belly": [
+      "#8E9AA3",
+      "#B4C0C1",
+      "#DCE8E0"
+    ],
+    "acc": [
+      "#2A3137",
+      "#475254",
+      "#6A7470"
+    ],
+    "fin": [
+      "#68827C",
+      "#8AA898",
+      "#B1CEBA"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

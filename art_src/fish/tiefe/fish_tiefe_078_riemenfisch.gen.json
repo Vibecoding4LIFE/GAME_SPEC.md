@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2373903819,
+  "fishId": "F078",
+  "assetKey": "fish_tiefe_078_riemenfisch",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "band",
+    "schwanz": "spitz",
+    "muster": "flecken",
+    "merkmale": [
+      "krone"
+    ],
+    "scale_px_per_unit": 111.67,
+    "eye_size": 7,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#C8CCD6",
+      "#E0E4EA",
+      "#6A7A9A",
+      "#E8303A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 14,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#6E778D",
+      "#8B92A5",
+      "#A9AFBD",
+      "#C8CCD6",
+      "#E3EBF7"
+    ],
+    "belly": [
+      "#9098A8",
+      "#B7BDC9",
+      "#E0E4EA"
+    ],
+    "acc": [
+      "#2B3656",
+      "#49567B",
+      "#6A7A9A"
+    ],
+    "fin": [
+      "#B20A35",
+      "#E8303A",
+      "#FB7B66"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

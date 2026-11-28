@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2574525652,
+  "fishId": "F028",
+  "assetKey": "fish_riff_028_gelber-kofferfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "merkmale": [],
+    "scale_px_per_unit": 13.643,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#FFD23F",
+      "#FFE58A",
+      "#1C1C24",
+      "#F2C02A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#905717",
+      "#AF721A",
+      "#CD8F18",
+      "#E9AF10",
+      "#FFD23F"
+    ],
+    "belly": [
+      "#D9B04A",
+      "#FFE58A"
+    ],
+    "acc": [
+      "#1C1C24",
+      "#42414C"
+    ],
+    "fin": [
+      "#C08F27",
+      "#F2C02A"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

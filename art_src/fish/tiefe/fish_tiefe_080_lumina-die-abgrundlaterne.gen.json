@@ -1,0 +1,94 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 4041930323,
+  "fishId": "F080",
+  "assetKey": "fish_tiefe_080_lumina-die-abgrundlaterne",
+  "klasse": "Boss",
+  "canvas": [
+    256,
+    128
+  ],
+  "seltenheit": "legendaer",
+  "boss": true,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "rund",
+    "muster": "leuchtpunkte",
+    "merkmale": [
+      "leuchtangel",
+      "krone",
+      "zaehne",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 171.976,
+    "eye_size": 9,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#120E1A",
+      "#1E1828",
+      "#9B5CF0",
+      "#1A1422",
+      "#FEE440"
+    ]
+  },
+  "farbenGenutzt": 20,
+  "farbLimit": 24,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#120E1A",
+      "#292231",
+      "#433849",
+      "#5E5062",
+      "#7C687B"
+    ],
+    "belly": [
+      "#1E1828",
+      "#3A3143",
+      "#594B5F",
+      "#79677C"
+    ],
+    "acc": [
+      "#4A19B6",
+      "#7237DB",
+      "#9B5CF0",
+      "#C284FA"
+    ],
+    "fin": [
+      "#1A1422",
+      "#352C3C",
+      "#544658",
+      "#746275"
+    ],
+    "iris": [
+      "#D4AE16",
+      "#FEE440"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": true,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

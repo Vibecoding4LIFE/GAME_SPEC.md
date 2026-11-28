@@ -1,0 +1,14 @@
+{
+ "Ruhig": [
+  {
+   "behavior": "Ruhig",
+   "outcome": "caught",
+   "durationS": 16.586,
+   "actions": [],
+   "telegraphs": 0,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.61
+  }
+ ]
+}

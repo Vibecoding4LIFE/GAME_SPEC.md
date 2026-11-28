@@ -1,0 +1,93 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2760299912,
+  "fishId": "F100",
+  "assetKey": "fish_grotte_100_ignaris-der-lavadrachenfisch",
+  "klasse": "Boss",
+  "canvas": [
+    256,
+    128
+  ],
+  "seltenheit": "legendaer",
+  "boss": true,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "spitz",
+    "muster": "schuppen",
+    "merkmale": [
+      "horn",
+      "zaehne",
+      "flammen"
+    ],
+    "scale_px_per_unit": 235.03,
+    "eye_size": 9,
+    "vb": 0.62,
+    "leuchtet": true,
+    "palette_base": [
+      "#1A1015",
+      "#F46036",
+      "#FFB627",
+      "#D7263D",
+      "#FFF4E8"
+    ]
+  },
+  "farbenGenutzt": 21,
+  "farbLimit": 24,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1A1015",
+      "#32242A",
+      "#4D3B3F",
+      "#695356",
+      "#866C6D"
+    ],
+    "belly": [
+      "#A70C25",
+      "#D62B1F",
+      "#F46036",
+      "#FA9B73"
+    ],
+    "acc": [
+      "#B97120",
+      "#DC9325",
+      "#FFB627",
+      "#FEE5B1"
+    ],
+    "fin": [
+      "#A70639",
+      "#D7263D",
+      "#F65D50",
+      "#FC9A80"
+    ],
+    "iris": [
+      "#C9C3C1",
+      "#FFF4E8"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": true,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

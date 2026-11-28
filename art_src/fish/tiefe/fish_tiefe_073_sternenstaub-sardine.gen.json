@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2876437748,
+  "fishId": "F073",
+  "assetKey": "fish_tiefe_073_sternenstaub-sardine",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "leuchtpunkte",
+    "merkmale": [],
+    "scale_px_per_unit": 22.218,
+    "eye_size": 2,
+    "vb": 0.52,
+    "leuchtet": true,
+    "palette_base": [
+      "#1B1446",
+      "#2A2266",
+      "#FEE440",
+      "#2A2060",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1B1446",
+      "#352B5C",
+      "#524373",
+      "#705B8A",
+      "#8F75A0"
+    ],
+    "belly": [
+      "#2A2266",
+      "#574B8E"
+    ],
+    "acc": [
+      "#D4AE16",
+      "#FEE440"
+    ],
+    "fin": [
+      "#2A2060",
+      "#564888"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

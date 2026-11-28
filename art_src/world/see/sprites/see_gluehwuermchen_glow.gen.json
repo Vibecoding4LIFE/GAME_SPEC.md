@@ -1,0 +1,26 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_gluehwuermchen_glow_0",
+  "see_gluehwuermchen_glow_1",
+  "see_gluehwuermchen_glow_2",
+  "see_gluehwuermchen_glow_3"
+ ],
+ "size": [
+  7,
+  7
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 6,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {},
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 340506979,
+  "fishId": "F049",
+  "assetKey": "fish_fjord_049_atlantischer-heilbutt",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "plattfisch",
+    "schwanz": "gerade",
+    "muster": "marmor",
+    "merkmale": [
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 73.34,
+    "eye_size": 6,
+    "vb": 0.9,
+    "leuchtet": false,
+    "palette_base": [
+      "#6A5A3A",
+      "#EEEAE0",
+      "#4A3E28",
+      "#7A6A48",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#3B270D",
+      "#543F1F",
+      "#6A5A3A",
+      "#827654",
+      "#9D916E"
+    ],
+    "belly": [
+      "#9A9EA5",
+      "#C3C3C2",
+      "#EEEAE0"
+    ],
+    "acc": [
+      "#25211B",
+      "#4A3E28",
+      "#6A6047"
+    ],
+    "fin": [
+      "#5D4621",
+      "#7A6A48",
+      "#9B8F6B"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 537914382,
+  "fishId": "F082",
+  "assetKey": "fish_grotte_082_magadi-tilapia",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "querstreifen",
+    "merkmale": [
+      "lippen"
+    ],
+    "scale_px_per_unit": 18.593,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#8AA8C8",
+      "#C8D8E8",
+      "#3A4A60",
+      "#F28A3A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#576D9B",
+      "#6F8AB2",
+      "#8AA8C8",
+      "#A3C7E4",
+      "#C1E5FD"
+    ],
+    "belly": [
+      "#99A8BB",
+      "#C8D8E8"
+    ],
+    "acc": [
+      "#3A4A60",
+      "#60758C"
+    ],
+    "fin": [
+      "#F28A3A",
+      "#FECEA5"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

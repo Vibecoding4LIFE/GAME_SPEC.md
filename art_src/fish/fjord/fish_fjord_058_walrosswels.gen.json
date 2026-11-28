@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2328809857,
+  "fishId": "F058",
+  "assetKey": "fish_fjord_058_walrosswels",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "rund",
+    "muster": "keins",
+    "merkmale": [
+      "hauer",
+      "barteln"
+    ],
+    "scale_px_per_unit": 103.788,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#7A6A5A",
+      "#B8A898",
+      "#E8DCC0",
+      "#6A5A4A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#3D393B",
+      "#5B514B",
+      "#7A6A5A",
+      "#958672",
+      "#B0A28B"
+    ],
+    "belly": [
+      "#8E847E",
+      "#B8A898",
+      "#DECFBB"
+    ],
+    "acc": [
+      "#93918E",
+      "#BCB6A7",
+      "#E8DCC0"
+    ],
+    "fin": [
+      "#433B35",
+      "#6A5A4A",
+      "#8D7D69"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

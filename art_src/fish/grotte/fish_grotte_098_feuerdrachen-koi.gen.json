@@ -1,0 +1,83 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1548706269,
+  "fishId": "F098",
+  "assetKey": "fish_grotte_098_feuerdrachen-koi",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "episch",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "schuppen",
+    "merkmale": [
+      "barteln",
+      "horn",
+      "flammen"
+    ],
+    "scale_px_per_unit": 101.288,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#D7263D",
+      "#E8A030",
+      "#FFCE5A",
+      "#F46036",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#7E0B36",
+      "#AC103C",
+      "#D7263D",
+      "#F1594C",
+      "#FA8D72"
+    ],
+    "belly": [
+      "#C07922",
+      "#E8A030",
+      "#FDCF81"
+    ],
+    "acc": [
+      "#B87C21",
+      "#E3A100",
+      "#FFCE5A"
+    ],
+    "fin": [
+      "#D02419",
+      "#F46036",
+      "#FAA37F"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

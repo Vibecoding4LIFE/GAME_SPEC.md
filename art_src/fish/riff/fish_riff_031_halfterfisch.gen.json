@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1232754730,
+  "fishId": "F031",
+  "assetKey": "fish_riff_031_halfterfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "scheibe",
+    "schwanz": "sichel",
+    "muster": "querstreifen",
+    "merkmale": [
+      "segel",
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 21.062,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F2EFE6",
+      "#F7F4EC",
+      "#1C1C26",
+      "#FFD23F",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#B0B4BC",
+      "#D0D1D1",
+      "#F2EFE6",
+      "#F2EEE2",
+      "#F3EEDF"
+    ],
+    "belly": [
+      "#CCCDCD",
+      "#F7F4EC",
+      "#F2EEE3"
+    ],
+    "acc": [
+      "#1C1C26",
+      "#3B3946",
+      "#5D5868"
+    ],
+    "fin": [
+      "#B6801B",
+      "#DBA82C",
+      "#FFD23F"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

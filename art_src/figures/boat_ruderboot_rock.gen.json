@@ -1,0 +1,32 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_figures",
+ "frames": [
+  "boat_ruderboot_rock_0",
+  "boat_ruderboot_rock_1"
+ ],
+ "size": [
+  56,
+  20
+ ],
+ "palettes": [
+  "figures"
+ ],
+ "eyes": 0,
+ "fps": 2,
+ "loop": true,
+ "yoyo": true,
+ "anchors": {
+  "wasserlinie": {
+   "x": 28,
+   "y": 12
+  },
+  "sitz": {
+   "x": 24,
+   "y": 8
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

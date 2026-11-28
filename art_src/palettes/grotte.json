@@ -1,0 +1,130 @@
+{
+  "kuerzel": "grotte",
+  "leitfarben": [
+    "#1A1015",
+    "#3B2A2F",
+    "#D7263D",
+    "#F46036",
+    "#FFB627",
+    "#7D6E6E",
+    "#C5D86D",
+    "#8E44AD"
+  ],
+  "ramps": [
+    {
+      "name": "Obsidianschwarz",
+      "base": "#1A1015",
+      "colors": [
+        "#1A1015",
+        "#312328",
+        "#49373C",
+        "#634D50"
+      ]
+    },
+    {
+      "name": "Basaltgrau",
+      "base": "#3B2A2F",
+      "colors": [
+        "#3B2A2F",
+        "#543F43",
+        "#6E5657",
+        "#896D6C"
+      ]
+    },
+    {
+      "name": "Magmarot",
+      "base": "#D7263D",
+      "colors": [
+        "#AE153E",
+        "#D7263D",
+        "#EE564A",
+        "#FC8465"
+      ]
+    },
+    {
+      "name": "Lavaorange",
+      "base": "#F46036",
+      "colors": [
+        "#BC0429",
+        "#DD3427",
+        "#F46036",
+        "#FA9164"
+      ]
+    },
+    {
+      "name": "Glutgelb",
+      "base": "#FFB627",
+      "colors": [
+        "#B25E03",
+        "#CB7B19",
+        "#E3992E",
+        "#FFB627"
+      ]
+    },
+    {
+      "name": "Aschgrau",
+      "base": "#7D6E6E",
+      "colors": [
+        "#60575D",
+        "#7D6E6E",
+        "#998684",
+        "#B5A09B"
+      ]
+    },
+    {
+      "name": "Schwefelgruen",
+      "base": "#C5D86D",
+      "colors": [
+        "#917D16",
+        "#A59A24",
+        "#B6B936",
+        "#C5D86D"
+      ]
+    },
+    {
+      "name": "Kristallviolett",
+      "base": "#8E44AD",
+      "colors": [
+        "#6F26A0",
+        "#8E44AD",
+        "#AD5FBB",
+        "#CC7BC8"
+      ]
+    }
+  ],
+  "colors": [
+    "#1A1015",
+    "#312328",
+    "#49373C",
+    "#634D50",
+    "#3B2A2F",
+    "#543F43",
+    "#6E5657",
+    "#896D6C",
+    "#AE153E",
+    "#D7263D",
+    "#EE564A",
+    "#FC8465",
+    "#BC0429",
+    "#DD3427",
+    "#F46036",
+    "#FA9164",
+    "#B25E03",
+    "#CB7B19",
+    "#E3992E",
+    "#FFB627",
+    "#60575D",
+    "#7D6E6E",
+    "#998684",
+    "#B5A09B",
+    "#917D16",
+    "#A59A24",
+    "#B6B936",
+    "#C5D86D",
+    "#6F26A0",
+    "#8E44AD",
+    "#AD5FBB",
+    "#CC7BC8"
+  ],
+  "count": 32
+}

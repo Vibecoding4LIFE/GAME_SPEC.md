@@ -1,0 +1,29 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_ente_swim_0",
+  "see_ente_swim_1"
+ ],
+ "size": [
+  20,
+  16
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 4,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "wasserlinie": {
+   "x": 10,
+   "y": 11
+  }
+ },
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

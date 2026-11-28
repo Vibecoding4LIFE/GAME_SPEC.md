@@ -1,0 +1,85 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1010741405,
+  "fishId": "F054",
+  "assetKey": "fish_fjord_054_antarktischer-seehecht",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gerade",
+    "muster": "flecken",
+    "merkmale": [
+      "maul_gross",
+      "zaehne"
+    ],
+    "scale_px_per_unit": 73.472,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3A3430",
+      "#6A625A",
+      "#E4EEF4",
+      "#2E2A28",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#201E1F",
+      "#3A3430",
+      "#544C45",
+      "#6F655B",
+      "#8B8072"
+    ],
+    "belly": [
+      "#454241",
+      "#6A625A",
+      "#8E8579"
+    ],
+    "acc": [
+      "#95A0B1",
+      "#BCC6D2",
+      "#E4EEF4"
+    ],
+    "fin": [
+      "#2E2A28",
+      "#4F4844",
+      "#736961"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

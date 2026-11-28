@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2344873239,
+  "fishId": "F006",
+  "assetKey": "fish_see_006_rotfeder",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 17.788,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#D6B03A",
+      "#EFE2A8",
+      "#8A7A2A",
+      "#B3122E",
+      "#F2C230"
+    ]
+  },
+  "farbenGenutzt": 10,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#885504",
+      "#A47109",
+      "#C08F0F",
+      "#D6B03A",
+      "#F0CF69"
+    ],
+    "belly": [
+      "#C6AF6F",
+      "#EFE2A8"
+    ],
+    "acc": [
+      "#8A7A2A",
+      "#BDA65F"
+    ],
+    "fin": [
+      "#B3122E",
+      "#E25A4E"
+    ],
+    "iris": [
+      "#F2C230"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

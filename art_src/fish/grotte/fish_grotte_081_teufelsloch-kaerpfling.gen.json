@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 939760777,
+  "fishId": "F081",
+  "assetKey": "fish_grotte_081_teufelsloch-kaerpfling",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 17.256,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#1E4FC8",
+      "#4A78E0",
+      "#12121C",
+      "#2A5AD0",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 10,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#0F1879",
+      "#1C2DA8",
+      "#1E4FC8",
+      "#2074DC",
+      "#3296EF"
+    ],
+    "belly": [
+      "#2A44B6",
+      "#4A78E0"
+    ],
+    "acc": [
+      "#12121C",
+      "#373543"
+    ],
+    "fin": [
+      "#2A5AD0",
+      "#4490F9"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

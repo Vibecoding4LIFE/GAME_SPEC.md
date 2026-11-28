@@ -1,0 +1,88 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2509852883,
+  "fishId": "F040",
+  "assetKey": "fish_riff_040_kaiserin-coralina",
+  "klasse": "Boss",
+  "canvas": [
+    256,
+    128
+  ],
+  "seltenheit": "legendaer",
+  "boss": true,
+  "parameter": {
+    "shape": "rochen",
+    "schwanz": "spitz",
+    "muster": "wellen",
+    "merkmale": [
+      "krone"
+    ],
+    "scale_px_per_unit": 128.542,
+    "eye_size": 9,
+    "vb": 0.86,
+    "leuchtet": false,
+    "palette_base": [
+      "#2A2A7A",
+      "#F2EEF4",
+      "#FF9EC7",
+      "#1E1E5A",
+      "#8A6AD0"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 24,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#121C49",
+      "#2A2A7A",
+      "#4A4390",
+      "#6B5DA6",
+      "#8C77BB"
+    ],
+    "belly": [
+      "#A8ABBC",
+      "#CCCCD8",
+      "#F2EEF4",
+      "#F3ECF4"
+    ],
+    "acc": [
+      "#B8579D",
+      "#DC7AB1",
+      "#FF9EC7",
+      "#FDD7E1"
+    ],
+    "fin": [
+      "#080D27",
+      "#1E1E5A",
+      "#3E3975",
+      "#60558F"
+    ],
+    "iris": [
+      "#573DAA",
+      "#8A6AD0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": true,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

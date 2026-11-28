@@ -1,0 +1,82 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2481003067,
+  "fishId": "F096",
+  "assetKey": "fish_grotte_096_amethyst-panzerfisch",
+  "klasse": "XL",
+  "canvas": [
+    128,
+    64
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "kopflastig",
+    "schwanz": "hai",
+    "muster": "platten",
+    "merkmale": [
+      "kristalle",
+      "panzer"
+    ],
+    "scale_px_per_unit": 105.119,
+    "eye_size": 7,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#8E44AD",
+      "#3E3A40",
+      "#D8B8F0",
+      "#34303A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 15,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#49117E",
+      "#6D239D",
+      "#8E44AD",
+      "#B062BD",
+      "#D17FCD"
+    ],
+    "belly": [
+      "#1E1D22",
+      "#3E3A40",
+      "#615962"
+    ],
+    "acc": [
+      "#836FB5",
+      "#AD92D2",
+      "#D8B8F0"
+    ],
+    "fin": [
+      "#15151A",
+      "#34303A",
+      "#564F5B"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

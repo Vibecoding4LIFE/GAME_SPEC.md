@@ -1,0 +1,88 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2542195589,
+  "fishId": "F010",
+  "assetKey": "fish_see_010_zander",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "querstreifen",
+    "merkmale": [
+      "zaehne",
+      "glupschaugen"
+    ],
+    "scale_px_per_unit": 74.431,
+    "eye_size": 8,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#6E7F6A",
+      "#E8ECE6",
+      "#3A4A3A",
+      "#8E9A86",
+      "#DCEBF0"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#3B4948",
+      "#536359",
+      "#6E7F6A",
+      "#8C9A82",
+      "#ABB69B"
+    ],
+    "belly": [
+      "#979FA8",
+      "#BFC5C7",
+      "#E8ECE6"
+    ],
+    "acc": [
+      "#202925",
+      "#3A4A3A",
+      "#5C6B57"
+    ],
+    "fin": [
+      "#69756C",
+      "#8E9A86",
+      "#B5BFA8"
+    ],
+    "iris": [
+      "#DCEBF0"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 10,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

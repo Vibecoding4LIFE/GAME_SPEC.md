@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1541308693,
+  "fishId": "F070",
+  "assetKey": "fish_tiefe_070_schwarzer-schlinger",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "schlank",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 47.359,
+    "eye_size": 4,
+    "vb": 0.52,
+    "leuchtet": false,
+    "palette_base": [
+      "#1E1C24",
+      "#9AA0B5",
+      "#B8BCC8",
+      "#2A2830",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#1E1C24",
+      "#36323C",
+      "#504956",
+      "#6C6170",
+      "#8A7A8B"
+    ],
+    "belly": [
+      "#757C92",
+      "#9AA0B5",
+      "#C2C5DD"
+    ],
+    "acc": [
+      "#6C7386",
+      "#9197A7",
+      "#B8BCC8"
+    ],
+    "fin": [
+      "#2A2830",
+      "#4A4651",
+      "#6E6674"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2400481851,
+  "fishId": "F047",
+  "assetKey": "fish_fjord_047_schneefloeckchen-grundel",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "punkte",
+    "merkmale": [
+      "glupschaugen",
+      "schneeflocke"
+    ],
+    "scale_px_per_unit": 17.8,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#EAF2FA",
+      "#F4F8FC",
+      "#7AC4F0",
+      "#DCEAF6",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#ACB6C8",
+      "#CAD4E1",
+      "#EAF2FA",
+      "#E4F0FA",
+      "#E1F1FC"
+    ],
+    "belly": [
+      "#C1C7D1",
+      "#F4F8FC"
+    ],
+    "acc": [
+      "#7AC4F0",
+      "#D3F0FE"
+    ],
+    "fin": [
+      "#ABB9C9",
+      "#DCEAF6"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

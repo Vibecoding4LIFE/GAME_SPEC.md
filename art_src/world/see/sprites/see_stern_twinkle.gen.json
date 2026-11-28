@@ -1,0 +1,24 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_world_see",
+ "frames": [
+  "see_stern_twinkle_0",
+  "see_stern_twinkle_1"
+ ],
+ "size": [
+  5,
+  5
+ ],
+ "palettes": [
+  "see",
+  "see_ext"
+ ],
+ "eyes": 0,
+ "fps": 2,
+ "loop": true,
+ "yoyo": true,
+ "anchors": {},
+ "hinweis": null,
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

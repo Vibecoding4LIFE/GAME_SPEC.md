@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- Nachbau der Artifact-Vorschau: das Spiel läuft in einem sandboxed iframe eines fremden Origins (Port 4173 vs. 4174),
+     ohne Fokus bis zum ersten Klick/Tipp, mit scrollbarer Elternseite. -->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>iframe-Harness</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #222; color: #ddd; font: 12px sans-serif; }
+      header { height: 28px; line-height: 28px; padding: 0 8px; }
+      iframe { display: block; border: 0; width: 100%; height: calc(100% - 28px); }
+      .spacer { height: 1500px; }
+    </style>
+  </head>
+  <body>
+    <header>Artifact-Vorschau <button id="outside">Außen</button></header>
+    <iframe id="game" title="Spiel" sandbox="allow-scripts allow-same-origin" allow="fullscreen; vibrate"></iframe>
+    <div class="spacer"></div>
+    <script>
+      const q = new URLSearchParams(location.search);
+      document.getElementById('game').src = q.get('src') || 'http://localhost:4173/';
+    </script>
+  </body>
+</html>

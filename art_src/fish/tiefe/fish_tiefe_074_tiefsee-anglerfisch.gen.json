@@ -1,0 +1,86 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3581379801,
+  "fishId": "F074",
+  "assetKey": "fish_tiefe_074_tiefsee-anglerfisch",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "rund",
+    "schwanz": "rund",
+    "muster": "keins",
+    "merkmale": [
+      "leuchtangel",
+      "zaehne",
+      "maul_gross"
+    ],
+    "scale_px_per_unit": 37.23,
+    "eye_size": 4,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#18141C",
+      "#241E2A",
+      "#FEE440",
+      "#201A26",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#18141C",
+      "#302933",
+      "#4A3F4B",
+      "#665765",
+      "#84707E"
+    ],
+    "belly": [
+      "#241E2A",
+      "#443B49",
+      "#685A6A"
+    ],
+    "acc": [
+      "#BB8F13",
+      "#DEB829",
+      "#FEE440"
+    ],
+    "fin": [
+      "#201A26",
+      "#403645",
+      "#635665"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 8,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "kuerzel": "see_ext",
+  "hinweis": "Ergänzung zu see.json (Himmel/Tageszeit, Wolken, Stein, Sand, Signalrot)",
+  "ramps": [
+    {
+      "name": "Wolke",
+      "base": "#F2EFE2",
+      "colors": [
+        "#969DAB",
+        "#B4B8BE",
+        "#D3D3D0",
+        "#F2EFE2"
+      ]
+    },
+    {
+      "name": "Nachtblau",
+      "base": "#1F2B5C",
+      "colors": [
+        "#111934",
+        "#1F2B5C",
+        "#2D4473",
+        "#3E5E89"
+      ]
+    },
+    {
+      "name": "Abendglut",
+      "base": "#E8743C",
+      "colors": [
+        "#BC2313",
+        "#D34F25",
+        "#E8743C",
+        "#FD9755"
+      ]
+    },
+    {
+      "name": "Dunkelholz",
+      "base": "#4F2F1C",
+      "colors": [
+        "#331C13",
+        "#4F2F1C",
+        "#664730"
+      ]
+    },
+    {
+      "name": "Signalrot",
+      "base": "#C8382F",
+      "colors": [
+        "#A9142B",
+        "#C8382F",
+        "#DF5F40",
+        "#F48355"
+      ]
+    },
+    {
+      "name": "Stein",
+      "base": "#8D96A0",
+      "colors": [
+        "#596375",
+        "#737C8A",
+        "#8D96A0",
+        "#A4B1BC"
+      ]
+    },
+    {
+      "name": "Sand",
+      "base": "#D8BE88",
+      "colors": [
+        "#B28245",
+        "#C5A066",
+        "#D8BE88",
+        "#EEDCA5"
+      ]
+    }
+  ],
+  "colors": [
+    "#969DAB",
+    "#B4B8BE",
+    "#D3D3D0",
+    "#F2EFE2",
+    "#111934",
+    "#1F2B5C",
+    "#2D4473",
+    "#3E5E89",
+    "#BC2313",
+    "#D34F25",
+    "#E8743C",
+    "#FD9755",
+    "#331C13",
+    "#4F2F1C",
+    "#664730",
+    "#A9142B",
+    "#C8382F",
+    "#DF5F40",
+    "#F48355",
+    "#596375",
+    "#737C8A",
+    "#8D96A0",
+    "#A4B1BC",
+    "#B28245",
+    "#C5A066",
+    "#D8BE88",
+    "#EEDCA5"
+  ],
+  "count": 27
+}

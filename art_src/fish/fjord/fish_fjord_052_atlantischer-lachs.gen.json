@@ -1,0 +1,86 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3916300022,
+  "fishId": "F052",
+  "assetKey": "fish_fjord_052_atlantischer-lachs",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "ungewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gerade",
+    "muster": "punkte",
+    "merkmale": [
+      "fettflosse",
+      "haken"
+    ],
+    "scale_px_per_unit": 75.147,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3E5A7A",
+      "#E4E8EC",
+      "#1E2228",
+      "#5A6A80",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#1B2642",
+      "#2A3F60",
+      "#3E5A7A",
+      "#547694",
+      "#6B93AE"
+    ],
+    "belly": [
+      "#949BAB",
+      "#BBC1CB",
+      "#E4E8EC"
+    ],
+    "acc": [
+      "#1E2228",
+      "#394149",
+      "#56626C"
+    ],
+    "fin": [
+      "#3A485E",
+      "#5A6A80",
+      "#798EA5"
+    ],
+    "metal": [
+      "#7F8897",
+      "#AEB6C2"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

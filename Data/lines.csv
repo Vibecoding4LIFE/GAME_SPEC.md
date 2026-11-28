@@ -1,0 +1,8 @@
+id;preis_muenzen;ruf;reserve_s;bissrate_bonus;schutz;hitze_faktor;druck_max_m;vorfach;zahnschutz;scheu_mod;name_de;name_en;beschreibung_de;beschreibung_en
+L01;0;1;0.00;0;;1;1000;0;0;0;Monofile Schnur;Monofilament Line;Die gute alte Nylonschnur.;Good old nylon line.
+L02;400;2;0.15;0;;1;1000;0;0;0;Geflochtene Schnur;Braided Line;Hält länger durch, bevor sie reißt.;Holds out longer before it snaps.
+L03;1500;6;0.10;0.10;;1;1000;0;0;0;Fluorocarbon „Geisterfaden“;"Fluorocarbon ""Ghost Thread""";Fast unsichtbar: Bissrate +10 %.;Almost invisible: bite rate +10%.
+L04;4000;12;0.20;0.10;Kaelte;1;1000;0;0;0;Thermoschnur;Thermal Line;Bleibt bei Frost geschmeidig. Pflicht im Frostfjord.;Stays supple in the frost. Required in Frost Fjord.
+L05;8000;20;0.25;0.10;Kaelte|Druck;1;11000;0;0;0;Tiefsee-Kevlar;Deep-Sea Kevlar;Hält Kälte und Druck bis 11.000 m aus.;Withstands cold and pressure down to 11,000 m.
+L06;22000;30;0.30;0.10;Kaelte|Druck|Hitze;0.5;11000;0;0;0;Hitzeschild-Schnur;Heat Shield Line;Kälte, Druck und halbe Hitze. Pflicht in der Magmakammer.;Cold, pressure and half the heat. Required in the magma chamber.
+Z-V;900;5;0;0;;1;1000;1;1;-0.05;Stahlvorfach;Steel Leader;Zahnfische beißen die Schnur nicht durch. Scheue Fische beißen etwas seltener.;Toothy fish can't bite through. Shy fish bite a little less often.

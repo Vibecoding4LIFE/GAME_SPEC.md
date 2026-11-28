@@ -1,0 +1,79 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 1599741519,
+  "fishId": "F001",
+  "assetKey": "fish_see_001_rotauge",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [],
+    "scale_px_per_unit": 17.032,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#3E6E6A",
+      "#D9E2E4",
+      "#A9B8BE",
+      "#E0573A",
+      "#D7263D"
+    ]
+  },
+  "farbenGenutzt": 10,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#003A3F",
+      "#165555",
+      "#3E6E6A",
+      "#5B8981",
+      "#78A598"
+    ],
+    "belly": [
+      "#A8B1BA",
+      "#D9E2E4"
+    ],
+    "acc": [
+      "#A9B8BE",
+      "#D6EAEF"
+    ],
+    "fin": [
+      "#E0573A",
+      "#FF9A75"
+    ],
+    "iris": [
+      "#D7263D"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 18,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

@@ -1,0 +1,756 @@
+{
+ "frames": {
+  "angler_a_sit_still_0": {
+   "frame": {
+    "x": 66,
+    "y": 57,
+    "w": 22,
+    "h": 30
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 30
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 30
+   },
+   "anchors": {
+    "hand": {
+     "x": 18,
+     "y": 14
+    },
+    "sitz": {
+     "x": 9,
+     "y": 21
+    }
+   }
+  },
+  "angler_b_sit_still_0": {
+   "frame": {
+    "x": 92,
+    "y": 57,
+    "w": 22,
+    "h": 30
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 30
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 30
+   },
+   "anchors": {
+    "hand": {
+     "x": 18,
+     "y": 14
+    },
+    "sitz": {
+     "x": 9,
+     "y": 21
+    }
+   }
+  },
+  "angler_c_sit_still_0": {
+   "frame": {
+    "x": 118,
+    "y": 57,
+    "w": 22,
+    "h": 30
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 30
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 30
+   },
+   "anchors": {
+    "hand": {
+     "x": 18,
+     "y": 14
+    },
+    "sitz": {
+     "x": 9,
+     "y": 21
+    }
+   }
+  },
+  "angler_d_sit_still_0": {
+   "frame": {
+    "x": 144,
+    "y": 57,
+    "w": 22,
+    "h": 30
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 22,
+    "h": 30
+   },
+   "sourceSize": {
+    "w": 22,
+    "h": 30
+   },
+   "anchors": {
+    "hand": {
+     "x": 18,
+     "y": 14
+    },
+    "sitz": {
+     "x": 9,
+     "y": 21
+    }
+   }
+  },
+  "rod_bend_0": {
+   "frame": {
+    "x": 3,
+    "y": 3,
+    "w": 56,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 50
+   },
+   "anchors": {
+    "griff": {
+     "x": 8,
+     "y": 40
+    },
+    "spitze": {
+     "x": 34,
+     "y": 1
+    },
+    "ende": {
+     "x": 3,
+     "y": 47
+    }
+   }
+  },
+  "rod_bend_1": {
+   "frame": {
+    "x": 63,
+    "y": 3,
+    "w": 56,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 50
+   },
+   "anchors": {
+    "griff": {
+     "x": 8,
+     "y": 40
+    },
+    "spitze": {
+     "x": 43,
+     "y": 9
+    },
+    "ende": {
+     "x": 3,
+     "y": 47
+    }
+   }
+  },
+  "rod_bend_2": {
+   "frame": {
+    "x": 123,
+    "y": 3,
+    "w": 56,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 50
+   },
+   "anchors": {
+    "griff": {
+     "x": 8,
+     "y": 40
+    },
+    "spitze": {
+     "x": 48,
+     "y": 19
+    },
+    "ende": {
+     "x": 3,
+     "y": 47
+    }
+   }
+  },
+  "rod_bend_3": {
+   "frame": {
+    "x": 183,
+    "y": 3,
+    "w": 56,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 50
+   },
+   "anchors": {
+    "griff": {
+     "x": 8,
+     "y": 40
+    },
+    "spitze": {
+     "x": 48,
+     "y": 31
+    },
+    "ende": {
+     "x": 3,
+     "y": 47
+    }
+   }
+  },
+  "pose_idle_0": {
+   "frame": {
+    "x": 196,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "pose_idle_1": {
+   "frame": {
+    "x": 209,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "pose_nibble_0": {
+   "frame": {
+    "x": 222,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "pose_nibble_1": {
+   "frame": {
+    "x": 235,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "pose_bite_0": {
+   "frame": {
+    "x": 170,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "pose_bite_1": {
+   "frame": {
+    "x": 183,
+    "y": 57,
+    "w": 9,
+    "h": 28
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 9,
+    "h": 28
+   },
+   "sourceSize": {
+    "w": 9,
+    "h": 28
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 4,
+     "y": 10
+    }
+   }
+  },
+  "bait_wurm_wiggle_0": {
+   "frame": {
+    "x": 3,
+    "y": 131,
+    "w": 11,
+    "h": 15
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 11,
+    "h": 15
+   },
+   "sourceSize": {
+    "w": 11,
+    "h": 15
+   },
+   "anchors": {
+    "schnur": {
+     "x": 4,
+     "y": 0
+    }
+   }
+  },
+  "bait_wurm_wiggle_1": {
+   "frame": {
+    "x": 18,
+    "y": 131,
+    "w": 11,
+    "h": 15
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 11,
+    "h": 15
+   },
+   "sourceSize": {
+    "w": 11,
+    "h": 15
+   },
+   "anchors": {
+    "schnur": {
+     "x": 4,
+     "y": 0
+    }
+   }
+  },
+  "kescher_still_0": {
+   "frame": {
+    "x": 3,
+    "y": 103,
+    "w": 30,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 30,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 30,
+    "h": 24
+   },
+   "anchors": {
+    "griff": {
+     "x": 1,
+     "y": 22
+    }
+   }
+  },
+  "boat_ruderboot_rock_0": {
+   "frame": {
+    "x": 37,
+    "y": 103,
+    "w": 56,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 20
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 28,
+     "y": 12
+    },
+    "sitz": {
+     "x": 24,
+     "y": 8
+    }
+   }
+  },
+  "boat_ruderboot_rock_1": {
+   "frame": {
+    "x": 97,
+    "y": 103,
+    "w": 56,
+    "h": 20
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 20
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 20
+   },
+   "anchors": {
+    "wasserlinie": {
+     "x": 28,
+     "y": 12
+    },
+    "sitz": {
+     "x": 24,
+     "y": 8
+    }
+   }
+  },
+  "otto_still_0": {
+   "frame": {
+    "x": 3,
+    "y": 57,
+    "w": 30,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 30,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 30,
+    "h": 42
+   }
+  },
+  "fridolin_still_0": {
+   "frame": {
+    "x": 37,
+    "y": 57,
+    "w": 25,
+    "h": 34
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 25,
+    "h": 34
+   },
+   "sourceSize": {
+    "w": 25,
+    "h": 34
+   }
+  },
+  "wetter_sonnig_still_0": {
+   "frame": {
+    "x": 237,
+    "y": 103,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   }
+  },
+  "wetter_bewoelkt_still_0": {
+   "frame": {
+    "x": 157,
+    "y": 103,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   }
+  },
+  "wetter_regen_still_0": {
+   "frame": {
+    "x": 217,
+    "y": 103,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   }
+  },
+  "wetter_gewitter_still_0": {
+   "frame": {
+    "x": 177,
+    "y": 103,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   }
+  },
+  "wetter_nebel_still_0": {
+   "frame": {
+    "x": 197,
+    "y": 103,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   }
+  }
+ },
+ "meta": {
+  "app": "tools/art/atlas.py",
+  "version": "0.3.0",
+  "image": "atlas_figures.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 256,
+   "h": 256
+  },
+  "scale": "1",
+  "padding": 2,
+  "extrude": 1,
+  "palettes": [
+   "figures"
+  ],
+  "clips": {
+   "rod_bend": 1,
+   "pose_idle": 2,
+   "pose_nibble": 10,
+   "pose_bite": 8,
+   "bait_wurm_wiggle": 4,
+   "boat_ruderboot_rock": 2
+  },
+  "anims": {
+   "rod_bend": {
+    "frames": 4,
+    "fps": 1,
+    "loop": true,
+    "yoyo": false
+   },
+   "pose_idle": {
+    "frames": 2,
+    "fps": 2,
+    "loop": true,
+    "yoyo": true
+   },
+   "pose_nibble": {
+    "frames": 2,
+    "fps": 10,
+    "loop": true,
+    "yoyo": false
+   },
+   "pose_bite": {
+    "frames": 2,
+    "fps": 8,
+    "loop": false,
+    "yoyo": false
+   },
+   "bait_wurm_wiggle": {
+    "frames": 2,
+    "fps": 4,
+    "loop": true,
+    "yoyo": false
+   },
+   "boat_ruderboot_rock": {
+    "frames": 2,
+    "fps": 2,
+    "loop": true,
+    "yoyo": true
+   }
+  }
+ }
+}

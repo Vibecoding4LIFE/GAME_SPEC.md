@@ -1,0 +1,88 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2651568786,
+  "fishId": "F014",
+  "assetKey": "fish_see_014_hecht",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "torpedo",
+    "schwanz": "gegabelt",
+    "muster": "flecken",
+    "merkmale": [
+      "zaehne",
+      "schnauze_lang"
+    ],
+    "scale_px_per_unit": 67.968,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#5B6B2F",
+      "#E8E4C9",
+      "#E9D86A",
+      "#8A4B2A",
+      "#F2D22E"
+    ]
+  },
+  "farbenGenutzt": 16,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 1,
+  "rampen": {
+    "main": [
+      "#353402",
+      "#494F0C",
+      "#5B6B2F",
+      "#7C8449",
+      "#9E9E64"
+    ],
+    "belly": [
+      "#949895",
+      "#BDBDAF",
+      "#E8E4C9"
+    ],
+    "acc": [
+      "#AC8403",
+      "#CEAC24",
+      "#E9D86A"
+    ],
+    "fin": [
+      "#652912",
+      "#8A4B2A",
+      "#AB714A"
+    ],
+    "iris": [
+      "#F2D22E"
+    ],
+    "tooth": [
+      "#E9E4D4"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 14,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

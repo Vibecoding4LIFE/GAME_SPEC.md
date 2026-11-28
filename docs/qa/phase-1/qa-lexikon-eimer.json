@@ -1,0 +1,23 @@
+{
+ "escape": "unhooked",
+ "lexicon": {
+  "caught": 2,
+  "seen": 1,
+  "unknown": 17,
+  "all": 20
+ },
+ "f001Stars": "3 of 3 stars · Caught shiny",
+ "f013Text": "Grandpa Otto swears this one bites at any time of day, and loves rain – 0–2 m down (Shallows).",
+ "bucketRows": 2,
+ "coins": {
+  "before": 0,
+  "after": 50,
+  "rowsAfter": 0
+ },
+ "afterReload": {
+  "coins": 50,
+  "lexF001": "caught",
+  "lexF013": "seen",
+  "lexF004": "caught"
+ }
+}

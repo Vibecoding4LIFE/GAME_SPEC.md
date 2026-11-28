@@ -1,0 +1,15 @@
+id;unendlich;dauerhaft;packung;preis_muenzen;preis_perlen;preis_weltfaktor;gewicht;bissrate_bonus;groessen_mu;seltenheit_mods;tag_bonus;schillernd_mult;zucken_mult;welten;wirkt_auf;einhol_tiefe_m;futterplatz;leuchtet_dunkel;hitzefest;bosslocker;ab_arten;name_de;name_en;beschreibung_de;beschreibung_en
+K01;1;1;1;0;0;0;mittel;0;0;;;1;1;W1|W2;friedfisch|raubfisch;0;0;0;0;0;0;Regenwurm;Earthworm;Der Allrounder. Geht nie aus.;The all-rounder. Never runs out.
+K02;0;0;10;50;0;0;leicht;0;0;Gewoehnlich:1.3;;1;1;W1;friedfisch;0;0;0;0;0;0;Maden;Maggots;Gewöhnliche Fische +30 % im Sonnenspiegelsee.;Common fish +30% in Sunmirror Lake.
+K03;0;0;10;40;0;0;leicht;0;0;;;1;1;W1;friedfisch;0;1;0;0;0;0;Brotflocke;Bread Flake;Mit „Füttern“ wirfst du einen Futterplatz: 30 s Friedfische +50 %.;"Use ""Feed"" to set a feeding spot: peaceful fish +50% for 30 s."
+K04;0;1;1;300;0;0;schwer;0;0;;;1;1.5;;raubfisch;0;0;0;0;0;0;Blinker;Spoon Lure;Zucken wirkt 1,5-mal so stark auf Raubfische.;Twitching works 1.5 times as well on predators.
+K05;0;1;1;800;0;0;mittel;0;0;;raubfisch:1.4;1;1;;raubfisch;2;0;0;0;0;0;Wobbler;Crankbait;Taucht beim Einholen 2 m tiefer. Raubfische +40 %.;Dives 2 m deeper when reeled in. Predators +40%.
+K06;0;0;10;120;0;0;mittel;0;0;;riff:1.4;1;1;W2|W3;riff;0;0;0;0;0;0;Garnele;Shrimp;Rifffische +40 %. Auch im Eismeer beliebt.;Reef fish +40%. Popular in icy waters too.
+K07;0;0;10;200;0;0;mittel;0;0;Selten:1.2;;1;1;W2|W3|W4;raubfisch;0;0;0;0;0;0;Tintenfischstück;Squid Strip;Seltene Fische +20 % im Riff, im Fjord und in der Tiefe.;Rare fish +20% in the reef, the fjord and the deep.
+K08;0;0;10;250;0;0;mittel;0.25;0;;;1;1;W3;schwarm;0;0;0;0;0;0;Krillball;Krill Ball;Bissrate +25 % im Frostfjord.;Bite rate +25% in Frost Fjord.
+K09;0;0;5;400;0;0;schwer;0;0;;leucht:1.5;1;1;W4;leucht;0;0;1;0;0;0;Leuchtköder;Glow Lure;Weit sichtbar im Dunkeln. Leuchtfische +50 %.;Visible from afar in the dark. Glowing fish +50%.
+K10;0;0;5;500;0;0;mittel;0;0;;glut:1.5;1;1;W5;glut;0;0;0;1;0;0;Glutwurm;Ember Worm;Hitzefest. Glutfische +50 %.;Heatproof. Ember fish +50%.
+K11;0;0;3;800;0;0;schwer;0;0;;kristall:1.8;1;1;W5;kristall;0;0;0;0;0;0;Kristallköder;Crystal Lure;Bringt die Kristalle zum Klingen. Kristallfische +80 %.;Makes the crystals ring. Crystal fish +80%.
+K12;0;0;5;600;0;0;schwer;0;0.08;Gewoehnlich:0.5;;1;1;;friedfisch|raubfisch;0;0;0;0;0;0;Großköder;Big Bait;Lockt größere Fische. Gewöhnliche Fische −50 %.;Attracts bigger fish. Common fish −50%.
+K13;0;0;3;0;2;0;mittel;0;0;;;2;1;;friedfisch|raubfisch;0;0;0;0;0;0;Glücksköder;Lucky Lure;Verdoppelt die Schillernd-Chance.;Doubles the shiny chance.
+K14;0;0;1;0;1;800;schwer;0;0;;;1;1;;friedfisch|raubfisch;0;0;0;0;1;15;Bosslocker;Boss Lure;Im Freien Angeln erscheint der Boss garantiert, wenn seine Bedingungen erfüllt sind.;In Free Fishing the boss is guaranteed to appear when its conditions are met.

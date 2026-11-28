@@ -1,0 +1,29 @@
+{
+ "generator": "tools/art",
+ "version": "0.3.0",
+ "atlas": "atlas_hud",
+ "frames": [
+  "hud_power_frame_still_0"
+ ],
+ "size": [
+  14,
+  74
+ ],
+ "palettes": [
+  "hud"
+ ],
+ "eyes": 0,
+ "fps": null,
+ "loop": true,
+ "yoyo": false,
+ "anchors": {
+  "fenster": {
+   "x": 3,
+   "y": 5,
+   "w": 8,
+   "h": 64
+  }
+ },
+ "hinweis": "Wurfkraft-Balken (senkrecht)",
+ "ableitung": "prozedural; Animationsframes per Code aus dem Standbild (F5)"
+}

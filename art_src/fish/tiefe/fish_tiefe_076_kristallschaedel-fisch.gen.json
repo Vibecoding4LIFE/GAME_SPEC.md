@@ -1,0 +1,84 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3100757814,
+  "fishId": "F076",
+  "assetKey": "fish_tiefe_076_kristallschaedel-fisch",
+  "klasse": "L",
+  "canvas": [
+    96,
+    48
+  ],
+  "seltenheit": "selten",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "gegabelt",
+    "muster": "keins",
+    "merkmale": [
+      "skelett"
+    ],
+    "scale_px_per_unit": 74.304,
+    "eye_size": 6,
+    "vb": 0.56,
+    "leuchtet": true,
+    "palette_base": [
+      "#10142A",
+      "#1B1A3A",
+      "#00F5D4",
+      "#9AA0B5",
+      "#F15BB5"
+    ]
+  },
+  "farbenGenutzt": 13,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#10142A",
+      "#282942",
+      "#42405B",
+      "#5E5874",
+      "#7C718E"
+    ],
+    "belly": [
+      "#1B1A3A",
+      "#3C3759",
+      "#60567A"
+    ],
+    "acc": [
+      "#219C98",
+      "#1FC7B8",
+      "#00F5D4"
+    ],
+    "fin": [
+      "#757C92",
+      "#9AA0B5",
+      "#C2C5DD"
+    ],
+    "iris": [
+      "#F15BB5"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 2,
+    "caughtWinkel": 6,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

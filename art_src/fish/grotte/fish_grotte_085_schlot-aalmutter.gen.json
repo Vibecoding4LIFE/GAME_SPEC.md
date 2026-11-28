@@ -1,0 +1,81 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 3035130926,
+  "fishId": "F085",
+  "assetKey": "fish_grotte_085_schlot-aalmutter",
+  "klasse": "M",
+  "canvas": [
+    64,
+    32
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "aal",
+    "schwanz": "saum",
+    "muster": "keins",
+    "merkmale": [
+      "lippen"
+    ],
+    "scale_px_per_unit": 55.532,
+    "eye_size": 4,
+    "vb": 0.62,
+    "leuchtet": false,
+    "palette_base": [
+      "#F0C8C0",
+      "#F8E0DA",
+      "#D8A098",
+      "#E8B8B0",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 11,
+  "farbLimit": 16,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#606076",
+      "#827988",
+      "#A6939B",
+      "#CAADAD",
+      "#F0C8C0"
+    ],
+    "belly": [
+      "#9F96A0",
+      "#CBBABD",
+      "#F8E0DA"
+    ],
+    "acc": [
+      "#945158",
+      "#B67876",
+      "#D8A098"
+    ],
+    "fin": [
+      "#C68F8D",
+      "#E8B8B0",
+      "#FEE7E0"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 20,
+    "frames": {
+      "swim": 6,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}

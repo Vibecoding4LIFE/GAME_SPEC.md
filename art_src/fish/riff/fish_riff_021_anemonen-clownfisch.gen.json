@@ -1,0 +1,76 @@
+{
+  "generator": "tools/art/fishgen.py",
+  "version": "0.3.0",
+  "modell": "prozedural (F8), kein Bild-KI-Prompt",
+  "seed": 2087399000,
+  "fishId": "F021",
+  "assetKey": "fish_riff_021_anemonen-clownfisch",
+  "klasse": "S",
+  "canvas": [
+    32,
+    16
+  ],
+  "seltenheit": "gewoehnlich",
+  "boss": false,
+  "parameter": {
+    "shape": "normal",
+    "schwanz": "rund",
+    "muster": "querstreifen",
+    "merkmale": [],
+    "scale_px_per_unit": 16.594,
+    "eye_size": 2,
+    "vb": 0.56,
+    "leuchtet": false,
+    "palette_base": [
+      "#F46A1E",
+      "#F7934C",
+      "#F2F2EE",
+      "#E2581A",
+      "#D8B040"
+    ]
+  },
+  "farbenGenutzt": 12,
+  "farbLimit": 12,
+  "farbenZusammengelegt": 0,
+  "rampen": {
+    "main": [
+      "#BA1203",
+      "#D4491B",
+      "#F46A1E",
+      "#FC9B5F",
+      "#FEC79F"
+    ],
+    "belly": [
+      "#CD5C11",
+      "#F7934C"
+    ],
+    "acc": [
+      "#F2F2EE",
+      "#F0EFE7"
+    ],
+    "fin": [
+      "#E2581A",
+      "#FF9C68"
+    ],
+    "white": [
+      "#FFFFFF"
+    ]
+  },
+  "platzhalter": false,
+  "animation": {
+    "swimAmplitude": 1,
+    "caughtWinkel": 12,
+    "frames": {
+      "swim": 4,
+      "idle": 4,
+      "struggle": 4,
+      "caught": 3
+    },
+    "fps": {
+      "swim": 10,
+      "idle": 6,
+      "struggle": 14,
+      "caught": 8
+    }
+  }
+}
