@@ -77,3 +77,7 @@ Alle Spielzahlen stehen in `Data/balancing.csv` (259 Werte, jede mit Quelle). Wo
 - **Drill:** `drill.stamina.scale` = 1,5 auf alle Ausdauer-Grundwerte; erste Aktion je Verhalten spätestens nach 1–2 s (`firstActionMaxS`); Pausen 2,5–4 s. Ergebnis (Bot, 30 Seeds): jede aktive Verhaltensart zeigt ≥ 2 Aktionen pro Drill – außer **Aufbläher (1 Aktion)**: Seine 5–7-s-Pause und das Erschöpfen nach dem Aufblähen stehen so in D 1.7; das bleibt vorerst Spec-treu.
 - **Zonen** (Ufer/Freiwasser/Kante) in Metern aus `worlds.json` statt in Prozent der Wurfweite (D 1.3); spielerisch gleichwertig und je Welt einstellbar. `cast.zone.*` entfernt.
 - **Einkommen** nach den Änderungen 55–68 Münzen/min (Ziel 60–90) → in Phase 5 (Balancing-Simulation) nachjustieren.
+
+## 2026-11-28 – Supabase-Projekt
+- Neues, eigenes Projekt **`catch-that-dih`** (Ref `qebiidxykwznssgqckwz`, Region eu-central-1 Frankfurt, Free-Plan) in der Organisation des Nutzers angelegt – mit seiner Freigabe. Damit sind beide Free-Plan-Plätze belegt (zweites Projekt: „yezco“). Hinweis: Free-Projekte pausieren nach 7 Tagen ohne Nutzung.
+- Browser bekommt nur URL + Publishable Key (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`), lokal in `.env.local` (nicht im Repo), im Hosting als Umgebungsvariablen. Vorlage: `.env.example`. Service-Role-Key nie im Repo/Browser.
