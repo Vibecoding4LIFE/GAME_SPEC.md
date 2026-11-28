@@ -56,6 +56,8 @@ export interface HostOptions {
   equipment?: { tierCap?: (w: WorldId) => number | null; loan?: LoadoutIds | null };
   /** Grund an einer Wurfweite (m), falls die Szene eine Karte hat */
   bottomDepthAt?: (distanceM: number) => number;
+  /** zusätzlich erlaubte Rundendauern (nur Tests/Debug, z. B. `?testdauer=90`) */
+  extraDurationsS?: readonly number[];
 }
 
 interface Hooked {
@@ -207,7 +209,7 @@ export class NetHost {
   /** Einstellung ändern; null = übernommen, sonst Grund der Ablehnung. */
   setSettings(patch: Partial<LobbySettings>): SettingsProblem | null {
     const next = { ...this.settings, ...patch };
-    const problem = checkSettings(next, this.round.phase, this.cfg, this.unlockedWorlds());
+    const problem = checkSettings(next, this.round.phase, this.cfg, this.unlockedWorlds(), this.opts.extraDurationsS);
     if (problem) { this.reject(this.id, 'round', problem); return problem; }
     this.settings = next;
     this.world = worldById(this.data.worlds, next.welt);

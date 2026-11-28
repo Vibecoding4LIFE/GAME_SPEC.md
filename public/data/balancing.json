@@ -501,5 +501,47 @@
       "fourth": 100
     },
     "pointsShare": 0.1
+  },
+  "net": {
+    "round": {
+      "countdownS": 5,
+      "durationsS": {
+        "kurz": 180,
+        "mittel": 300,
+        "lang": 480
+      },
+      "defaultDurationS": 300,
+      "lastCastS": 5,
+      "resultsS": 15
+    },
+    "room": {
+      "minPlayers": 2,
+      "maxPlayers": 4
+    },
+    "msg": {
+      "reelIntervalS": 0.5,
+      "shadowsIntervalS": 0.5,
+      "posMaxPerS": 5,
+      "clockSamples": 5,
+      "clockSampleGapS": 0.2
+    },
+    "host": {
+      "castCooldownS": 1,
+      "castRangeTolerance": 0.05,
+      "depthToleranceM": 0.5,
+      "minReactionS": 0.1,
+      "strikeGraceS": 0.35,
+      "drillMinFactor": 0.9,
+      "reelCountFactor": 0.5,
+      "reelTimeoutS": 3
+    },
+    "client": {
+      "hostLostGraceS": 5,
+      "joinRetryS": 2,
+      "reorderWindowS": 0.5
+    },
+    "budget": {
+      "perRound": 15000
+    }
   }
 }

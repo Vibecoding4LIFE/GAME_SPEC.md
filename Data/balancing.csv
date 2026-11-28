@@ -273,3 +273,29 @@ reward.placeBase.second;150;D 2.6;Platzbasis 2. Platz
 reward.placeBase.third;120;D 2.6;Platzbasis 3. Platz
 reward.placeBase.fourth;100;D 2.6;Platzbasis 4. Platz
 reward.pointsShare;0.10;D 2.6;+10 % der eigenen Rundenpunkte als Münzen
+net.round.countdownS;5;B4;Countdown vor dem Start in s
+net.round.durationsS.kurz;180;D 2.1;wählbare Rundendauer 3 min (inkl. Finale)
+net.round.durationsS.mittel;300;D 2.1;wählbare Rundendauer 5 min (Standard)
+net.round.durationsS.lang;480;D 2.1;wählbare Rundendauer 8 min
+net.round.defaultDurationS;300;D 2.1;Standarddauer im Warteraum
+net.round.lastCastS;5;B4;LastCast: gehakte Fische dürfen so viele s fertig gedrillt werden
+net.round.resultsS;15;B4;Ergebnis-Bildschirm in s
+net.room.minPlayers;2;D 0;Auto-Countdown erst ab so vielen bereiten Spielern
+net.room.maxPlayers;4;D 0;höchstens so viele Spieler je Raum
+net.msg.reelIntervalS;0.5;B4;Client sendet reel {spannung, fortschritt} alle 0,5 s
+net.msg.shadowsIntervalS;0.5;B4;Host sendet shadows alle 0,5 s
+net.msg.posMaxPerS;5;B4;pos (und lure = Ködertiefe) höchstens 5×/s
+net.msg.clockSamples;5;eigene Wahl;Ping-Pong-Proben für den Uhrzeit-Versatz beim Beitritt
+net.msg.clockSampleGapS;0.2;eigene Wahl;Abstand der Ping-Proben in s
+net.host.castCooldownS;1;eigene Wahl;Abklingzeit zwischen zwei Würfen desselben Spielers in s
+net.host.castRangeTolerance;0.05;eigene Wahl;Reichweitenprüfung: cast.ziel ≤ Wurfweite × (1 + Wert)
+net.host.depthToleranceM;0.5;eigene Wahl;Toleranz der Sinkgeschwindigkeits-Prüfung in m
+net.host.minReactionS;0.1;eigene Wahl;schnellere gemeldete Anschlag-Reaktionen werden auf diesen Wert angehoben
+net.host.strikeGraceS;0.35;eigene Wahl;Netzwerk-Zuschlag auf das Anschlagfenster in s
+net.host.drillMinFactor;0.9;eigene Wahl;Drill plausibel ab Wert × theoretischer Mindestdauer
+net.host.reelCountFactor;0.5;eigene Wahl;so viel Anteil der erwarteten reel-Nachrichten muss ankommen
+net.host.reelTimeoutS;3;eigene Wahl;ohne reel so viele s → Fisch entkommt
+net.client.hostLostGraceS;5;eigene Wahl;Host fehlt so viele s in der Presence → Runde abgebrochen
+net.client.joinRetryS;2;eigene Wahl;join wiederholen, solange kein sync kam (s)
+net.client.reorderWindowS;0.5;eigene Wahl;so lange wartet der Client auf eine fehlende Host-Nachricht, bevor er neu synchronisiert (Supabase hält die Reihenfolge nicht immer ein)
+net.budget.perRound;15000;B4;Ziel: 4 Spieler × 5 min unter so vielen Realtime-Nachrichten

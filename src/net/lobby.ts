@@ -20,11 +20,11 @@ export type SettingsProblem = 'modus' | 'dauer' | 'welt' | 'teams' | 'gesperrt';
  * Phase 2 kann nur Wettangeln, jeder gegen jeden.
  */
 export function checkSettings(
-  next: LobbySettings, phase: RoundPhase, cfg: NetConfig, unlockedWorlds: readonly WorldId[],
+  next: LobbySettings, phase: RoundPhase, cfg: NetConfig, unlockedWorlds: readonly WorldId[], extraDurationsS: readonly number[] = [],
 ): SettingsProblem | null {
   if (isLocked(phase)) return 'gesperrt';
   if (!SUPPORTED_MODES.includes(next.modus)) return 'modus';
-  if (!cfg.round.durationsS.includes(next.dauerS)) return 'dauer';
+  if (!cfg.round.durationsS.includes(next.dauerS) && !extraDurationsS.includes(next.dauerS)) return 'dauer';
   if (!unlockedWorlds.includes(next.welt)) return 'welt';
   if (next.teams !== 'JederGegenJeden') return 'teams';
   return null;

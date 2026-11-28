@@ -102,8 +102,11 @@ export class NetClient {
   synced = false;
   private everSynced = false;
   denied: DataOf<'deny'>['grund'] | null = null;
-  /** letzte Nummer vom Host (Lücken → neu synchronisieren) */
+  /** letzte angewandte Nummer vom Host (Lücken → neu synchronisieren) */
   private hostSeq = 0;
+  private pending = new Map<number, NetMessage>();
+  private preSync: NetMessage[] = [];
+  private gapSince: number | null = null;
   private lastJoinAt = -Infinity;
   private hostMissingSince: number | null = null;
   private pingsLeft = 0;
@@ -131,6 +134,8 @@ export class NetClient {
   private attach(): void {
     this.subs.push(this.t.onMessage((m) => this.receive(m)));
     this.subs.push(this.t.onSync((p) => this.onPresence(p)));
+    const re = this.t.onReconnect?.(() => { if (this.everSynced && !this.leftRoom) { this.stats.resyncs++; this.sendJoin(); } });
+    if (re) this.subs.push(re);
   }
 
   get b() { return this.data.balancing; }
@@ -175,6 +180,9 @@ export class NetClient {
     // Neue Verbindung = neuer Zähler beim Host ist egal; wir setzen nur unsere Erwartung zurück
     this.synced = false;
     this.hostSeq = 0;
+    this.pending.clear();
+    this.preSync = [];
+    this.gapSince = null;
     this.attach();
     this.join();
   }
@@ -219,21 +227,52 @@ export class NetClient {
   receive(m: NetMessage): void {
     if (HOST_ONLY.has(m.type)) {
       const mine = isForMe(m, this.id);
-      if (!(mine || this.synced) || !this.isFromHost(m)) { this.stats.ignored++; return; }
-      // Nummernfolge des Hosts prüfen – auch bei gezielten Nachrichten an andere (sonst falsche Lücken)
+      if (m.type === 'deny' && mine && !this.synced) { if (this.isFromHost(m)) this.onHostMessage(m); return; }
+      if (!this.synced && !(m.type === 'sync' && mine)) {
+        // Vor dem eigenen Stand: sammeln (Absender erst mit dem sync sicher bekannt), danach einsortieren
+        if (this.preSync.length < 1000) this.preSync.push(m);
+        return;
+      }
+      if (!this.isFromHost(m)) { this.stats.ignored++; return; }
+      // Nummernfolge des Hosts – auch gezielte Nachrichten an andere zählen mit (sonst falsche Lücken).
+      // Supabase stellt Nachrichten nicht immer in Reihenfolge zu: kurz puffern und sortiert anwenden.
       if (m.type === 'sync' && mine) {
         this.hostSeq = Math.max(this.hostSeq, m.seq);
-      } else {
-        if (!this.synced) return; // vor dem Stand nichts anwenden
-        if (m.seq <= this.hostSeq) { this.stats.ignored++; return; }
-        if (m.seq > this.hostSeq + 1) { this.stats.gapsDetected++; this.requestResync(); }
-        this.hostSeq = m.seq;
+        this.onHostMessage(m);
+        for (const p of this.preSync) if (p.from === this.hostId && p.seq > this.hostSeq) this.pending.set(p.seq, p);
+        this.preSync = [];
+        for (const k of [...this.pending.keys()]) if (k <= this.hostSeq) this.pending.delete(k);
+        this.drainPending();
+        return;
       }
-      if (mine) this.onHostMessage(m);
+      if (m.seq <= this.hostSeq || this.pending.has(m.seq)) { this.stats.ignored++; return; }
+      if (this.pending.size > 1000) this.pending.clear();
+      this.pending.set(m.seq, m);
+      this.drainPending();
       return;
     }
     if (!isForMe(m, this.id)) return;
     if (m.type === 'emote') this.ev.push({ type: 'emote', from: m.from, id: m.data.id });
+  }
+
+  /** Gepufferte Host-Nachrichten in Nummernfolge anwenden. */
+  private drainPending(): void {
+    for (let next = this.pending.get(this.hostSeq + 1); next; next = this.pending.get(this.hostSeq + 1)) {
+      this.pending.delete(next.seq);
+      this.hostSeq = next.seq;
+      if (isForMe(next, this.id)) this.onHostMessage(next);
+    }
+    this.gapSince = this.pending.size > 0 ? (this.gapSince ?? this.now) : null;
+  }
+
+  /** Fehlt eine Nummer länger als das Umsortier-Fenster: als verloren werten, Rest anwenden, Stand neu holen. */
+  private checkGap(now: number): void {
+    if (this.gapSince === null || now - this.gapSince < this.cfg.client.reorderWindowS * 1000) return;
+    this.stats.gapsDetected++;
+    this.hostSeq = Math.min(...this.pending.keys()) - 1;
+    this.gapSince = null;
+    this.drainPending();
+    this.requestResync();
   }
 
   private requestResync(): void {
@@ -402,6 +441,7 @@ export class NetClient {
 
   private timers(now: number): void {
     if (this.leftRoom) return;
+    this.checkGap(now);
     if (!this.synced && !this.denied && now - this.lastJoinAt >= this.cfg.client.joinRetryS * 1000) this.sendJoin();
     if (this.synced && this.pingsLeft > 0 && now - this.lastPingAt >= this.cfg.msg.clockSampleGapS * 1000) {
       this.pingsLeft--;

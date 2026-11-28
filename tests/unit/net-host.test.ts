@@ -1,13 +1,15 @@
 // Host-Plausibilität (B4): Absichten in falscher Phase, Abklingzeit, Reichweite, Tiefe, zu kurzer Drill, zu wenige
 // reel-Nachrichten, zu früh/zu spät, Raum gesperrt/voll, Art geheim bis zum Fang.
 import { describe, expect, it } from 'vitest';
-import { PROPOSED_NET_CONFIG as CFG } from '../../src/net/config';
+import { netConfigFrom } from '../../src/net/config';
 import { minDrillS } from '../../src/net/drillSpec';
 import { NetHost } from '../../src/net/host';
 import { Outbox, type DataOf, type MessageOf, type MessageType, type NetMessage } from '../../src/net/messages';
 import { startLoadoutIds } from '../../src/net/sim';
 import { LocalHub } from '../../src/net/transport';
 import { b, data } from './helpers/gameData';
+
+const CFG = netConfigFrom(b);
 
 const SHADOWS = { max: 40, minXM: 0, maxXM: 30, speedMs: [0.15, 0.7] as [number, number], ttlS: [14, 32] as [number, number], spawnPerS: 0.5 };
 const TICK = 50;

@@ -239,12 +239,13 @@ export class FishLayer {
       const seed = Math.floor(now / T.sparkMs);
       const cols = [hexToInt(VIEW.colors.spark), hexToInt(VIEW.colors.sparkLight)];
       for (let i = 0; i < T.sparks; i++) {
-        const a = ((seed * 37 + i * 101) % 360) * (Math.PI / 180);
-        const r = halfH + 2 + ((seed + i * 7) % 5);
-        const px = Math.round(x + Math.cos(a) * (r + this.hooked.width / 4));
-        const py = Math.round(y + Math.sin(a) * r);
-        // kleine Blitz-Funken: 2×2-Kern plus Zacke
-        this.fx.fillStyle(cols[i % 2] ?? 0xffffff, 1).fillRect(px, py, 2, 2).fillRect(px + (i % 2 ? 2 : -1), py - 1, 1, 1);
+        // auf einer Ellipse knapp außerhalb des Umrisses, jede Funke ein kleiner Zickzack (3 Pixel-Stufen à 2×2)
+        const a = ((seed * 37 + i * (360 / T.sparks)) % 360) * (Math.PI / 180);
+        const j = (seed + i * 7) % 4;
+        const px = Math.round(x + Math.cos(a) * (this.hooked.width / 2 + 3 + j));
+        const py = Math.round(y + Math.sin(a) * (halfH * scaleY + 3 + j));
+        this.fx.fillStyle(cols[i % 2] ?? 0xffffff, 1)
+          .fillRect(px, py, 2, 2).fillRect(px + 2, py - 2, 2, 2).fillRect(px + 4, py, 2, 2);
       }
     }
     // Deckung blinkt (Versteckspieler)

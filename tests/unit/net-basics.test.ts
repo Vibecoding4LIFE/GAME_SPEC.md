@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { Rng } from '../../src/core/random';
 import { MessageBudget, countingTransport } from '../../src/net/budget';
 import { ClockSync, estimateOffset } from '../../src/net/clockOffset';
-import { PROPOSED_NET_CONFIG, netConfigFrom } from '../../src/net/config';
+import { netConfigFrom } from '../../src/net/config';
 import { MESSAGE_TYPES, Outbox, parseMessage } from '../../src/net/messages';
 import {
   ROOM_CODE_ALPHABET, generateRoomCode, isRoomCode, normalizeRoomCode, parseRoomParam, roomChannel, roomLink,
@@ -93,10 +93,12 @@ describe('Nachrichten', () => {
 });
 
 describe('Netz-Konfiguration', () => {
-  it('Vorschlag ist gültig und wird genutzt, solange balancing.net fehlt', () => {
-    expect(netConfigFrom(b)).toEqual(PROPOSED_NET_CONFIG);
-    expect(() => netConfigFrom(b, { ...PROPOSED_NET_CONFIG, round: { ...PROPOSED_NET_CONFIG.round, defaultDurationS: 200 } })).toThrow();
-    expect(() => netConfigFrom(b, { ...PROPOSED_NET_CONFIG, extra: 1 })).toThrow();
+  it('kommt aus balancing.csv (net.*), Dauern als sortierte Liste', () => {
+    const c = netConfigFrom(b);
+    expect(c.round.durationsS).toEqual([180, 300, 480]);
+    expect(c.round.durationsS).toContain(c.round.defaultDurationS);
+    expect(c.budget.perRound).toBe(15000);
+    expect(c.msg.reelIntervalS).toBe(0.5);
   });
 });
 

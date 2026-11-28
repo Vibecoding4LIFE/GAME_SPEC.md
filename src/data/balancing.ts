@@ -172,6 +172,20 @@ export const BalancingSchema = obj({
     placeBase: obj({ first: nonNeg, second: nonNeg, third: nonNeg, fourth: nonNeg }),
     pointsShare: frac,
   }),
+  /** Mehrspieler (B4, D 2.1); Bedeutung je Wert in src/net/config.ts und balancing.csv */
+  net: obj({
+    round: obj({
+      countdownS: pos, durationsS: obj({ kurz: pos, mittel: pos, lang: pos }), defaultDurationS: pos, lastCastS: nonNeg, resultsS: pos,
+    }),
+    room: obj({ minPlayers: nonNeg, maxPlayers: pos }),
+    msg: obj({ reelIntervalS: pos, shadowsIntervalS: pos, posMaxPerS: pos, clockSamples: nonNeg, clockSampleGapS: pos }),
+    host: obj({
+      castCooldownS: nonNeg, castRangeTolerance: frac, depthToleranceM: nonNeg, minReactionS: nonNeg, strikeGraceS: nonNeg,
+      drillMinFactor: frac, reelCountFactor: frac, reelTimeoutS: pos,
+    }),
+    client: obj({ hostLostGraceS: nonNeg, joinRetryS: pos, reorderWindowS: nonNeg }),
+    budget: obj({ perRound: pos }),
+  }),
 });
 
 /** Alle Spielkonstanten, z. B. `balancing.drill.counterBonus`. */
@@ -301,6 +315,10 @@ export function validateBalancing(tree: unknown): { data: Balancing | null; issu
     prev = up;
   }
   if (prev !== 1) issues.push({ key: 'size.grade.Riesig.upTo', msg: 'letzte Klasse muss bis 1.0 reichen' });
+  const nr = b.net.round;
+  if (!Object.values(nr.durationsS).includes(nr.defaultDurationS)) issues.push({ key: 'net.round.defaultDurationS', msg: 'ist keine der net.round.durationsS' });
+  if (Object.values(nr.durationsS).some((d) => d < b.score.finale.lastS)) issues.push({ key: 'net.round.durationsS', msg: 'kürzer als das Finale (score.finale.lastS)' });
+  if (b.net.room.minPlayers > b.net.room.maxPlayers) issues.push({ key: 'net.room.minPlayers', msg: 'größer als net.room.maxPlayers' });
   return { data: issues.length ? null : b, issues };
 }
 

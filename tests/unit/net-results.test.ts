@@ -2,12 +2,14 @@
 import { describe, expect, it } from 'vitest';
 import { Rng } from '../../src/core/random';
 import { createDrill, stepDrill } from '../../src/game/drill';
-import { PROPOSED_NET_CONFIG as CFG } from '../../src/net/config';
+import { netConfigFrom } from '../../src/net/config';
 import { fishFromSpec, minDrillS, specFromFish } from '../../src/net/drillSpec';
 import { allReady, applyEquipmentRule, checkSettings, decideJoin, defaultSettings, readyCount } from '../../src/net/lobby';
 import { placeBase, rankPlayers, roundResults, roundReward, specialAwards, tailwindEffect, tailwindLevel, type PlayerTally } from '../../src/net/results';
 import { runDrill } from './helpers/bots';
 import { b, data, fishById, startLoadout, w1Fish } from './helpers/gameData';
+
+const CFG = netConfigFrom(b);
 
 const tally = (id: string, points: number, weights: number[], extra: Partial<PlayerTally> = {}): PlayerTally => ({
   id, points, lineBreaks: 0, itemHits: 0, guest: false,

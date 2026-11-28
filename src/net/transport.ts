@@ -38,6 +38,11 @@ export interface Transport {
   /** Kanal verlassen (Presence verschwindet bei den anderen) */
   close(): void;
   readonly closed: boolean;
+  /**
+   * Optional: meldet, wenn die Verbindung nach einer Unterbrechung wieder steht (Supabase: Kanal erneut SUBSCRIBED).
+   * Der Client fordert dann per `join` den aktuellen Stand an.
+   */
+  onReconnect?(cb: () => void): Unsubscribe;
 }
 
 /** Kleine Listener-Liste. */
@@ -64,6 +69,8 @@ export interface LocalHubOptions {
   seed?: number;
   /** Nachrichten zusätzlich durch Zod prüfen (deckt Schema-Fehler im Sender auf). Standard: true */
   validate?: boolean;
+  /** Reihenfolge je Verbindung erhalten (Standard: true). false = Schwankung darf überholen (wie Supabase). */
+  fifo?: boolean;
 }
 
 export interface HubStats {
@@ -99,7 +106,7 @@ export class LocalHub {
   private presence = new Map<PlayerId, PresenceState>();
 
   constructor(opts: LocalHubOptions = {}) {
-    this.opts = { latencyMs: 0, jitterMs: 0, lossRate: 0, seed: 1, validate: true, ...opts };
+    this.opts = { latencyMs: 0, jitterMs: 0, lossRate: 0, seed: 1, validate: true, fifo: true, ...opts };
     this.rng = new Rng(this.opts.seed);
   }
 
@@ -138,7 +145,8 @@ export class LocalHub {
       if (this.opts.lossRate > 0 && this.rng.next() < this.opts.lossRate) { this.stats.dropped++; continue; }
       const key = `${from.selfId}>${to.selfId}`;
       const jitter = this.opts.jitterMs > 0 ? this.rng.next() * this.opts.jitterMs : 0;
-      const at = Math.max(this.time + this.opts.latencyMs + jitter, this.linkLast.get(key) ?? 0);
+      const raw = this.time + this.opts.latencyMs + jitter;
+      const at = this.opts.fifo ? Math.max(raw, this.linkLast.get(key) ?? 0) : raw;
       this.linkLast.set(key, at);
       this.queue.push({ kind: 'msg', at, order: this.order++, to, msg: JSON.parse(wire) as NetMessage });
     }
@@ -255,6 +263,7 @@ export function splitTransport(base: Transport, defer: (fn: () => void) => void 
         base.track(shared);
       },
       onSync: (cb) => syncs[i].add(cb),
+      onReconnect: base.onReconnect ? (cb) => (base.onReconnect as (c: () => void) => Unsubscribe)(cb) : undefined,
       close() {
         if (closed) return;
         closed = true;

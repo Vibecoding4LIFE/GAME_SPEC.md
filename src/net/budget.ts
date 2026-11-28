@@ -80,5 +80,6 @@ export function countingTransport(t: Transport, budget: MessageBudget): Transpor
     track: (s) => t.track(s),
     onSync: (cb) => t.onSync(cb),
     close: () => t.close(),
+    onReconnect: t.onReconnect ? (cb) => (t.onReconnect as (c: () => void) => () => void)(cb) : undefined,
   };
 }

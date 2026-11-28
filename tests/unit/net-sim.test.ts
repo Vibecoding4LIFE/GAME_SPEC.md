@@ -2,10 +2,12 @@
 // Art geheim bis Fang, Finale/verdeckte Punkte, Determinismus, Reconnect, Host weg, schlechtes Netz.
 import { describe, expect, it } from 'vitest';
 import { MessageBudget, countingTransport } from '../../src/net/budget';
-import { PROPOSED_NET_CONFIG as CFG } from '../../src/net/config';
+import { netConfigFrom } from '../../src/net/config';
 import type { NetMessage } from '../../src/net/messages';
 import { RoomSim, type RoomSimOptions } from '../../src/net/sim';
 import { b, data } from './helpers/gameData';
+
+const CFG = netConfigFrom(b);
 
 const SHADOWS = { max: 40, minXM: 0, maxXM: 30, speedMs: [0.15, 0.7] as [number, number], ttlS: [14, 32] as [number, number], spawnPerS: 0.5 };
 const SKEW = [0, 1500, -800, 30000];
@@ -199,6 +201,17 @@ describe('Simulation: Determinismus, Reconnect, Host weg, schlechtes Netz', () =
     for (const c of sim.clients.values()) expect(c.round.phase).not.toBe('Aborted');
     sim.runFor(1.5);
     for (const c of sim.clients.values()) expect(c.round.phase).toBe('Aborted');
+  });
+
+  it('Nachrichten überholen sich (wie bei Supabase beobachtet): Umsortier-Puffer, keine Lücken, Endstand gleich', () => {
+    const sim = makeSim({ seed: 52, hub: { latencyMs: 60, jitterMs: 200, fifo: false, seed: 4 } });
+    startRound(sim);
+    sim.runUntil(() => sim.host.phase === 'Lobby', 420);
+    sim.runFor(3);
+    const hostPts = sim.host.pointsById();
+    const expected = sim.host.playerIds().map((id) => `${id}:${hostPts[id]}`).join(',');
+    expect(new Set(finalScores(sim))).toEqual(new Set([expected]));
+    for (const c of sim.clients.values()) expect(c.stats.gapsDetected).toBe(0);
   });
 
   it('schlechtes Netz (80 ± 60 ms, 3 % Verlust): Lücken werden erkannt und per sync geheilt, Endstand überall gleich', () => {

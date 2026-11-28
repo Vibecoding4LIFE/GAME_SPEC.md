@@ -1,0 +1,121 @@
+/* src/ui/net.css – Mehrspieler-Overlays (Startmenü, Warteraum, HUD, Ergebnis). Farben und Schrift aus theme.css. */
+
+.net-menu, .net-lobby, .net-results-dlg { width: min(560px, calc(100vw - 24px)); }
+
+.net-h { margin: 12px 0 6px; font-size: var(--fs-m); color: var(--messing-hell); }
+.net-row { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+.net-row--code { align-items: center; }
+.net-field { display: flex; flex-direction: column; gap: 4px; flex: 1 1 160px; font-size: var(--fs-s); }
+.net-menu__solo { display: flex; justify-content: center; margin-bottom: 8px; }
+.net-menu__solo .ui-btn { min-width: 240px; }
+.net-menu__multi { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--holz-dunkel); padding-top: 8px; }
+
+.net-input, .net-select {
+  font: inherit; font-size: var(--fs-m); min-height: 44px; padding: 4px 8px;
+  color: var(--tinte); background: var(--pergament-hell); border: 2px solid var(--holz-dunkel); border-radius: 0;
+}
+.net-input--code { text-transform: uppercase; letter-spacing: 0.2em; max-width: 9em; }
+.net-select:disabled { opacity: 0.75; }
+.net-value { min-height: 44px; display: flex; align-items: center; }
+
+.net-status { min-height: 1.25em; margin: 6px 0; font-size: var(--fs-s); color: var(--text-gedimmt); }
+.net-status.is-error { color: #ff9a8a; }
+.net-code { font-size: var(--fs-xl); letter-spacing: 0.25em; color: var(--messing-hell); }
+
+.net-hosthint, .net-offline {
+  margin: 6px 0; padding: 6px 8px; font-size: var(--fs-s);
+  color: var(--tinte); background: var(--messing-hell); border: 2px solid var(--messing-dunkel);
+}
+.net-offline { background: var(--pergament); }
+
+.net-players { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.net-player { display: flex; align-items: center; gap: 8px; padding: 4px 6px; background: rgba(0, 0, 0, 0.18); }
+.net-player.is-me { outline: 2px solid var(--messing); }
+.net-player.is-away { opacity: 0.5; }
+.net-player__name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.net-player__ready { font-size: var(--fs-s); color: var(--text-gedimmt); }
+.net-player__ready.is-ready { color: #b6f08a; }
+.net-swatch { width: 14px; height: 14px; flex: none; border: 2px solid var(--holz-tief); }
+.net-tag { font-size: var(--fs-xs); padding: 0 4px; color: var(--tinte); background: var(--messing); }
+
+.net-settings { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 10px; }
+.net-countdown { min-height: 1.5em; margin: 8px 0 0; font-size: var(--fs-l); text-align: center; color: var(--messing-hell); }
+.ui-btn.net-ready.is-ready { filter: saturate(0.6) brightness(1.1); }
+
+/* ---------------------------------------------------------------- HUD im Spiel */
+.net-hud {
+  position: fixed; inset: 0; pointer-events: none; z-index: var(--z-hud);
+  font-family: var(--font-pixel); font-size: var(--fs-s); color: var(--text-hell);
+  -webkit-font-smoothing: none;
+}
+.net-hud > * { pointer-events: auto; }
+.net-hud .net-sky {
+  position: absolute; left: 0; right: 0; top: 0; height: 45%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 196, 64, 0.38), rgba(255, 196, 64, 0));
+}
+.net-hud__top {
+  position: absolute; top: max(6px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; align-items: center;
+}
+.net-clock {
+  min-width: 4.5em; padding: 2px 10px; text-align: center; font-size: var(--fs-xl);
+  background: var(--holz-tief); border: 2px solid var(--holz); color: var(--text-hell);
+}
+.net-clock.is-urgent { color: var(--messing-hell); border-color: var(--messing); }
+.net-badge { padding: 2px 8px; font-size: var(--fs-m); color: var(--tinte); background: var(--messing-hell); border: 2px solid var(--messing-dunkel); }
+.ui-btn.net-hud__leave { min-width: 44px; min-height: 44px; }
+
+.net-rank {
+  position: absolute; top: max(60px, calc(env(safe-area-inset-top) + 54px)); left: max(6px, env(safe-area-inset-left));
+  list-style: none; margin: 0; padding: 4px; min-width: 170px; background: rgba(46, 26, 12, 0.78); border: 2px solid var(--holz);
+}
+.net-rank__row { display: flex; align-items: center; gap: 6px; padding: 1px 2px; }
+.net-rank__row.is-me { color: var(--messing-hell); }
+.net-rank__name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 9em; }
+.net-rank__pts { min-width: 3.5em; text-align: right; }
+.net-sail { font-size: var(--fs-xs); }
+
+.net-feed {
+  position: absolute; top: max(60px, calc(env(safe-area-inset-top) + 54px)); right: max(6px, env(safe-area-inset-right));
+  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; max-width: min(46vw, 320px);
+}
+.net-feed__item { padding: 2px 6px; background: rgba(46, 26, 12, 0.78); border-left: 3px solid var(--messing); }
+.net-feed__item.is-shiny { border-left-color: #c96f9c; color: var(--messing-hell); }
+
+.net-emotes {
+  position: absolute; left: 50%; transform: translateX(-50%); bottom: max(6px, env(safe-area-inset-bottom));
+  display: flex; gap: 4px; flex-wrap: wrap; justify-content: center;
+}
+.ui-btn.net-emote { min-height: 44px; min-width: 44px; padding: 2px 8px; font-size: var(--fs-s); }
+.net-bubbles { position: absolute; left: 50%; transform: translateX(-50%); bottom: 64px; display: flex; flex-direction: column; gap: 4px; align-items: center; pointer-events: none; }
+.net-bubble { padding: 3px 8px; color: var(--tinte); background: var(--pergament-hell); border: 2px solid var(--holz-dunkel); }
+.net-hosthint--hud { position: absolute; left: 50%; transform: translateX(-50%); bottom: 120px; max-width: min(90vw, 420px); }
+
+/* Touch-Bedienung bleibt frei: auf schmalen Hochkant-Bildschirmen das HUD verkleinern */
+@media (max-width: 520px) {
+  .net-rank { min-width: 0; font-size: var(--fs-xs); }
+  .net-feed { font-size: var(--fs-xs); max-width: 44vw; }
+  .net-emotes { bottom: auto; top: max(54px, calc(env(safe-area-inset-top) + 48px)); }
+}
+
+/* ---------------------------------------------------------------- Ergebnis */
+.net-results { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.net-result {
+  display: grid; grid-template-columns: 2.2em 14px 1fr auto; grid-template-areas: 'place sw name pts' 'place sw catches coins' 'place sw awards awards';
+  gap: 2px 8px; align-items: center; padding: 6px; background: rgba(0, 0, 0, 0.18);
+}
+.net-result.is-winner { outline: 2px solid var(--messing); }
+.net-result.is-me .net-result__name { color: var(--messing-hell); }
+.net-result__place { grid-area: place; font-size: var(--fs-xl); color: var(--messing-hell); }
+.net-result .net-swatch { grid-area: sw; }
+.net-result__name { grid-area: name; }
+.net-result__pts { grid-area: pts; text-align: right; }
+.net-result__catches { grid-area: catches; font-size: var(--fs-s); color: var(--text-gedimmt); }
+.net-result__coins { grid-area: coins; display: flex; gap: 4px; align-items: center; justify-content: flex-end; }
+.net-result__awards { grid-area: awards; font-size: var(--fs-s); color: #b6f08a; }
+
+.net-toast {
+  position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: var(--z-debug);
+  padding: 8px 14px; max-width: min(92vw, 480px); font-family: var(--font-pixel); font-size: var(--fs-m);
+  color: var(--tinte); background: var(--pergament-hell); border: 2px solid var(--holz-dunkel);
+}
