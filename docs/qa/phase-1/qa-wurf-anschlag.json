@@ -1,0 +1,34 @@
+{
+ "missCamera": {
+  "idle": {
+   "x": 0,
+   "y": 0
+  },
+  "after": {
+   "x": 0,
+   "y": 0
+  }
+ },
+ "farCamera": {
+  "x": 189,
+  "y": 0
+ },
+ "perfectCasts": [
+  true,
+  true,
+  true
+ ],
+ "earlyStateAfter": [
+  "Waiting"
+ ],
+ "late": "late",
+ "perfekt": {
+  "perfectStrike": true,
+  "rodState": "Caught"
+ },
+ "ok": {
+  "perfectStrike": false,
+  "rodState": "Caught"
+ },
+ "lineTooShortDepth": 20
+}

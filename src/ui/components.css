@@ -12,6 +12,7 @@
 }
 
 /* ================================================================== HUD-Leiste */
+/* Kompakt: Münz-Plakette links, Holzplatten-Knöpfe rechts (je 44 × 46 px), Safe-Areas beachtet. */
 .ui-hud {
   position: fixed;
   top: 0;
@@ -22,22 +23,22 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--s2);
-  padding: calc(8px + var(--safe-top, 0px)) calc(8px + var(--safe-right, 0px)) 0 calc(8px + var(--safe-left, 0px));
+  padding: calc(6px + var(--safe-top, 0px)) calc(6px + var(--safe-right, 0px)) 0 calc(6px + var(--safe-left, 0px));
   pointer-events: none;
 }
 
 .hud__coins {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: 40px;
-  padding: 4px 14px 4px 10px;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 6px 0 2px;
   font-size: var(--fs-l);
-  font-weight: 700;
+  line-height: 1;
   color: var(--messing-hell);
-  background: rgba(46, 26, 12, 0.82);
-  border: 2px solid var(--messing-dunkel);
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.35), 0 3px 0 rgba(0, 0, 0, 0.35);
+  image-rendering: pixelated;
+  border: 8px solid var(--tinte);
+  border-image: url('/assets/ui/plate_ink.png') 4 fill / 8px / 0 repeat;
   text-shadow: 0 2px 0 #000;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
@@ -45,38 +46,47 @@
 
 .hud__bar {
   display: flex;
-  gap: var(--s2);
+  gap: 4px;
   pointer-events: auto;
 }
 
-.hud__btn {
+.ui-btn.hud__btn {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  min-width: 44px;
+  height: 46px;
+  min-height: 46px;
   padding: 0;
-  --icon-2: rgba(255, 244, 194, 0.55);
+  color: var(--pergament-hell);
+  --icon-2: rgba(71, 28, 12, 0.5);
+}
+
+.hud__btn .px-icon {
+  filter: drop-shadow(0 2px 0 var(--holz-tief));
 }
 
 .hud__badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  min-width: 22px;
-  height: 22px;
+  top: -12px;
+  right: -12px;
+  min-width: 20px;
+  height: 20px;
   padding: 0 4px;
   display: grid;
   place-items: center;
   font-size: var(--fs-s);
-  font-weight: 700;
   color: var(--tinte);
+  text-shadow: none;
   background: var(--messing-hell);
-  border: 2px solid var(--holz-tief);
+  border: 2px solid var(--tinte);
+  box-shadow: inset 0 -2px 0 var(--messing);
   line-height: 1;
 }
 
 .hud__badge.is-full {
   color: #fff6ea;
   background: var(--rot);
+  box-shadow: inset 0 -2px 0 #7d2416;
 }
 
 /* Debug-Ecke (unsichtbar) und FPS-Anzeige */
@@ -108,12 +118,19 @@
 }
 
 /* ================================================================== Touch-Steuerung */
+/* Aktionsknopf = runder Messing-Knopf (btn_action.png: 4 Phasen × oben/gedrückt, je 34 × 36 Kunstpixel, ×3),
+   Nebenknöpfe = Holzplatten (btn_wood.png, ×2), leicht durchscheinend über der Spielfläche. */
 .ui-touch {
   position: fixed;
   inset: 0;
   z-index: var(--z-touch);
   pointer-events: none;
+  --act-col: 0;
 }
+
+.ui-touch[data-mode='wait'] { --act-col: 1; }
+.ui-touch[data-mode='bite'] { --act-col: 2; }
+.ui-touch[data-mode='fight'] { --act-col: 3; }
 
 .touch__area {
   position: absolute;
@@ -129,11 +146,11 @@
 
 .touch__btns {
   position: absolute;
-  right: calc(16px + var(--safe-right, 0px));
-  bottom: calc(16px + var(--safe-bottom, 0px));
+  right: calc(12px + var(--safe-right, 0px));
+  bottom: calc(12px + var(--safe-bottom, 0px));
   display: flex;
   align-items: flex-end;
-  gap: var(--s3);
+  gap: var(--s2);
   pointer-events: none;
 }
 
@@ -147,73 +164,76 @@
   }
 }
 
-.touch__cast,
-.touch__item {
+.touch__cast {
+  position: relative;
+  width: 116px;
+  height: 134px;
+  padding: 0;
   font: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  border: 3px solid rgba(46, 26, 12, 0.75);
-  color: var(--tinte);
+  border: 0;
+  color: #fff6ea;
+  background: url('/assets/ui/btn_action.png') no-repeat;
+  background-size: 408px 216px;
+  background-position: calc(7px - var(--act-col) * 102px) 0;
+  image-rendering: pixelated;
   touch-action: none;
   -webkit-touch-callout: none;
   user-select: none;
   cursor: pointer;
-  /* gestuftes Achteck = runder Pixel-Knopf */
-  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
-}
-
-.touch__cast {
-  width: 104px;
-  height: 104px;
-  font-size: var(--fs-s);
-  font-weight: 700;
-  background: rgba(217, 164, 65, 0.86);
-  box-shadow: inset 0 4px 0 rgba(246, 220, 140, 0.7), inset 0 -6px 0 rgba(140, 100, 32, 0.8);
-  --icon-2: rgba(255, 255, 255, 0.5);
-}
-
-.touch__cast-label {
-  max-width: 88px;
-  line-height: 1.05;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 244, 194, 0.6);
-}
-
-.ui-touch[data-mode='bite'] .touch__cast {
-  background: rgba(200, 64, 44, 0.88);
-  color: #fff6ea;
-  text-shadow: none;
-  animation: touch-pulse 400ms steps(2) infinite;
-}
-
-.ui-touch[data-mode='fight'] .touch__cast {
-  background: rgba(63, 154, 76, 0.88);
-  color: #fff6ea;
+  opacity: 0.94;
+  --icon-2: rgba(255, 255, 255, 0.4);
 }
 
 .touch__cast.is-pressed {
-  /* kein scale(): Pixeltext würde unscharf; stattdessen 4 px nach unten und heller */
-  translate: 0 4px;
-  filter: brightness(1.2);
-  box-shadow: inset 0 -2px 0 rgba(246, 220, 140, 0.7), inset 0 6px 0 rgba(140, 100, 32, 0.8);
+  background-position: calc(7px - var(--act-col) * 102px) -108px;
+}
+
+.touch__cast > .px-icon-wrap {
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 3px 0 rgba(42, 30, 26, 0.8));
+}
+
+.touch__cast.is-pressed > .px-icon-wrap {
+  top: 39px;
+}
+
+/* Beschriftung als Messing-Schild unter dem Knopf */
+.touch__cast-label {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 4px;
+  font-size: var(--fs-s);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tinte);
+  background: var(--messing);
+  border: 2px solid var(--tinte);
+  box-shadow: inset 0 2px 0 var(--messing-hell), inset 0 -2px 0 var(--messing-dunkel);
+  padding-block: 5px 5px;
+}
+
+.ui-touch[data-mode='bite'] .touch__cast-label {
+  color: #fff6ea;
+  background: var(--rot);
+  box-shadow: inset 0 2px 0 #ec6340, inset 0 -2px 0 #7d2416;
+}
+
+.ui-touch[data-mode='bite'] .touch__cast {
+  animation: touch-pulse 400ms steps(2) infinite;
 }
 
 .touch__item {
-  width: 68px;
-  height: 68px;
-  background: rgba(176, 122, 69, 0.8);
-  --icon-2: rgba(255, 244, 194, 0.6);
-}
-
-.touch__item:disabled {
-  opacity: 0.35;
+  font: inherit;
 }
 
 @keyframes touch-pulse {
-  50% { filter: brightness(1.25); }
+  50% { filter: brightness(1.2); }
 }
 
 .touch__hints {
@@ -243,36 +263,31 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
+  padding: 2px 6px;
   font-size: var(--fs-s);
   color: var(--text-hell);
-  background: rgba(18, 52, 47, 0.8);
-  border: 2px dashed var(--tau);
   white-space: nowrap;
+  image-rendering: pixelated;
+  border: 8px solid var(--tinte);
+  border-image: url('/assets/ui/plate_ink.png') 4 fill / 8px / 0 repeat;
 }
 
 .touch__hint--left {
-  left: 0;
-  right: 0;
-  width: max-content;
-  margin: 0 auto;
-  bottom: calc(140px + var(--safe-bottom, 0px));
+  left: 50%;
+  bottom: calc(150px + var(--safe-bottom, 0px));
+  transform: translateX(-50%);
 }
 
 .touch__hint--swipe {
-  left: 0;
-  right: 0;
-  width: max-content;
-  margin: 0 auto;
+  left: 50%;
   top: 42%;
+  transform: translateX(-50%);
 }
 
 .touch__hint--tap {
-  left: 0;
-  right: 0;
-  width: max-content;
-  margin: 0 auto;
+  left: 50%;
   top: 28%;
+  transform: translateX(-50%);
 }
 
 /* ================================================================== Fang-Karte */
@@ -1170,7 +1185,7 @@
 /* ================================================================== Touch-Knöpfe (Phase 1, Nutzer-Feedback) */
 .touch__btns--left {
   right: auto;
-  left: calc(16px + var(--safe-left, 0px));
+  left: calc(12px + var(--safe-left, 0px));
   flex-direction: column;
   align-items: flex-start;
 }
@@ -1191,25 +1206,37 @@
   pointer-events: auto;
 }
 
+/* Holzplatte (gedrückt: Lippe weg, Platte 2 px tiefer – steckt in btn_wood_down.png) */
 .touch__small {
   font: inherit;
-  min-width: 56px;
-  min-height: 56px;
-  padding: 4px 8px;
+  min-width: 60px;
+  min-height: 58px;
+  padding: 0 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
   font-size: var(--fs-s);
+  font-weight: 700;
   line-height: 1;
-  color: var(--text-hell);
-  background: rgba(18, 52, 47, 0.82);
-  border: 3px solid rgba(248, 238, 212, 0.55);
+  color: var(--pergament-hell);
+  text-shadow: 0 2px 0 var(--holz-tief);
+  image-rendering: pixelated;
+  border: solid transparent;
+  border-width: 8px 8px 10px;
+  border-image: url('/assets/ui/btn_wood.png') 4 4 5 fill / 8px 8px 10px / 0 repeat;
+  background: none;
+  opacity: 0.9;
   touch-action: none;
   -webkit-touch-callout: none;
   user-select: none;
   cursor: pointer;
+  --icon-2: rgba(71, 28, 12, 0.5);
+}
+
+.touch__small .px-icon {
+  filter: drop-shadow(0 2px 0 var(--holz-tief));
 }
 
 .touch__small[hidden] {
@@ -1221,31 +1248,43 @@
 }
 
 .touch__steer {
-  min-width: 72px;
+  min-width: 76px;
   min-height: 72px;
 }
 
 .touch__small.is-pressed {
-  translate: 0 3px;
-  background: rgba(63, 154, 76, 0.92);
-  border-color: #fff6ea;
+  border-image-source: url('/assets/ui/btn_wood_down.png');
+  padding-top: 2px;
+  opacity: 1;
+  filter: brightness(1.15);
+}
+
+.touch__small:disabled {
+  opacity: 0.4;
+  filter: grayscale(0.7);
 }
 
 .touch__rodup.is-alert {
-  background: rgba(200, 64, 44, 0.9);
+  color: #fff6ea;
+  filter: sepia(1) saturate(5) hue-rotate(-28deg) brightness(0.95);
   animation: touch-pulse 400ms steps(2) infinite;
 }
 
 .touch__item.touch__small {
   width: auto;
   height: auto;
-  clip-path: none;
 }
 
 @media (pointer: fine) {
   .ui-touch:not(.has-touch) .touch__btns--left:not(.is-forced) {
     display: none;
   }
+}
+
+/* Querformat mit wenig Höhe: Knöpfe etwas kompakter */
+@media (max-height: 430px) {
+  .touch__small { min-height: 50px; }
+  .touch__steer { min-height: 60px; min-width: 68px; }
 }
 
 /* Rand-Puls als sichtbarer Ersatz für Vibration (iPhone, Vibration aus) */

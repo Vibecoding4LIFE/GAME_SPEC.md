@@ -18,12 +18,15 @@ export function enableFrameImages(o: FrameImageOptions): void {
   const scale = Math.max(1, Math.round(o.scale ?? 2));
   root.style.setProperty('--frame-slice', String(slice));
   root.style.setProperty('--frame-img-w', `${slice * scale}px`);
+  // Absolut machen: eine relative URL in einer Custom Property würde sonst relativ zur CSS-Datei aufgelöst
+  // (assets/assets/…), und der Rahmen fiele stumm auf den CSS-Rand zurück.
+  const abs = (u: string) => new URL(u, document.baseURI).href;
   if (o.wood) {
-    root.style.setProperty('--frame-wood-img', `url("${o.wood}")`);
+    root.style.setProperty('--frame-wood-img', `url("${abs(o.wood)}")`);
     root.classList.add('ui-frame-img-wood');
   }
   if (o.parchment) {
-    root.style.setProperty('--frame-parchment-img', `url("${o.parchment}")`);
+    root.style.setProperty('--frame-parchment-img', `url("${abs(o.parchment)}")`);
     root.classList.add('ui-frame-img-parchment');
   }
 }

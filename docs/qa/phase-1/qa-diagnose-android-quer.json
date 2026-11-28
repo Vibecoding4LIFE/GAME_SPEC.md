@@ -1,0 +1,27 @@
+[
+ {
+  "hooked": true,
+  "state": "Reeling",
+  "input": {
+   "mode": "fight",
+   "steer": 0,
+   "reeling": false,
+   "sinking": false
+  }
+ },
+ [
+  "ui-touch has-touch|hidden=false|disp=block|vis=visible|0,0,863x332",
+  "touch__small touch__rodup|hidden=true|disp=none|vis=visible|0,0,0x0",
+  "touch__small touch__steer touch__left|hidden=false|disp=flex|vis=visible|16,244,72x72",
+  "touch__small touch__steer touch__right|hidden=false|disp=flex|vis=visible|96,244,72x72",
+  "touch__cast|hidden=false|disp=flex|vis=visible|743,212,104x104"
+ ],
+ {
+  "heldReeling": true,
+  "t": 0.35000000000000014
+ },
+ {
+  "releasedReeling": false,
+  "t": 0.24500000000000005
+ }
+]

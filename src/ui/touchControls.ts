@@ -69,8 +69,8 @@ export class TouchControls implements UiComponent<TouchControlsData> {
       b.setAttribute('aria-label', t(key));
     };
     small(this.itemBtn, 'item', 'touch.item');
-    small(this.twitchBtn, null, 'touch.twitch');
-    small(this.retrieveBtn, null, 'touch.retrieve');
+    small(this.twitchBtn, 'twitch', 'touch.twitch');
+    small(this.retrieveBtn, 'reel', 'touch.retrieve');
     small(this.leftBtn, 'arrowLeft', 'touch.left');
     small(this.rightBtn, 'arrowRight', 'touch.right');
     small(this.rodUpBtn, 'arrowUp', 'touch.rodUp');

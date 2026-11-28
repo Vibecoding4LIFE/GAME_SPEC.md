@@ -1,0 +1,79 @@
+{
+ "Ruhig": [
+  {
+   "behavior": "Ruhig",
+   "outcome": "caught",
+   "durationS": 16.66,
+   "actions": [],
+   "telegraphs": 0,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.55
+  }
+ ],
+ "Taucher": [
+  {
+   "behavior": "Taucher",
+   "outcome": "caught",
+   "durationS": 33.793,
+   "actions": [
+    "dive",
+    "dive",
+    "dive",
+    "dive"
+   ],
+   "telegraphs": 4,
+   "rodUps": 8,
+   "snagTaps": 0,
+   "maxTension": 0.96
+  }
+ ],
+ "Springer": [
+  {
+   "behavior": "Springer",
+   "outcome": "caught",
+   "durationS": 18.824,
+   "actions": [
+    "jump",
+    "jump",
+    "jump"
+   ],
+   "telegraphs": 3,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.54
+  }
+ ],
+ "Zickzack": [
+  {
+   "behavior": "Zickzack",
+   "outcome": "caught",
+   "durationS": 20.295,
+   "actions": [
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag"
+   ],
+   "telegraphs": 19,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.61
+  }
+ ]
+}

@@ -1,0 +1,206 @@
+{
+ "Ruhig": [
+  {
+   "behavior": "Ruhig",
+   "outcome": "caught",
+   "durationS": 9.886,
+   "actions": [],
+   "telegraphs": 0,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53
+  }
+ ],
+ "Zappler": [
+  {
+   "behavior": "Zappler",
+   "outcome": "caught",
+   "durationS": 10.231,
+   "actions": [
+    "spike",
+    "spike",
+    "spike",
+    "spike",
+    "spike",
+    "spike",
+    "spike",
+    "spike"
+   ],
+   "telegraphs": 8,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.65,
+   "shot": "docs/qa/phase-1/qa-verhalten-Zappler.png"
+  }
+ ],
+ "Sprinter": [
+  {
+   "behavior": "Sprinter",
+   "outcome": "caught",
+   "durationS": 22.581,
+   "actions": [
+    "sprint",
+    "sprint",
+    "sprint"
+   ],
+   "telegraphs": 3,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53,
+   "shot": "docs/qa/phase-1/qa-verhalten-Sprinter.png"
+  }
+ ],
+ "Taucher": [
+  {
+   "behavior": "Taucher",
+   "outcome": "caught",
+   "durationS": 17.45,
+   "actions": [
+    "dive",
+    "dive"
+   ],
+   "telegraphs": 2,
+   "rodUps": 4,
+   "snagTaps": 0,
+   "maxTension": 0.55,
+   "shot": "docs/qa/phase-1/qa-verhalten-Taucher.png"
+  }
+ ],
+ "Springer": [
+  {
+   "behavior": "Springer",
+   "outcome": "caught",
+   "durationS": 11.464,
+   "actions": [
+    "jump"
+   ],
+   "telegraphs": 1,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53,
+   "shot": "docs/qa/phase-1/qa-verhalten-Springer.png"
+  }
+ ],
+ "Zickzack": [
+  {
+   "behavior": "Zickzack",
+   "outcome": "caught",
+   "durationS": 9.975,
+   "actions": [
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag",
+    "zigzag"
+   ],
+   "telegraphs": 6,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.59,
+   "shot": "docs/qa/phase-1/qa-verhalten-Zickzack.png"
+  }
+ ],
+ "Brocken": [
+  {
+   "behavior": "Brocken",
+   "outcome": "caught",
+   "durationS": 10.013,
+   "actions": [],
+   "telegraphs": 0,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.68
+  }
+ ],
+ "Trickser": [
+  {
+   "behavior": "Trickser",
+   "outcome": "caught",
+   "durationS": 23.543,
+   "actions": [
+    "fake",
+    "flee",
+    "fake",
+    "flee"
+   ],
+   "telegraphs": 2,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.54,
+   "shot": "docs/qa/phase-1/qa-verhalten-Trickser.png"
+  }
+ ],
+ "Versteckspieler": [
+  {
+   "behavior": "Versteckspieler",
+   "outcome": "caught",
+   "durationS": 9.967,
+   "actions": [
+    "cover"
+   ],
+   "telegraphs": 1,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.54,
+   "shot": "docs/qa/phase-1/qa-verhalten-Versteckspieler.png"
+  }
+ ],
+ "Aufblaeher": [
+  {
+   "behavior": "Aufblaeher",
+   "outcome": "caught",
+   "durationS": 11.977,
+   "actions": [
+    "inflate"
+   ],
+   "telegraphs": 1,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53,
+   "shot": "docs/qa/phase-1/qa-verhalten-Aufblaeher.png"
+  }
+ ],
+ "Stromer": [
+  {
+   "behavior": "Stromer",
+   "outcome": "caught",
+   "durationS": 10.037,
+   "actions": [
+    "shock"
+   ],
+   "telegraphs": 1,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53,
+   "shot": "docs/qa/phase-1/qa-verhalten-Stromer.png"
+  }
+ ],
+ "Blinker": [
+  {
+   "behavior": "Blinker",
+   "outcome": "caught",
+   "durationS": 10.009,
+   "actions": [
+    "invisible"
+   ],
+   "telegraphs": 1,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.53,
+   "shot": "docs/qa/phase-1/qa-verhalten-Blinker.png"
+  }
+ ],
+ "Hitzkopf": [
+  {
+   "behavior": "Hitzkopf",
+   "outcome": "caught",
+   "durationS": 9.936,
+   "actions": [],
+   "telegraphs": 0,
+   "rodUps": 0,
+   "snagTaps": 0,
+   "maxTension": 0.47
+  }
+ ]
+}
