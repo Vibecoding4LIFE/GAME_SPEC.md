@@ -273,6 +273,8 @@ export class Lexicon implements UiComponent<LexiconData> {
         mode: this.entry(f.id).state === 'caught' ? 'color' : 'silhouette',
         outline: RARITY_STYLE[f.rarity].color,
         maxScale: 12,
+        // schillernd gefangen → Detail zeigt die Schillernd-Farben (D 1.11/1.12)
+        ...(this.entry(f.id).shiny ? { palette: { from: f.art.colors, to: f.art.shinyColors } } : {}),
       });
     }
   }

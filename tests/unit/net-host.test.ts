@@ -150,7 +150,7 @@ describe('Host: Absichten prüfen', () => {
   it('zu wenige reel-Nachrichten und erfundene Rettungen werden abgelehnt; ohne reel entkommt der Fisch', () => {
     const r = fishingRoom(12);
     const { a } = r;
-    let bite = waitForBite(r, a);
+    const bite = waitForBite(r, a);
     a.send('strike', { reaktion: 0.3 });
     r.run(100);
     const min = minDrillS(bite.data.schwierigkeit, bite.data.verhalten, true, data.gear.reels[0]!, b);
@@ -159,11 +159,12 @@ describe('Host: Absichten prüfen', () => {
     r.run(100);
     expect(rejected(r.host, 'reelResult').at(-1)).toMatch(/^reel:/);
 
-    bite = waitForBite(r, a);
+    const bite2 = waitForBite(r, a);
     a.send('strike', { reaktion: 0.3 });
     r.run(100);
-    for (let t = 0; t < min + 2; t += 0.5) { a.send('reel', { spannung: 0.5, fortschritt: 0.5 }); r.run(500); }
-    a.send('reelResult', { ergebnis: 'caught', dauer: min + 2, meister: false, anfaenger: 0, kescher: 3 });
+    const min2 = minDrillS(bite2.data.schwierigkeit, bite2.data.verhalten, false, data.gear.reels[0]!, b);
+    for (let t = 0; t < min2 + 2; t += 0.5) { a.send('reel', { spannung: 0.5, fortschritt: 0.5 }); r.run(500); }
+    a.send('reelResult', { ergebnis: 'caught', dauer: min2 + 2, meister: false, anfaenger: 0, kescher: 3 });
     r.run(100);
     expect(rejected(r.host, 'reelResult').at(-1)).toBe('rettungen');
 

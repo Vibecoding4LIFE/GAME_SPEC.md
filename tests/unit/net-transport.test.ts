@@ -127,7 +127,7 @@ describe('BroadcastChannelTransport (Tabs ohne Server)', () => {
     c.track({ id: 'c' });
     await wait(50);
     expect(peersA).toEqual(['a', 'c']);
-    (c as unknown as { timer: ReturnType<typeof setInterval> }).timer && clearInterval((c as unknown as { timer: ReturnType<typeof setInterval> }).timer);
+    clearInterval((c as unknown as { timer: ReturnType<typeof setInterval> }).timer);
     await wait(200);
     expect(peersA).toEqual(['a']);
     c.close();

@@ -41,6 +41,8 @@ export class Backdrop {
   private flashRect!: Phaser.GameObjects.Rectangle;
   private bolt!: Img;
   private flashLeft = 0;
+  private overlayTop!: Phaser.GameObjects.Rectangle;
+  private overlayWater!: Phaser.GameObjects.Rectangle;
   private surfaceT = 0;
   private lastPhase: DayPhase | null = null;
   private readonly atlas: string;
@@ -109,6 +111,12 @@ export class Backdrop {
       this.ambients.push({ zone: z, sprites, vy });
     }
 
+    // Paletten-Overlay je Tageszeit (world_<k>.json `overlay`): über Himmel/Ferne bzw. über Wasser + Grund,
+    // unter Deko, Fischen und Steg – nachts wird das Wasser so deutlich blauer
+    const ov = (y: number, h: number, depthKey: number) =>
+      this.add(scene.add.rectangle(0, y, art.groesse.w, h, 0x000000, 0).setOrigin(0).setDepth(depthKey));
+    this.overlayTop = ov(0, art.oberflaecheY, (depth.mitte ?? 4) + 1 / 2);
+    this.overlayWater = ov(art.oberflaecheY, art.groesse.h - art.oberflaecheY, (depth.seegrund ?? 13) + 1 / 2);
     this.bolt = this.add(pin(scene.add.image(0, 0, this.atlas, 'see_blitz_a_still_0'), 1 / 2, 0).setDepth(depth.wolken ?? 2).setVisible(false));
     this.flashRect = this.add(scene.add.rectangle(0, 0, art.groesse.w, art.groesse.h, 0xffffff, VIEW.flash.alpha).setOrigin(0).setDepth(depth.nebel ?? 41).setVisible(false));
   }
@@ -155,6 +163,12 @@ export class Backdrop {
         if (x !== undefined) img.x = x;
         if (this.lastPhase !== st.phase) img.setTint(tint[d.tintGruppe]);
       });
+    }
+
+    if (this.lastPhase !== st.phase) {
+      const o = look.overlay;
+      this.overlayTop.setFillStyle(hexToInt(o?.oben.farbe ?? '#000000'), o?.oben.alpha ?? 0);
+      this.overlayWater.setFillStyle(hexToInt(o?.unter.farbe ?? '#000000'), o?.unter.alpha ?? 0);
     }
 
     // Sonne / Mond

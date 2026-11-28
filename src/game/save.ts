@@ -53,7 +53,7 @@ export interface Profile {
 
 const nonNeg = z.number().finite().min(0);
 const int = z.number().int().min(0);
-const fishId = z.string().regex(/^F\d{3}$/) as unknown as z.ZodType<FishId>;
+const fishId = z.custom<FishId>((v) => typeof v === 'string' && /^F\d{3}$/.test(v), { message: 'Fisch-ID F001 erwartet' });
 
 const LexiconEntrySchema = z.object({
   state: z.enum(['unknown', 'seen', 'caught']),

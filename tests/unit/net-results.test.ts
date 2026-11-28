@@ -43,7 +43,7 @@ describe('Platzierung, Belohnung, Sonderauszeichnungen', () => {
       tally('b', 20, [500], { lineBreaks: 2 }),
       tally('c', 30, [], {}),
     ];
-    (t[1]?.catches as { masterDrill: boolean }[])[0]!.masterDrill = true;
+    t[1] = { ...(t[1] as PlayerTally), catches: [{ fishId: 'F001', weightG: 500, points: 0, masterDrill: true }] };
     const aw = specialAwards(t);
     expect(aw.get('a')).toEqual(['SchwersterBrocken', 'Sammler', 'Pechvogel']);
     expect(aw.get('b')).toEqual(['SchwersterBrocken', 'Meisterdrill', 'Pechvogel']);

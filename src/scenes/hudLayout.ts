@@ -10,6 +10,8 @@ export interface ScreenReserve {
   topBarCss: number;
   /** Platz für den Touch-Knopf unten rechts (0, wenn keine Touch-Knöpfe) */
   touchButtonCss: number;
+  /** Tastenhinweise oben links (PC) */
+  keyHints?: boolean;
 }
 
 export interface Insets { top: number; right: number; bottom: number; left: number }
@@ -54,6 +56,8 @@ export interface HudSizes {
   staminaW: number; staminaH: number; iconH: number; arrowW: number; gap: number; touchButtonGame: number;
   /** Höhe der Beschriftungszeile über dem Spannungsbalken („Spannung“); 0 = keine */
   labelH?: number;
+  /** oben links reservierte Zeile (Tastenhinweise), damit die Anzeige links nicht darunter rutscht */
+  topLineH?: number;
 }
 
 /** Querformat: Spannung unten mittig. Hochformat: Spannung über dem Touch-Knopf, Anzeigen kompakter. */
@@ -69,7 +73,7 @@ export function hudLayout(l: PixelLayout, ins: Insets, s: HudSizes): HudLayout {
   const distanceY = tensionY - g - (s.labelH ?? 0) - s.distanceH;
   const staminaY = distanceY - g - s.iconH - g - s.staminaH;
   return {
-    gauge: { x: ins.left + g, y: Math.max(ins.top + g, Math.round((H - s.gaugeH) / 2)) },
+    gauge: { x: ins.left + g, y: Math.max(ins.top + g + (s.topLineH ?? 0), Math.round((H - s.gaugeH) / 2)) },
     weather: { x: W - ins.right - g, y: ins.top + g },
     tension: { x: tensionX, y: tensionY },
     distance: { x: Math.round((W - s.distanceW) / 2), y: distanceY },
@@ -77,4 +81,38 @@ export function hudLayout(l: PixelLayout, ins: Insets, s: HudSizes): HudLayout {
     arrow: { x: Math.round(W / 2), y: staminaY - g - Math.ceil(s.arrowW / 2) },
     banner: { x: Math.round(W / 2), y: ins.top + g * 2 + (portrait ? s.gaugeW : 0) },
   };
+}
+
+/**
+ * Zoom der HUD-Kamera (QA M-3): ein ganzzahliges Vielfaches des Weltzooms, damit HUD-Pixel exakt auf dem Weltraster
+ * liegen (B3), mindestens 2 Gerätepixel und mindestens `minCssPx` CSS-Pixel je HUD-Pixel – solange die HUD-Fläche
+ * nicht kleiner als `min` (Spielpixel) wird. Bei normalen Zoomstufen gleich dem Weltzoom.
+ */
+export function hudZoom(
+  l: PixelLayout, dpr: number, minCssPx: number, min: { landscape: { w: number; h: number }; portrait: { w: number; h: number } },
+): number {
+  const dz = l.deviceZoom;
+  const devW = l.gameWidth * dz;
+  const devH = l.gameHeight * dz;
+  const want = Math.max(dz, 2, Math.ceil(minCssPx * dpr - 1e-9));
+  const m = l.orientation === 'portrait' ? min.portrait : min.landscape;
+  let k = Math.max(1, Math.ceil(want / dz));
+  while (k > 1 && (devW / (dz * k) < m.w || devH / (dz * k) < m.h)) k--;
+  return dz * k;
+}
+
+/**
+ * Layout der HUD-Kamera bei Zoom `hz`: gleiche Fläche in Gerätepixeln wie die Welt, aber weniger (größere) HUD-Pixel.
+ * Breite/Höhe gerade (Kamera-Mitte auf ganzen Pixeln), Rest mittig und auf das Weltraster ausgerichtet.
+ */
+export function hudSubLayout(l: PixelLayout, hz: number): PixelLayout {
+  if (hz === l.deviceZoom) return l;
+  const dz = l.deviceZoom;
+  const devW = l.gameWidth * dz;
+  const devH = l.gameHeight * dz;
+  const gw = Math.floor(devW / hz / 2) * 2;
+  const gh = Math.floor(devH / hz / 2) * 2;
+  const padX = Math.floor((devW - gw * hz) / 2 / dz) * dz;
+  const padY = Math.floor((devH - gh * hz) / 2 / dz) * dz;
+  return { ...l, gameWidth: gw, gameHeight: gh, deviceZoom: hz, offsetX: l.offsetX + padX, offsetY: l.offsetY + padY };
 }

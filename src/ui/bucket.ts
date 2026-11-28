@@ -148,7 +148,11 @@ export class Bucket implements UiComponent<BucketData> {
   private row(it: BucketItem): HTMLLIElement {
     const name = t(it.fish.nameKey);
     const canvas = h('canvas', { class: 'bk__sprite', 'aria-hidden': 'true' });
-    renderSprite(canvas, it.sprite ?? null, { maxCssWidth: 72, maxCssHeight: 36, maxScale: 6 });
+    renderSprite(canvas, it.sprite ?? null, {
+      maxCssWidth: 72, maxCssHeight: 36, maxScale: 6,
+      // Schillernd (D 1.11): gleicher Palette-Swap wie auf der Fang-Karte
+      ...(it.shiny ? { palette: { from: it.fish.art.colors, to: it.fish.art.shinyColors } } : {}),
+    });
     const tierKey = SIZE_TIER_STYLE[it.tier].labelKey;
     const tags = h('span', { class: 'bk__tags' }, [rarityChip(it.fish.rarity, true)]);
     if (tierKey) tags.append(h('span', { class: `bk__tier bk__tier--${it.tier}`, text: t(tierKey) }));

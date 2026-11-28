@@ -208,12 +208,12 @@ describe('Regel 7 – Spawn-Simulation', () => {
     expect(r.never, JSON.stringify(r.total)).toEqual([]);
     expect(r.rareTooOften, JSON.stringify(r.total)).toEqual([]);
     if (r.rareAboveRarestCommon.length) console.warn(`W1: Seltene öfter als der seltenste Gewöhnliche: ${r.rareAboveRarestCommon.join(', ')} – ${JSON.stringify(r.total)}`);
-  });
+   }, 60_000); // 10.000 Spawns je Tageszeit × Wetter: unter Last deutlich über dem 5-s-Standardlimit
 
   it.each(['W2', 'W3', 'W4', 'W5'] as const)('%s: Warnungen (Weltmechaniken folgen in Phase 4)', (wid) => {
     const r = simulate(wid);
     if (r.never.length) console.warn(`${wid}: nie gespawnt: ${r.never.join(', ')}`);
     if (r.rareTooOften.length) console.warn(`${wid}: Seltene öfter als ein Gewöhnlicher: ${r.rareTooOften.join(', ')}`);
     expect(Object.keys(r.total)).toHaveLength(20);
-  });
+   }, 60_000);
 });

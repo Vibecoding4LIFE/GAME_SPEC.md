@@ -25,7 +25,10 @@ export const VIEW = {
   bitePopBlinkMs: 120,
   /** Meldungen (Banner) */
   bannerS: 2.2,
-  hud: { gap: 4, topBarCss: 52, touchButtonCss: 120, touchButtonCssPortrait: 150, staminaFins: 5, heatW: 40, heatH: 4 },
+  hud: {
+    /** HUD-Kamera: mindestens so viele CSS-Pixel je HUD-Pixel, kleinste HUD-Fläche (Spielpixel) je Format */
+    minCssPx: 1, minArea: { landscape: { w: 320, h: 180 }, portrait: { w: 180, h: 300 } },
+    gap: 4, topBarCss: 52, touchButtonCss: 120, touchButtonCssPortrait: 150, staminaFins: 5, heatW: 40, heatH: 4 },
   /** Drill hochkant: so viele Spielpixel links vom Angler bleiben mindestens im Bild */
   anglerMarginPx: 24,
   /** Ton-Hook „Schnurspannung“ so oft je s (für den audio-designer) */
@@ -37,8 +40,8 @@ export const VIEW = {
   /** Grundfarben für generierte Schatten/Balken (aus der Weltpalette W1) */
   /** Vorwarnungen (D 1.7) als Bild */
   telegraph: {
-    jitterMs: 40, bulgeW: 18, bulgeH: 3, finFlickShare: 0.3, inflatePulseMs: 90, fadeMin: 0.35, streakLen: 12,
-    bubbles: 10, bubblesPerS: 9, bubbleLifeS: 1.1, bubbleRisePxS: 28, sparkMs: 60, sparks: 6,
+    jitterMs: 40, jitterPx: 2, bulgeW: 24, bulgeH: 5, finFlickShare: 0.3, inflatePulseMs: 90, fadeStart: 0.6, fadeMin: 0.3,
+    streakLen: 18, bubbles: 14, bubblesPerS: 12, bubbleLifeS: 1.4, bubbleRisePxS: 30, sparkMs: 60, sparks: 10,
     coverPullPx: 40, coverPullPerS: 3, coverBlinkMs: 140, arrowBlinkMs: 70, barFlickerMs: 80, diveDepthShare: 0.25,
   },
   /** Schnur glüht je Hitze-Anteil (Hitzkopf): ab 1/3 orange, ab 2/3 rot-orange */

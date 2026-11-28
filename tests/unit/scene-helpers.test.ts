@@ -5,7 +5,7 @@ import { computeLayout } from '../../src/core/pixelScale';
 import { createRope, rasterLine, rasterPolyline, stepRope } from '../../src/core/rope';
 import { Rng } from '../../src/core/random';
 import { createShadowSim, pickShadowFish, shadowViews, stepShadows } from '../../src/game/shadows';
-import { cssInsetToGame, hudInsets, hudLayout } from '../../src/scenes/hudLayout';
+import { cssInsetToGame, hudInsets, hudLayout, hudSubLayout, hudZoom } from '../../src/scenes/hudLayout';
 import {
   bottomDepthAt, cameraView, celestialPos, depthToY, parallaxX, phaseKey, seabedY, tileOffsets, type WorldSee,
 } from '../../src/scenes/worldSee';
@@ -155,5 +155,39 @@ describe('Fisch-Schatten', () => {
     const v = shadowViews(sim, (id) => id === 'F001');
     expect(v.every((x) => !('fishId' in x))).toBe(true);
     expect(pickShadowFish({ ...ctx, phase: 'Nacht', weather: 'Gewitter' }, new Rng(1))).not.toBeNull();
+  });
+});
+
+describe('HUD-Zoom (QA M-3)', () => {
+  const MIN = { landscape: { w: 320, h: 180 }, portrait: { w: 180, h: 300 } };
+  it('normale Geräte: HUD-Zoom = Weltzoom (Pixeltests unverändert)', () => {
+    for (const [w, h, dpr] of [[1280, 720, 1], [1170, 2532, 3], [2532, 1170, 3], [1081, 2402, 2.625]] as const) {
+      const l = computeLayout(w, h);
+      expect(hudZoom(l, dpr, 1, MIN)).toBe(l.deviceZoom);
+    }
+  });
+  it('Vorschau-Rahmen: Zoom 1 → HUD 2×, iPhone mit Zoom 2 bei DPR 3 → HUD 4× (Vielfaches des Weltzooms)', () => {
+    const desk = computeLayout(1280, 692); // 1280×720 minus 28 px Kopfleiste
+    expect(desk.deviceZoom).toBe(1);
+    expect(hudZoom(desk, 1, 1, MIN)).toBe(2);
+    const phone = computeLayout(1170, 1908); // iPhone hochkant im Rahmen
+    expect(phone.deviceZoom).toBe(2);
+    const hz = hudZoom(phone, 3, 1, MIN);
+    expect(hz % phone.deviceZoom).toBe(0);
+    expect(hz).toBeGreaterThanOrEqual(3);
+  });
+  it('HUD-Fläche: gerade Größe, auf dem Weltraster, nie größer als die Spielfläche', () => {
+    for (const [w, h, dpr] of [[1280, 692, 1], [1170, 1908, 3], [800, 500, 2]] as const) {
+      const l = computeLayout(w, h);
+      const hz = hudZoom(l, dpr, 1, MIN);
+      const hl = hudSubLayout(l, hz);
+      expect(hl.gameWidth % 2).toBe(0);
+      expect(hl.gameHeight % 2).toBe(0);
+      expect(hl.gameWidth * hz).toBeLessThanOrEqual(l.gameWidth * l.deviceZoom);
+      expect((hl.offsetX - l.offsetX) % l.deviceZoom).toBe(0);
+      expect((hl.offsetY - l.offsetY) % l.deviceZoom).toBe(0);
+      const m = hl.orientation === 'portrait' ? MIN.portrait : MIN.landscape;
+      if (hz > l.deviceZoom) expect(hl.gameWidth >= m.w && hl.gameHeight >= m.h).toBe(true);
+    }
   });
 });

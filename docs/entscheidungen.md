@@ -81,3 +81,12 @@ Alle Spielzahlen stehen in `Data/balancing.csv` (259 Werte, jede mit Quelle). Wo
 ## 2026-11-28 – Supabase-Projekt
 - Neues, eigenes Projekt **`catch-that-dih`** (Ref `qebiidxykwznssgqckwz`, Region eu-central-1 Frankfurt, Free-Plan) in der Organisation des Nutzers angelegt – mit seiner Freigabe. Damit sind beide Free-Plan-Plätze belegt (zweites Projekt: „yezco“). Hinweis: Free-Projekte pausieren nach 7 Tagen ohne Nutzung.
 - Browser bekommt nur URL + Publishable Key (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`), lokal in `.env.local` (nicht im Repo), im Hosting als Umgebungsvariablen. Vorlage: `.env.example`. Service-Role-Key nie im Repo/Browser.
+
+## 2026-11-28 – Phase 2 Teil A: Netzwerk-Logik (netcode-coder)
+- **Transport-Abstraktion** (`src/net/transport.ts`): Host/Client kennen nur das Interface; `LocalTransport` (Tests, virtuelle Zeit, Latenz/Verlust), `BroadcastChannelTransport` (mehrere Tabs ohne Server), `SupabaseTransport` folgt in Teil B.
+- **Zusätzliche Nachrichten** neben B4: `lure`, `strike`, `retrieve`, `results`, `deny` – sonst kann der Host Tiefe, Anschlag und Einholen nicht entscheiden.
+- **Gemessenes Nachrichten-Budget** (4 Bots × 5 min, 40 ms Latenz): **3.070 gesendet / ~9.210 zugestellt** (Ziel < 15.000). Größte Posten `reel` 1.113, `lure` 888, `shadows` 609. 11–14 Fänge pro Spieler (Spec 8–14). Ob Supabase Sendungen oder Zustellungen zählt, ist in Teil B zu prüfen.
+- **Eigene Wahl:** Finale ×1,5 gilt auch in LastCast; keine Fundstücke im Wettkampf; Sonderauszeichnung bei Gleichstand an alle Gleichauf; Raum sperrt ab Countdown, „nicht bereit“ im Countdown bricht ihn ab.
+- Netz-Zahlen stehen vorerst als `PROPOSED_NET_CONFIG` in `src/net/config.ts` → werden als `net.*` in `Data/balancing.csv` übernommen.
+- **Offen für Teil B:** Absender-Echtheit (private Kanäle + RLS auf `realtime.messages` bzw. Bindung an `auth.uid`); Ruf/Pity aus `join` müssen in `submit-round` gegen `progress` geprüft werden; `bite` verrät Kraft/Verhalten (Art eingrenzbar) – vollständige Geheimhaltung nur mit Drill auf dem Host.
+- `vitest.config.ts`: `testTimeout` 30 s, weil die Spawn-Simulation (Regel 7) unter Parallellast das 5-s-Standardlimit reißt.

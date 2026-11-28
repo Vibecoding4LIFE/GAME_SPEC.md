@@ -26,6 +26,7 @@ import {
 import { sfx } from './welt/sfx';
 import { CACHE, FIGURES_ATLAS, HUD_ATLAS, SCENES, fishAtlasKey, worldAtlasKey } from './keys';
 import { applyPixelCamera } from './pixelCamera';
+import { hudSubLayout, hudZoom } from './hudLayout';
 import { VIEW } from './sceneConfig';
 import { bottomDepthAt, cameraView, depthToY, distanceToX, type WorldSee } from './worldSee';
 import { Angler, type BobberMode } from './welt/Angler';
@@ -71,6 +72,8 @@ export interface WeltDebug {
   /** Eingabezustand (Modus der Knöpfe, Lenken −1…1, Kurbeln, Sinken) */
   input: { mode: string; steer: number; reeling: boolean; sinking: boolean };
   fps: number;
+  /** Zoom der HUD-Kamera (Gerätepixel je HUD-Pixel) */
+  hudZoom: number;
   /** mittlere Rechenzeit von update() in ms (gleitender Mittelwert) */
   updateMs: number;
   camera: { x: number; y: number };
@@ -295,9 +298,15 @@ export class WeltScene extends Phaser.Scene {
     void this.save();
   }
 
+  /** HUD-Layout mit eigener, ganzzahliger Zoomstufe (QA M-3: lesbar auch bei Weltzoom 1 im Vorschau-Rahmen). */
+  private hudLayoutNow(): PixelLayout {
+    const hz = hudZoom(this.layout, window.devicePixelRatio || 1, VIEW.hud.minCssPx, VIEW.hud.minArea);
+    return hudSubLayout(this.layout, hz);
+  }
+
   private applyCameras(): void {
     applyPixelCamera(this.cameras.main, this.layout);
-    applyPixelCamera(this.hudCam, this.layout);
+    applyPixelCamera(this.hudCam, this.hudLayoutNow());
     this.positionCamera(true);
   }
 
@@ -310,7 +319,8 @@ export class WeltScene extends Phaser.Scene {
     const safe = { top: parseFloat(cs.paddingTop) || 0, right: parseFloat(cs.paddingRight) || 0, bottom: parseFloat(cs.paddingBottom) || 0, left: parseFloat(cs.paddingLeft) || 0 };
     probe.remove();
     const coarse = window.matchMedia('(pointer: coarse)').matches;
-    this.hud.relayout(this.layout, {
+    this.hud.relayout(this.hudLayoutNow(), {
+      keyHints: !coarse,
       dpr: window.devicePixelRatio || 1, safe, topBarCss: VIEW.hud.topBarCss,
       touchButtonCss: coarse ? (this.layout.orientation === 'portrait' ? VIEW.hud.touchButtonCssPortrait : VIEW.hud.touchButtonCss) : 0,
     });
@@ -671,7 +681,7 @@ export class WeltScene extends Phaser.Scene {
   private makeDebug(): WeltDebug {
     return {
       rodState: 'Idle', phase: '', weather: '', tension: 0, zone: null, behavior: null, pullDir: null, depthM: 0, snag: null, catches: 0, escapes: 0, coins: 0,
-      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, introOpen: false, feedback: {}, shaking: false, telegraph: null, frozen: false, input: { mode: 'menu', steer: 0, reeling: false, sinking: false }, fps: 0, updateMs: 0, camera: { x: 0, y: 0 },
+      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, introOpen: false, feedback: {}, shaking: false, telegraph: null, frozen: false, input: { mode: 'menu', steer: 0, reeling: false, sinking: false }, fps: 0, hudZoom: 1, updateMs: 0, camera: { x: 0, y: 0 },
       hooks: {
         forceFish: (id) => this.session.debugForceFish(id as FishId | null),
         forceBehavior: (b) => this.session.debugForceBehavior(b as FightBehavior | null),
@@ -714,6 +724,7 @@ export class WeltScene extends Phaser.Scene {
     d.frozen = this.frozen;
     d.input = { mode: this.input2.mode, steer: this.input2.steer, reeling: this.input2.reeling, sinking: this.input2.sinking };
     d.fps = Math.round(this.game.loop.actualFps);
+    d.hudZoom = this.hudCam.zoom;
     d.camera = { ...this.cam };
   }
 }

@@ -18,6 +18,8 @@ export interface WorldSpawnZone {
 export interface PhaseLook {
   himmel: string;
   tint: { oben: string; unter: string; himmel: string };
+  /** Farbschleier je Tageszeit (Paletten-Overlay aus D 1.9: Morgenrosa, Abendgold, Nachtblau) */
+  overlay?: { oben: { farbe: string; alpha: number }; unter: { farbe: string; alpha: number } };
   sonne: boolean;
   mond: boolean;
 }

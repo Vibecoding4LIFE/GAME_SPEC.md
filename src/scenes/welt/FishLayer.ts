@@ -80,8 +80,8 @@ export class FishLayer {
     if (this.scene.anims.exists(this.art.futterplatz.anim)) this.crumbs.play(this.art.futterplatz.anim);
     this.fx = this.scene.add.graphics().setDepth(d + 2);
     for (let i = 0; i < VIEW.telegraph.bubbles; i++) {
-      const b = pin(this.scene.add.sprite(0, 0, worldAtlasKey(this.art.kuerzel), 'see_blase_s_wobble_0')).setDepth(d + 2).setVisible(false);
-      if (this.scene.anims.exists('see_blase_s_wobble')) b.play({ key: 'see_blase_s_wobble', startFrame: i % 4 });
+      const b = pin(this.scene.add.sprite(0, 0, worldAtlasKey(this.art.kuerzel), 'see_blase_m_wobble_0')).setDepth(d + 2).setVisible(false);
+      if (this.scene.anims.exists('see_blase_m_wobble')) b.play({ key: 'see_blase_m_wobble', startFrame: i % 4 });
       this.bubbles.push({ sprite: b, life: 0, vy: 0 });
       this.layer.add(b);
     }
@@ -165,8 +165,8 @@ export class FishLayer {
     if (tele) this.telegraphShown = tele;
     switch (tele) {
       case 'spike': // Schatten zittert
-        x += Math.floor(now / T.jitterMs) % 2 ? 1 : -1;
-        y += Math.floor(now / (T.jitterMs * 1.5)) % 2 ? 1 : 0;
+        x += Math.floor(now / T.jitterMs) % 2 ? T.jitterPx : -T.jitterPx;
+        y += Math.floor(now / (T.jitterMs * 1.5)) % 2 ? T.jitterPx / 2 : 0;
         break;
       case 'sprint': // Schatten dreht sich (zur kommenden Fluchtrichtung), Wasserstreifen
         if (prog > 1 / 2 && st.dir && st.dir !== 'down') face = st.dir;
@@ -175,11 +175,12 @@ export class FishLayer {
       case 'jump': { // Schatten steigt, Wasser wölbt sich
         y = y + (surf + halfH - y) * prog;
         const w = T.bulgeW;
-        const hgt = Math.max(1, Math.round(T.bulgeH * prog));
+        const hgt = Math.max(1, Math.round(T.bulgeH * Math.max(prog, 1 / 2)));
         this.fx.fillStyle(hexToInt(VIEW.colors.foam), 1);
         for (let i = 0; i < w; i++) {
           const u = (i / (w - 1)) * 2 - 1;
-          this.fx.fillRect(Math.round(x - w / 2 + i), Math.round(surf - hgt * (1 - u * u)), 1, 1);
+          const top = Math.round(surf - hgt * (1 - u * u));
+          this.fx.fillRect(Math.round(x - w / 2 + i), top, 1, surf - top + 1);
         }
         break;
       }
@@ -189,8 +190,8 @@ export class FishLayer {
       case 'inflate': // Fisch wird rund (pulsierend)
         scaleY = Math.floor(now / T.inflatePulseMs) % 2 ? 2 : 1;
         break;
-      case 'invisible': // Fisch wird durchsichtig
-        alpha = Math.max(T.fadeMin, 1 - Math.round(prog * 4) / 4 * (1 - T.fadeMin));
+      case 'invisible': // Fisch wird durchsichtig (sofort halb, dann weiter)
+        alpha = Math.max(T.fadeMin, T.fadeStart - Math.round(prog * 4) / 4 * (T.fadeStart - T.fadeMin));
         break;
       default: break;
     }
@@ -210,10 +211,10 @@ export class FishLayer {
       this.fx.fillStyle(hexToInt(VIEW.colors.foam), 1);
       const back = left ? 1 : -1;
       for (let i = 0; i < 3; i++) {
-        const len = T.streakLen - i * 3 + (Math.floor(now / 90 + i) % 3);
+        const len = T.streakLen - i * 4 + (Math.floor(now / 90 + i) % 3) * 2;
         const sx = x + back * (Math.round(this.hooked.width / 2) + 2);
-        const sy = y - 3 + i * 3;
-        this.fx.fillRect(back > 0 ? sx : sx - len, sy, len, 1);
+        const sy = y - 5 + i * 5;
+        this.fx.fillRect(back > 0 ? sx : sx - len, sy, len, 2);
       }
     }
     // Blasen (Taucher: Vorwarnung + Tauchgang)
@@ -223,11 +224,13 @@ export class FishLayer {
         this.bubbleAcc -= 1;
         b.life = T.bubbleLifeS;
         b.vy = T.bubbleRisePxS;
-        b.sprite.setPosition(x + Math.round((Math.random() - 1 / 2) * this.hooked.width / 2), y - halfH);
+        const k = (Math.floor(now / 37) + this.bubbles.indexOf(b) * 5) % 9;
+        b.sprite.setPosition(x + Math.round((k / 8 - 1 / 2) * this.hooked.width * 0.6), y + halfH - (k % 3) * 2);
       }
       if (b.life > 0) {
         b.life -= dt;
-        const ny = Math.max(surf + 2, b.sprite.y - b.vy * dt);
+        const ny = b.sprite.y - b.vy * dt;
+        if (ny <= surf + 2) b.life = 0;
         b.sprite.setVisible(b.life > 0).setPosition(Math.round(b.sprite.x), Math.round(ny));
       } else b.sprite.setVisible(false);
     }
@@ -240,13 +243,16 @@ export class FishLayer {
         const r = halfH + 2 + ((seed + i * 7) % 5);
         const px = Math.round(x + Math.cos(a) * (r + this.hooked.width / 4));
         const py = Math.round(y + Math.sin(a) * r);
-        this.fx.fillStyle(cols[i % 2] ?? 0xffffff, 1).fillRect(px, py, 1, 1).fillRect(px + (i % 2 ? 1 : -1), py, 1, 1);
+        // kleine Blitz-Funken: 2×2-Kern plus Zacke
+        this.fx.fillStyle(cols[i % 2] ?? 0xffffff, 1).fillRect(px, py, 2, 2).fillRect(px + (i % 2 ? 2 : -1), py - 1, 1, 1);
       }
     }
     // Deckung blinkt (Versteckspieler)
-    if (toCover && cover && Math.floor(now / T.coverBlinkMs) % 2 === 0) {
-      this.fx.lineStyle(1, hexToInt(VIEW.colors.warn), 1);
-      this.fx.strokeRect(cover.x + 1 / 2, cover.y + 1 / 2, cover.w - 1, cover.h - 1);
+    if (toCover && cover && Math.floor(now / T.coverBlinkMs) % 4 !== 3) {
+      // 2-px-Rahmen als gefüllte Rechtecke (ganze Pixel, keine Linienglättung)
+      this.fx.fillStyle(hexToInt(VIEW.colors.warn), 1)
+        .fillRect(cover.x, cover.y, cover.w, 2).fillRect(cover.x, cover.y + cover.h - 2, cover.w, 2)
+        .fillRect(cover.x, cover.y, 2, cover.h).fillRect(cover.x + cover.w - 2, cover.y, 2, cover.h);
     }
 
     // Maul an der Seite, in die der Fisch schaut

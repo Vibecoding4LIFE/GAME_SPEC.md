@@ -134,7 +134,9 @@ export class Hud {
   /** Neu anordnen (Format, Safe-Areas, HTML-Leisten, Touch-Knöpfe). */
   relayout(l: PixelLayout, reserve: ScreenReserve): void {
     const sz = (f: string) => this.scene.textures.getFrame(HUD_ATLAS, f);
-    const s = l.orientation === 'portrait' ? 2 : 1;
+    // Hochkant ×2, wenn der Spannungsbalken doppelt breit hineinpasst (sonst ×1, z. B. kleines HUD im Vorschau-Rahmen)
+    const frameW = sz('hud_tension_frame_still_0')?.width ?? 0;
+    const s = l.orientation === 'portrait' && l.gameWidth >= frameW * 2 + VIEW.hud.gap * 2 ? 2 : 1;
     this.s = s;
     const touchGame = reserve.touchButtonCss > 0 ? Math.ceil((reserve.touchButtonCss * reserve.dpr) / l.deviceZoom) : 0;
     const ins = hudInsets(l, reserve);
@@ -146,6 +148,7 @@ export class Hud {
       staminaW: (sz('hud_stamina_full_still_0')?.width ?? 0) * VIEW.hud.staminaFins * s, staminaH: (sz('hud_stamina_full_still_0')?.height ?? 0) * s,
       iconH: (sz('hud_icon_fisch_still_0')?.height ?? 0) * s, arrowW: (sz('hud_arrow_left_pulse_0')?.width ?? 0) * s,
       gap: g, touchButtonGame: touchGame, labelH: Math.ceil(this.tensionLabel.height),
+      topLineH: reserve.keyHints ? Math.ceil(this.keyHint.height) + g : 0,
     });
     const L = this.lay;
     // Wurfkraft / Tiefe (immer ×1, links mittig)
