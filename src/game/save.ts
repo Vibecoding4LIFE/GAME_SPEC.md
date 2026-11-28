@@ -102,8 +102,11 @@ export const ProfileSchema = z.object({
 });
 
 /** Einstellungen, die mit dem Spielstand gespeichert werden (alle optional). */
-export interface Settings { showFps?: boolean; touchHintsSeen?: boolean }
-export const SettingsSchema = z.object({ showFps: z.boolean().optional(), touchHintsSeen: z.boolean().optional() });
+export interface Settings { showFps?: boolean; touchHintsSeen?: boolean; introSeen?: boolean; vibration?: boolean; shake?: boolean }
+export const SettingsSchema = z.object({
+  showFps: z.boolean().optional(), touchHintsSeen: z.boolean().optional(), introSeen: z.boolean().optional(),
+  vibration: z.boolean().optional(), shake: z.boolean().optional(),
+});
 
 export const SaveSchema = z.object({
   version: z.literal(SAVE_VERSION), savedAt: z.number(), profile: ProfileSchema, settings: SettingsSchema.optional(),

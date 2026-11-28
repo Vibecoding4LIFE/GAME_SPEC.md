@@ -1,7 +1,8 @@
 // Phase 1: Welt 1 spielbar – Wurf per Tastatur bzw. Touch, Sinken, Biss, Drill per Bot bis zum Fang, Fang-Karte,
 // alle 13 Verhaltensarten mit Telegraph, Drill-Video, FPS-Messung. Konsole muss fehlerfrei bleiben.
-import { test, expect, type Page, type CDPSession } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { startGame, touch, watchConsole } from './helpers';
 
 interface Welt {
   rodState: string; tension: number; zone: { lo: number; hi: number } | null; behavior: string | null; pullDir: string | null;
@@ -16,16 +17,9 @@ const welt = (page: Page) => page.evaluate(() => {
 const hook = (page: Page, name: string, ...args: unknown[]) =>
   page.evaluate(([n, a]) => ((window as unknown as { __KK: { welt: { hooks: Hooks } } }).__KK.welt.hooks[n as string] as (...x: unknown[]) => unknown)(...(a as unknown[])), [name, args] as const);
 
-function watchConsole(page: Page): string[] {
-  const errors: string[] = [];
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  page.on('pageerror', (e) => errors.push(e.message));
-  return errors;
-}
-
 async function openWorld(page: Page): Promise<void> {
   await page.goto('/');
-  await page.waitForFunction(() => (window as unknown as { __KK?: { welt?: unknown; ready?: boolean } }).__KK?.welt !== undefined, null, { timeout: 30_000 });
+  await startGame(page.mainFrame());
   await hook(page, 'resetSave');
   await page.waitForFunction(() => (window as unknown as { __KK?: { welt?: { rodState: string } } }).__KK?.welt?.rodState === 'Idle', null, { timeout: 30_000 });
   await hook(page, 'setPhase', 'Tag');
@@ -34,11 +28,6 @@ async function openWorld(page: Page): Promise<void> {
 
 const waitState = (page: Page, states: string[], timeout = 20_000) =>
   page.waitForFunction((s) => s.includes((window as unknown as { __KK: { welt: { rodState: string } } }).__KK.welt.rodState), states, { timeout });
-
-/** Touch über CDP (echte Touch-Ereignisse → Pointer-Events mit gültiger Pointer-ID). */
-async function touch(cdp: CDPSession, type: 'touchStart' | 'touchEnd', x: number, y: number): Promise<void> {
-  await cdp.send('Input.dispatchTouchEvent', { type, touchPoints: type === 'touchEnd' ? [] : [{ x, y, id: 1 }] });
-}
 
 test('Welt 1: auswerfen, sinken, Biss, Drill bis zum Fang, Fang-Karte (Tastatur bzw. Touch)', async ({ page, isMobile }, info) => {
   test.setTimeout(120_000);
@@ -62,20 +51,20 @@ test('Welt 1: auswerfen, sinken, Biss, Drill bis zum Fang, Fang-Karte (Tastatur 
     await page.waitForTimeout(450);
     await press(false);
     await waitState(page, ['Sinking', 'Waiting']);
-    if (!isMobile) {
-      await page.keyboard.down('KeyS');
-      await page.waitForTimeout(700);
-      await page.keyboard.up('KeyS');
-    }
+    // Sinken: Taste S bzw. großer Knopf (im Warten = „Halten: Sinken“)
+    if (!isMobile) await page.keyboard.down('KeyS');
+    else await press(true);
+    await page.waitForTimeout(700);
+    if (!isMobile) await page.keyboard.up('KeyS');
+    else await press(false);
     await page.waitForTimeout(300);
     const w = await welt(page);
     if (!w.snag) {
-      if (!isMobile) expect(w.depthM, JSON.stringify(w)).toBeGreaterThan(0);
+      expect(w.depthM, JSON.stringify(w)).toBeGreaterThan(0);
       break;
     }
     expect(attempt, 'Hänger bei jedem Wurf').toBeLessThan(4);
-    await press(true);
-    await press(false);
+    await page.keyboard.press('KeyR'); // Einholen: der verhakte Köder reißt ab
     await waitState(page, ['Idle'], 10_000);
   }
   await page.waitForTimeout(900); // Pose ist gelandet, Kamera nachgezogen
@@ -125,7 +114,7 @@ test('Welt 1: auswerfen, sinken, Biss, Drill bis zum Fang, Fang-Karte (Tastatur 
   // Spielstand überlebt Neuladen
   await page.waitForTimeout(300);
   await page.reload();
-  await page.waitForFunction(() => (window as unknown as { __KK?: { welt?: unknown } }).__KK?.welt !== undefined, null, { timeout: 30_000 });
+  await startGame(page.mainFrame());
   const bucketBadge = await page.locator('.hud__badge').textContent();
   expect(bucketBadge?.trim()).toBe('1');
   expect(errors).toEqual([]);
@@ -149,7 +138,9 @@ test('alle 13 Verhaltensarten: Drill startet, Telegraph-Ereignisse kommen', asyn
   const seen: Record<string, string[]> = {};
   for (const [beh, sig] of Object.entries(SIGNATURE)) {
     const native = W1_NATIVE[beh];
-    await hook(page, 'forceFish', native ?? 'F012');
+    // Verhalten ohne W1-Vertreter: an der Moosbart-Karausche (Selten, ≈9 s Ausdauer mit Konter, kein Zahnfisch),
+    // damit auch Verhalten mit langen Pausen (Aufbläher 5–7 s) im Drill vorkommen
+    await hook(page, 'forceFish', native ?? 'F016');
     await hook(page, 'forceBehavior', native ? null : beh);
     let found = false;
     for (let attempt = 0; attempt < 4 && !found; attempt++) {
@@ -175,8 +166,8 @@ test('alle 13 Verhaltensarten: Drill startet, Telegraph-Ereignisse kommen', asyn
 test('Video eines Drills (docs/qa/phase-1/drill.webm)', async ({ browser }, info) => {
   test.skip(info.project.name !== 'desktop', 'Video nur einmal');
   test.setTimeout(120_000);
-  const dir = 'test-results/video';
-  const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, recordVideo: { dir, size: { width: 1280, height: 720 } } });
+  // Eigener Ausgabeordner des Tests (wird nicht von anderen Workern geleert); Datei erst nach page.close() fertig
+  const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, recordVideo: { dir: info.outputPath('video'), size: { width: 1280, height: 720 } } });
   const page = await context.newPage();
   const errors = watchConsole(page);
   await openWorld(page);
@@ -188,9 +179,10 @@ test('Video eines Drills (docs/qa/phase-1/drill.webm)', async ({ browser }, info
   await waitState(page, ['Caught', 'Escaped'], 90_000);
   await page.waitForTimeout(2500);
   const video = page.video();
-  await context.close();
+  await page.close();
   mkdirSync('docs/qa/phase-1', { recursive: true });
   await video?.saveAs('docs/qa/phase-1/drill.webm');
+  await context.close();
   expect(errors).toEqual([]);
 });
 

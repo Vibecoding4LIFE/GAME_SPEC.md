@@ -25,6 +25,26 @@ export interface InputController {
   dispose(): void;
 }
 
+/**
+ * Holt den Tastatur-Fokus ins Spiel. Nötig in eingebetteten Vorschauen (sandboxed iframe): Ohne Fokus gehen
+ * Tastendrücke an die Elternseite (Leertaste scrollt dort), und `preventDefault` auf `pointerdown` verhindert den
+ * Fokuswechsel, den der Browser sonst beim Mausklick macht. Nur mit Nutzeraktivierung aufrufen (Klick/Tipp/Taste).
+ */
+export function focusGame(): void {
+  try {
+    window.focus();
+  } catch {
+    /* fremder Kontext: egal */
+  }
+  const stage = document.getElementById('stage');
+  if (stage) {
+    if (!stage.hasAttribute('tabindex')) stage.tabIndex = -1;
+    const active = document.activeElement;
+    // Knöpfe/Felder der Overlays behalten ihren Fokus (Tastaturbedienung der Menüs)
+    if (!active || active === document.body || active === stage) stage.focus({ preventScroll: true });
+  }
+}
+
 const isFormField = (el: EventTarget | null): boolean =>
   el instanceof HTMLInputElement || el instanceof HTMLSelectElement || el instanceof HTMLTextAreaElement || (el instanceof HTMLElement && el.isContentEditable);
 
@@ -47,6 +67,8 @@ export function createInput(): InputController {
     if (mapper.key(e.code, false)) e.preventDefault();
   };
   const onBlur = (): void => mapper.reset();
+  // Erster Zeiger-Druck irgendwo im Spiel → Fokus ins Spiel (Capture, damit auch Overlays mit preventDefault greifen)
+  const onPointerDown = (): void => focusGame();
   const onVisibility = (): void => {
     if (document.hidden) mapper.reset();
   };
@@ -72,6 +94,7 @@ export function createInput(): InputController {
   window.addEventListener('keydown', onKeyDown);
   window.addEventListener('keyup', onKeyUp);
   window.addEventListener('blur', onBlur);
+  window.addEventListener('pointerdown', onPointerDown, true);
   document.addEventListener('visibilitychange', onVisibility);
   window.addEventListener('gamepadconnected', onPadConnected);
   window.addEventListener('gamepaddisconnected', onPadDisconnected);
@@ -121,6 +144,7 @@ export function createInput(): InputController {
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);
+      window.removeEventListener('pointerdown', onPointerDown, true);
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('gamepadconnected', onPadConnected);
       window.removeEventListener('gamepaddisconnected', onPadDisconnected);

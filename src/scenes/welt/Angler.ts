@@ -129,15 +129,17 @@ export class Angler {
     for (const p of rasterPolyline(pts)) this.line.fillRect(p.x, p.y, 1, 1);
     if (inWater && baitPos.y > bob.y) rasterLine(bob.x, bob.y, baitPos.x, baitPos.y, (x, y) => this.line.fillRect(x, y, 1, 1));
 
-    // Zupfer / Biss / Schein
+    // Zupfer / Biss / Schein: Biss- und Schein-„!“ doppelt so groß (ganzzahlig) und blinkend
     if (f.marker !== this.lastMarker) {
       this.lastMarker = f.marker;
       this.marker.setVisible(f.marker !== 'none');
       if (f.marker === 'nibble') this.marker.play('hud_nibble_dots');
       if (f.marker === 'bite') this.marker.play('hud_bite_pop');
       if (f.marker === 'fake') this.marker.play('hud_fake_pop');
+      this.marker.setScale(f.marker === 'bite' || f.marker === 'fake' ? VIEW.bitePopScale : 1);
       pin(this.marker, 1 / 2, 1);
     }
+    if (f.marker === 'bite') this.marker.setVisible(Math.floor(this.scene.time.now / VIEW.bitePopBlinkMs) % 4 !== 3);
     const top = anchorOf(this.scene, FIGURES_ATLAS, 'pose_idle_0', 'wasserlinie')?.y ?? 0;
     this.marker.setPosition(Math.round(bob.x), Math.round(bob.y) - top - 2);
   }

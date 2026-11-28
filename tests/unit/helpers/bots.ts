@@ -78,7 +78,7 @@ export class SessionBot {
 
   input(sess: FishingSession, events: readonly SessionEvent[]): SessionInput {
     const s = sess.state;
-    const out: SessionInput = { castHeld: false, reel: false, reelPressed: false, sink: false, steer: 0, rodUp: false, strike: false, feed: false };
+    const out: SessionInput = { castHeld: false, reel: false, reelPressed: false, sink: false, steer: 0, rodUp: false, strike: false, feed: false, retrieve: false };
     for (const e of events) if (e.type === 'bite' && e.e.type === 'bite') this.biteSeenAt = s.timeS;
     switch (s.rodState) {
       case 'Idle': {

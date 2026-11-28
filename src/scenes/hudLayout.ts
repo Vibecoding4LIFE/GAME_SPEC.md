@@ -52,6 +52,8 @@ export interface HudLayout {
 export interface HudSizes {
   gaugeW: number; gaugeH: number; tensionW: number; tensionH: number; distanceW: number; distanceH: number;
   staminaW: number; staminaH: number; iconH: number; arrowW: number; gap: number; touchButtonGame: number;
+  /** Höhe der Beschriftungszeile über dem Spannungsbalken („Spannung“); 0 = keine */
+  labelH?: number;
 }
 
 /** Querformat: Spannung unten mittig. Hochformat: Spannung über dem Touch-Knopf, Anzeigen kompakter. */
@@ -63,8 +65,8 @@ export function hudLayout(l: PixelLayout, ins: Insets, s: HudSizes): HudLayout {
   const bottomFree = portrait ? Math.max(ins.bottom, s.touchButtonGame) : ins.bottom;
   const tensionY = H - bottomFree - g - s.tensionH;
   const tensionX = Math.round((W - s.tensionW) / 2);
-  // von unten gestapelt: Spannung → Distanz (Fisch-Symbol darüber) → Ausdauer → Richtungspfeil
-  const distanceY = tensionY - g - s.distanceH;
+  // von unten gestapelt: Spannung → Beschriftung → Distanz (Fisch-Symbol darüber) → Ausdauer → Richtungspfeil
+  const distanceY = tensionY - g - (s.labelH ?? 0) - s.distanceH;
   const staminaY = distanceY - g - s.iconH - g - s.staminaH;
   return {
     gauge: { x: ins.left + g, y: Math.max(ins.top + g, Math.round((H - s.gaugeH) / 2)) },

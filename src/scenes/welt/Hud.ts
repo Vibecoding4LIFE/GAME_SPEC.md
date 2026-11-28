@@ -1,6 +1,8 @@
-// Phaser-HUD (Atlas hud, B5): Wurfkraft mit Perfekt-Fenster, Tiefenanzeige + „Schnur zu kurz!“, Spannungsbalken mit
-// grüner/gelber/roter Zone, Distanz, Ausdauer-Flossen, Richtungspfeil, Hitze/Hänger, Uhr/Wetter/Fridolin/Wind, Meldungen.
-// Lebt auf der HUD-Kamera (ohne Scroll); alle Positionen ganze Spielpixel.
+// Phaser-HUD (Atlas hud, B5): Wurfkraft mit sichtbarem Perfekt-Bereich, Tiefenanzeige + „Schnur zu kurz!“,
+// beschrifteter Spannungsbalken (grün/gelb/rot) mit kräftiger Nadel, Distanz, Ausdauer-Flossen, Richtungspfeil,
+// Hitze/Hänger, Uhr/Wetter/Fridolin/Wind, Meldungen und – am PC – Tastenhinweise je Phase.
+// Lebt auf der HUD-Kamera (ohne Scroll); alle Positionen ganze Spielpixel. Im Hochformat werden die Drill-Anzeigen
+// ganzzahlig ×2 gezeichnet (Lesbarkeit hochkant), sonst ×1.
 import Phaser from 'phaser';
 import type { PixelLayout } from '../../core/pixelScale';
 import type { DrillState } from '../../game/drill';
@@ -31,6 +33,8 @@ export interface HudFrame {
   nextWeather: ActiveWeather | null;
   wind: -1 | 0 | 1;
   worldIndex: number;
+  /** Tastenhinweise zeigen (PC ohne Touch) */
+  keyHints: boolean;
 }
 
 const WEATHER_ICON: Partial<Record<ActiveWeather, string>> = {
@@ -38,26 +42,31 @@ const WEATHER_ICON: Partial<Record<ActiveWeather, string>> = {
   Gewitter: 'wetter_gewitter_still_0', Nebel: 'wetter_nebel_still_0',
 };
 
-const textStyle = (color: string = VIEW.colors.text): Phaser.Types.GameObjects.Text.TextStyle => ({
-  fontFamily: '"Pixelify Sans", monospace', fontSize: '10px', color, stroke: VIEW.colors.textDark, strokeThickness: 2,
+const textStyle = (color: string = VIEW.colors.text, size = 10): Phaser.Types.GameObjects.Text.TextStyle => ({
+  fontFamily: '"Pixelify Sans", monospace', fontSize: `${size}px`, color, stroke: VIEW.colors.textDark, strokeThickness: 2,
 });
 
 export class Hud {
   private lay!: HudLayout;
+  private s = 1;
+  private keyHintsOn = false;
   // Wurf
-  private powerFrame!: Img; private powerFill!: Img; private powerMarker!: Img;
+  private powerFrame!: Img; private powerFill!: Img; private powerMarker!: Img; private perfectZone!: Phaser.GameObjects.Graphics;
+  private perfectText!: Phaser.GameObjects.Text;
   // Tiefe
   private depthScale!: Img; private depthFill!: Img; private depthMarker!: Img; private shortText!: Phaser.GameObjects.Text;
   // Drill
-  private tensionFrame!: Img; private tensionTiles: Img[] = []; private needle!: Img;
+  private tensionFrame!: Img; private tensionTiles: Img[] = []; private needle!: Phaser.GameObjects.Graphics;
+  private tensionLabel!: Phaser.GameObjects.Text; private distLabel!: Phaser.GameObjects.Text;
   private distFrame!: Img; private distTiles: Img[] = []; private distIcon!: Img; private boatIcon!: Img;
   private fins: Img[] = []; private arrow!: Phaser.GameObjects.Sprite;
   private heat!: Phaser.GameObjects.Graphics; private snagText!: Phaser.GameObjects.Text;
   // Wetter / Zeit
   private clock!: Img; private timeText!: Phaser.GameObjects.Text; private weatherIcon!: Img; private fridolin!: Img;
   private nextIcon!: Img; private windArrow!: Phaser.GameObjects.Sprite;
-  // Meldungen
+  // Meldungen und Tastenhinweise
   private banner!: Phaser.GameObjects.Text; private bannerLeft = 0; private bannerQueue: { text: string; color: string }[] = [];
+  private keyHint!: Phaser.GameObjects.Text;
   private lastArrow = '';
 
   constructor(private readonly scene: Phaser.Scene, private readonly layer: Phaser.GameObjects.Layer) {}
@@ -68,16 +77,24 @@ export class Hud {
     return o;
   }
 
-  private txt(color?: string): Phaser.GameObjects.Text {
-    const o = this.scene.add.text(0, 0, '', textStyle(color)).setOrigin(0);
+  private txt(color?: string, size?: number): Phaser.GameObjects.Text {
+    const o = this.scene.add.text(0, 0, '', textStyle(color, size)).setOrigin(0);
     this.layer.add(o);
     return o;
+  }
+
+  private gfx(): Phaser.GameObjects.Graphics {
+    const g = this.scene.add.graphics();
+    this.layer.add(g);
+    return g;
   }
 
   create(): void {
     this.powerFrame = this.img('hud_power_frame_still_0');
     this.powerFill = this.img('hud_power_fill_still_0');
+    this.perfectZone = this.gfx();
     this.powerMarker = this.img('hud_power_marker_still_0');
+    this.perfectText = this.txt('#ffe066');
     this.depthScale = this.img('hud_depth_scale_still_0');
     this.depthFill = this.img('hud_depth_fill_see_still_0');
     this.depthMarker = this.img('hud_depth_marker_still_0');
@@ -86,7 +103,9 @@ export class Hud {
     const tw = windowOf(this.scene, HUD_ATLAS, 'hud_tension_frame_still_0');
     const tileW = this.scene.textures.getFrame(HUD_ATLAS, 'hud_tension_zone_leer_still_0')?.width ?? 1;
     for (let i = 0; i < Math.floor(tw.w / tileW); i++) this.tensionTiles.push(this.img('hud_tension_zone_leer_still_0'));
-    this.needle = this.img('hud_tension_needle_still_0');
+    this.needle = this.gfx();
+    this.tensionLabel = this.txt();
+    this.distLabel = this.txt();
     this.distFrame = this.img('hud_distance_frame_still_0');
     const dw = windowOf(this.scene, HUD_ATLAS, 'hud_distance_frame_still_0');
     const dTile = this.scene.textures.getFrame(HUD_ATLAS, 'hud_distance_fill_still_0')?.width ?? 1;
@@ -96,8 +115,7 @@ export class Hud {
     for (let i = 0; i < VIEW.hud.staminaFins; i++) this.fins.push(this.img('hud_stamina_full_still_0'));
     this.arrow = pin(this.scene.add.sprite(0, 0, HUD_ATLAS, 'hud_arrow_left_pulse_0'));
     this.layer.add(this.arrow);
-    this.heat = this.scene.add.graphics();
-    this.layer.add(this.heat);
+    this.heat = this.gfx();
     this.snagText = this.txt(VIEW.colors.warn);
     this.clock = this.img('hud_icon_uhr_still_0');
     this.timeText = this.txt();
@@ -106,53 +124,71 @@ export class Hud {
     this.nextIcon = this.img('wetter_sonnig_still_0', FIGURES_ATLAS);
     this.windArrow = this.scene.add.sprite(0, 0, HUD_ATLAS, 'hud_wind_right_flutter_0').setOrigin(1, 0);
     this.layer.add(this.windArrow);
-    this.banner = this.txt();
-    this.banner.setFontSize(12);
+    this.banner = this.txt(undefined, 12);
+    this.keyHint = this.txt();
+    this.tensionLabel.setText(t('hud.tension'));
+    this.distLabel.setText(t('hud.distance'));
+    this.perfectText.setText(t('hud.perfect'));
   }
 
-  /** Neu anordnen (Format, Safe-Areas, HTML-Leisten). */
+  /** Neu anordnen (Format, Safe-Areas, HTML-Leisten, Touch-Knöpfe). */
   relayout(l: PixelLayout, reserve: ScreenReserve): void {
     const sz = (f: string) => this.scene.textures.getFrame(HUD_ATLAS, f);
+    const s = l.orientation === 'portrait' ? 2 : 1;
+    this.s = s;
     const touchGame = reserve.touchButtonCss > 0 ? Math.ceil((reserve.touchButtonCss * reserve.dpr) / l.deviceZoom) : 0;
     const ins = hudInsets(l, reserve);
+    const g = VIEW.hud.gap;
     this.lay = hudLayout(l, ins, {
       gaugeW: sz('hud_depth_scale_still_0')?.width ?? 0, gaugeH: sz('hud_depth_scale_still_0')?.height ?? 0,
-      tensionW: sz('hud_tension_frame_still_0')?.width ?? 0, tensionH: sz('hud_tension_frame_still_0')?.height ?? 0,
-      distanceW: sz('hud_distance_frame_still_0')?.width ?? 0, distanceH: sz('hud_distance_frame_still_0')?.height ?? 0,
-      staminaW: (sz('hud_stamina_full_still_0')?.width ?? 0) * VIEW.hud.staminaFins, staminaH: sz('hud_stamina_full_still_0')?.height ?? 0,
-      iconH: sz('hud_icon_fisch_still_0')?.height ?? 0, arrowW: sz('hud_arrow_left_pulse_0')?.width ?? 0,
-      gap: VIEW.hud.gap, touchButtonGame: touchGame,
+      tensionW: (sz('hud_tension_frame_still_0')?.width ?? 0) * s, tensionH: (sz('hud_tension_frame_still_0')?.height ?? 0) * s,
+      distanceW: (sz('hud_distance_frame_still_0')?.width ?? 0) * s, distanceH: (sz('hud_distance_frame_still_0')?.height ?? 0) * s,
+      staminaW: (sz('hud_stamina_full_still_0')?.width ?? 0) * VIEW.hud.staminaFins * s, staminaH: (sz('hud_stamina_full_still_0')?.height ?? 0) * s,
+      iconH: (sz('hud_icon_fisch_still_0')?.height ?? 0) * s, arrowW: (sz('hud_arrow_left_pulse_0')?.width ?? 0) * s,
+      gap: g, touchButtonGame: touchGame, labelH: Math.ceil(this.tensionLabel.height),
     });
     const L = this.lay;
+    // Wurfkraft / Tiefe (immer ×1, links mittig)
     this.powerFrame.setPosition(L.gauge.x, L.gauge.y);
     const pw = windowOf(this.scene, HUD_ATLAS, 'hud_power_frame_still_0');
     this.powerFill.setPosition(L.gauge.x + pw.x, L.gauge.y + pw.y);
+    this.perfectText.setPosition(L.gauge.x + this.powerFrame.width + g, L.gauge.y);
     this.depthScale.setPosition(L.gauge.x, L.gauge.y);
     const dw = windowOf(this.scene, HUD_ATLAS, 'hud_depth_scale_still_0');
     this.depthFill.setPosition(L.gauge.x + dw.x, L.gauge.y + dw.y);
-    this.shortText.setPosition(L.gauge.x + this.depthScale.width + VIEW.hud.gap * 3, L.gauge.y + Math.round(this.depthScale.height / 2));
+    this.shortText.setPosition(L.gauge.x + this.depthScale.width + g * 3, L.gauge.y + Math.round(this.depthScale.height / 2));
+    // Drill (×s)
+    for (const o of [this.tensionFrame, ...this.tensionTiles, this.distFrame, ...this.distTiles, this.distIcon, this.boatIcon, ...this.fins, this.arrow]) o.setScale(s);
     this.tensionFrame.setPosition(L.tension.x, L.tension.y);
     const tw = windowOf(this.scene, HUD_ATLAS, 'hud_tension_frame_still_0');
-    this.tensionTiles.forEach((tile, i) => tile.setPosition(L.tension.x + tw.x + i * tile.width, L.tension.y + tw.y));
+    this.tensionTiles.forEach((tile, i) => tile.setPosition(L.tension.x + (tw.x + i * tile.width) * s, L.tension.y + tw.y * s));
+    this.tensionLabel.setPosition(L.tension.x, L.tension.y - this.tensionLabel.height);
     this.distFrame.setPosition(L.distance.x, L.distance.y);
     const dist = windowOf(this.scene, HUD_ATLAS, 'hud_distance_frame_still_0');
-    this.distTiles.forEach((tile, i) => tile.setPosition(L.distance.x + dist.x + i * tile.width, L.distance.y + dist.y));
-    this.boatIcon.setPosition(L.distance.x - this.boatIcon.width - VIEW.hud.gap, L.distance.y + Math.round((this.distFrame.height - this.boatIcon.height) / 2));
-    this.fins.forEach((f, i) => f.setPosition(L.stamina.x + i * f.width, L.stamina.y));
+    this.distTiles.forEach((tile, i) => tile.setPosition(L.distance.x + (dist.x + i * tile.width) * s, L.distance.y + dist.y * s));
+    this.boatIcon.setPosition(L.distance.x - this.boatIcon.width * s - g, L.distance.y + Math.round(((this.distFrame.height - this.boatIcon.height) * s) / 2));
+    this.distLabel.setPosition(L.distance.x + this.distFrame.width * s + g, L.distance.y + Math.round((this.distFrame.height * s - this.distLabel.height) / 2));
+    this.fins.forEach((f, i) => f.setPosition(L.stamina.x + i * f.width * s, L.stamina.y));
     this.arrow.setPosition(L.arrow.x, L.arrow.y);
-    this.heat.setPosition(L.tension.x + this.tensionFrame.width + VIEW.hud.gap, L.tension.y + Math.round(this.tensionFrame.height / 2));
-    this.snagText.setPosition(L.distance.x, L.stamina.y - VIEW.hud.gap * 4);
+    // Hitzeleiste rechtsbündig über dem Spannungsbalken (passt so auch hochkant)
+    this.heat.setPosition(L.tension.x + this.tensionFrame.width * s - VIEW.hud.heatW, L.tension.y - VIEW.hud.heatH * s - g);
+    this.snagText.setPosition(L.distance.x, L.stamina.y - g * 4);
     // Wetter-Block rechts oben, rechtsbündig
     const right = L.weather.x;
-    const g = VIEW.hud.gap;
     this.fridolin.setPosition(right - this.fridolin.width, L.weather.y);
     this.nextIcon.setPosition(this.fridolin.x - this.nextIcon.width, L.weather.y + g);
     this.weatherIcon.setPosition(this.nextIcon.x - this.weatherIcon.width - g * 2, L.weather.y + g);
-    // Uhr + Tageszeit unter dem Wetter-Block, rechtsbündig (Textbreite ändert sich mit der Sprache)
     this.timeText.setOrigin(1, 0).setPosition(right, L.weather.y + this.fridolin.height + g);
     this.windArrow.setPosition(this.weatherIcon.x + this.weatherIcon.width, L.weather.y + this.weatherIcon.height + g * 2);
     this.placeClock();
     this.placeBanner();
+    // Tastenhinweise links oben unter der HTML-Leiste
+    this.keyHint.setPosition(ins.left + g, ins.top + g);
+  }
+
+  /** Kurze Meldung oben (Text kommt schon übersetzt). */
+  say(text: string, color: string = VIEW.colors.text): void {
+    this.bannerQueue.push({ text, color });
   }
 
   /** Banner mittig, aber auf ganzen Pixeln (Textbreite kann ungerade sein). */
@@ -164,11 +200,6 @@ export class Hud {
     this.clock.setPosition(Math.round(this.timeText.x - this.timeText.width - VIEW.hud.gap - this.clock.width), this.timeText.y);
   }
 
-  /** Kurze Meldung oben (Text kommt schon übersetzt). */
-  say(text: string, color: string = VIEW.colors.text): void {
-    this.bannerQueue.push({ text, color });
-  }
-
   update(dt: number, f: HudFrame): void {
     const L = this.lay;
     if (!L) return;
@@ -176,14 +207,23 @@ export class Hud {
     const inWater = f.rodState === 'Sinking' || f.rodState === 'Waiting' || f.rodState === 'Nibble' || f.rodState === 'Bite';
     const fight = f.rodState === 'Reeling' && f.drill !== null;
 
-    // Wurfkraft
-    for (const o of [this.powerFrame, this.powerFill, this.powerMarker]) o.setVisible(aiming);
+    // Wurfkraft mit Perfekt-Bereich
+    for (const o of [this.powerFrame, this.powerFill, this.powerMarker, this.perfectZone, this.perfectText]) o.setVisible(aiming);
+    this.perfectZone.clear();
     if (aiming) {
       const pw = windowOf(this.scene, HUD_ATLAS, 'hud_power_frame_still_0');
       const h = Math.round(Math.max(0, Math.min(1, f.castPower)) * pw.h);
       this.powerFill.setCrop(0, pw.h - h, pw.w, h);
-      const my = L.gauge.y + pw.y + Math.round((1 - f.perfectMin) * pw.h);
-      this.powerMarker.setPosition(L.gauge.x + pw.x + Math.round((pw.w - this.powerMarker.width) / 2), my - Math.round(this.powerMarker.height / 2));
+      const zoneH = Math.round((1 - f.perfectMin) * pw.h);
+      const x0 = L.gauge.x + pw.x;
+      const y0 = L.gauge.y + pw.y;
+      // Perfekt-Bereich: goldene Klammer rechts neben dem Fenster + Rand oben/unten
+      this.perfectZone.fillStyle(hexToInt('#ffe066'), 1);
+      this.perfectZone.fillRect(x0 + pw.w + 1, y0, 2, zoneH);
+      this.perfectZone.fillRect(x0 - 2, y0 + zoneH, pw.w + 5, 1);
+      const inPerfect = f.castPower >= f.perfectMin;
+      this.perfectText.setColor(inPerfect ? '#ffffff' : '#ffe066');
+      this.powerMarker.setPosition(L.gauge.x + pw.x + Math.round((pw.w - this.powerMarker.width) / 2), y0 + zoneH - Math.round(this.powerMarker.height / 2));
     }
 
     // Tiefe
@@ -201,10 +241,11 @@ export class Hud {
     }
 
     // Drill
-    const drillObjs: Phaser.GameObjects.GameObject[] = [this.tensionFrame, ...this.tensionTiles, this.needle, this.distFrame, ...this.distTiles, this.distIcon, this.boatIcon, ...this.fins];
+    const drillObjs: Phaser.GameObjects.GameObject[] = [this.tensionFrame, ...this.tensionTiles, this.needle, this.distFrame, ...this.distTiles, this.distIcon, this.boatIcon, ...this.fins, this.tensionLabel, this.distLabel];
     for (const o of drillObjs) (o as Img).setVisible(fight);
     this.arrow.setVisible(false);
     this.heat.clear();
+    this.needle.clear();
     this.snagText.setVisible(false);
     if (fight && f.drill) this.updateDrill(f.drill, f);
 
@@ -217,6 +258,13 @@ export class Hud {
     this.windArrow.setVisible(f.wind !== 0);
     const windAnim = f.wind > 0 ? 'hud_wind_right_flutter' : 'hud_wind_left_flutter';
     if (f.wind !== 0 && this.windArrow.anims.currentAnim?.key !== windAnim) this.windArrow.play(windAnim);
+
+    // Tastenhinweise (PC)
+    this.keyHintsOn = f.keyHints;
+    const hintKey = `hint.${f.rodState}`;
+    const hint = this.keyHintsOn && f.rodState !== 'Caught' ? t(hintKey) : '';
+    if (this.keyHint.text !== hint) this.keyHint.setText(hint);
+    this.keyHint.setVisible(hint !== '' && hint !== hintKey);
 
     // Meldungen
     this.bannerLeft -= dt;
@@ -232,6 +280,7 @@ export class Hud {
 
   private updateDrill(d: DrillState, f: HudFrame): void {
     const L = this.lay;
+    const s = this.s;
     const tw = windowOf(this.scene, HUD_ATLAS, 'hud_tension_frame_still_0');
     const n = this.tensionTiles.length;
     this.tensionTiles.forEach((tile, i) => {
@@ -239,14 +288,20 @@ export class Hud {
       const frame = c >= f.redFrom ? 'rot' : c >= d.zone.lo && c <= d.zone.hi ? 'gruen' : c > d.zone.hi ? 'gelb' : 'leer';
       tile.setFrame(`hud_tension_zone_${frame}_still_0`);
     });
-    const tip = anchorOf(this.scene, HUD_ATLAS, 'hud_tension_needle_still_0', 'spitze') ?? { x: 0, y: 0 };
-    this.needle.setPosition(L.tension.x + tw.x + Math.round(d.tension * tw.w) - tip.x, L.tension.y + tw.y + Math.round(tw.h / 2) - tip.y);
+    // Nadel: 3 px breiter heller Balken mit dunkler Kontur, ragt oben und unten über den Rahmen
+    const nx = L.tension.x + (tw.x + Math.round(d.tension * tw.w)) * s;
+    const top = L.tension.y - 2 * s;
+    const hgt = this.tensionFrame.height * s + 4 * s;
+    const w = 3 * s;
+    this.needle.fillStyle(hexToInt(VIEW.colors.textDark), 1).fillRect(nx - Math.floor(w / 2) - s, top - s, w + 2 * s, hgt + 2 * s);
+    const red = d.tension >= f.redFrom;
+    this.needle.fillStyle(red ? hexToInt('#ff3b2f') : 0xffffff, 1).fillRect(nx - Math.floor(w / 2), top, w, hgt);
 
     const frac = Math.max(0, Math.min(1, d.distance / Math.max(Number.EPSILON, d.b.drill.distance.max)));
     const lit = Math.round(frac * this.distTiles.length);
     this.distTiles.forEach((tile, i) => tile.setVisible(i < lit));
     const dist = windowOf(this.scene, HUD_ATLAS, 'hud_distance_frame_still_0');
-    this.distIcon.setPosition(L.distance.x + dist.x + lit * (this.distTiles[0]?.width ?? 0) - Math.round(this.distIcon.width / 2), L.distance.y - this.distIcon.height);
+    this.distIcon.setPosition(L.distance.x + (dist.x + lit * (this.distTiles[0]?.width ?? 0)) * s - Math.round((this.distIcon.width * s) / 2), L.distance.y - this.distIcon.height * s);
 
     const st = d.staminaMax > 0 ? d.displayStamina / d.staminaMax : 0;
     this.fins.forEach((fin, i) => {
@@ -262,10 +317,10 @@ export class Hud {
     }
 
     if (d.behavior === 'Hitzkopf') {
-      const w = VIEW.hud.heatW;
-      const h = VIEW.hud.heatH;
-      this.heat.fillStyle(hexToInt(VIEW.colors.heatBg), 1).fillRect(0, 0, w, h);
-      this.heat.fillStyle(hexToInt(VIEW.colors.heat), 1).fillRect(0, 0, Math.round(Math.min(1, d.heat / f.heatBreakAt) * w), h);
+      const hw = VIEW.hud.heatW;
+      const hh = VIEW.hud.heatH * s;
+      this.heat.fillStyle(hexToInt(VIEW.colors.heatBg), 1).fillRect(0, 0, hw, hh);
+      this.heat.fillStyle(hexToInt(VIEW.colors.heat), 1).fillRect(0, 0, Math.round(Math.min(1, d.heat / f.heatBreakAt) * hw), hh);
     }
     if (d.snag) {
       this.snagText.setText(t('scene.snagDrill', { count: d.snag.count, needed: d.snag.needed })).setVisible(true);
@@ -273,8 +328,8 @@ export class Hud {
   }
 
   /** Hänger im Wasser (nicht im Drill) */
-  showSnag(s: { count: number; needed: number } | null): void {
-    if (!s) return;
-    this.snagText.setText(t('scene.snag', { count: s.count, needed: s.needed })).setVisible(true);
+  showSnag(sn: { count: number; needed: number } | null): void {
+    if (!sn) return;
+    this.snagText.setText(t('scene.snag', { count: sn.count, needed: sn.needed })).setVisible(true);
   }
 }

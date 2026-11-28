@@ -7,7 +7,10 @@ export { Lexicon, type LexiconCallbacks, type LexiconData } from './lexicon';
 export { DebugMenu, type DebugMenuCallbacks, type DebugMenuData, type DebugMenuOptions, type DebugTime } from './debugMenu';
 export { HudOverlay, type HudCallbacks, type HudData } from './hudOverlay';
 export { TouchControls, type TouchControlsData } from './touchControls';
-export { createInput, type InputController } from './input';
+export { createInput, focusGame, type InputController } from './input';
+export { Feedback, FEEDBACK_PATTERNS, canVibrate, type FeedbackKind, type FeedbackOptions } from './feedback';
+export { LoadingScreen } from './loadingScreen';
+export { Intro, type IntroInput } from './intro';
 export {
   ACTION_TYPES, INPUT_MODES, KEY_BINDINGS, InputMapper, GestureTracker,
   type ActionType, type InputAction, type InputMode, type InputSource,

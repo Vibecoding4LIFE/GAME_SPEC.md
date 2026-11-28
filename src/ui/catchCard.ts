@@ -40,7 +40,9 @@ export class CatchCard implements UiComponent<CatchCardData> {
       showCloseButton: false,
       onClose: (r) => this.closed(r),
     });
-    this.stage.append(this.canvas, this.stamps);
+    // Glitzer-Funken (D 1.11: alle 2 s); sichtbar nur bei data-shiny (CSS)
+    const sparkles = h('div', { class: 'cc__sparkles', 'aria-hidden': 'true' }, [1, 2, 3].map((i) => h('span', { class: `cc__sparkle cc__sparkle--${i}` })));
+    this.stage.append(this.canvas, sparkles, this.stamps);
     this.card.append(this.banners, this.stage, this.kicker, this.name, this.meta, this.stats);
     this.dlg.body.append(this.card);
 
@@ -164,6 +166,7 @@ export class CatchCard implements UiComponent<CatchCardData> {
       maxCssHeight: hgt,
       extraZoom: SIZE_TIER_STYLE[d.tier].extraZoom,
       maxScale: 16,
+      ...(d.shiny ? { palette: { from: d.fish.art.colors, to: d.fish.art.shinyColors } } : {}),
     });
     this.stage.classList.toggle('cc__stage--empty', scale === 0);
   }

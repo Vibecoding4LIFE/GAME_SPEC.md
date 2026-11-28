@@ -94,8 +94,10 @@
 .ui-fps {
   position: fixed;
   top: calc(4px + var(--safe-top, 0px));
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  width: max-content;
+  margin: 0 auto;
   z-index: var(--z-fps);
   padding: 2px 8px;
   font-family: var(--font-pixel);
@@ -193,7 +195,8 @@
 }
 
 .touch__cast.is-pressed {
-  transform: scale(0.94);
+  /* kein scale(): Pixeltext würde unscharf; stattdessen 4 px nach unten und heller */
+  translate: 0 4px;
   filter: brightness(1.2);
   box-shadow: inset 0 -2px 0 rgba(246, 220, 140, 0.7), inset 0 6px 0 rgba(140, 100, 32, 0.8);
 }
@@ -249,21 +252,27 @@
 }
 
 .touch__hint--left {
-  left: 50%;
+  left: 0;
+  right: 0;
+  width: max-content;
+  margin: 0 auto;
   bottom: calc(140px + var(--safe-bottom, 0px));
-  transform: translateX(-50%);
 }
 
 .touch__hint--swipe {
-  left: 50%;
+  left: 0;
+  right: 0;
+  width: max-content;
+  margin: 0 auto;
   top: 42%;
-  transform: translateX(-50%);
 }
 
 .touch__hint--tap {
-  left: 50%;
+  left: 0;
+  right: 0;
+  width: max-content;
+  margin: 0 auto;
   top: 28%;
-  transform: translateX(-50%);
 }
 
 /* ================================================================== Fang-Karte */
@@ -1156,4 +1165,256 @@
   .cc__confetti {
     display: none;
   }
+}
+
+/* ================================================================== Touch-Knöpfe (Phase 1, Nutzer-Feedback) */
+.touch__btns--left {
+  right: auto;
+  left: calc(16px + var(--safe-left, 0px));
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.touch__row,
+.touch__col {
+  display: flex;
+  gap: var(--s2);
+  pointer-events: none;
+}
+
+.touch__col {
+  flex-direction: column;
+}
+
+.touch__row > *,
+.touch__col > * {
+  pointer-events: auto;
+}
+
+.touch__small {
+  font: inherit;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: var(--fs-s);
+  line-height: 1;
+  color: var(--text-hell);
+  background: rgba(18, 52, 47, 0.82);
+  border: 3px solid rgba(248, 238, 212, 0.55);
+  touch-action: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.touch__small[hidden] {
+  display: none;
+}
+
+.touch__small-label {
+  white-space: nowrap;
+}
+
+.touch__steer {
+  min-width: 72px;
+  min-height: 72px;
+}
+
+.touch__small.is-pressed {
+  translate: 0 3px;
+  background: rgba(63, 154, 76, 0.92);
+  border-color: #fff6ea;
+}
+
+.touch__rodup.is-alert {
+  background: rgba(200, 64, 44, 0.9);
+  animation: touch-pulse 400ms steps(2) infinite;
+}
+
+.touch__item.touch__small {
+  width: auto;
+  height: auto;
+  clip-path: none;
+}
+
+@media (pointer: fine) {
+  .ui-touch:not(.has-touch) .touch__btns--left:not(.is-forced) {
+    display: none;
+  }
+}
+
+/* Rand-Puls als sichtbarer Ersatz für Vibration (iPhone, Vibration aus) */
+.ui-edge-pulse {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-touch);
+  pointer-events: none;
+  box-shadow: inset 0 0 0 8px var(--pulse-color, #ff6f59);
+  opacity: 0;
+}
+
+.ui-edge-pulse.is-on {
+  animation: edge-pulse 360ms steps(3) 1;
+}
+
+@keyframes edge-pulse {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-edge-pulse.is-on { animation-duration: 1ms; }
+}
+
+/* ================================================================== Ladebildschirm */
+.ui-loading {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-debug);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: calc(16px + var(--safe-top, 0px)) calc(16px + var(--safe-right, 0px)) calc(16px + var(--safe-bottom, 0px)) calc(16px + var(--safe-left, 0px));
+  background: var(--rand, #12342f);
+  color: var(--text-hell, #f8eed4);
+  font-family: var(--font-pixel);
+  text-align: center;
+  cursor: default;
+  /* #overlay lässt Zeiger durch; der Ladebildschirm fängt sie selbst (erster Tipp = Start + Fokus) */
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.ui-loading.is-ready {
+  cursor: pointer;
+}
+
+.ld__title {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #ffe066;
+  text-shadow: 4px 4px 0 #8a5a33, 0 4px 0 #8a5a33;
+}
+
+@media (max-width: 480px) {
+  .ld__title { font-size: 36px; }
+}
+
+.ld__fish {
+  image-rendering: pixelated;
+  min-height: 48px;
+}
+
+.ld__bar {
+  width: min(320px, 80vw);
+  height: 16px;
+  border: 4px solid #8a5a33;
+  background: #0b221f;
+  box-sizing: content-box;
+}
+
+.ld__fill {
+  height: 100%;
+  width: 0;
+  background: #ffe066;
+}
+
+.ld__pct {
+  margin: 0;
+  font-size: var(--fs-m);
+}
+
+.ld__prompt {
+  font: inherit;
+  font-size: var(--fs-l);
+  min-height: 48px;
+  padding: 8px 20px;
+  color: #12342f;
+  background: #ffe066;
+  border: 4px solid #8a5a33;
+  cursor: pointer;
+  animation: touch-pulse 800ms steps(2) infinite;
+}
+
+.ld__prompt[hidden] {
+  display: none;
+}
+
+/* ================================================================== Einführung */
+.intro {
+  --dlg-w: 460px;
+}
+
+.intro__steps {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--fs-m);
+  line-height: 1.25;
+}
+
+.intro__step-title {
+  display: block;
+}
+
+.intro__step-how {
+  display: block;
+  font-size: var(--fs-s);
+  opacity: 0.9;
+}
+
+/* ================================================================== Schillernd (D 1.11) */
+.cc__sparkles {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cc[data-shiny] .cc__sparkles {
+  display: block;
+}
+
+.cc[data-shiny] .cc__stage {
+  outline: 4px solid #b7b2d6;
+  box-shadow: 0 0 0 8px #8fd3f4, 0 0 0 12px #ffc83d;
+}
+
+.cc__sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background:
+    linear-gradient(#fff6ea, #fff6ea) center / 4px 12px no-repeat,
+    linear-gradient(#fff6ea, #fff6ea) center / 12px 4px no-repeat;
+  opacity: 0;
+  animation: cc-sparkle 2s steps(4) infinite;
+}
+
+.cc__sparkle--1 { left: 18%; top: 22%; }
+.cc__sparkle--2 { left: 64%; top: 30%; animation-delay: 0.66s; }
+.cc__sparkle--3 { left: 42%; top: 62%; animation-delay: 1.33s; }
+
+@keyframes cc-sparkle {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  25% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc__sparkle { animation: none; opacity: 0.8; }
 }

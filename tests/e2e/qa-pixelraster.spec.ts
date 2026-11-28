@@ -13,6 +13,8 @@ interface KK {
 // Phase 0: Testbecken (?szene=testbecken). Phase 1: zusätzlich die Welt-Szene mit Parallax, HUD, Text und Schnur.
 for (const [name, url] of [['Testbecken', '/?szene=testbecken'], ['Welt 1', '/']] as const) test(`${name}: jedes Spielpixel belegt exakt n×n Gerätepixel`, async ({ page, context }) => {
   await page.goto(url);
+  // Welt: Ladebildschirm wartet auf den ersten Tipp (Nutzer-Feedback Phase 1); das Testbecken startet direkt
+  if (url === '/') await page.locator('.ld__prompt').click({ timeout: 30_000 });
   await page.waitForFunction(() => (window as unknown as { __KK?: KK }).__KK?.ready === true, null, { timeout: 30_000 });
   await page.addStyleTag({ content: '#overlay{display:none !important}' });
   await page.waitForTimeout(300);

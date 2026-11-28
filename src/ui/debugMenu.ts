@@ -23,6 +23,11 @@ export interface DebugMenuData {
   time?: DebugTime | null;
   weather?: Weather | null;
   showFps?: boolean;
+  /** Einstellungen (Nutzer-Feedback): Vibration, Bildschirm wackeln */
+  vibration?: boolean;
+  shake?: boolean;
+  /** Debug: jeder Fang schillernd */
+  forceShiny?: boolean;
 }
 
 export interface DebugMenuCallbacks {
@@ -32,6 +37,10 @@ export interface DebugMenuCallbacks {
   onSetWeather(w: Weather | null): void;
   onResetSave(): void;
   onToggleFps?(on: boolean): void;
+  onToggleVibration?(on: boolean): void;
+  onToggleShake?(on: boolean): void;
+  onForceShiny?(on: boolean): void;
+  onShowIntro?(): void;
   onOpen?(): void;
   onClose?(): void;
 }
@@ -55,6 +64,9 @@ export class DebugMenu implements UiComponent<DebugMenuData> {
   private readonly timeSel = h('select', { class: 'dbg__select', id: 'dbg-time' });
   private readonly weatherSel = h('select', { class: 'dbg__select', id: 'dbg-weather' });
   private readonly fpsBox = h('input', { type: 'checkbox', class: 'dbg__check', id: 'dbg-fps' });
+  private readonly vibBox = h('input', { type: 'checkbox', class: 'dbg__check', id: 'dbg-vib' });
+  private readonly shakeBox = h('input', { type: 'checkbox', class: 'dbg__check', id: 'dbg-shake' });
+  private readonly shinyBox = h('input', { type: 'checkbox', class: 'dbg__check', id: 'dbg-shiny' });
   private readonly resetBtn: HTMLButtonElement;
   private readonly fpsEl = h('div', { class: 'ui-fps', hidden: true, 'aria-hidden': 'true' });
   private readonly hotspot = h('div', { class: 'dbg-hotspot', 'aria-hidden': 'true' });
@@ -86,16 +98,24 @@ export class DebugMenu implements UiComponent<DebugMenuData> {
       field('dbg-time', 'debug.time', this.timeSel),
       field('dbg-weather', 'debug.weather', this.weatherSel),
       h('div', { class: 'dbg__field dbg__field--check' }, [this.fpsBox, h('label', { for: 'dbg-fps', text: t('debug.fps') })]),
+      h('div', { class: 'dbg__field dbg__field--check' }, [this.vibBox, h('label', { for: 'dbg-vib', text: t('debug.vibration') })]),
+      h('div', { class: 'dbg__field dbg__field--check' }, [this.shakeBox, h('label', { for: 'dbg-shake', text: t('debug.shake') })]),
+      h('div', { class: 'dbg__field dbg__field--check' }, [this.shinyBox, h('label', { for: 'dbg-shiny', text: t('debug.forceShiny') })]),
       h('p', { class: 'dbg__hint', text: t('debug.openHint') }),
     );
     this.dlg.body.append(this.form);
-    this.dlg.foot.append(this.resetBtn);
+    const introBtn = button(t('debug.intro'), { variant: 'wood', cls: 'dbg__intro' });
+    introBtn.addEventListener('click', () => { this.hide(); this.cb.onShowIntro?.(); });
+    this.dlg.foot.append(introBtn, this.resetBtn);
 
     this.fishSel.addEventListener('change', () => this.cb.onForceFish((this.fishSel.value || null) as FishId | null));
     this.behSel.addEventListener('change', () => this.cb.onForceBehavior((this.behSel.value || null) as FightBehavior | null));
     this.timeSel.addEventListener('change', () => this.cb.onSetTime((this.timeSel.value || null) as DebugTime | null));
     this.weatherSel.addEventListener('change', () => this.cb.onSetWeather((this.weatherSel.value || null) as Weather | null));
     this.fpsBox.addEventListener('change', () => this.setFps(this.fpsBox.checked, true));
+    this.vibBox.addEventListener('change', () => this.cb.onToggleVibration?.(this.vibBox.checked));
+    this.shakeBox.addEventListener('change', () => this.cb.onToggleShake?.(this.shakeBox.checked));
+    this.shinyBox.addEventListener('change', () => this.cb.onForceShiny?.(this.shinyBox.checked));
   }
 
   get visible(): boolean {
@@ -230,6 +250,9 @@ export class DebugMenu implements UiComponent<DebugMenuData> {
       opt('', auto, !d.weather),
       ...d.weathers.filter((w) => w !== 'Alle').map((w) => opt(w, t(`weather.${d.worldIndex}.${w}`), d.weather === w)),
     );
+    this.vibBox.checked = d.vibration ?? true;
+    this.shakeBox.checked = d.shake ?? true;
+    this.shinyBox.checked = !!d.forceShiny;
     if (d.showFps !== undefined && d.showFps !== this.fpsBox.checked) {
       this.fpsBox.checked = d.showFps;
       this.setFps(d.showFps, false);

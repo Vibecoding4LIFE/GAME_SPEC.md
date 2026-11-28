@@ -5,6 +5,10 @@ import { worldById, type WorldsJson } from './worldsJson';
 import { t } from '../i18n';
 import type { PixelLayout } from '../core/pixelScale';
 import { applyPixelCamera } from './pixelCamera';
+import { LOADING_KEY } from './BootScene';
+import type { LoadingScreen } from '../ui/loadingScreen';
+import { spriteFromTexture, type TextureLike } from '../ui/sprite';
+import type { DebugState } from '../main';
 
 /** Lädt die Assets einer Welt erst beim Betreten (B3), mit Fortschrittsbalken. */
 export class PreloadScene extends Phaser.Scene {
@@ -41,22 +45,36 @@ export class PreloadScene extends Phaser.Scene {
     this.load.atlas(FIGURES_ATLAS, 'assets/figures/atlas_figures.png', 'assets/figures/atlas_figures.json');
     this.load.atlas(HUD_ATLAS, 'assets/ui/atlas_hud.png', 'assets/ui/atlas_hud.json');
 
-    const { gameWidth: width, gameHeight: height } = layout;
-    const barW = Math.floor(width / 2);
-    const x = Math.floor((width - barW) / 2);
-    const y = Math.floor(height / 2);
-    const frame = this.add.rectangle(x - 2, y - 2, barW + 4, 8, 0x000000, 0).setOrigin(0).setStrokeStyle(1, 0xf3ead2);
-    const bar = this.add.rectangle(x, y, 0, 4, 0xffe066).setOrigin(0);
-    this.load.on(Phaser.Loader.Events.PROGRESS, (p: number) => {
-      bar.width = Math.round(barW * p);
-    });
-    this.load.once(Phaser.Loader.Events.COMPLETE, () => {
-      frame.destroy();
-      bar.destroy();
-    });
+    const screen = this.registry.get(LOADING_KEY) as LoadingScreen | undefined;
+    this.load.on(Phaser.Loader.Events.PROGRESS, (p: number) => screen?.progress(1 / 10 + (p * 9) / 10));
   }
 
   create(): void {
-    this.scene.start(startSceneFromUrl(window.location.search), { worldId: this.worldId });
+    const target = startSceneFromUrl(window.location.search);
+    const screen = this.registry.get(LOADING_KEY) as LoadingScreen | undefined;
+    const debug = this.registry.get('debug') as DebugState | undefined;
+    screen?.progress(1);
+    // Testbecken (Phase-0-Pixeltests) startet ohne Aufforderung
+    if (!screen || target === SCENES.testbecken) {
+      screen?.destroy();
+      if (debug) debug.loading = { visible: false, waiting: false };
+      this.scene.start(target, { worldId: this.worldId });
+      return;
+    }
+    const worlds = this.cache.json.get(CACHE.worlds) as WorldsJson | undefined;
+    const world = worlds ? worldById(worlds, this.worldId) : undefined;
+    if (world) {
+      // Deko: der Hecht (Nr. 014) als Fang-Sprite, sonst der erste Fang-Frame der Welt
+      const tex = this.textures.get(fishAtlasKey(world.kuerzel));
+      const names = tex.getFrameNames();
+      const deco = names.find((n) => n.endsWith('_caught_0') && n.includes('_014_')) ?? names.find((n) => n.endsWith('_caught_0'));
+      if (deco) screen.setFish(spriteFromTexture(tex as unknown as TextureLike, deco));
+    }
+    if (debug) debug.loading = { visible: true, waiting: true };
+    void screen.waitForStart().then(() => {
+      if (debug) debug.loading = { visible: false, waiting: false };
+      this.registry.remove(LOADING_KEY);
+      this.scene.start(target, { worldId: this.worldId });
+    });
   }
 }

@@ -7,7 +7,7 @@ export type InputMode = (typeof INPUT_MODES)[number];
 
 export const ACTION_TYPES = [
   'castHold', 'castRelease', 'reelStart', 'reelStop', 'strike',
-  'sinkStart', 'sinkStop', 'steer', 'rodUp', 'item', 'pause',
+  'sinkStart', 'sinkStop', 'steer', 'rodUp', 'item', 'pause', 'retrieve',
 ] as const;
 export type ActionType = (typeof ACTION_TYPES)[number];
 
@@ -33,6 +33,8 @@ export const KEY_BINDINGS = {
   right: ['KeyD', 'ArrowRight'],
   rodUp: ['KeyW', 'ArrowUp'],
   item: ['KeyE'],
+  /** Schnur ohne Fisch einholen (neu auswerfen) */
+  retrieve: ['KeyR', 'Backspace'],
   pause: ['Escape', 'KeyP'],
 } as const;
 type Binding = keyof typeof KEY_BINDINGS;
@@ -368,6 +370,11 @@ export class InputMapper {
     if (this._mode !== 'menu') this.emit({ type: 'item', source });
   }
 
+  /** Schnur einholen (nur im Wasser sinnvoll; die Spiellogik entscheidet). */
+  retrieve(source: InputSource): void {
+    if (this._mode === 'wait' || this._mode === 'bite') this.emit({ type: 'retrieve', source });
+  }
+
   pause(source: InputSource): void {
     if (this._mode !== 'menu') this.emit({ type: 'pause', source });
   }
@@ -401,6 +408,9 @@ export class InputMapper {
         break;
       case 'item':
         if (down) this.item('keyboard');
+        break;
+      case 'retrieve':
+        if (down) this.retrieve('keyboard');
         break;
       case 'pause':
         if (down) this.pause('keyboard');

@@ -15,6 +15,46 @@ export interface RenderSpriteOptions {
   maxScale?: number;
   /** Gerätepixel-Verhältnis (Tests / Screenshots). */
   dpr?: number;
+  /** Schillernd (D 1.11): Grundfarben `from` → `to` (gleiche Reihenfolge wie `art.farben`/`art.schillerndFarben`). */
+  palette?: { from: readonly string[]; to: readonly string[] };
+}
+
+/**
+ * „Gebackener“ Palette-Swap ohne LUT: Jedes Pixel wird der nächstgelegenen Grundfarbe zugeordnet und erhält deren
+ * Schillernd-Farbe, skaliert mit dem Helligkeitsverhältnis (Schatten/Lichter der Rampe bleiben erhalten).
+ * Arbeitet direkt auf RGBA-Daten (testbar ohne DOM). Alpha bleibt unverändert.
+ */
+export function swapPalette(data: Uint8ClampedArray, from: readonly string[], to: readonly string[]): void {
+  const n = Math.min(from.length, to.length);
+  if (n === 0) return;
+  const src = from.slice(0, n).map(hexToRgb);
+  const dst = to.slice(0, n).map(hexToRgb);
+  const lum = (r: number, g: number, b: number) => 0.299 * r + 0.587 * g + 0.114 * b;
+  const cache = new Map<number, [number, number, number]>();
+  for (let i = 0; i < data.length; i += 4) {
+    if ((data[i + 3] ?? 0) === 0) continue;
+    const r = data[i] ?? 0;
+    const g = data[i + 1] ?? 0;
+    const b = data[i + 2] ?? 0;
+    const key = (r << 16) | (g << 8) | b;
+    let out = cache.get(key);
+    if (!out) {
+      let best = 0;
+      let bestD = Infinity;
+      src.forEach(([sr, sg, sb], k) => {
+        const d = (sr - r) ** 2 + (sg - g) ** 2 + (sb - b) ** 2;
+        if (d < bestD) { bestD = d; best = k; }
+      });
+      const [sr, sg, sb] = src[best] as [number, number, number];
+      const [dr, dg, db] = dst[best] as [number, number, number];
+      const f = Math.min(1.8, Math.max(0.3, (lum(r, g, b) + 1) / (lum(sr, sg, sb) + 1)));
+      out = [Math.min(255, Math.round(dr * f)), Math.min(255, Math.round(dg * f)), Math.min(255, Math.round(db * f))];
+      cache.set(key, out);
+    }
+    data[i] = out[0];
+    data[i + 1] = out[1];
+    data[i + 2] = out[2];
+  }
 }
 
 /** Ganzzahliger Faktor in Gerätepixeln, damit jedes Bildpixel exakt n×n Gerätepixel wird. */
@@ -35,15 +75,20 @@ export function integerDivisor(frameW: number, frameH: number, maxCssW: number, 
 const PAD = 1; // Platz für die 1-px-Kontur, damit Farbe und Silhouette gleich groß sind
 
 /** Frame in Originalgröße (+1 px Rand) auf eine Arbeitsfläche kopieren; bei Silhouette Alpha → Schwarz + Kontur. */
-function composeFrame(src: SpriteSource, mode: 'color' | 'silhouette', outline: string): HTMLCanvasElement {
+function composeFrame(src: SpriteSource, mode: 'color' | 'silhouette', outline: string, palette?: RenderSpriteOptions['palette']): HTMLCanvasElement {
   const { x, y, w, h } = src.frame;
   const c = document.createElement('canvas');
   c.width = w + PAD * 2;
   c.height = h + PAD * 2;
-  const ctx = c.getContext('2d', { willReadFrequently: mode === 'silhouette' });
+  const ctx = c.getContext('2d', { willReadFrequently: mode === 'silhouette' || !!palette });
   if (!ctx) return c;
   ctx.imageSmoothingEnabled = false;
   ctx.drawImage(src.image, x, y, w, h, PAD, PAD, w, h);
+  if (palette && mode === 'color') {
+    const img = ctx.getImageData(0, 0, c.width, c.height);
+    swapPalette(img.data, palette.from, palette.to);
+    ctx.putImageData(img, 0, 0);
+  }
   if (mode === 'silhouette') {
     const img = ctx.getImageData(0, 0, c.width, c.height);
     const d = img.data;
@@ -93,7 +138,7 @@ export function renderSprite(canvas: HTMLCanvasElement, src: SpriteSource | null
     canvas.style.height = '0px';
     return 0;
   }
-  const work = composeFrame(src, opts.mode ?? 'color', opts.outline ?? '#ffffff');
+  const work = composeFrame(src, opts.mode ?? 'color', opts.outline ?? '#ffffff', opts.palette);
   const div = integerDivisor(work.width, work.height, opts.maxCssWidth, opts.maxCssHeight, dpr);
   const scale = div > 1 ? 1 / div : integerScale(work.width, work.height, opts.maxCssWidth, opts.maxCssHeight, dpr, opts.extraZoom ?? 0, opts.maxScale);
   canvas.width = Math.max(1, Math.round(work.width * scale));

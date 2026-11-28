@@ -36,6 +36,9 @@ const game = new Phaser.Game({
     zoom: 1,
   },
   input: { activePointers: 3 },
+  // Kein window.focus() beim Start: In eingebetteten Vorschauen verletzt das die Permissions-Policy
+  // („focus-without-user-activation“). Den Fokus holt der Startbildschirm beim ersten Tipp/Klick.
+  autoFocus: false,
   scene: [BootScene, PreloadScene, TestbeckenScene, WeltScene],
 });
 
@@ -79,6 +82,8 @@ export interface DebugState {
   ready: boolean;
   fishOnScreen: number;
   errors: string[];
+  /** Ladebildschirm: sichtbar / wartet auf den ersten Tipp */
+  loading?: { visible: boolean; waiting: boolean };
   /** aktive Szene ('testbecken' | 'welt') */
   scene: string;
   /** Welt-Szene: Anzeige-Zustand und Debug-Hooks (siehe WeltScene) */

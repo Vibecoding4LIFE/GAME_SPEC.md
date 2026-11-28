@@ -20,9 +20,16 @@ export const VIEW = {
   cloudSpeedPx: 4,
   /** Blitz: weiße Fläche über der Welt */
   flash: { alpha: 0.7, s: 0.12 },
+  /** Biss-„!“: ganzzahlige Vergrößerung und Blinktakt (ms) */
+  bitePopScale: 2,
+  bitePopBlinkMs: 120,
   /** Meldungen (Banner) */
   bannerS: 2.2,
-  hud: { gap: 4, topBarCss: 52, touchButtonCss: 120, staminaFins: 5, heatW: 40, heatH: 4 },
+  hud: { gap: 4, topBarCss: 52, touchButtonCss: 120, touchButtonCssPortrait: 150, staminaFins: 5, heatW: 40, heatH: 4 },
+  /** Drill hochkant: so viele Spielpixel links vom Angler bleiben mindestens im Bild */
+  anglerMarginPx: 24,
+  /** Ton-Hook „Schnurspannung“ so oft je s (für den audio-designer) */
+  sfxTensionEveryS: 0.1,
   /** Fisch im Drill: Sprunghöhe über der Oberfläche (px) */
   jumpPx: 18,
   /** Ruf-Stufen-Anzeige: Farbe der Schnur, falls die Rute keine hat */

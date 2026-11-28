@@ -104,7 +104,7 @@ describe('Session – Einzelfunktionen', () => {
     expect(s.state.rodState).toBe('Waiting');
   });
 
-  it('Zucken per kurzem Antippen, Einholen per Halten', () => {
+  it('Zucken per Antippen; Kurbel halten holt NICHT ein; Einholen ist eine eigene Aktion', () => {
     const { s } = mk(4);
     s.debugForceFish(null);
     s.step(DT, press({ castHeld: true }));
@@ -114,10 +114,39 @@ describe('Session – Einzelfunktionen', () => {
     if (!s.state.snag) {
       expect(types(ev)).toContain('twitch');
       expect(s.twitching).toBe(true);
-      let retrieved = false;
-      for (let i = 0; i < 60 * 5 && !retrieved && s.state.rodState !== 'Nibble'; i++) retrieved = types(s.step(DT, press({ reel: true }))).includes('retrieved');
-      if (s.state.rodState !== 'Nibble') { expect(retrieved).toBe(true); expect(s.state.rodState).toBe('Idle'); }
     }
+    // 3 s Kurbel halten: die Schnur bleibt draußen (früher: Einholen nach 2 s ohne Meldung)
+    let retrieved = false;
+    for (let i = 0; i < 60 * 3 && s.state.rodState === 'Waiting'; i++) retrieved ||= types(s.step(DT, press({ reel: true }))).includes('retrieved');
+    expect(retrieved).toBe(false);
+    if (s.state.rodState === 'Waiting' || s.state.rodState === 'Nibble') {
+      expect(types(s.step(DT, press({ retrieve: true })))).toContain('retrieved');
+      expect(s.state.rodState).toBe('Idle');
+    }
+  });
+
+  it('nach verlorenem Fisch: ein Druck quittiert und wirft gleich neu', () => {
+    const { s } = mk(9);
+    s.debugForceFish('F004');
+    const bot = new SessionBot(9);
+    let last: SessionEvent[] = [];
+    for (let i = 0; i < 60 * 60 && s.state.rodState !== 'Reeling'; i++) last = s.step(DT, bot.input(s, last));
+    expect(s.state.rodState).toBe('Reeling');
+    for (let i = 0; i < 60 * 10 && s.state.rodState === 'Reeling'; i++) s.step(DT, IDLE_INPUT); // nicht kurbeln → ausgeschlitzt
+    expect(s.state.rodState).toBe('Escaped');
+    s.step(DT, press({ castHeld: true }));
+    expect(s.state.rodState).toBe('Casting');
+  });
+
+  it('Schillernd per Debug erzwingbar', () => {
+    const { s, p } = mk(10);
+    s.debugForceFish('F004');
+    s.debugForceShiny(true);
+    const bot = new SessionBot(10);
+    let last: SessionEvent[] = [];
+    for (let i = 0; i < 60 * 120 && s.state.rodState !== 'Caught'; i++) last = s.step(DT, bot.input(s, last));
+    expect(s.state.lastCatch?.shiny).toBe(true);
+    expect(p.pearls).toBeGreaterThan(0);
   });
 
   it('Füttern mit Brotflocke erzeugt einen Futterplatz und verbraucht eine Flocke', () => {

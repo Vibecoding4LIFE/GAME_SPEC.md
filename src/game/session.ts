@@ -31,7 +31,7 @@ export type EscapeReason = 'late' | 'cut' | Exclude<DrillOutcome, 'caught'>;
 /**
  * Eingabe je Zeitschritt. Gehaltene Werte (`castHeld`, `reel`, `sink`, `steer`) und Flanken (`strike`, `rodUp`,
  * `feed`, `reelPressed`), die nur für genau einen Schritt wahr sind. `InputCollector` baut sie aus den Aktionen von
- * src/ui/input.ts (castHold/castRelease/reelStart/reelStop/strike/sinkStart/sinkStop/steer/rodUp/item).
+ * src/ui/input.ts (castHold/castRelease/reelStart/reelStop/strike/sinkStart/sinkStop/steer/rodUp/item/retrieve).
  */
 export interface SessionInput {
   castHeld: boolean;
@@ -44,10 +44,12 @@ export interface SessionInput {
   strike: boolean;
   /** „Füttern“ (Item-Taste, solange es keine Schabernack-Items gibt) */
   feed: boolean;
+  /** Schnur ohne Fisch einholen (Flanke; Taste R / Knopf „Einholen“) */
+  retrieve: boolean;
 }
 
 export const IDLE_INPUT: SessionInput = Object.freeze({
-  castHeld: false, reel: false, reelPressed: false, sink: false, steer: 0, rodUp: false, strike: false, feed: false,
+  castHeld: false, reel: false, reelPressed: false, sink: false, steer: 0, rodUp: false, strike: false, feed: false, retrieve: false,
 });
 
 /** Strukturell kompatibel zu `InputAction` aus src/ui/inputMap.ts (ohne Abhängigkeit von src/ui). */
@@ -56,7 +58,7 @@ export interface InputActionLike { type: string; value?: number }
 /** Sammelt UI-Aktionen zwischen zwei Schritten und liefert daraus `SessionInput`. */
 export class InputCollector {
   private held = { castHeld: false, reel: false, sink: false, steer: 0 };
-  private edges = { reelPressed: false, rodUp: false, strike: false, feed: false };
+  private edges = { reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
 
   apply(a: InputActionLike): void {
     switch (a.type) {
@@ -70,6 +72,7 @@ export class InputCollector {
       case 'steer': this.held.steer = a.value ?? 0; break;
       case 'rodUp': this.edges.rodUp = true; break;
       case 'item': this.edges.feed = true; break;
+      case 'retrieve': this.edges.retrieve = true; break;
       default: break;
     }
   }
@@ -77,7 +80,7 @@ export class InputCollector {
   /** Eingabe für den nächsten Schritt; Flanken werden danach zurückgesetzt. */
   take(): SessionInput {
     const out: SessionInput = { ...this.held, ...this.edges };
-    this.edges = { reelPressed: false, rodUp: false, strike: false, feed: false };
+    this.edges = { reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
     return out;
   }
 }
@@ -131,7 +134,6 @@ export interface SessionState {
   lineTooShort: boolean;
   /** Köder zuckt bis (Sitzungszeit) */
   twitchUntilS: number;
-  reelHeldS: number;
   snag: { count: number; needed: number; sinceTap: number } | null;
   snagChecked: boolean;
   feedingSpot: { distanceM: number; untilS: number } | null;
@@ -148,7 +150,7 @@ export interface SessionState {
   beginnerSaves: number;
   netSaves: number;
   stats: { catches: number; escapes: number; curios: number; points: number; casts: number };
-  debug: { forceFish: FishId | null; forceBehavior: FightBehavior | null };
+  debug: { forceFish: FishId | null; forceBehavior: FightBehavior | null; forceShiny: boolean };
 }
 
 export class FishingSession {
@@ -176,12 +178,12 @@ export class FishingSession {
     const lvl = levelForXp(profile.xp, b);
     this.state = {
       rodState: 'Idle', timeS: 0, castHoldS: 0, castPower: 0, cast: null, baitDepthM: 0, lineTooShort: false,
-      twitchUntilS: -1, reelHeldS: 0, snag: null, snagChecked: false, feedingSpot: null, penalty: null,
+      twitchUntilS: -1, snag: null, snagChecked: false, feedingSpot: null, penalty: null,
       bite: null, drill: null, hooked: null, lastCatch: null, lastCurio: null, lastEscape: null, speciesCount: {},
       beginnerSaves: lvl <= b.catchup.beginner.maxReputation ? b.catchup.beginner.saves : 0,
       netSaves: accessoryValue(this.loadout().accessories, 'KescherRettung', opts.world) ?? 0,
       stats: { catches: 0, escapes: 0, curios: 0, points: 0, casts: 0 },
-      debug: { forceFish: null, forceBehavior: null },
+      debug: { forceFish: null, forceBehavior: null, forceShiny: false },
     };
   }
 
@@ -240,7 +242,13 @@ export class FishingSession {
       case 'Sinking': case 'Waiting': case 'Nibble': case 'Bite': this.stepInWater(dt, input); break;
       case 'Reeling': this.stepReeling(dt, input); break;
       case 'Caught': case 'Escaped':
-        if (castPressed) this.acknowledge();
+        // Ein Druck quittiert die Meldung UND beginnt den nächsten Wurf (sonst wirkt der erste Druck „verschluckt“)
+        if (castPressed) {
+          this.acknowledge();
+          s.castHoldS = 0;
+          s.castPower = 0;
+          this.setRodState('Casting');
+        }
         break;
     }
     this.prev = input;
@@ -256,7 +264,7 @@ export class FishingSession {
       return;
     }
     const result = resolveCast({ power: s.castPower, rod: lo.rod, world: this.world, weather: this.weather, windDir: this.clock.windDir, b: this.b });
-    Object.assign(s, { cast: result, baitDepthM: 0, lineTooShort: false, twitchUntilS: -1, reelHeldS: 0, snag: null, snagChecked: false });
+    Object.assign(s, { cast: result, baitDepthM: 0, lineTooShort: false, twitchUntilS: -1, snag: null, snagChecked: false });
     s.stats.casts++;
     this.ev.push({ type: 'cast', result });
     s.bite = createBite(this.biteDeps());
@@ -305,6 +313,15 @@ export class FishingSession {
     if (!bite) return;
     const waiting = bite.stage === 'wait';
 
+    // Einholen: eigene Aktion (Taste R / Knopf „Einholen“). Steckt der Köder fest, reißt er dabei ab (E W1).
+    if (input.retrieve) {
+      if (s.snag) this.consumeBait('lost');
+      this.ev.push({ type: 'retrieved' });
+      this.resetLine();
+      this.setRodState('Idle');
+      return;
+    }
+
     // Hänger (E W1): Köder steckt fest, Lösen per Takt-Tippen
     if (s.snag) {
       this.stepSnag(dt, input);
@@ -324,18 +341,11 @@ export class FishingSession {
         this.setRodState('Waiting');
         if (this.maybeSnag()) return;
       }
-      // Zucken (kurz antippen) bzw. Einholen (gehalten)
+      // Zucken (Kurbel kurz antippen)
       if (input.reelPressed) {
         s.baitDepthM = twitchDepth(s.baitDepthM, this.b);
         s.twitchUntilS = s.timeS + this.b.depth.twitch.activeS;
         this.ev.push({ type: 'twitch' });
-      }
-      s.reelHeldS = input.reel ? s.reelHeldS + dt : 0;
-      if (s.reelHeldS >= this.b.depth.twitch.activeS) {
-        this.ev.push({ type: 'retrieved' });
-        this.resetLine();
-        this.setRodState('Idle');
-        return;
       }
       // Füttern (Brotflocke; Futterplatz nur in W1 oder mit Futterkelle)
       if (input.feed && lo.bait.createsFeedingSpot && s.cast && this.canFeed() && this.consumeBait('used')) {
@@ -480,7 +490,7 @@ export class FishingSession {
     const fish = h.fish;
     const { size } = h;
     const grade = size.grade;
-    const shiny = rollShiny(shinyChance({ b, world: this.world.id, bait: lo.bait, rod: lo.rod, hasWorldBadge: this.profile.badges.includes(this.world.id) }), this.fishRng);
+    const shiny = s.debug.forceShiny || rollShiny(shinyChance({ b, world: this.world.id, bait: lo.bait, rod: lo.rod, hasWorldBadge: this.profile.badges.includes(this.world.id) }), this.fishRng);
     const nth = (s.speciesCount[fish.id] ?? 0) + 1;
     s.speciesCount[fish.id] = nth;
     const perfectCast = s.cast?.perfect ?? false;
@@ -543,7 +553,7 @@ export class FishingSession {
 
   private resetLine(): void {
     const s = this.state;
-    Object.assign(s, { cast: null, bite: null, drill: null, hooked: null, snag: null, baitDepthM: 0, lineTooShort: false, reelHeldS: 0, twitchUntilS: -1 });
+    Object.assign(s, { cast: null, bite: null, drill: null, hooked: null, snag: null, baitDepthM: 0, lineTooShort: false, twitchUntilS: -1 });
   }
 
   // ---------------------------------------------------------------- Aktionen aus Menüs
@@ -599,6 +609,8 @@ export class FishingSession {
     const bite = this.state.bite;
     if (bite && bite.stage === 'wait') bite.t = bite.waitS;
   }
+  /** Jeder Fang schillernd (Debug-Menü, Vorführung von D 1.11). */
+  debugForceShiny(on: boolean): void { this.state.debug.forceShiny = on; }
   /** Wetter wieder automatisch wechseln lassen. */
   debugReleaseWeather(): void { this.clock.weatherFixed = false; }
 }

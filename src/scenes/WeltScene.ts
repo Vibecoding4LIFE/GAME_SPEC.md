@@ -20,9 +20,10 @@ import { createShadowSim, shadowViews, stepShadows, type ShadowSim } from '../ga
 import { DAY_PHASES, type DayPhase, type GameData } from '../game/types';
 import { t } from '../i18n';
 import {
-  Bucket, CatchCard, DebugMenu, HudOverlay, Lexicon, TouchControls, createInput, enableFrameImages, spriteFromTexture,
-  type BucketItem, type InputController, type InputMode, type TextureLike,
+  Bucket, CatchCard, DebugMenu, Feedback, HudOverlay, Intro, Lexicon, TouchControls, createInput, enableFrameImages,
+  spriteFromTexture, type BucketItem, type FeedbackKind, type InputController, type InputMode, type TextureLike,
 } from '../ui';
+import { sfx } from './welt/sfx';
 import { CACHE, FIGURES_ATLAS, HUD_ATLAS, SCENES, fishAtlasKey, worldAtlasKey } from './keys';
 import { applyPixelCamera } from './pixelCamera';
 import { VIEW } from './sceneConfig';
@@ -58,6 +59,13 @@ export interface WeltDebug {
   drillLog: string[];
   hookedBehaviors: string[];
   catchCardOpen: boolean;
+  introOpen: boolean;
+  /** ausgelöste Rückmeldungen (Vibration bzw. Rand-Puls) je Art */
+  feedback: Partial<Record<FeedbackKind, number>>;
+  /** Bildschirm wackelt gerade */
+  shaking: boolean;
+  /** Eingabezustand (Modus der Knöpfe, Lenken −1…1, Kurbeln, Sinken) */
+  input: { mode: string; steer: number; reeling: boolean; sinking: boolean };
   fps: number;
   /** mittlere Rechenzeit von update() in ms (gleitender Mittelwert) */
   updateMs: number;
@@ -65,6 +73,7 @@ export interface WeltDebug {
   hooks: {
     forceFish(id: string | null): void;
     forceBehavior(b: string | null): void;
+    forceShiny(on: boolean): void;
     setWeather(w: string | null): void;
     setPhase(p: string): void;
     skipWait(): void;
@@ -118,7 +127,15 @@ export class WeltScene extends Phaser.Scene {
   private lexicon!: Lexicon;
   private debugMenu!: DebugMenu;
   private touch!: TouchControls;
+  private intro!: Intro;
+  private feedback!: Feedback;
   private offs: (() => void)[] = [];
+  /** Flanken aus Frames ohne Logikschritt (90/120-Hz-Displays) für den nächsten Schritt aufheben */
+  private carry: Pick<SessionInput, 'reelPressed' | 'rodUp' | 'strike' | 'feed' | 'retrieve'> = { reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
+  private shakeLeft = 0;
+  private shakeAmp = 0;
+  private lastSfxS = 0;
+  private coarse = false;
 
   constructor() {
     super(SCENES.welt);
@@ -241,15 +258,31 @@ export class WeltScene extends Phaser.Scene {
       },
       onResetSave: () => void this.resetSave(),
       onToggleFps: (on) => { this.settings.showFps = on; this.dirty = true; },
+      onToggleVibration: (on) => { this.settings.vibration = on; this.feedback.set({ vibration: on }); this.dirty = true; },
+      onToggleShake: (on) => { this.settings.shake = on; this.dirty = true; },
+      onForceShiny: (on) => { this.session.debugForceShiny(on); this.refreshDebug(); },
+      onShowIntro: () => void this.showIntro(),
     });
     this.touch = new TouchControls(this.input2);
-    for (const c of [this.hudOverlay, this.catchCard, this.bucket, this.lexicon, this.debugMenu, this.touch]) c.mount(overlay);
+    this.intro = new Intro();
+    for (const c of [this.hudOverlay, this.catchCard, this.bucket, this.lexicon, this.debugMenu, this.touch, this.intro]) c.mount(overlay);
+    this.feedback = new Feedback({ vibration: this.settings.vibration !== false }, overlay);
+    this.offs.push(() => this.feedback.destroy());
     this.hudOverlay.show({ coins: this.profile.coins, bucketCount: this.profile.bucket.length });
     // Touch-Fläche verarbeitet Gesten selbst; Phaser bekommt keine Zeiger-Eingaben (es gibt keine Phaser-Bedienelemente).
-    const coarse = window.matchMedia('(pointer: coarse)').matches;
-    this.touch.show({ mode: 'aim', passThrough: false, showHints: coarse && !this.settings.touchHintsSeen });
-    if (coarse && !this.settings.touchHintsSeen) { this.settings.touchHintsSeen = true; this.dirty = true; }
-    this.offs.push(() => { for (const c of [this.hudOverlay, this.catchCard, this.bucket, this.lexicon, this.debugMenu, this.touch]) c.destroy(); });
+    this.coarse = window.matchMedia('(pointer: coarse)').matches;
+    // Sichtbare Knöpfe statt Gesten-Hinweisen; Gesten bleiben als zweiter Weg aktiv
+    this.touch.show({ mode: 'aim', passThrough: false, showHints: false });
+    this.offs.push(() => { for (const c of [this.hudOverlay, this.catchCard, this.bucket, this.lexicon, this.debugMenu, this.touch, this.intro]) c.destroy(); });
+    if (!this.settings.introSeen) void this.showIntro();
+  }
+
+  /** Einmalige Einführung „So angelst du“ (Touch- oder Tastatur-Variante). */
+  private async showIntro(): Promise<void> {
+    await this.intro.show(this.coarse ? 'touch' : 'keys');
+    this.settings.introSeen = true;
+    this.dirty = true;
+    void this.save();
   }
 
   private applyCameras(): void {
@@ -268,7 +301,8 @@ export class WeltScene extends Phaser.Scene {
     probe.remove();
     const coarse = window.matchMedia('(pointer: coarse)').matches;
     this.hud.relayout(this.layout, {
-      dpr: window.devicePixelRatio || 1, safe, topBarCss: VIEW.hud.topBarCss, touchButtonCss: coarse ? VIEW.hud.touchButtonCss : 0,
+      dpr: window.devicePixelRatio || 1, safe, topBarCss: VIEW.hud.topBarCss,
+      touchButtonCss: coarse ? (this.layout.orientation === 'portrait' ? VIEW.hud.touchButtonCssPortrait : VIEW.hud.touchButtonCss) : 0,
     });
   }
 
@@ -281,18 +315,28 @@ export class WeltScene extends Phaser.Scene {
     // (Anschlagfenster, Drill) langsamer als die Uhr. Ruckler bleiben über VIEW.maxFrameS begrenzt.
     const raw = this.game.loop.rawDelta;
     const frameS = Math.min(VIEW.maxFrameS, (raw > 0 ? raw : delta) / 1000);
-    const human = this.collector.take();
+    const taken = this.collector.take();
+    // Flanken aus Frames ohne Logikschritt nicht verlieren (bei 90/120 Hz hat nicht jeder Frame einen 1/60-s-Schritt)
+    const c = this.carry;
+    const human: SessionInput = {
+      ...taken, reelPressed: taken.reelPressed || c.reelPressed, rodUp: taken.rodUp || c.rodUp, strike: taken.strike || c.strike,
+      feed: taken.feed || c.feed, retrieve: taken.retrieve || c.retrieve,
+    };
     const s = this.session;
     this.logicAcc += frameS;
     let first = true;
     while (this.logicAcc >= VIEW.logicStepS) {
       this.logicAcc -= VIEW.logicStepS;
-      // Flanken (Tippen, Anschlag, Wisch) gelten nur im ersten Teilschritt eines Frames
+      // Flanken (Tippen, Anschlag, Wisch, Einholen) gelten nur im ersten Teilschritt
       const input: SessionInput = this.autopilot ? this.autopilot.input(s)
-        : first ? human : { ...human, reelPressed: false, rodUp: false, strike: false, feed: false };
+        : first ? human : { ...human, reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
       first = false;
       for (const e of s.step(VIEW.logicStepS, input)) this.onEvent(e);
     }
+    this.carry = first
+      ? { reelPressed: human.reelPressed, rodUp: human.rodUp, strike: human.strike, feed: human.feed, retrieve: human.retrieve }
+      : { reelPressed: false, rodUp: false, strike: false, feed: false, retrieve: false };
+    this.continuousFeedback(frameS);
     this.syncInputMode();
     this.shadowStep(frameS);
     this.draw(frameS);
@@ -309,8 +353,42 @@ export class WeltScene extends Phaser.Scene {
   }
 
   private syncInputMode(): void {
-    const mode = MODE_FOR[this.session.state.rodState] ?? 'aim';
-    if (this.input2.mode !== mode) this.touch.update({ mode });
+    const st = this.session.state;
+    const mode = MODE_FOR[st.rodState] ?? 'aim';
+    const d = st.drill;
+    const rodUp = !!d && (d.pullDir === 'down' || (d.stage.kind === 'telegraph' && d.stage.next === 'dive'));
+    const lo = this.session.loadout();
+    const itemAvailable = lo.bait.createsFeedingSpot && (st.rodState === 'Waiting' || st.rodState === 'Sinking');
+    if (this.input2.mode !== mode || this.lastTouch.rodUp !== rodUp || this.lastTouch.item !== itemAvailable) {
+      this.lastTouch = { rodUp, item: itemAvailable };
+      this.touch.update({ mode, rodUp, itemAvailable });
+    }
+  }
+
+  private lastTouch = { rodUp: false, item: false };
+
+  private fire(kind: FeedbackKind): void {
+    this.feedback.fire(kind);
+  }
+
+  private shake(amp: number, s: number): void {
+    if (this.settings.shake === false) return;
+    this.shakeAmp = Math.max(this.shakeAmp, amp);
+    this.shakeLeft = Math.max(this.shakeLeft, s);
+  }
+
+  /** Dauer-Rückmeldungen: rote Spannung (gedrosselt), Schnur-Ton-Hook (10 Hz) */
+  private continuousFeedback(dt: number): void {
+    const d = this.session.state.drill;
+    this.shakeLeft = Math.max(0, this.shakeLeft - dt);
+    if (this.shakeLeft === 0) this.shakeAmp = 0;
+    if (!d || this.session.state.rodState !== 'Reeling') return;
+    if (d.tension >= this.gd.balancing.drill.zone.redFrom) this.fire('red');
+    this.lastSfxS += dt;
+    if (this.lastSfxS >= VIEW.sfxTensionEveryS) {
+      this.lastSfxS = 0;
+      sfx.emit('lineTension', { tension: d.tension, reeling: this.input2.reeling });
+    }
   }
 
   private shadowStep(dt: number): void {
@@ -329,12 +407,14 @@ export class WeltScene extends Phaser.Scene {
     switch (e.type) {
       case 'cast':
         this.castFlight = 0;
-        if (e.result.perfect) this.hud.say(t('scene.perfectCast'));
+        sfx.emit('cast', { perfect: e.result.perfect });
+        if (e.result.perfect) { this.hud.say(t('scene.perfectCast')); sfx.emit('pling', {}); }
         break;
       case 'bite':
         if (e.e.type === 'nibble' || e.e.type === 'approach') this.marker = e.e.type === 'nibble' ? 'nibble' : this.marker;
-        if (e.e.type === 'fakeBite') this.marker = 'fake';
-        if (e.e.type === 'bite') { this.marker = 'bite'; navigator.vibrate?.(60); }
+        if (e.e.type === 'nibble') { this.fire('nibble'); sfx.emit('nibble', {}); }
+        if (e.e.type === 'fakeBite') { this.marker = 'fake'; this.fire('fake'); sfx.emit('fakeBite', {}); }
+        if (e.e.type === 'bite') { this.marker = 'bite'; this.fire('bite'); this.shake(2, 0.25); sfx.emit('bite', {}); }
         break;
       case 'scared': this.marker = 'none'; this.hud.say(t('scene.scared'), VIEW.colors.warn); break;
       case 'hooked': {
@@ -353,16 +433,25 @@ export class WeltScene extends Phaser.Scene {
         if (d.type === 'beginnerSave') this.hud.say(t('scene.beginnerSave'));
         if (d.type === 'netSave') this.hud.say(t('scene.netSave'));
         if (d.type === 'snag') this.hud.say(t('scene.snagDrillStart'), VIEW.colors.warn);
-        if (d.type === 'telegraph' && d.action === 'jump') navigator.vibrate?.(30);
+        if (d.type === 'telegraph' && d.action === 'jump') { this.fire('jump'); sfx.emit('telegraph', { action: d.action }); }
+        else if (d.type === 'telegraph') sfx.emit('telegraph', { action: d.action });
+        if (d.type === 'action' && d.action === 'jump') this.shake(2, 0.3);
+        if (d.type === 'telegraph' && d.action === 'invisible') this.fire('blinker'); // „nach Vibration und Ton spielen“ (D 1.7)
+        if (d.type === 'snag') this.fire('snag');
         break;
       }
-      case 'caught': this.showCatch(e.record.uid, e.fish, e.levelUp); break;
+      case 'caught':
+        this.fire('catch');
+        sfx.emit('catch', { shiny: e.record.shiny });
+        this.showCatch(e.record.uid, e.fish, e.levelUp);
+        break;
       case 'curio':
         this.hud.say(t('scene.curio', { name: t(e.curio.nameKey), coins: e.coins }));
         this.markDirty();
         break;
       case 'escaped':
         this.marker = 'none';
+        if (e.reason === 'lineBreak' || e.reason === 'heatBreak' || e.reason === 'cut') { this.fire('lineBreak'); sfx.emit('lineBreak', {}); }
         this.hud.say(t(`scene.escaped.${e.reason}`), VIEW.colors.warn);
         this.markDirty();
         break;
@@ -370,7 +459,7 @@ export class WeltScene extends Phaser.Scene {
       case 'snagFreed': this.hud.say(t('scene.snagFreed')); break;
       case 'baitLost': this.hud.say(t('scene.baitLost'), VIEW.colors.warn); this.markDirty(); break;
       case 'feed': this.hud.say(t('scene.feed')); this.markDirty(); break;
-      case 'retrieved': this.marker = 'none'; break;
+      case 'retrieved': this.marker = 'none'; this.hud.say(t('scene.retrieved')); break;
       case 'rodState':
         if (e.state === 'Waiting' || e.state === 'Idle' || e.state === 'Sinking') { if (this.marker !== 'none' && e.state !== 'Waiting') this.marker = 'none'; }
         if (e.state === 'Idle') this.marker = 'none';
@@ -431,7 +520,7 @@ export class WeltScene extends Phaser.Scene {
       maxDepthM: Math.min(depthLimitM(lo.reel, s.world), s.world.maxTiefeM), lineTooShort: st.lineTooShort, drill: st.drill,
       redFrom: b.drill.zone.redFrom, heatBreakAt: b.drill.behavior.Hitzkopf.breakAt, snag: st.snag,
       phase, weather: s.weather, nextWeather: next && next.weather !== s.weather ? next.weather : null,
-      wind: windFrac > 0 ? s.clock.windDir : 0, worldIndex: s.world.index,
+      wind: windFrac > 0 ? s.clock.windDir : 0, worldIndex: s.world.index, keyHints: !this.coarse,
     });
     if (st.snag) this.hud.showSnag(st.snag);
   }
@@ -446,14 +535,25 @@ export class WeltScene extends Phaser.Scene {
       tx = distanceToX(this.art, spot.x, st.cast.distanceM) * this.castFlight + spot.x * (1 - this.castFlight);
       ty = depthToY(this.art, st.baitDepthM);
     }
-    if (st.drill) ty = this.hookedStart.y;
-    const target = cameraView(this.art, this.layout.orientation, this.layout.gameWidth, this.layout.gameHeight, tx, ty);
+    if (st.drill) {
+      ty = this.hookedStart.y;
+      // Im Drill Angler und Rute im Bild halten (Rutenbiegung = Rückmeldung zur Spannung): Mitte zwischen Fisch und Angler
+      const fishX = this.angler.tip().x + (this.hookedStart.x - this.angler.tip().x) * Math.min(1, st.drill.distance);
+      tx = (fishX + spot.x) / 2;
+    }
+    let target = cameraView(this.art, this.layout.orientation, this.layout.gameWidth, this.layout.gameHeight, tx, ty);
+    if (st.drill) {
+      const keepX = spot.x - VIEW.anglerMarginPx;
+      if (target.x > keepX) target = cameraView(this.art, this.layout.orientation, this.layout.gameWidth, this.layout.gameHeight, keepX + this.layout.gameWidth / 2, ty);
+    }
     const k = snap ? 1 : VIEW.cameraLerp;
     this.cam.x = Math.round(this.cam.x + (target.x - this.cam.x) * k);
     this.cam.y = Math.round(this.cam.y + (target.y - this.cam.y) * k);
     if (Math.abs(target.x - this.cam.x) <= 1) this.cam.x = target.x;
     if (Math.abs(target.y - this.cam.y) <= 1) this.cam.y = target.y;
-    this.cameras.main.centerOn(this.cam.x + this.layout.gameWidth / 2, this.cam.y + this.layout.gameHeight / 2);
+    // Wackeln: ganze Pixel, abwechselnd links/rechts (abschaltbar)
+    const sh = this.shakeLeft > 0 ? (Math.floor(this.time.now / 40) % 2 === 0 ? this.shakeAmp : -this.shakeAmp) : 0;
+    this.cameras.main.centerOn(this.cam.x + sh + this.layout.gameWidth / 2, this.cam.y + this.layout.gameHeight / 2);
   }
 
   // ------------------------------------------------------------------ UI
@@ -516,6 +616,7 @@ export class WeltScene extends Phaser.Scene {
       weathers: this.session.world.wetter.map((x) => x.wetter),
       forcedFish: this.session.state.debug.forceFish, forcedBehavior: this.session.state.debug.forceBehavior,
       time: this.debugTime, weather: this.debugWeather, showFps: !!this.settings.showFps,
+      vibration: this.settings.vibration !== false, shake: this.settings.shake !== false, forceShiny: this.session.state.debug.forceShiny,
     };
   }
 
@@ -550,10 +651,11 @@ export class WeltScene extends Phaser.Scene {
   private makeDebug(): WeltDebug {
     return {
       rodState: 'Idle', phase: '', weather: '', tension: 0, zone: null, behavior: null, pullDir: null, depthM: 0, snag: null, catches: 0, escapes: 0, coins: 0,
-      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, fps: 0, updateMs: 0, camera: { x: 0, y: 0 },
+      lastCatch: null, lastEscape: null, drillLog: [], hookedBehaviors: [], catchCardOpen: false, introOpen: false, feedback: {}, shaking: false, input: { mode: 'menu', steer: 0, reeling: false, sinking: false }, fps: 0, updateMs: 0, camera: { x: 0, y: 0 },
       hooks: {
         forceFish: (id) => this.session.debugForceFish(id as FishId | null),
         forceBehavior: (b) => this.session.debugForceBehavior(b as FightBehavior | null),
+        forceShiny: (on) => this.session.debugForceShiny(on),
         setWeather: (w) => (w ? this.session.debugSetWeather(w as never) : this.session.debugReleaseWeather()),
         setPhase: (p) => this.session.debugSetPhase(p as DayPhase),
         skipWait: () => this.session.debugSkipWait(),
@@ -583,6 +685,10 @@ export class WeltScene extends Phaser.Scene {
     d.lastCatch = st.lastCatch ? { fishId: st.lastCatch.fishId, points: st.lastCatch.points, value: st.lastCatch.value, grade: st.lastCatch.grade } : null;
     d.lastEscape = st.lastEscape?.reason ?? null;
     d.catchCardOpen = this.catchCard.visible;
+    d.introOpen = this.intro.visible;
+    d.feedback = { ...this.feedback.counts };
+    d.shaking = this.shakeLeft > 0;
+    d.input = { mode: this.input2.mode, steer: this.input2.steer, reeling: this.input2.reeling, sinking: this.input2.sinking };
     d.fps = Math.round(this.game.loop.actualFps);
     d.camera = { ...this.cam };
   }

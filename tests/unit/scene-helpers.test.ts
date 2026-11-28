@@ -98,7 +98,7 @@ describe('world_see.json – Geometrie und Kamera', () => {
 
 describe('HUD-Layout', () => {
   const reserve = { dpr: 1, safe: { top: 0, right: 0, bottom: 0, left: 0 }, topBarCss: 52, touchButtonCss: 0 };
-  const sizes = { gaugeW: 20, gaugeH: 132, tensionW: 168, tensionH: 16, distanceW: 104, distanceH: 10, staminaW: 55, staminaH: 11, iconH: 8, arrowW: 17, gap: 4, touchButtonGame: 0 };
+  const sizes = { gaugeW: 20, gaugeH: 132, tensionW: 168, tensionH: 16, distanceW: 104, distanceH: 10, staminaW: 55, staminaH: 11, iconH: 8, labelH: 14, arrowW: 17, gap: 4, touchButtonGame: 0 };
   it('Abstände rechnen den Rand außerhalb der Spielfläche ab', () => {
     expect(cssInsetToGame(52, 1, 0, 2)).toBe(26);
     expect(cssInsetToGame(52, 3, 306, 3)).toBe(0);
@@ -121,6 +121,8 @@ describe('HUD-Layout', () => {
       // keine Überlappung im Drill-Stapel
       expect(lay.arrow.y + Math.ceil(sizes.arrowW / 2)).toBeLessThanOrEqual(lay.stamina.y);
       expect(lay.stamina.y + sizes.staminaH).toBeLessThanOrEqual(lay.distance.y - sizes.iconH);
+      // Beschriftungszeile „Spannung“ zwischen Distanz und Spannung
+      expect(lay.distance.y + sizes.distanceH + sizes.labelH).toBeLessThanOrEqual(lay.tension.y);
     }
   });
 });
