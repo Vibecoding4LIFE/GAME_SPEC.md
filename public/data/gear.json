@@ -552,7 +552,7 @@
       "requiredReputation": 1,
       "crankPower": 1,
       "retrieveSpeed": 1,
-      "lineCapacityM": 25,
+      "lineCapacityM": 20,
       "isDeepSeaWinch": false,
       "fallbackCapacityM": 80,
       "descentSpeedMs": 0

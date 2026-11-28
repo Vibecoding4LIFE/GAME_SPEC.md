@@ -1,9 +1,9 @@
-id;preis_muenzen;ruf;kurbelkraft;einholtempo;kapazitaet_m;tiefseewinde;kapazitaet_sonst_m;abstieg_ms;name_de;name_en;beschreibung_de;beschreibung_en
-RO1;0;1;1.0;1.0;25;0;80;0;Klapperrolle;Rattle Reel;Klappert, kurbelt, reicht bis 25 m.;Rattles, reels, reaches 25 m.
-RO2;500;2;1.1;1.1;40;0;80;0;Freilauf-Rolle „Surri“;"Free-Spool Reel ""Whirry""";Surrt schön und reicht bis 40 m.;Whirs nicely and reaches 40 m.
-RO3;2000;7;1.2;1.2;60;0;80;0;Stationärrolle Profi;Pro Spinning Reel;Solide Profi-Rolle für 60 m Tiefe.;Solid pro reel for 60 m depth.
-RO4;7000;14;1.3;1.3;80;0;80;0;Multirolle „Orca“;"Baitcaster ""Orca""";Kraftpaket für 80 m Tiefe.;Powerhouse for 80 m depth.
-RO5;10000;20;1.3;1.2;2000;1;80;270;Tiefseewinde Mk I;Deep-Sea Winch Mk I;Bis 2.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 2,000 m in the Glowing Deep, 80 m elsewhere.
-RO6;22000;25;1.4;1.3;6000;1;80;800;Tiefseewinde Mk II;Deep-Sea Winch Mk II;Bis 6.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 6,000 m in the Glowing Deep, 80 m elsewhere.
-RO7;40000;30;1.5;1.4;11000;1;80;1470;Tiefseewinde Mk III;Deep-Sea Winch Mk III;Bis 11.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 11,000 m in the Glowing Deep, 80 m elsewhere.
-RO8;55000;35;1.6;1.5;11000;1;80;1470;Drachenrolle;Dragon Reel;Die stärkste Rolle. 80 m, in der Leuchtenden Tiefe wie Mk III.;The strongest reel. 80 m, like Mk III in the Glowing Deep.
+id;preis_muenzen;ruf;kurbelkraft;einholtempo;kapazitaet_m;tiefseewinde;kapazitaet_sonst_m;abstieg_ms;name_de;name_en;beschreibung_de;beschreibung_en;anmerkung
+RO1;0;1;1.0;1.0;20;0;80;0;Klapperrolle;Rattle Reel;Klappert, kurbelt, reicht bis 20 m.;Rattles, reels, reaches 20 m.;eigene Wahl, weicht von D 3.3 ab (25 m): „Schnur zu kurz!“ wird in W1 erlebbar, das Tiefe Loch (15–25 m) braucht das erste Upgrade
+RO2;500;2;1.1;1.1;40;0;80;0;Freilauf-Rolle „Surri“;"Free-Spool Reel ""Whirry""";Surrt schön und reicht bis 40 m.;Whirs nicely and reaches 40 m.;
+RO3;2000;7;1.2;1.2;60;0;80;0;Stationärrolle Profi;Pro Spinning Reel;Solide Profi-Rolle für 60 m Tiefe.;Solid pro reel for 60 m depth.;
+RO4;7000;14;1.3;1.3;80;0;80;0;Multirolle „Orca“;"Baitcaster ""Orca""";Kraftpaket für 80 m Tiefe.;Powerhouse for 80 m depth.;
+RO5;10000;20;1.3;1.2;2000;1;80;270;Tiefseewinde Mk I;Deep-Sea Winch Mk I;Bis 2.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 2,000 m in the Glowing Deep, 80 m elsewhere.;
+RO6;22000;25;1.4;1.3;6000;1;80;800;Tiefseewinde Mk II;Deep-Sea Winch Mk II;Bis 6.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 6,000 m in the Glowing Deep, 80 m elsewhere.;
+RO7;40000;30;1.5;1.4;11000;1;80;1470;Tiefseewinde Mk III;Deep-Sea Winch Mk III;Bis 11.000 m in der Leuchtenden Tiefe, sonst 80 m.;Down to 11,000 m in the Glowing Deep, 80 m elsewhere.;
+RO8;55000;35;1.6;1.5;11000;1;80;1470;Drachenrolle;Dragon Reel;Die stärkste Rolle. 80 m, in der Leuchtenden Tiefe wie Mk III.;The strongest reel. 80 m, like Mk III in the Glowing Deep.;

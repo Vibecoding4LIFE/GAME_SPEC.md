@@ -22,7 +22,6 @@ describe('balancing.json', () => {
 
   it('Wurf (D 1.3)', () => {
     expect(b.cast.cycleS).toBe(1.2);
-    expect(b.cast.zone).toEqual({ uferMax: 0.3, freiwasserMax: 0.75 });
     expect(b.cast.perfect.windowMinDefault).toBe(0.92);
     expect(b.cast.perfect.biteRateBonus).toBe(0.1);
     expect(b.cast.miss.below).toBe(0.1);
@@ -51,6 +50,7 @@ describe('balancing.json', () => {
     expect(b.drill.zone.minWidth).toBe(0.1);
     expect(b.drill.stamina.baseS).toEqual({ Gewoehnlich: 6, Ungewoehnlich: 9, Selten: 13, Episch: 20, Legendaer: 45 });
     expect(b.drill.stamina.legendaerMaxS).toBe(70);
+    expect(b.drill.stamina.scale).toBe(1.5);
     expect(b.drill.behavior.Springer.tensionLimit).toBe(0.4);
     expect(b.drill.behavior.Trickser.telegraphS).toBe(0.4);
     expect(b.drill.behavior.Aufblaeher).toMatchObject({ intervalMinS: 5, intervalMaxS: 7, durationS: 3 });
@@ -88,9 +88,15 @@ describe('balancing.json', () => {
 
   it('Lexikon-Sterne (D 1.12) und kurze Verhaltens-Pausen (Abnahme Phase 1)', () => {
     expect(b.lexicon.twoStarCatches).toBe(5);
-    for (const k of ['Sprinter', 'Taucher', 'Springer', 'Trickser', 'Blinker', 'Versteckspieler'] as const) {
+    for (const k of ['Sprinter', 'Taucher', 'Springer', 'Trickser', 'Blinker', 'Versteckspieler', 'Stromer'] as const) {
       expect([b.drill.behavior[k].intervalMinS, b.drill.behavior[k].intervalMaxS], k).toEqual([2.5, 4]);
     }
+    expect([b.drill.behavior.Aufblaeher.intervalMinS, b.drill.behavior.Aufblaeher.intervalMaxS]).toEqual([5, 7]); // Spec D 1.7
+    const B = b.drill.behavior;
+    for (const x of [B.Zappler, B.Sprinter, B.Taucher, B.Springer, B.Zickzack, B.Trickser, B.Versteckspieler, B.Aufblaeher, B.Stromer, B.Blinker]) {
+      expect(x.firstActionMaxS).toBeLessThanOrEqual(2);
+    }
+    expect(json.cast).not.toHaveProperty('zone');
   });
 
   it('Beispiel D 2.3: Hecht Prächtig, Meisterdrill + perfekter Wurf, erster der Runde = 234 Punkte', () => {

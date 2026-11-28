@@ -46,7 +46,6 @@ export const BalancingSchema = obj({
   version: z.literal(1),
   cast: obj({
     cycleS: pos,
-    zone: obj({ uferMax: frac, freiwasserMax: frac }),
     perfect: obj({ windowMinDefault: frac, windowMinFloor: frac, biteRateBonus: nonNeg }),
     miss: obj({ below: frac, landingPower: frac }),
     /** Wind: Landepunkt ± Anteil der max. Wurfweite je Wetter */
@@ -75,6 +74,8 @@ export const BalancingSchema = obj({
     counterBonus: frac,
     progress: obj({ belowZone: frac, aboveZone: frac }),
     stamina: obj({
+      /** Faktor auf alle Ausdauer-Grundwerte (eigene Wahl, Spec-Werte in baseS bleiben unverändert) */
+      scale: pos,
       counterMultiplier: pos,
       baseS: byRarity(pos),
       legendaerMaxS: pos,
@@ -92,17 +93,17 @@ export const BalancingSchema = obj({
     telegraph: obj({ defaultS: nonNeg }),
     behavior: obj({
       Ruhig: obj({ pull: pos }),
-      Zappler: obj({ ...intervalS, spikeMin: frac, spikeMax: frac, telegraphS: nonNeg }),
-      Sprinter: obj({ durationMinS: pos, durationMaxS: pos, pullBonus: nonNeg, ...intervalS, telegraphS: nonNeg }),
-      Taucher: obj({ durationMinS: pos, durationMaxS: pos, pullBonus: nonNeg, distanceFactor: pos, ...intervalS, telegraphS: nonNeg }),
-      Springer: obj({ jumpMaxS: pos, tensionLimit: frac, ...intervalS, telegraphS: nonNeg, exhaustS: nonNeg, exhaustStaminaMultiplier: pos }),
-      Zickzack: obj({ ...intervalS, telegraphS: nonNeg }),
+      Zappler: obj({ ...intervalS, firstActionMaxS: pos, spikeMin: frac, spikeMax: frac, telegraphS: nonNeg }),
+      Sprinter: obj({ durationMinS: pos, durationMaxS: pos, pullBonus: nonNeg, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg }),
+      Taucher: obj({ durationMinS: pos, durationMaxS: pos, pullBonus: nonNeg, distanceFactor: pos, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg }),
+      Springer: obj({ jumpMaxS: pos, tensionLimit: frac, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg, exhaustS: nonNeg, exhaustStaminaMultiplier: pos }),
+      Zickzack: obj({ ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg }),
       Brocken: obj({ pullBonus: nonNeg, zoneOffset: frac, staminaMultiplier: pos }),
-      Trickser: obj({ telegraphS: nonNeg, fakeTiredMinS: pos, fakeTiredMaxS: pos, fleeS: pos, fleePullBonus: nonNeg, ...intervalS }),
-      Versteckspieler: obj({ coverReachS: pos, ...intervalS, telegraphS: nonNeg, haengerTaps: pos, tapIntervalS: pos, tapToleranceS: nonNeg }),
-      Aufblaeher: obj({ ...intervalS, durationS: pos, pullMultiplier: pos, retrieveMultiplier: pos, telegraphS: nonNeg, exhaustS: nonNeg }),
-      Stromer: obj({ invertS: pos, ...intervalS, telegraphS: nonNeg }),
-      Blinker: obj({ invisibleMinS: pos, invisibleMaxS: pos, ...intervalS, telegraphS: nonNeg }),
+      Trickser: obj({ telegraphS: nonNeg, fakeTiredMinS: pos, fakeTiredMaxS: pos, fleeS: pos, fleePullBonus: nonNeg, ...intervalS, firstActionMaxS: pos }),
+      Versteckspieler: obj({ coverReachS: pos, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg, haengerTaps: pos, tapIntervalS: pos, tapToleranceS: nonNeg }),
+      Aufblaeher: obj({ ...intervalS, firstActionMaxS: pos, durationS: pos, pullMultiplier: pos, retrieveMultiplier: pos, telegraphS: nonNeg, exhaustS: nonNeg }),
+      Stromer: obj({ invertS: pos, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg }),
+      Blinker: obj({ invisibleMinS: pos, invisibleMaxS: pos, ...intervalS, firstActionMaxS: pos, telegraphS: nonNeg }),
       Hitzkopf: obj({ heatPerS: pos, highTensionMultiplier: pos, coolPerS: nonNeg, breakAt: pos }),
     }),
   }),
@@ -284,7 +285,10 @@ export function validateBalancing(tree: unknown): { data: Balancing | null; issu
   };
   walk(b as unknown as Record<string, unknown>, '');
   if (b.bite.wait.minS > b.bite.wait.maxS) issues.push({ key: 'bite.wait.minS', msg: 'größer als bite.wait.maxS' });
-  if (b.cast.zone.uferMax >= b.cast.zone.freiwasserMax) issues.push({ key: 'cast.zone.uferMax', msg: 'muss kleiner als freiwasserMax sein' });
+  for (const [name, beh] of Object.entries(b.drill.behavior) as [string, Record<string, number>][]) {
+    const first = beh.firstActionMaxS; const tg = beh.telegraphS;
+    if (first !== undefined && tg !== undefined && first < tg) issues.push({ key: `drill.behavior.${name}.firstActionMaxS`, msg: `kleiner als telegraphS (${tg})` });
+  }
   if (b.cast.perfect.windowMinFloor > b.cast.perfect.windowMinDefault) issues.push({ key: 'cast.perfect.windowMinFloor', msg: 'größer als windowMinDefault' });
   if (b.drill.zone.redFrom <= b.drill.unhook.tension) issues.push({ key: 'drill.zone.redFrom', msg: 'muss über drill.unhook.tension liegen' });
   if (b.drill.stamina.baseS.Legendaer > b.drill.stamina.legendaerMaxS) issues.push({ key: 'drill.stamina.legendaerMaxS', msg: 'kleiner als baseS.Legendaer' });

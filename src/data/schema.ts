@@ -432,6 +432,8 @@ export const ReelRow = z.strictObject({
   kapazitaet_sonst_m: opt(num.pipe(z.number().positive()), 80),
   abstieg_ms: opt(num.pipe(z.number().min(0)), 0),
   ...names,
+  /** Quelle/Abweichung von der Spec (nur Doku, wird nicht exportiert). */
+  anmerkung: opt(z.string(), ''),
 });
 export type ReelRowT = z.output<typeof ReelRow>;
 

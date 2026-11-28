@@ -82,7 +82,7 @@ describe('Werte gegen die Spec (D 3.3)', () => {
   });
 
   it('Rollen: Klapperrolle, Tiefseewinden, Drachenrolle', () => {
-    expect(reel('RO1')).toMatchObject({ priceCoins: 0, crankPower: 1, retrieveSpeed: 1, lineCapacityM: 25, isDeepSeaWinch: false });
+    expect(reel('RO1')).toMatchObject({ priceCoins: 0, crankPower: 1, retrieveSpeed: 1, lineCapacityM: 20, isDeepSeaWinch: false });
     expect(reel('RO4')).toMatchObject({ priceCoins: 7000, requiredReputation: 14, crankPower: 1.3, retrieveSpeed: 1.3, lineCapacityM: 80 });
     expect(reel('RO5')).toMatchObject({ crankPower: 1.3, retrieveSpeed: 1.2, lineCapacityM: 2000, isDeepSeaWinch: true, fallbackCapacityM: 80 });
     expect(reel('RO7').lineCapacityM).toBe(11000);

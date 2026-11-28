@@ -2,10 +2,6 @@
   "version": 1,
   "cast": {
     "cycleS": 1.2,
-    "zone": {
-      "uferMax": 0.3,
-      "freiwasserMax": 0.75
-    },
     "perfect": {
       "windowMinDefault": 0.92,
       "windowMinFloor": 0.86,
@@ -83,6 +79,7 @@
       "aboveZone": 0.6
     },
     "stamina": {
+      "scale": 1.5,
       "counterMultiplier": 1.5,
       "baseS": {
         "Gewoehnlich": 6,
@@ -137,6 +134,7 @@
       "Zappler": {
         "intervalMinS": 0.5,
         "intervalMaxS": 1,
+        "firstActionMaxS": 1,
         "spikeMin": 0.1,
         "spikeMax": 0.15,
         "telegraphS": 0.3
@@ -147,6 +145,7 @@
         "pullBonus": 0.25,
         "intervalMinS": 2.5,
         "intervalMaxS": 4,
+        "firstActionMaxS": 1.5,
         "telegraphS": 0.6
       },
       "Taucher": {
@@ -156,6 +155,7 @@
         "distanceFactor": 1.5,
         "intervalMinS": 2.5,
         "intervalMaxS": 4,
+        "firstActionMaxS": 1.5,
         "telegraphS": 0.6
       },
       "Springer": {
@@ -163,6 +163,7 @@
         "tensionLimit": 0.4,
         "intervalMinS": 2.5,
         "intervalMaxS": 4,
+        "firstActionMaxS": 2,
         "telegraphS": 0.6,
         "exhaustS": 1.5,
         "exhaustStaminaMultiplier": 2
@@ -170,6 +171,7 @@
       "Zickzack": {
         "intervalMinS": 0.6,
         "intervalMaxS": 1.2,
+        "firstActionMaxS": 1.2,
         "telegraphS": 0.25
       },
       "Brocken": {
@@ -184,12 +186,14 @@
         "fleeS": 2.5,
         "fleePullBonus": 0.6,
         "intervalMinS": 2.5,
-        "intervalMaxS": 4
+        "intervalMaxS": 4,
+        "firstActionMaxS": 2
       },
       "Versteckspieler": {
         "coverReachS": 3,
         "intervalMinS": 2.5,
         "intervalMaxS": 4,
+        "firstActionMaxS": 1.5,
         "telegraphS": 0.8,
         "haengerTaps": 3,
         "tapIntervalS": 0.5,
@@ -198,6 +202,7 @@
       "Aufblaeher": {
         "intervalMinS": 5,
         "intervalMaxS": 7,
+        "firstActionMaxS": 2,
         "durationS": 3,
         "pullMultiplier": 2,
         "retrieveMultiplier": 0.5,
@@ -206,8 +211,9 @@
       },
       "Stromer": {
         "invertS": 1.5,
-        "intervalMinS": 4,
-        "intervalMaxS": 7,
+        "intervalMinS": 2.5,
+        "intervalMaxS": 4,
+        "firstActionMaxS": 1.5,
         "telegraphS": 0.5
       },
       "Blinker": {
@@ -215,6 +221,7 @@
         "invisibleMaxS": 3,
         "intervalMinS": 2.5,
         "intervalMaxS": 4,
+        "firstActionMaxS": 2,
         "telegraphS": 0.5
       },
       "Hitzkopf": {

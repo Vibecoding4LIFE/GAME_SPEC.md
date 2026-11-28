@@ -1,7 +1,5 @@
 schluessel;wert;quelle;beschreibung
 cast.cycleS;1.2;D 1.3;Standard-Dauer eines Ping-Pong-Durchlaufs des Wurfkraft-Balkens (0→100→0 %) in s. Jede Rute hat einen eigenen Wert (rods.csv wurf_zyklus_s).
-cast.zone.uferMax;0.30;D 1.3;Wurfweite bis zu diesem Anteil der max. Wurfweite = Uferzone
-cast.zone.freiwasserMax;0.75;D 1.3;Wurfweite bis zu diesem Anteil = Freiwasser, darüber Kante
 cast.perfect.windowMinDefault;0.92;D 1.3 / G 6.5;Standard-Untergrenze des Perfekt-Fensters (Rute überschreibt mit perfekt_ab)
 cast.perfect.windowMinFloor;0.86;D 1.3;größtes erlaubtes Perfekt-Fenster (Untergrenze darf nicht tiefer liegen)
 cast.perfect.biteRateBonus;0.10;D 1.3;Bissrate-Bonus für diesen Wurf nach perfektem Wurf (+10 %). Punkte: score.quality.perfectCast
@@ -46,6 +44,7 @@ drill.patternBase;0.5;eigene Wahl: Spec nennt keinen Grundwert für Musterfaktor
 drill.counterBonus;0.30;D 1.6;Standard-Konterbonus bei Rutenführung gegen die Zugrichtung (Rute überschreibt mit konter)
 drill.progress.belowZone;0.30;D 1.6;Einholfortschritt unter der grünen Zone (Anteil)
 drill.progress.aboveZone;0.60;D 1.6;Einholfortschritt über der grünen Zone (Anteil)
+drill.stamina.scale;1.5;eigene Wahl: QA M3, mit Konter ×1,5 wären Gewöhnliche nach ca. 4 s erschöpft (nur 1 Aktion), Spec-Grundwerte bleiben;Faktor auf alle Ausdauer-Grundwerte inkl. Boss (Ausdauer = baseS × scale × Größenfaktor)
 drill.stamina.counterMultiplier;1.5;D 1.6;Ausdauer sinkt bei Konter 1,5-mal so schnell
 drill.stamina.baseS.Gewoehnlich;6;D 1.7;Ausdauer-Grundwert in s effektiver Drillzeit
 drill.stamina.baseS.Ungewoehnlich;9;D 1.7;Ausdauer-Grundwert in s
@@ -77,6 +76,7 @@ drill.telegraph.defaultS;0.6;eigene Wahl: D 1.7 nennt nur den Trickser;Vorwarnze
 drill.behavior.Ruhig.pull;1.0;D 1.7;gleichmäßiger Zug (Faktor auf patternBase)
 drill.behavior.Zappler.intervalMinS;0.5;D 1.7;Zugspitze alle 0,5–1 s
 drill.behavior.Zappler.intervalMaxS;1.0;D 1.7;Zugspitze alle 0,5–1 s
+drill.behavior.Zappler.firstActionMaxS;1.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Zappler.spikeMin;0.10;D 1.7;Zugspitze als Spannungssprung (Anteil) +10 %
 drill.behavior.Zappler.spikeMax;0.15;D 1.7;Zugspitze bis +15 %
 drill.behavior.Zappler.telegraphS;0.3;eigene Wahl;„Schatten zittert“ so lange vorher
@@ -85,6 +85,7 @@ drill.behavior.Sprinter.durationMaxS;3.0;D 1.7;Flucht dauert 1,5–3 s
 drill.behavior.Sprinter.pullBonus;0.25;D 1.7;+25 % Zug während der Flucht
 drill.behavior.Sprinter.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Fluchten (s)
 drill.behavior.Sprinter.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Fluchten (s)
+drill.behavior.Sprinter.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Sprinter.telegraphS;0.6;eigene Wahl;„Schatten dreht sich“ so lange vorher
 drill.behavior.Taucher.durationMinS;1.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
 drill.behavior.Taucher.durationMaxS;2.5;eigene Wahl;Tauchgang dauert 1,5–2,5 s
@@ -92,16 +93,19 @@ drill.behavior.Taucher.pullBonus;0.15;eigene Wahl;Zugbonus während des Tauchgan
 drill.behavior.Taucher.distanceFactor;1.5;eigene Wahl: D 1.7 „Distanz wächst stark“;Faktor auf drill.distance.fleePerS
 drill.behavior.Taucher.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tauchgängen (s)
 drill.behavior.Taucher.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tauchgängen (s)
+drill.behavior.Taucher.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Taucher.telegraphS;0.6;eigene Wahl;„Blasen steigen auf“ so lange vorher
 drill.behavior.Springer.jumpMaxS;1.0;D 1.7;Sprung dauert bis zu 1 s
 drill.behavior.Springer.tensionLimit;0.40;D 1.7;liegt T beim Sprung darüber schüttelt er den Haken ab
 drill.behavior.Springer.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Sprüngen (s)
 drill.behavior.Springer.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Sprüngen (s)
+drill.behavior.Springer.firstActionMaxS;2.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Springer.telegraphS;0.6;eigene Wahl;„Wasser wölbt sich“ so lange vorher
 drill.behavior.Springer.exhaustS;1.5;eigene Wahl: D 1.7 „kurz erschöpft (Bonusfenster)“;Dauer des Bonusfensters nach dem Sprung (s)
 drill.behavior.Springer.exhaustStaminaMultiplier;2.0;eigene Wahl;Ausdauer sinkt im Bonusfenster so viel schneller
 drill.behavior.Zickzack.intervalMinS;0.6;D 1.7;Richtungswechsel alle 0,6–1,2 s
 drill.behavior.Zickzack.intervalMaxS;1.2;D 1.7;Richtungswechsel alle 0,6–1,2 s
+drill.behavior.Zickzack.firstActionMaxS;1.2;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Zickzack.telegraphS;0.25;eigene Wahl;„Pfeil blinkt“ so lange vorher
 drill.behavior.Brocken.pullBonus;0.20;D 1.7;hoher Grundzug +20 %
 drill.behavior.Brocken.zoneOffset;0.15;eigene Wahl: D 1.6 „liegt höher“;Verschiebung der grünen Zone nach oben (Anteil)
@@ -113,28 +117,33 @@ drill.behavior.Trickser.fleeS;2.5;eigene Wahl;Dauer der „riesigen Flucht“ (s
 drill.behavior.Trickser.fleePullBonus;0.6;eigene Wahl: D 1.7 „riesige Flucht“;Zugbonus während der Flucht
 drill.behavior.Trickser.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
 drill.behavior.Trickser.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Tricks (s)
+drill.behavior.Trickser.firstActionMaxS;2.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Versteckspieler.coverReachS;3;eigene Wahl;so lange schwimmt er ohne Konter bis zur Deckung (s)
 drill.behavior.Versteckspieler.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Versteckversuchen (s)
 drill.behavior.Versteckspieler.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Versteckversuchen (s)
+drill.behavior.Versteckspieler.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Versteckspieler.telegraphS;0.8;eigene Wahl;„Deckung blinkt“ so lange vorher
 drill.behavior.Versteckspieler.haengerTaps;3;D 1.7;Hänger lösen: 3× im Takt tippen
 drill.behavior.Versteckspieler.tapIntervalS;0.5;eigene Wahl: D 1.7 „im Takt“;Takt der Tipps (s)
 drill.behavior.Versteckspieler.tapToleranceS;0.15;eigene Wahl;erlaubte Abweichung vom Takt (s)
 drill.behavior.Aufblaeher.intervalMinS;5;D 1.7;bläht sich alle 5–7 s auf
 drill.behavior.Aufblaeher.intervalMaxS;7;D 1.7;bläht sich alle 5–7 s auf
+drill.behavior.Aufblaeher.firstActionMaxS;2.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Aufblaeher.durationS;3;D 1.7;bleibt 3 s aufgebläht
 drill.behavior.Aufblaeher.pullMultiplier;2;D 1.7;„doppeltes Gewicht“: Zug ×2
 drill.behavior.Aufblaeher.retrieveMultiplier;0.5;D 1.7;Einholen halbiert
 drill.behavior.Aufblaeher.telegraphS;0.5;eigene Wahl;„Fisch wird rund“ so lange vorher
 drill.behavior.Aufblaeher.exhaustS;1.5;eigene Wahl: D 1.7 „danach erschöpft“;Erschöpfung nach dem Aufblähen (s)
 drill.behavior.Stromer.invertS;1.5;D 1.7;Konter-Steuerung 1,5 s vertauscht
-drill.behavior.Stromer.intervalMinS;4;eigene Wahl;Pause zwischen zwei Stromstößen (s)
-drill.behavior.Stromer.intervalMaxS;7;eigene Wahl;Pause zwischen zwei Stromstößen (s)
+drill.behavior.Stromer.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (QA M3), vorher 4–7 s;Pause zwischen zwei Stromstößen (s)
+drill.behavior.Stromer.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (QA M3), vorher 4–7 s;Pause zwischen zwei Stromstößen (s)
+drill.behavior.Stromer.firstActionMaxS;1.5;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Stromer.telegraphS;0.5;eigene Wahl;„blaue Funken“ so lange vorher
 drill.behavior.Blinker.invisibleMinS;2;D 1.7;2–3 s unsichtbar
 drill.behavior.Blinker.invisibleMaxS;3;D 1.7;2–3 s unsichtbar
 drill.behavior.Blinker.intervalMinS;2.5;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Unsichtbar-Phasen (s)
 drill.behavior.Blinker.intervalMaxS;4;eigene Wahl: kurze Pausen, damit jede Aktion im Drill erlebbar ist (Abnahme Phase 1), vorher 3–8 s;Pause zwischen zwei Unsichtbar-Phasen (s)
+drill.behavior.Blinker.firstActionMaxS;2.0;eigene Wahl: QA M3, jedes Verhalten in jedem Drill sicher erleben;erste Aktion (Vorwarnung eingeschlossen) spätestens nach so vielen s Drill
 drill.behavior.Blinker.telegraphS;0.5;eigene Wahl;„Fisch wird durchsichtig“ so lange vorher
 drill.behavior.Hitzkopf.heatPerS;0.08;eigene Wahl: ca. 12 s bis zum Riss bei Dauerspannung;Hitzeleiste je s bei Spannung in der grünen Zone (Anteil)
 drill.behavior.Hitzkopf.highTensionMultiplier;2;D 1.7;über der grünen Zone heizt die Schnur doppelt
