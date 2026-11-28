@@ -116,13 +116,16 @@ export type DrillEvent =
 
 // ------------------------------------------------------------------ reine Formeln
 
-/** Ausdauer in s effektiver Drillzeit: Seltenheit × Größenfaktor (Bosse: 45…70 nach x), Brocken × staminaMultiplier. */
+/**
+ * Ausdauer in s effektiver Drillzeit: Seltenheit × `drill.stamina.scale` × Größenfaktor (Bosse: 45…70 nach x, × scale),
+ * Brocken × staminaMultiplier.
+ */
 export function drillStaminaS(fish: FishData, sizeX: number, b: Balancing, behaviors: readonly FightBehavior[] = []): number {
   const st = b.drill.stamina;
   if (fish.staminaOverrideS >= 0) return fish.staminaOverrideS;
-  let s = fish.rarity === 'Legendaer'
+  let s = st.scale * (fish.rarity === 'Legendaer'
     ? st.baseS.Legendaer + sizeX * (st.legendaerMaxS - st.baseS.Legendaer)
-    : st.baseS[fish.rarity] * (st.sizeFactorMin + sizeX * (st.sizeFactorMax - st.sizeFactorMin));
+    : st.baseS[fish.rarity] * (st.sizeFactorMin + sizeX * (st.sizeFactorMax - st.sizeFactorMin)));
   if (behaviors.includes('Brocken')) s *= b.drill.behavior.Brocken.staminaMultiplier;
   return s;
 }
@@ -202,6 +205,21 @@ function restS(s: DrillState): number {
     case 'Stromer': return Math.max(0, r.range(B.Stromer.intervalMinS, B.Stromer.intervalMaxS) - B.Stromer.telegraphS);
     case 'Blinker': return Math.max(0, r.range(B.Blinker.intervalMinS, B.Blinker.intervalMaxS) - B.Blinker.telegraphS);
   }
+}
+
+/**
+ * Erste Pause nach Drill-Beginn bzw. Verhaltenswechsel: höchstens `firstActionMaxS` bis zur ersten Aktion
+ * (Vorwarnung eingeschlossen), damit jedes Verhalten in jedem Drill erlebbar ist. Ruhig/Brocken/Hitzkopf: keine Aktion.
+ */
+function firstRestS(s: DrillState): number {
+  const rest = restS(s);
+  if (!Number.isFinite(rest)) return rest;
+  const B = s.b.drill.behavior as unknown as Record<string, { firstActionMaxS?: number; telegraphS?: number }>;
+  const cfg = B[s.behavior];
+  if (!cfg?.firstActionMaxS) return rest;
+  // Trickser beginnt mit der Schein-Müdigkeit (ohne Vorwarnung davor)
+  const lead = s.behavior === 'Trickser' ? 0 : (cfg.telegraphS ?? 0);
+  return Math.min(rest, Math.max(0, cfg.firstActionMaxS - lead));
 }
 
 /** Abschnitte einer Aktion (Telegraph → Aktion → ggf. Erschöpfung). */
@@ -309,7 +327,7 @@ export function createDrill(fish: FishData, gear: DrillGear, b: Balancing, rng: 
   s.strength = cb.strength;
   updateZone(s);
   s.tension = (s.zone.lo + s.zone.hi) / 2;
-  s.stage = { kind: 'rest', left: restS(s) };
+  s.stage = { kind: 'rest', left: firstRestS(s) };
   return s;
 }
 
@@ -360,7 +378,7 @@ export function stepDrill(s: DrillState, input: DrillInput, dt: number): { state
   if (cb.behavior !== s.behavior && s.stage.kind === 'rest') {
     s.behavior = cb.behavior;
     ev.push({ type: 'behaviorChange', behavior: cb.behavior });
-    s.stage = { kind: 'rest', left: restS(s) };
+    s.stage = { kind: 'rest', left: firstRestS(s) };
   }
   s.bossPhase = cb.phase;
   s.strength = cb.strength;

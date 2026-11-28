@@ -93,12 +93,13 @@ describe('Drill-Formeln (D 1.6)', () => {
     expect(coldFactor({ ...gear, line: byId(data.gear.lines, 'L04', 'Schnur') }, 'Schnee', 'W3', b)).toBe(1);
     expect(coldFactor({ ...gear, rod: byId(data.gear.rods, 'RW3', 'Rute') }, 'Schnee', 'W3', b)).toBe(1);
   });
-  it('Ausdauer: Seltenheit × Größenfaktor 0,8–1,4, Boss 45–70 s, Brocken × staminaMultiplier', () => {
-    expect(drillStaminaS(fishById('F001'), 0, b)).toBeCloseTo(6 * 0.8, 10);
-    expect(drillStaminaS(fishById('F014'), 1, b)).toBeCloseTo(13 * 1.4, 10);
-    expect(drillStaminaS(fishById('F020'), 0, b)).toBe(45);
-    expect(drillStaminaS(fishById('F020'), 1, b)).toBe(70);
-    expect(drillStaminaS(fishById('F003'), 0, b, ['Brocken'])).toBeCloseTo(6 * 0.8 * 1.25, 10);
+  it('Ausdauer: Seltenheit × scale × Größenfaktor 0,8–1,4, Boss 45–70 s × scale, Brocken × staminaMultiplier', () => {
+    const k = b.drill.stamina.scale;
+    expect(drillStaminaS(fishById('F001'), 0, b)).toBeCloseTo(6 * k * 0.8, 10);
+    expect(drillStaminaS(fishById('F014'), 1, b)).toBeCloseTo(13 * k * 1.4, 10);
+    expect(drillStaminaS(fishById('F020'), 0, b)).toBeCloseTo(45 * k, 10);
+    expect(drillStaminaS(fishById('F020'), 1, b)).toBeCloseTo(70 * k, 10);
+    expect(drillStaminaS(fishById('F003'), 0, b, ['Brocken'])).toBeCloseTo(6 * k * 0.8 * 1.25, 10);
   });
   it('perfekter Anschlag: Start mit 15 % weniger Ausdauer', () => {
     const s = mk('F014', null, 1, { perfectStrike: true });
@@ -219,7 +220,7 @@ describe('Verhaltens-Mechaniken im Detail', () => {
     let sawFake = false;
     while (!s.outcome && s.elapsedS < 30) {
       stepDrill(s, goodDrillBot(s, m), DT);
-      if (s.stage.kind === 'fake' && s.stage.left < 0.2) { sawFake = true; expect(s.displayStamina).toBeLessThan(s.stamina); }
+      if (s.stage.kind === 'fake' && s.stage.left < 0.2 && s.stamina > 0) { sawFake = true; expect(s.displayStamina).toBeLessThan(s.stamina); }
     }
     expect(sawFake).toBe(true);
   });
@@ -294,5 +295,26 @@ describe('Verhaltens-Mechaniken im Detail', () => {
     const s = mk('F001');
     drive(s, badDrillBot);
     expect(s.outcome).toBe('lineBreak');
+  });
+});
+
+describe('Erlebbarkeit (QA M3): erste Aktion früh, mindestens 2 Aktionen je Drill', () => {
+  const ACTIVE = FIGHT_BEHAVIORS.filter((x) => !['Ruhig', 'Brocken', 'Hitzkopf'].includes(x));
+  it.each(ACTIVE)('%s: erste Aktion spätestens nach firstActionMaxS, in ≥ 20 Drills je mindestens 2 Aktionen', (beh) => {
+    const t = TYPICAL[beh];
+    const cfg = (b.drill.behavior as unknown as Record<string, { firstActionMaxS: number }>)[beh] as { firstActionMaxS: number };
+    let min = Infinity;
+    for (let seed = 1; seed <= 20; seed++) {
+      const r = runDrill(fishById(t.id), gear, seed, 'good', t.force ? beh : null);
+      expect(r.outcome).toBe('caught');
+      const first = r.trace.find((x) => x.startsWith('telegraph:') || x.startsWith('action:'));
+      expect(first, `Seed ${seed}`).toBeDefined();
+      expect(Number(first?.split("@")[1])).toBeLessThanOrEqual(cfg.firstActionMaxS + 2 * DT); // Ereignis kommt im Schritt nach Ablauf (+ Rundung im Trace)
+      const actions = r.events.filter((x) => x.startsWith('action:')).length;
+      min = Math.min(min, actions);
+    }
+    // Aufbläher: Pause 5–7 s laut Spec D 1.7 (+3 s aufgebläht, +1,5 s erschöpft) → vor der Erschöpfung passt nur
+    // eine Aktion in den Drill. Offener Balancing-Punkt (daten-designer), siehe Bericht Auftrag 4.
+    expect(min).toBeGreaterThanOrEqual(beh === 'Aufblaeher' ? 1 : 2);
   });
 });

@@ -70,3 +70,10 @@ Alle Spielzahlen stehen in `Data/balancing.csv` (259 Werte, jede mit Quelle). Wo
 5. „Scheue Fische“ fürs Stahlvorfach = Tag `scheu`.
 6. „Bissrate +X %“ wirkt auf die Wartezeit, „Fischart +X %“ auf das Spawn-Gewicht.
 7. Welt-Spezialköder bei 10/20 Arten noch offen (Phase 3).
+
+## 2026-11-28 – Phase 1: Steuerung und Drill-Balancing
+- **Steuerung im iframe** (Artifact-Vorschau): Fokus wird beim ersten Zeiger-Druck ins Spiel geholt (`autoFocus: false`), Eingabe-Flanken werden über Logik-Schritte gerettet (120-Hz-Displays), Spielzeit läuft über `rawDelta`. Sichtbare Touch-Knöpfe statt unsichtbarer Gesten.
+- **Startrolle RO1 = 20 m** (Spec 25 m): „Schnur zu kurz!“ wird in Welt 1 erlebbar, das Tiefe Loch braucht das erste Upgrade.
+- **Drill:** `drill.stamina.scale` = 1,5 auf alle Ausdauer-Grundwerte; erste Aktion je Verhalten spätestens nach 1–2 s (`firstActionMaxS`); Pausen 2,5–4 s. Ergebnis (Bot, 30 Seeds): jede aktive Verhaltensart zeigt ≥ 2 Aktionen pro Drill – außer **Aufbläher (1 Aktion)**: Seine 5–7-s-Pause und das Erschöpfen nach dem Aufblähen stehen so in D 1.7; das bleibt vorerst Spec-treu.
+- **Zonen** (Ufer/Freiwasser/Kante) in Metern aus `worlds.json` statt in Prozent der Wurfweite (D 1.3); spielerisch gleichwertig und je Welt einstellbar. `cast.zone.*` entfernt.
+- **Einkommen** nach den Änderungen 55–68 Münzen/min (Ziel 60–90) → in Phase 5 (Balancing-Simulation) nachjustieren.

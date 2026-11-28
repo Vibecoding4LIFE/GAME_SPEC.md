@@ -54,22 +54,28 @@ describe('Wurf (D 1.3)', () => {
 });
 
 describe('Ködertiefe (D 1.4)', () => {
+  // Werte aus gear.json / worlds.json statt fest (Startrolle RO1 und Weltgrund ändern sich mit dem Balancing)
+  const cap = lo.reel.lineCapacityM;
   it('Sinkgeschwindigkeit nach Köder, Grenze = min(Grund, Schnur)', () => {
     expect(sinkStep(0, 1, bait('K01'), lo.reel, W1).depthM).toBe(b.depth.sinkSpeedMs.mittel);
     expect(sinkStep(0, 1, bait('K04'), lo.reel, W1).depthM).toBe(b.depth.sinkSpeedMs.schwer);
-    const end = sinkStep(24, 10, bait('K01'), lo.reel, W1);
-    expect(end.depthM).toBe(25);
+    const end = sinkStep(cap - 1, 10, bait('K01'), lo.reel, W1);
+    expect(end.depthM).toBe(Math.min(cap, W1.maxTiefeM));
     expect(end.atLimit).toBe(true);
-    expect(end.lineTooShort).toBe(false);
+    expect(end.lineTooShort).toBe(cap < W1.maxTiefeM);
+    // mit einer Rolle, die bis zum Grund reicht, ist die Schnur nie zu kurz
+    const deep = sinkStep(W1.maxTiefeM - 1, 10, bait('K01'), reel('RO4'), W1);
+    expect(deep.depthM).toBe(W1.maxTiefeM);
+    expect(deep.lineTooShort).toBe(false);
   });
   it('Schnur zu kurz, wenn die Rolle nicht bis zum Grund reicht; Tiefseewinde nur in W4', () => {
     const W2 = worldById(data.worlds, 'W2');
-    const r = sinkStep(24, 1, bait('K01'), lo.reel, W2);
-    expect(r.depthM).toBe(25);
-    expect(r.lineTooShort).toBe(true);
+    const r = sinkStep(cap - 1, 1, bait('K01'), lo.reel, W2);
+    expect(r.depthM).toBe(cap);
+    expect(r.lineTooShort).toBe(cap < W2.maxTiefeM);
     expect(lineCapacityM(reel('RO5'), W1)).toBe(80);
     expect(lineCapacityM(reel('RO5'), worldById(data.worlds, 'W4'))).toBe(2000);
-    expect(depthLimitM(reel('RO4'), W1)).toBe(25);
+    expect(depthLimitM(reel('RO4'), W1)).toBe(W1.maxTiefeM);
   });
   it('Zucken hebt den Köder, Schichten aus worlds.json', () => {
     expect(twitchDepth(5, b)).toBeCloseTo(5 - b.depth.twitch.liftM, 10);
